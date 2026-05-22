@@ -126,8 +126,8 @@ function check(name, passed, detail = '') {
 
   // 17. FAQ section
   console.log('\n=== 7. FAQ Section ===');
-  await page.locator('text=How it works').scrollIntoViewIfNeeded();
-  const howItWorks = page.locator('h2', { hasText: 'How it works.' });
+  await page.locator('h2', { hasText: 'How the AI cost calculator works' }).scrollIntoViewIfNeeded();
+  const howItWorks = page.locator('h2', { hasText: 'How the AI cost calculator works' });
   check('How it Works section', await howItWorks.isVisible());
 
   await page.locator('h2', { hasText: 'Frequently asked' }).scrollIntoViewIfNeeded();

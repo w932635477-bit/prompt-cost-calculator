@@ -4,19 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Prompt Cost Calculator - Compare GPT-4o, Claude, Gemini, Llama Pricing Instantly</title>
-    <meta name="description" content="Free AI prompt cost calculator. Paste your prompt, instantly see costs across GPT-4o, Claude, Gemini, Llama. Compare token counts, pricing per million tokens, and monthly estimates." />
-    <meta name="keywords" content="ai prompt cost calculator, ai api cost estimator, llm pricing calculator, token cost calculator, gpt-4 cost calculator, claude api pricing comparison" />
-    <meta property="og:title" content="AI Prompt Cost Calculator - Compare LLM Pricing Instantly" />
-    <meta property="og:description" content="Free tool to compare AI model costs. See how much your prompts cost across GPT-4o, Claude, Gemini, and Llama." />
+    <title>AI Prompt Cost Calculator | Compare GPT-4o, Claude, Gemini Pricing</title>
+    <meta name="description" content="Free AI cost calculator. Paste your prompt to compare API pricing across GPT-4o, Claude Sonnet 4, Gemini 2.5, Llama 4, and DeepSeek R1. See token counts and monthly costs instantly." />
+    <meta name="keywords" content="ai cost calculator, llm pricing comparison, gpt-4 api cost, claude api pricing, gemini api cost, token cost calculator, openai pricing calculator, ai api cost estimator, chatgpt cost per token, compare ai model prices" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI Prompt Cost Calculator" />
+    <meta property="og:description" content="Compare API costs across 10 AI models. Free, no login required. See how much your prompts cost on GPT-4o, Claude, Gemini, Llama, and DeepSeek." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/" />
+    <meta property="og:site_name" content="AI Prompt Cost Calculator" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://prompt-cost-calculator.vercel.app" />
+    <meta name="twitter:title" content="AI Prompt Cost Calculator" />
+    <meta name="twitter:description" content="Compare API costs across 10 AI models instantly. Free, no login required." />
+
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/" />
+
+    <!-- Structured Data: WebApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "name": "AI Prompt Cost Calculator",
+      "url": "https://prompt-cost-calculator-ten.vercel.app/",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Web",
       "offers": {
@@ -24,7 +37,58 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "Free AI prompt cost calculator. Compare costs across GPT-4o, Claude, Gemini, and Llama models."
+      "description": "Free AI prompt cost calculator. Compare API pricing across GPT-4o, Claude Sonnet 4, Gemini 2.5, Llama 4, and DeepSeek R1.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate is the token count?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For OpenAI models (GPT-4o, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on approximately 4 characters per token for English text and 1.5 characters for Chinese text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI models are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support 10 models: GPT-4o, GPT-4o Mini, o3, o4-mini (OpenAI), Claude Sonnet 4, Claude Haiku 4 (Anthropic), Gemini 2.5 Pro, Gemini 2.5 Flash (Google), Llama 4 Maverick (Groq), and DeepSeek R1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this tool free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, completely free. No login required. No API keys needed. All calculations happen in your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a token?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. AI providers charge based on the number of tokens processed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I reduce my AI costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three strategies: Use cheaper models for simple tasks, shorten your prompts to reduce input tokens, and use models with free tiers for testing."
+          }
+        }
+      ]
     }
     </script>
   </head>

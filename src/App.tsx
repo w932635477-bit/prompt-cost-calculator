@@ -52,8 +52,8 @@ function App() {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-[#86868b] max-w-xl mx-auto leading-relaxed">
-            Compare costs across GPT‑4o, Claude, Gemini, and Llama.
-            Know what you'll spend before you send.
+            Compare API pricing across GPT‑4o, Claude Sonnet 4, Gemini 2.5, Llama 4 &amp; DeepSeek R1.
+            Know your AI costs before you send.
           </p>
         </header>
 
@@ -89,7 +89,7 @@ function App() {
         {/* How It Works */}
         <section className="mb-24">
           <h2 className="text-3xl md:text-4xl font-bold text-center tracking-tight mb-12">
-            How it works.
+            How the AI cost calculator works.
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
