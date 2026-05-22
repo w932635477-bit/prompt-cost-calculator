@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I clear cache with cron?","acceptedAnswer":{"@type":"Answer","text":"Add 0 */6 * * * rm -rf /path/to/cache/* to your crontab. For Redis: 0 */6 * * * redis-cli FLUSHALL."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Cache Clear Schedule","description":"Schedule automatic cache clearing with cron. Run 0 */6 * * * to flush caches every 6 hours.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */6 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-cache-clear","cron":"0 */6 * * *","title":"Cron for Cache Clearing - Clear Cache Every 6 Hours","h1":"Cron Cache Clear Schedule","description":"Schedule automatic cache clearing with cron. Run 0 */6 * * * to flush caches every 6 hours.","explanation":"Use 0 */6 * * * to clear caches at midnight, 6 AM, noon, and 6 PM. Adjust frequency based on your cache invalidation needs.","faq":[{"q":"How do I clear cache with cron?","a":"Add 0 */6 * * * rm -rf /path/to/cache/* to your crontab. For Redis: 0 */6 * * * redis-cli FLUSHALL."}],"keywords":["cron clear cache","cron cache flush","cron redis flush"]}</script>

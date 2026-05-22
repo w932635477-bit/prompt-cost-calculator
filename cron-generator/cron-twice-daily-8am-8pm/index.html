@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron at 8 AM and 8 PM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 8,20 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Twice Daily (8 AM & 8 PM)","description":"Run a cron twice daily at 8 AM and 8 PM with 0 8,20 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 8,20 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-twice-daily-8am-8pm","cron":"0 8,20 * * *","title":"Cron Twice Daily at 8 AM and 8 PM","h1":"Cron Twice Daily (8 AM & 8 PM)","description":"Run a cron twice daily at 8 AM and 8 PM with 0 8,20 * * *.","explanation":"The expression 0 8,20 * * * runs at 8:00 AM and 8:00 PM every day.","faq":[{"q":"How do I run a cron at 8 AM and 8 PM?","a":"Use 0 8,20 * * * in your crontab."}],"keywords":["cron twice daily 8am 8pm","0 8,20 * * *"]}</script>

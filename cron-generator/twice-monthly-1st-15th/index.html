@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron twice a month?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 1,15 * * in your crontab for the 1st and 15th of each month."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Twice Monthly","description":"Run a cron on the 1st and 15th of every month with 0 0 1,15 * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 1,15 * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"twice-monthly-1st-15th","cron":"0 0 1,15 * *","title":"Cron Twice Monthly (1st and 15th)","h1":"Cron Twice Monthly","description":"Run a cron on the 1st and 15th of every month with 0 0 1,15 * *.","explanation":"The expression 0 0 1,15 * * runs at midnight on the 1st and 15th of every month. Common for payroll and billing cycles.","faq":[{"q":"How do I run a cron twice a month?","a":"Use 0 0 1,15 * * in your crontab for the 1st and 15th of each month."}],"keywords":["cron twice monthly","0 0 1,15 * *","cron semimonthly"]}</script>

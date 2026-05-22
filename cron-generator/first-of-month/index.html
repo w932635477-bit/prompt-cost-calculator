@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron on the first of every month?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 1 * * in your crontab. This fires at midnight on the 1st of each month."}},{"@type":"Question","name":"Can I run a cron on the first business day of the month?","acceptedAnswer":{"@type":"Answer","text":"Cron does not natively support business day logic. Use 0 0 1-3 * * and add logic in your script to check if the day is a weekday."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron First Day of Every Month","description":"Run a cron job on the 1st of every month with 0 0 1 * * . Monthly report and billing schedule.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 1 * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"first-of-month","cron":"0 0 1 * *","title":"Cron First Day of Month - Monthly Schedule","h1":"Cron First Day of Every Month","description":"Run a cron job on the 1st of every month with 0 0 1 * * . Monthly report and billing schedule.","explanation":"The expression 0 0 1 * * runs at midnight on the 1st day of every month. The day-of-month field is set to 1.","faq":[{"q":"How do I run a cron on the first of every month?","a":"Use 0 0 1 * * in your crontab. This fires at midnight on the 1st of each month."},{"q":"Can I run a cron on the first business day of the month?","a":"Cron does not natively support business day logic. Use 0 0 1-3 * * and add logic in your script to check if the day is a weekday."}],"keywords":["cron first of month","0 0 1 * *","cron monthly","cron 1st"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I schedule a cron at 5 PM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 17 * * * in your crontab. Cron uses 24-hour time, so 5 PM is hour 17."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 5 PM","description":"Run a cron job every day at 5 PM with 0 17 * * *. End-of-workday automation.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 17 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-5pm","cron":"0 17 * * *","title":"Cron Every Day at 5 PM - End of Day Schedule","h1":"Cron Every Day at 5 PM","description":"Run a cron job every day at 5 PM with 0 17 * * *. End-of-workday automation.","explanation":"The expression 0 17 * * * runs at 17:00 (5 PM) every day. Cron uses 24-hour format, so 5 PM = 17.","faq":[{"q":"How do I schedule a cron at 5 PM?","a":"Use 0 17 * * * in your crontab. Cron uses 24-hour time, so 5 PM is hour 17."}],"keywords":["cron 5pm","0 17 * * *"]}</script>

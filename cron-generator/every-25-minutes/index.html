@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs every 25 minutes?","acceptedAnswer":{"@type":"Answer","text":"Use */25 * * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 25 Minutes","description":"Run a cron job every 25 minutes with */25 * * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */25 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-25-minutes","cron":"*/25 * * * *","title":"Cron Every 25 Minutes - Custom Interval","h1":"Cron Every 25 Minutes","description":"Run a cron job every 25 minutes with */25 * * * *.","explanation":"The expression */25 * * * * triggers at minute 0, 25, and 50 of every hour.","faq":[{"q":"What cron runs every 25 minutes?","a":"Use */25 * * * * in your crontab."}],"keywords":["cron every 25 minutes","*/25 * * * *"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron expression runs every 2 hours?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */2 * * * in your crontab. This triggers at 00:00, 02:00, 04:00, and so on."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 2 Hours","description":"Schedule a cron job every 2 hours with 0 */2 * * *. Runs at 00:00, 02:00, 04:00, etc.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */2 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-2-hours","cron":"0 */2 * * *","title":"Cron Every 2 Hours - Bi-Hourly Schedule","h1":"Cron Every 2 Hours","description":"Schedule a cron job every 2 hours with 0 */2 * * *. Runs at 00:00, 02:00, 04:00, etc.","explanation":"The expression 0 */2 * * * runs at the top of every 2nd hour: 00:00, 02:00, 04:00, 06:00, etc.","faq":[{"q":"What cron expression runs every 2 hours?","a":"Use 0 */2 * * * in your crontab. This triggers at 00:00, 02:00, 04:00, and so on."}],"keywords":["cron every 2 hours","0 */2 * * *"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron at midnight on weekdays only?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * 1-5 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Midnight on Weekdays","description":"Run a cron at midnight but only on weekdays with 0 0 * * 1-5.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-midnight-weekdays","cron":"0 0 * * 1-5","title":"Cron Midnight on Weekdays Only","h1":"Cron Midnight on Weekdays","description":"Run a cron at midnight but only on weekdays with 0 0 * * 1-5.","explanation":"The expression 0 0 * * 1-5 runs at midnight Monday through Friday. Skips weekends.","faq":[{"q":"How do I run a cron at midnight on weekdays only?","a":"Use 0 0 * * 1-5 in your crontab."}],"keywords":["cron midnight weekdays","0 0 * * 1-5"]}</script>

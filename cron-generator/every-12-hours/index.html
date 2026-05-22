@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron twice a day?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */12 * * * to run at 00:00 and 12:00. Or use 0 0,12 * * * for the same effect."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 12 Hours","description":"Run a cron job every 12 hours (twice daily) with 0 */12 * * *. Fires at midnight and noon.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */12 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-12-hours","cron":"0 */12 * * *","title":"Cron Every 12 Hours - Twice Daily Schedule","h1":"Cron Every 12 Hours","description":"Run a cron job every 12 hours (twice daily) with 0 */12 * * *. Fires at midnight and noon.","explanation":"The expression 0 */12 * * * runs twice per day: at midnight (00:00) and noon (12:00).","faq":[{"q":"How do I run a cron twice a day?","a":"Use 0 */12 * * * to run at 00:00 and 12:00. Or use 0 0,12 * * * for the same effect."}],"keywords":["cron every 12 hours","twice daily cron","0 */12 * * *"]}</script>

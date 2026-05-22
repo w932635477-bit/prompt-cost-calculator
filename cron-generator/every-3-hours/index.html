@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron job every 3 hours?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */3 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 3 Hours","description":"Run a cron job every 3 hours using 0 */3 * * *. Triggers at 00:00, 03:00, 06:00, etc.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */3 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-3-hours","cron":"0 */3 * * *","title":"Cron Every 3 Hours - Expression & Examples","h1":"Cron Every 3 Hours","description":"Run a cron job every 3 hours using 0 */3 * * *. Triggers at 00:00, 03:00, 06:00, etc.","explanation":"The expression 0 */3 * * * runs at the top of every 3rd hour.","faq":[{"q":"How do I run a cron job every 3 hours?","a":"Use 0 */3 * * * in your crontab."}],"keywords":["cron every 3 hours","0 */3 * * *"]}</script>

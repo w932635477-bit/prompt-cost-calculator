@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What does 1-5 mean in cron?","acceptedAnswer":{"@type":"Answer","text":"1-5 is a range. In the day-of-week field, it means Monday(1) through Friday(5). In the hour field, 9-17 would mean 9 AM through 5 PM."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Range Operator (N-M)","description":"Learn how the cron range operator N-M works. 1-5 means Monday to Friday. 9-17 means 9 AM to 5 PM.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 9 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-range-operator","cron":"0 9 * * 1-5","title":"Cron Range Operator (N-M) - Complete Guide","h1":"Cron Range Operator (N-M)","description":"Learn how the cron range operator N-M works. 1-5 means Monday to Friday. 9-17 means 9 AM to 5 PM.","explanation":"The range operator N-M matches all values from N to M inclusive. 1-5 in the day-of-week field means Monday through Friday. 9-17 in the hour field means 9 AM through 5 PM.","faq":[{"q":"What does 1-5 mean in cron?","a":"1-5 is a range. In the day-of-week field, it means Monday(1) through Friday(5). In the hour field, 9-17 would mean 9 AM through 5 PM."}],"keywords":["cron range","cron 1-5","cron dash operator"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I schedule emails with cron?","acceptedAnswer":{"@type":"Answer","text":"Use 0 9 * * 1 /path/to/send-email.sh for weekly Monday emails at 9 AM."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Email Schedule","description":"Schedule automated emails with cron. Run 0 9 * * 1 to send emails at 9 AM every Monday.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 9 * * 1 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-email-sending","cron":"0 9 * * 1","title":"Cron Email Sending - Weekly Email at 9 AM Monday","h1":"Cron Email Schedule","description":"Schedule automated emails with cron. Run 0 9 * * 1 to send emails at 9 AM every Monday.","explanation":"Use 0 9 * * 1 to trigger email sends at 9 AM every Monday. Useful for weekly newsletters, reminders, and summary emails.","faq":[{"q":"How do I schedule emails with cron?","a":"Use 0 9 * * 1 /path/to/send-email.sh for weekly Monday emails at 9 AM."}],"keywords":["cron email","cron send email","cron newsletter"]}</script>

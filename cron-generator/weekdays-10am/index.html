@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs at 10 AM on weekdays?","acceptedAnswer":{"@type":"Answer","text":"Use 0 10 * * 1-5 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Weekdays at 10 AM","description":"Run a cron job weekdays at 10 AM with 0 10 * * 1-5.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 10 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"weekdays-10am","cron":"0 10 * * 1-5","title":"Cron Weekdays at 10 AM","h1":"Cron Weekdays at 10 AM","description":"Run a cron job weekdays at 10 AM with 0 10 * * 1-5.","explanation":"The expression 0 10 * * 1-5 runs at 10:00 AM Monday through Friday.","faq":[{"q":"What cron runs at 10 AM on weekdays?","a":"Use 0 10 * * 1-5 in your crontab."}],"keywords":["cron weekdays 10am","0 10 * * 1-5"]}</script>

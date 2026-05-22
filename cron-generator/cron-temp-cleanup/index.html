@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I auto-delete old temp files?","acceptedAnswer":{"@type":"Answer","text":"Use: 0 3 * * * find /tmp -type f -mtime +7 -delete to remove files older than 7 days."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Temp File Cleanup","description":"Clean up temporary files with cron. Run 0 3 * * * to delete old temp files at 3 AM daily.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 3 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-temp-cleanup","cron":"0 3 * * *","title":"Cron Temp File Cleanup - Delete Old Temp Files","h1":"Cron Temp File Cleanup","description":"Clean up temporary files with cron. Run 0 3 * * * to delete old temp files at 3 AM daily.","explanation":"Use 0 3 * * * to clean temp files at 3 AM daily. Example: find /tmp -type f -mtime +7 -delete removes files older than 7 days.","faq":[{"q":"How do I auto-delete old temp files?","a":"Use: 0 3 * * * find /tmp -type f -mtime +7 -delete to remove files older than 7 days."}],"keywords":["cron temp cleanup","cron delete old files","cron clean tmp"]}</script>

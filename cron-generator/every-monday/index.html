@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs every Monday?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * 1 in your crontab. Change the hour/minute for a different time, e.g., 0 9 * * 1 for 9 AM Monday."}},{"@type":"Question","name":"Is Monday 0 or 1 in cron?","acceptedAnswer":{"@type":"Answer","text":"In standard Unix cron, Monday is 1. Sunday is 0 (or 7). The range is 0-6 where 0=Sunday, 1=Monday, ..., 6=Saturday."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Monday","description":"Run a cron job every Monday with 0 0 * * 1. Weekly Monday schedule at midnight or any time.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * 1 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-monday","cron":"0 0 * * 1","title":"Cron Every Monday - Weekly Schedule","h1":"Cron Every Monday","description":"Run a cron job every Monday with 0 0 * * 1. Weekly Monday schedule at midnight or any time.","explanation":"The expression 0 0 * * 1 runs at midnight every Monday. The day-of-week field is 1, which represents Monday.","faq":[{"q":"What cron runs every Monday?","a":"Use 0 0 * * 1 in your crontab. Change the hour/minute for a different time, e.g., 0 9 * * 1 for 9 AM Monday."},{"q":"Is Monday 0 or 1 in cron?","a":"In standard Unix cron, Monday is 1. Sunday is 0 (or 7). The range is 0-6 where 0=Sunday, 1=Monday, ..., 6=Saturday."}],"keywords":["cron every monday","0 0 * * 1","cron monday"]}</script>

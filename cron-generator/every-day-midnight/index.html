@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron expression runs daily at midnight?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * * in your crontab. This runs at 00:00 every day."}},{"@type":"Question","name":"How do I run a cron job once a day?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * * for midnight, or change the hour/minute for a different time. For example, 0 3 * * * runs at 3 AM daily."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at Midnight","description":"Run a cron job every day at midnight (00:00) with 0 0 * * *. Daily schedule examples for all platforms.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-midnight","cron":"0 0 * * *","title":"Cron Every Day at Midnight - Daily Schedule","h1":"Cron Every Day at Midnight","description":"Run a cron job every day at midnight (00:00) with 0 0 * * *. Daily schedule examples for all platforms.","explanation":"The expression 0 0 * * * runs at 00:00 (midnight) every single day. Minute=0, Hour=0, and the remaining fields are wildcards.","faq":[{"q":"What cron expression runs daily at midnight?","a":"Use 0 0 * * * in your crontab. This runs at 00:00 every day."},{"q":"How do I run a cron job once a day?","a":"Use 0 0 * * * for midnight, or change the hour/minute for a different time. For example, 0 3 * * * runs at 3 AM daily."}],"keywords":["cron every day midnight","0 0 * * *","daily cron","cron once a day"]}</script>

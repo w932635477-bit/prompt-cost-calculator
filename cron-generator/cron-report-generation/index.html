@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I schedule report generation with cron?","acceptedAnswer":{"@type":"Answer","text":"Use 0 8 * * 1-5 for weekday morning reports. Adjust time and days as needed."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Report Generation","description":"Generate reports automatically with cron. Run 0 8 * * 1-5 to produce reports at 8 AM on weekdays.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 8 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-report-generation","cron":"0 8 * * 1-5","title":"Cron Report Generation - Weekday Morning Reports","h1":"Cron Report Generation","description":"Generate reports automatically with cron. Run 0 8 * * 1-5 to produce reports at 8 AM on weekdays.","explanation":"Use 0 8 * * 1-5 to generate reports at 8 AM Monday through Friday. Useful for daily sales reports, analytics summaries, and status dashboards.","faq":[{"q":"How do I schedule report generation with cron?","a":"Use 0 8 * * 1-5 for weekday morning reports. Adjust time and days as needed."}],"keywords":["cron report generation","cron daily report","cron weekly report"]}</script>

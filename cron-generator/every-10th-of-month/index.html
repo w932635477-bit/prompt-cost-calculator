@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron on the 10th of each month?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 10 * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 10th of the Month","description":"Run a cron on the 10th of every month with 0 0 10 * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 10 * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-10th-of-month","cron":"0 0 10 * *","title":"Cron Every 10th of the Month","h1":"Cron Every 10th of the Month","description":"Run a cron on the 10th of every month with 0 0 10 * *.","explanation":"The expression 0 0 10 * * runs at midnight on the 10th day of every month.","faq":[{"q":"How do I run a cron on the 10th of each month?","a":"Use 0 0 10 * * in your crontab."}],"keywords":["cron 10th of month","0 0 10 * *"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs at 10 AM daily?","acceptedAnswer":{"@type":"Answer","text":"Use 0 10 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 10 AM","description":"Run a cron job every day at 10 AM with 0 10 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 10 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-10am","cron":"0 10 * * *","title":"Cron Every Day at 10 AM","h1":"Cron Every Day at 10 AM","description":"Run a cron job every day at 10 AM with 0 10 * * *.","explanation":"The expression 0 10 * * * runs at 10:00 every day.","faq":[{"q":"What cron runs at 10 AM daily?","a":"Use 0 10 * * * in your crontab."}],"keywords":["cron 10am","0 10 * * *"]}</script>

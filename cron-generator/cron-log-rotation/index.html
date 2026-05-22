@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I set up log rotation with cron?","acceptedAnswer":{"@type":"Answer","text":"Most systems handle this via /etc/cron.daily/logrotate. For custom rotation, add: 0 0 * * * /usr/sbin/logrotate /etc/logrotate.conf"}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Log Rotation Schedule","description":"Automate log rotation with cron. Daily schedule to compress, archive, and clean up old log files.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-log-rotation","cron":"0 0 * * *","title":"Cron for Log Rotation - Daily Log Management","h1":"Cron Log Rotation Schedule","description":"Automate log rotation with cron. Daily schedule to compress, archive, and clean up old log files.","explanation":"Use 0 0 * * * to trigger log rotation at midnight daily. Most Linux systems use logrotate with its own cron entry in /etc/cron.daily/.","faq":[{"q":"How do I set up log rotation with cron?","a":"Most systems handle this via /etc/cron.daily/logrotate. For custom rotation, add: 0 0 * * * /usr/sbin/logrotate /etc/logrotate.conf"}],"keywords":["cron log rotation","cron log cleanup","cron rotate logs"]}</script>

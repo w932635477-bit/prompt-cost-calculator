@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What does */5 mean in cron?","acceptedAnswer":{"@type":"Answer","text":"*/5 is the step operator. In the minute field, it means \"every 5 minutes\" (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55)."}},{"@type":"Question","name":"Can I use step values in any field?","acceptedAnswer":{"@type":"Answer","text":"Yes. */5 in minutes = every 5 min. */2 in hours = every 2 hours. */3 in day-of-month = every 3rd day."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Step Operator (*/N)","description":"Learn how the cron step operator */N works. Use */5 for every 5 units, */10 for every 10 units. Complete syntax guide.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */5 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-step-operator","cron":"*/5 * * * *","title":"Cron Step Operator (*/N) - Complete Guide","h1":"Cron Step Operator (*/N)","description":"Learn how the cron step operator */N works. Use */5 for every 5 units, */10 for every 10 units. Complete syntax guide.","explanation":"The step operator */N means \"every Nth value\". */5 in the minute field means minutes 0, 5, 10, 15, etc. */2 in the hour field means hours 0, 2, 4, 6, etc.","faq":[{"q":"What does */5 mean in cron?","a":"*/5 is the step operator. In the minute field, it means \"every 5 minutes\" (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55)."},{"q":"Can I use step values in any field?","a":"Yes. */5 in minutes = every 5 min. */2 in hours = every 2 hours. */3 in day-of-month = every 3rd day."}],"keywords":["cron step operator","cron */5","cron every N"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What timezone does cron use?","acceptedAnswer":{"@type":"Answer","text":"Cron uses the system timezone. Check with timedatectl on systemd systems. Set CRON_TZ in your crontab to override."}},{"@type":"Question","name":"How do I run a cron in UTC?","acceptedAnswer":{"@type":"Answer","text":"Add CRON_TZ=UTC at the top of your crontab, or prefix specific jobs: 0 0 * * * TZ=UTC command"}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Timezone Settings","description":"Understand which timezone cron uses and how to change it. Set TZ variable or use CRON_TZ in your crontab.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-timezone","cron":"0 0 * * *","title":"Cron Timezone - Which TZ Does Cron Use?","h1":"Cron Timezone Settings","description":"Understand which timezone cron uses and how to change it. Set TZ variable or use CRON_TZ in your crontab.","explanation":"Cron uses the system timezone by default. You can set CRON_TZ=America/New_York at the top of your crontab, or set TZ per job: CRON_TZ=UTC before the job line.","faq":[{"q":"What timezone does cron use?","a":"Cron uses the system timezone. Check with timedatectl on systemd systems. Set CRON_TZ in your crontab to override."},{"q":"How do I run a cron in UTC?","a":"Add CRON_TZ=UTC at the top of your crontab, or prefix specific jobs: 0 0 * * * TZ=UTC command"}],"keywords":["cron timezone","cron TZ","CRON_TZ"]}</script>

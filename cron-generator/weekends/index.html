@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron only on weekends?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * 0,6 in your crontab. The 0,6 means \"Sunday OR Saturday\"."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Weekends (Saturday & Sunday)","description":"Run a cron job on weekends with 0 0 * * 0,6. Saturday and Sunday schedule.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * 0,6 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"weekends","cron":"0 0 * * 0,6","title":"Cron Weekends - Saturday and Sunday Schedule","h1":"Cron Weekends (Saturday & Sunday)","description":"Run a cron job on weekends with 0 0 * * 0,6. Saturday and Sunday schedule.","explanation":"The expression 0 0 * * 0,6 uses a comma-separated list (0,6) to match both Sunday (0) and Saturday (6).","faq":[{"q":"How do I run a cron only on weekends?","a":"Use 0 0 * * 0,6 in your crontab. The 0,6 means \"Sunday OR Saturday\"."}],"keywords":["cron weekends","0 0 * * 0,6","cron saturday sunday"]}</script>

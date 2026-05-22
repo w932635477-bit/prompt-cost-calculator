@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run every 15 minutes during 9-to-5?","acceptedAnswer":{"@type":"Answer","text":"Use */15 9-17 * * 1-5 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 15 Min (Business Hours)","description":"Run a cron every 15 minutes from 9 AM to 5 PM on weekdays with */15 9-17 * * 1-5.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */15 9-17 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-every-15-minutes-business-hours","cron":"*/15 9-17 * * 1-5","title":"Cron Every 15 Minutes During Business Hours","h1":"Cron Every 15 Min (Business Hours)","description":"Run a cron every 15 minutes from 9 AM to 5 PM on weekdays with */15 9-17 * * 1-5.","explanation":"The expression */15 9-17 * * 1-5 triggers at 0, 15, 30, 45 minutes past each hour from 9 AM to 5 PM, Monday through Friday.","faq":[{"q":"How do I run every 15 minutes during 9-to-5?","a":"Use */15 9-17 * * 1-5 in your crontab."}],"keywords":["cron 15 min business hours","*/15 9-17 * * 1-5"]}</script>

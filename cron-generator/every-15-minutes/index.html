@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron job every 15 minutes?","acceptedAnswer":{"@type":"Answer","text":"Use */15 * * * * in your crontab. This executes at minutes 0, 15, 30, and 45 each hour."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 15 Minutes","description":"Set up a cron job every 15 minutes with */15 * * * *. Works with Unix, Quartz, and AWS EventBridge.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */15 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-15-minutes","cron":"*/15 * * * *","title":"Cron Every 15 Minutes - Schedule & Syntax","h1":"Cron Every 15 Minutes","description":"Set up a cron job every 15 minutes with */15 * * * *. Works with Unix, Quartz, and AWS EventBridge.","explanation":"The expression */15 * * * * runs at minute 0, 15, 30, and 45 of every hour.","faq":[{"q":"How do I run a cron job every 15 minutes?","a":"Use */15 * * * * in your crontab. This executes at minutes 0, 15, 30, and 45 each hour."}],"keywords":["cron every 15 minutes","*/15 * * * *"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron at midnight on weekdays?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * 1-5 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Weekdays at Midnight","description":"Run a cron job weekdays at midnight with 0 0 * * 1-5. Night maintenance, Monday to Friday.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"weekdays-midnight","cron":"0 0 * * 1-5","title":"Cron Weekdays at Midnight - Daily Maintenance","h1":"Cron Weekdays at Midnight","description":"Run a cron job weekdays at midnight with 0 0 * * 1-5. Night maintenance, Monday to Friday.","explanation":"The expression 0 0 * * 1-5 runs at midnight (00:00) Monday through Friday.","faq":[{"q":"How do I run a cron at midnight on weekdays?","a":"Use 0 0 * * 1-5 in your crontab."}],"keywords":["cron weekdays midnight","0 0 * * 1-5"]}</script>

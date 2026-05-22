@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs at 7 PM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 19 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 7 PM","description":"Run a cron job every day at 7 PM with 0 19 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 19 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-7pm","cron":"0 19 * * *","title":"Cron Every Day at 7 PM","h1":"Cron Every Day at 7 PM","description":"Run a cron job every day at 7 PM with 0 19 * * *.","explanation":"The expression 0 19 * * * runs at 19:00 (7 PM) every day.","faq":[{"q":"What cron runs at 7 PM?","a":"Use 0 19 * * * in your crontab."}],"keywords":["cron 7pm","0 19 * * *"]}</script>

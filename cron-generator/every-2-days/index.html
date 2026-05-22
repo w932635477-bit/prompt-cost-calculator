@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron every other day?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 */2 * * in your crontab. This runs at midnight on alternate days."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 2 Days","description":"Run a cron job every 2 days with 0 0 */2 * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 */2 * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-2-days","cron":"0 0 */2 * *","title":"Cron Every 2 Days - Alternate Day Schedule","h1":"Cron Every 2 Days","description":"Run a cron job every 2 days with 0 0 */2 * *.","explanation":"The expression 0 0 */2 * * uses the step operator in the day-of-month field. It runs at midnight on days 1, 3, 5, 7, etc.","faq":[{"q":"How do I run a cron every other day?","a":"Use 0 0 */2 * * in your crontab. This runs at midnight on alternate days."}],"keywords":["cron every 2 days","0 0 */2 * *","cron every other day"]}</script>

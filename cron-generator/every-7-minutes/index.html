@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"Why use every 7 minutes?","acceptedAnswer":{"@type":"Answer","text":"Unusual intervals like */7 help stagger jobs to avoid resource spikes that occur when many jobs run at even boundaries."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 7 Minutes","description":"Run a cron job every 7 minutes with */7 * * * *. Useful for staggered schedules.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */7 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-7-minutes","cron":"*/7 * * * *","title":"Cron Every 7 Minutes - Unusual Interval","h1":"Cron Every 7 Minutes","description":"Run a cron job every 7 minutes with */7 * * * *. Useful for staggered schedules.","explanation":"The expression */7 * * * * triggers at minute 0, 7, 14, 21, 28, 35, 42, 49, 56 of every hour.","faq":[{"q":"Why use every 7 minutes?","a":"Unusual intervals like */7 help stagger jobs to avoid resource spikes that occur when many jobs run at even boundaries."}],"keywords":["cron every 7 minutes","*/7 * * * *"]}</script>

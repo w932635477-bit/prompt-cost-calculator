@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I schedule a monthly cron job?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 1 * * for the 1st of each month at midnight, or adjust the day/hour/minute as needed."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Month","description":"Run a cron job monthly with 0 0 1 * * . Monthly automation schedule.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 1 * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-month","cron":"0 0 1 * *","title":"Cron Every Month - Monthly Schedule","h1":"Cron Every Month","description":"Run a cron job monthly with 0 0 1 * * . Monthly automation schedule.","explanation":"The expression 0 0 1 * * runs monthly at midnight on the 1st.","faq":[{"q":"How do I schedule a monthly cron job?","a":"Use 0 0 1 * * for the 1st of each month at midnight, or adjust the day/hour/minute as needed."}],"keywords":["cron every month","monthly cron"]}</script>

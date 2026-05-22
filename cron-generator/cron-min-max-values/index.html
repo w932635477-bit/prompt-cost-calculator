@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What is the range of the minute field?","acceptedAnswer":{"@type":"Answer","text":"0 to 59. You cannot use 60 or higher in the minute field."}},{"@type":"Question","name":"Can month names be used in cron?","acceptedAnswer":{"@type":"Answer","text":"Some implementations support names: jan, feb, mar, etc. Similarly, day names: sun, mon, tue, etc. Not all cron daemons support this."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Field Value Ranges","description":"Reference for cron field ranges: minutes 0-59, hours 0-23, day of month 1-31, months 1-12, day of week 0-6.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0-59 0-23 1-31 1-12 0-6 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-min-max-values","cron":"0-59 0-23 1-31 1-12 0-6","title":"Cron Field Ranges - Min and Max Values","h1":"Cron Field Value Ranges","description":"Reference for cron field ranges: minutes 0-59, hours 0-23, day of month 1-31, months 1-12, day of week 0-6.","explanation":"Each cron field has a valid range: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6 where 0=Sunday). Some implementations allow 7 for Sunday.","faq":[{"q":"What is the range of the minute field?","a":"0 to 59. You cannot use 60 or higher in the minute field."},{"q":"Can month names be used in cron?","a":"Some implementations support names: jan, feb, mar, etc. Similarly, day names: sun, mon, tue, etc. Not all cron daemons support this."}],"keywords":["cron field range","cron values","cron min max"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs 4 times a day?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0,6,12,18 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Four Times Daily","description":"Run a cron 4 times a day with 0 0,6,12,18 * * *. Every 6 hours at midnight, 6AM, noon, 6PM.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0,6,12,18 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"four-times-daily","cron":"0 0,6,12,18 * * *","title":"Cron Four Times Daily","h1":"Cron Four Times Daily","description":"Run a cron 4 times a day with 0 0,6,12,18 * * *. Every 6 hours at midnight, 6AM, noon, 6PM.","explanation":"The expression 0 0,6,12,18 * * * runs at midnight, 6 AM, noon, and 6 PM daily.","faq":[{"q":"What cron runs 4 times a day?","a":"Use 0 0,6,12,18 * * * in your crontab."}],"keywords":["cron four times daily","0 0,6,12,18 * * *"]}</script>

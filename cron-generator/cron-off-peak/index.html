@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I schedule tasks during off-peak hours?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0-5 * * * for midnight to 5 AM. Adjust the range for your off-peak window."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Off-Peak Hours","description":"Run cron during off-peak hours (midnight to 5 AM) with 0 0-5 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0-5 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-off-peak","cron":"0 0-5 * * *","title":"Cron Off-Peak Hours - Midnight to 5 AM","h1":"Cron Off-Peak Hours","description":"Run cron during off-peak hours (midnight to 5 AM) with 0 0-5 * * *.","explanation":"The expression 0 0-5 * * * runs at the top of each hour from midnight to 5 AM. Ideal for maintenance tasks that should not impact user traffic.","faq":[{"q":"How do I schedule tasks during off-peak hours?","a":"Use 0 0-5 * * * for midnight to 5 AM. Adjust the range for your off-peak window."}],"keywords":["cron off peak","cron maintenance window","cron night time"]}</script>

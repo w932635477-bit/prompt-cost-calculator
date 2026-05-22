@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron on Tuesday and Thursday?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * 2,4 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Tuesday and Thursday","description":"Run a cron on Tuesday and Thursday with 0 0 * * 2,4.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * 2,4 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-tuesday-thursday","cron":"0 0 * * 2,4","title":"Cron Tuesday Thursday - TTh Schedule","h1":"Cron Tuesday and Thursday","description":"Run a cron on Tuesday and Thursday with 0 0 * * 2,4.","explanation":"The expression 0 0 * * 2,4 uses comma-separated day values: Tuesday(2) and Thursday(4).","faq":[{"q":"How do I run a cron on Tuesday and Thursday?","a":"Use 0 0 * * 2,4 in your crontab."}],"keywords":["cron tuesday thursday","TTh cron","0 0 * * 2,4"]}</script>

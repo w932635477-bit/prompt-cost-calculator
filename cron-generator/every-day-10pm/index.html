@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron at 10 PM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 22 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 10 PM","description":"Run a cron job every day at 10 PM with 0 22 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 22 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-10pm","cron":"0 22 * * *","title":"Cron Every Day at 10 PM","h1":"Cron Every Day at 10 PM","description":"Run a cron job every day at 10 PM with 0 22 * * *.","explanation":"The expression 0 22 * * * runs at 22:00 (10 PM) every day.","faq":[{"q":"How do I run a cron at 10 PM?","a":"Use 0 22 * * * in your crontab."}],"keywords":["cron 10pm","0 22 * * *"]}</script>

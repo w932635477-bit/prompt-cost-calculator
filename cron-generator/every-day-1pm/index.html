@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron at 1 PM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 13 * * * in your crontab. Hour 13 is 1 PM in 24-hour time."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 1 PM","description":"Run a cron job every day at 1 PM with 0 13 * * *. Afternoon schedule.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 13 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-1pm","cron":"0 13 * * *","title":"Cron Every Day at 1 PM","h1":"Cron Every Day at 1 PM","description":"Run a cron job every day at 1 PM with 0 13 * * *. Afternoon schedule.","explanation":"The expression 0 13 * * * runs at 13:00 (1 PM) every day. Cron uses 24-hour format.","faq":[{"q":"How do I run a cron at 1 PM?","a":"Use 0 13 * * * in your crontab. Hour 13 is 1 PM in 24-hour time."}],"keywords":["cron 1pm","0 13 * * *"]}</script>

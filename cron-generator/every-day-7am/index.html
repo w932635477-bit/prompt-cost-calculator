@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron at 7 AM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 7 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 7 AM","description":"Run a cron job every day at 7 AM with 0 7 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 7 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-7am","cron":"0 7 * * *","title":"Cron Every Day at 7 AM","h1":"Cron Every Day at 7 AM","description":"Run a cron job every day at 7 AM with 0 7 * * *.","explanation":"The expression 0 7 * * * runs at 07:00 every day.","faq":[{"q":"How do I run a cron at 7 AM?","a":"Use 0 7 * * * in your crontab."}],"keywords":["cron 7am","0 7 * * *"]}</script>

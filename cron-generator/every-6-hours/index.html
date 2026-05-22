@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I schedule a cron every 6 hours?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */6 * * * in your crontab. This runs at 00:00, 06:00, 12:00, and 18:00 daily."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 6 Hours","description":"Run a cron job every 6 hours with 0 */6 * * *. Executes 4 times daily at 00:00, 06:00, 12:00, 18:00.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */6 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-6-hours","cron":"0 */6 * * *","title":"Cron Every 6 Hours - Quarter Day Schedule","h1":"Cron Every 6 Hours","description":"Run a cron job every 6 hours with 0 */6 * * *. Executes 4 times daily at 00:00, 06:00, 12:00, 18:00.","explanation":"The expression 0 */6 * * * runs 4 times per day: midnight, 6 AM, noon, and 6 PM.","faq":[{"q":"How do I schedule a cron every 6 hours?","a":"Use 0 */6 * * * in your crontab. This runs at 00:00, 06:00, 12:00, and 18:00 daily."}],"keywords":["cron every 6 hours","0 */6 * * *"]}</script>

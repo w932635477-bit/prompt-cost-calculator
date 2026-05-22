@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron every 3 minutes?","acceptedAnswer":{"@type":"Answer","text":"Use */3 * * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 3 Minutes","description":"Schedule a cron job every 3 minutes with */3 * * * *. Moderate polling frequency.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */3 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-3-minutes","cron":"*/3 * * * *","title":"Cron Every 3 Minutes - Schedule Guide","h1":"Cron Every 3 Minutes","description":"Schedule a cron job every 3 minutes with */3 * * * *. Moderate polling frequency.","explanation":"The expression */3 * * * * triggers at minute 0, 3, 6, 9, ..., 57 of every hour.","faq":[{"q":"How do I run a cron every 3 minutes?","a":"Use */3 * * * * in your crontab."}],"keywords":["cron every 3 minutes","*/3 * * * *"]}</script>

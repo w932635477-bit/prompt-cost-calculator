@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What is the difference between */30 and 0,30?","acceptedAnswer":{"@type":"Answer","text":"They produce the same result for 30-minute intervals. */30 uses the step operator, 0,30 uses explicit values. Both run at :00 and :30."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 30 Minutes (:00 and :30)","description":"Run a cron every 30 minutes at :00 and :30 with 0,30 * * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0,30 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-every-30-minutes-at-0-and-30","cron":"0,30 * * * *","title":"Cron Every 30 Minutes at :00 and :30","h1":"Cron Every 30 Minutes (:00 and :30)","description":"Run a cron every 30 minutes at :00 and :30 with 0,30 * * * *.","explanation":"The expression 0,30 * * * * is equivalent to */30 * * * *. It explicitly lists the minutes: 0 and 30 of every hour.","faq":[{"q":"What is the difference between */30 and 0,30?","a":"They produce the same result for 30-minute intervals. */30 uses the step operator, 0,30 uses explicit values. Both run at :00 and :30."}],"keywords":["cron 0,30","0,30 * * * *","cron every 30 at 0 30"]}</script>

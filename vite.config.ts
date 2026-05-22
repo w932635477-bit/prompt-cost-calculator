@@ -25,6 +25,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         cron: resolve(__dirname, 'cron-generator/index.html'),
+        'cron-patterns': resolve(__dirname, 'cron-generator/common-patterns/index.html'),
         ...localeInputs,
         ...longTailInputs,
       },

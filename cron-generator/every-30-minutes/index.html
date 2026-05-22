@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron job every 30 minutes?","acceptedAnswer":{"@type":"Answer","text":"Use */30 * * * * in your crontab. This runs at minute 0 and minute 30 of each hour."}},{"@type":"Question","name":"Can I run a cron every half hour starting at :15?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use 15,45 * * * * to run at :15 and :45 every hour."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 30 Minutes","description":"Schedule a cron job every 30 minutes (half hour) with */30 * * * *. Complete guide with examples.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */30 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-30-minutes","cron":"*/30 * * * *","title":"Cron Every 30 Minutes - Half Hour Schedule","h1":"Cron Every 30 Minutes","description":"Schedule a cron job every 30 minutes (half hour) with */30 * * * *. Complete guide with examples.","explanation":"The expression */30 * * * * runs at the top and bottom of every hour (minute 0 and minute 30).","faq":[{"q":"How do I run a cron job every 30 minutes?","a":"Use */30 * * * * in your crontab. This runs at minute 0 and minute 30 of each hour."},{"q":"Can I run a cron every half hour starting at :15?","a":"Yes. Use 15,45 * * * * to run at :15 and :45 every hour."}],"keywords":["cron every 30 minutes","*/30 * * * *","cron half hour"]}</script>

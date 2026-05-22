@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron expression runs at 2 AM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 2 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 2 AM","description":"Schedule a cron job at 2 AM daily with 0 2 * * *. Night maintenance window.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 2 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-2am","cron":"0 2 * * *","title":"Cron Every Day at 2 AM - Maintenance Schedule","h1":"Cron Every Day at 2 AM","description":"Schedule a cron job at 2 AM daily with 0 2 * * *. Night maintenance window.","explanation":"The expression 0 2 * * * runs at 02:00 every day. Common for system maintenance and backup operations.","faq":[{"q":"What cron expression runs at 2 AM?","a":"Use 0 2 * * * in your crontab."}],"keywords":["cron 2am","0 2 * * *"]}</script>

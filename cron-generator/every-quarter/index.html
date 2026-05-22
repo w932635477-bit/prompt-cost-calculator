@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron every quarter?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 1 1,4,7,10 * in your crontab. This runs on the 1st of Jan, Apr, Jul, and Oct."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Quarter","description":"Run a cron job quarterly (every 3 months) with 0 0 1 1,4,7,10 *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 1 1,4,7,10 * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-quarter","cron":"0 0 1 1,4,7,10 *","title":"Cron Every Quarter - Quarterly Schedule","h1":"Cron Every Quarter","description":"Run a cron job quarterly (every 3 months) with 0 0 1 1,4,7,10 *.","explanation":"The expression 0 0 1 1,4,7,10 * runs at midnight on the 1st of January, April, July, and October.","faq":[{"q":"How do I run a cron every quarter?","a":"Use 0 0 1 1,4,7,10 * in your crontab. This runs on the 1st of Jan, Apr, Jul, and Oct."}],"keywords":["cron quarterly","every 3 months cron"]}</script>

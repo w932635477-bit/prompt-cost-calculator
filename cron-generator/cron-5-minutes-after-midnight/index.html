@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron 5 minutes after midnight?","acceptedAnswer":{"@type":"Answer","text":"Use 5 0 * * * in your crontab. This avoids the midnight spike when many cron jobs run simultaneously."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron at 12:05 AM Daily","description":"Run a cron 5 minutes after midnight every day with 5 0 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 5 0 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-5-minutes-after-midnight","cron":"5 0 * * *","title":"Cron 5 Minutes After Midnight Daily","h1":"Cron at 12:05 AM Daily","description":"Run a cron 5 minutes after midnight every day with 5 0 * * *.","explanation":"The expression 5 0 * * * runs at 00:05 (5 minutes after midnight) every day. Useful when you want to avoid the exact midnight rush.","faq":[{"q":"How do I run a cron 5 minutes after midnight?","a":"Use 5 0 * * * in your crontab. This avoids the midnight spike when many cron jobs run simultaneously."}],"keywords":["cron 5 minutes after midnight","5 0 * * *","cron 12:05 am"]}</script>

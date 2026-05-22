@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I set a cron at a specific time?","acceptedAnswer":{"@type":"Answer","text":"Use exact minute and hour values. For 3:45 PM: 45 15 * * *. For 8:05 AM: 5 8 * * *."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron at Specific Time (2:30 PM)","description":"Set a cron job at a specific time. Example: 30 14 * * * runs at 2:30 PM daily. Learn the minute-hour format.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 30 14 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-specific-time","cron":"30 14 * * *","title":"Cron at Specific Time - How to Set Exact Time","h1":"Cron at Specific Time (2:30 PM)","description":"Set a cron job at a specific time. Example: 30 14 * * * runs at 2:30 PM daily. Learn the minute-hour format.","explanation":"To set a specific time, use exact values in the minute and hour fields. 30 14 * * * means minute=30, hour=14 (2:30 PM). The remaining * fields mean every day.","faq":[{"q":"How do I set a cron at a specific time?","a":"Use exact minute and hour values. For 3:45 PM: 45 15 * * *. For 8:05 AM: 5 8 * * *."}],"keywords":["cron specific time","cron exact time","cron set time"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron 3 times a day?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0,8,16 * * * in your crontab. Adjust the hours to your desired times."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Three Times Daily","description":"Run a cron three times a day at midnight, 8 AM, and 4 PM with 0 0,8,16 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 8,16,0 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"three-times-daily","cron":"0 8,16,0 * * *","title":"Cron Three Times Daily","h1":"Cron Three Times Daily","description":"Run a cron three times a day at midnight, 8 AM, and 4 PM with 0 0,8,16 * * *.","explanation":"The expression 0 0,8,16 * * * runs at midnight, 8 AM, and 4 PM daily.","faq":[{"q":"How do I run a cron 3 times a day?","a":"Use 0 0,8,16 * * * in your crontab. Adjust the hours to your desired times."}],"keywords":["cron three times daily","0 0,8,16 * * *"]}</script>

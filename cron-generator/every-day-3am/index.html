@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"Why run a cron at 3 AM?","acceptedAnswer":{"@type":"Answer","text":"3 AM is typically a low-traffic period, making it ideal for resource-intensive tasks like database backups, log rotation, and data processing."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Day at 3 AM","description":"Run a cron job every day at 3 AM with 0 3 * * *. Off-peak hours batch processing.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 3 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-day-3am","cron":"0 3 * * *","title":"Cron Every Day at 3 AM - Off-Peak Schedule","h1":"Cron Every Day at 3 AM","description":"Run a cron job every day at 3 AM with 0 3 * * *. Off-peak hours batch processing.","explanation":"The expression 0 3 * * * runs at 03:00 every day. Popular for database backups and maintenance tasks during low-traffic hours.","faq":[{"q":"Why run a cron at 3 AM?","a":"3 AM is typically a low-traffic period, making it ideal for resource-intensive tasks like database backups, log rotation, and data processing."}],"keywords":["cron 3am","0 3 * * *"]}</script>

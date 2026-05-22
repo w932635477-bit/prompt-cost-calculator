@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I set up a cron health check?","acceptedAnswer":{"@type":"Answer","text":"Use */5 * * * * curl -f http://localhost:8080/health || echo \"Service down\" | mail -s \"Alert\" admin@example.com"}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Health Check Schedule","description":"Set up server health checks with cron. Run */5 * * * * to monitor uptime, disk space, and service status.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */5 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-health-check","cron":"*/5 * * * *","title":"Cron Health Check - Monitor Every 5 Minutes","h1":"Cron Health Check Schedule","description":"Set up server health checks with cron. Run */5 * * * * to monitor uptime, disk space, and service status.","explanation":"Use */5 * * * * to run health checks every 5 minutes. The script can check HTTP endpoints, disk space, memory usage, and service status.","faq":[{"q":"How do I set up a cron health check?","a":"Use */5 * * * * curl -f http://localhost:8080/health || echo \"Service down\" | mail -s \"Alert\" admin@example.com"}],"keywords":["cron health check","cron monitoring","cron server monitoring"]}</script>

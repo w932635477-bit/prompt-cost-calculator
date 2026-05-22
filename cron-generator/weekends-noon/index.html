@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron at noon on weekends?","acceptedAnswer":{"@type":"Answer","text":"Use 0 12 * * 0,6 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Weekends at Noon","description":"Run a cron job on weekends at noon with 0 12 * * 0,6.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 12 * * 0,6 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"weekends-noon","cron":"0 12 * * 0,6","title":"Cron Weekends at Noon","h1":"Cron Weekends at Noon","description":"Run a cron job on weekends at noon with 0 12 * * 0,6.","explanation":"The expression 0 12 * * 0,6 runs at noon on Saturday and Sunday.","faq":[{"q":"How do I run a cron at noon on weekends?","a":"Use 0 12 * * 0,6 in your crontab."}],"keywords":["cron weekends noon","0 12 * * 0,6"]}</script>

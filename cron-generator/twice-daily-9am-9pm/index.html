@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron twice a day?","acceptedAnswer":{"@type":"Answer","text":"Use comma-separated values in the hour field. For example, 0 9,21 * * * runs at 9 AM and 9 PM."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Twice Daily (9 AM & 9 PM)","description":"Run a cron twice daily at 9 AM and 9 PM with 0 9,21 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 9,21 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"twice-daily-9am-9pm","cron":"0 9,21 * * *","title":"Cron Twice Daily at 9 AM and 9 PM","h1":"Cron Twice Daily (9 AM & 9 PM)","description":"Run a cron twice daily at 9 AM and 9 PM with 0 9,21 * * *.","explanation":"The expression 0 9,21 * * * uses a comma-separated list to specify two hours: 9 (9 AM) and 21 (9 PM).","faq":[{"q":"How do I run a cron twice a day?","a":"Use comma-separated values in the hour field. For example, 0 9,21 * * * runs at 9 AM and 9 PM."}],"keywords":["cron twice daily","0 9,21 * * *"]}</script>

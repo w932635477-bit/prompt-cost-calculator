@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs every 9 hours?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */9 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 9 Hours","description":"Run a cron job every 9 hours with 0 */9 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */9 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-9-hours","cron":"0 */9 * * *","title":"Cron Every 9 Hours","h1":"Cron Every 9 Hours","description":"Run a cron job every 9 hours with 0 */9 * * *.","explanation":"The expression 0 */9 * * * runs at 00:00 and 09:00 and 18:00 daily.","faq":[{"q":"What cron runs every 9 hours?","a":"Use 0 */9 * * * in your crontab."}],"keywords":["cron every 9 hours","0 */9 * * *"]}</script>

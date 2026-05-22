@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs at 8 AM on weekdays only?","acceptedAnswer":{"@type":"Answer","text":"Use 0 8 * * 1-5 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Weekdays at 8 AM","description":"Run a cron job weekdays at 8 AM with 0 8 * * 1-5. Start-of-workday automation.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 8 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"weekdays-8am","cron":"0 8 * * 1-5","title":"Cron Weekdays at 8 AM - Morning Work Schedule","h1":"Cron Weekdays at 8 AM","description":"Run a cron job weekdays at 8 AM with 0 8 * * 1-5. Start-of-workday automation.","explanation":"The expression 0 8 * * 1-5 runs at 8:00 AM Monday through Friday.","faq":[{"q":"What cron runs at 8 AM on weekdays only?","a":"Use 0 8 * * 1-5 in your crontab."}],"keywords":["cron weekdays 8am","0 8 * * 1-5"]}</script>

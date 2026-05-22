@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs on the 15th of each month?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 15 * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron 15th of Every Month","description":"Run a cron job on the 15th of every month with 0 0 15 * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 15 * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"15th-of-month","cron":"0 0 15 * *","title":"Cron 15th of Every Month - Mid-Month Schedule","h1":"Cron 15th of Every Month","description":"Run a cron job on the 15th of every month with 0 0 15 * *.","explanation":"The expression 0 0 15 * * runs at midnight on the 15th of every month.","faq":[{"q":"What cron runs on the 15th of each month?","a":"Use 0 0 15 * * in your crontab."}],"keywords":["cron 15th of month","0 0 15 * *"]}</script>

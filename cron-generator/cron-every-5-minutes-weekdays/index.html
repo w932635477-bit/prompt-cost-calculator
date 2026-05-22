@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run every 5 minutes on weekdays only?","acceptedAnswer":{"@type":"Answer","text":"Use */5 * * * 1-5 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 5 Minutes on Weekdays","description":"Run a cron every 5 minutes but only on weekdays with */5 * * * 1-5.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */5 * * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-every-5-minutes-weekdays","cron":"*/5 * * * 1-5","title":"Cron Every 5 Minutes on Weekdays Only","h1":"Cron Every 5 Minutes on Weekdays","description":"Run a cron every 5 minutes but only on weekdays with */5 * * * 1-5.","explanation":"The expression */5 * * * 1-5 combines a step (*/5) in the minute field with a range (1-5) in the day-of-week field.","faq":[{"q":"How do I run every 5 minutes on weekdays only?","a":"Use */5 * * * 1-5 in your crontab."}],"keywords":["cron every 5 minutes weekdays","*/5 * * * 1-5"]}</script>

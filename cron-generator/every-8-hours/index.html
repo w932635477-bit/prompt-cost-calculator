@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs every 8 hours?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */8 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 8 Hours","description":"Schedule a cron job every 8 hours using 0 */8 * * *. Runs at 00:00, 08:00, and 16:00.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */8 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-8-hours","cron":"0 */8 * * *","title":"Cron Every 8 Hours - Expression Guide","h1":"Cron Every 8 Hours","description":"Schedule a cron job every 8 hours using 0 */8 * * *. Runs at 00:00, 08:00, and 16:00.","explanation":"The expression 0 */8 * * * runs 3 times per day: at midnight, 8 AM, and 4 PM.","faq":[{"q":"What cron runs every 8 hours?","a":"Use 0 */8 * * * in your crontab."}],"keywords":["cron every 8 hours","0 */8 * * *"]}</script>

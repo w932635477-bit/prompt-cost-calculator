@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run every 2 hours at :15?","acceptedAnswer":{"@type":"Answer","text":"Use 15 */2 * * * in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 2 Hours at :15","description":"Run a cron every 2 hours at minute 15 with 15 */2 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 15 */2 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-2-hours-at-15","cron":"15 */2 * * *","title":"Cron Every 2 Hours at :15","h1":"Cron Every 2 Hours at :15","description":"Run a cron every 2 hours at minute 15 with 15 */2 * * *.","explanation":"The expression 15 */2 * * * runs at :15 past every 2nd hour: 00:15, 02:15, 04:15, 06:15, etc.","faq":[{"q":"How do I run every 2 hours at :15?","a":"Use 15 */2 * * * in your crontab."}],"keywords":["cron every 2 hours :15","15 */2 * * *"]}</script>

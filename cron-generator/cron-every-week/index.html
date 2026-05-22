@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron every week?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * 0 for weekly on Sunday at midnight. Change to 0 0 * * 1 for Monday, etc."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Week","description":"Run a cron job every week with 0 0 * * 0. Weekly schedule at midnight Sunday.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * 0 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-every-week","cron":"0 0 * * 0","title":"Cron Every Week - Weekly Schedule","h1":"Cron Every Week","description":"Run a cron job every week with 0 0 * * 0. Weekly schedule at midnight Sunday.","explanation":"The expression 0 0 * * 0 runs at midnight every Sunday. This is the standard weekly schedule. Change the day-of-week for other days.","faq":[{"q":"How do I run a cron every week?","a":"Use 0 0 * * 0 for weekly on Sunday at midnight. Change to 0 0 * * 1 for Monday, etc."}],"keywords":["cron every week","weekly cron","cron weekly schedule"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron every Sunday at midnight?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 * * 0 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Sunday at Midnight","description":"Run a cron every Sunday at midnight with 0 0 * * 0. Weekly Sunday maintenance.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 * * 0 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-sunday-midnight","cron":"0 0 * * 0","title":"Cron Every Sunday at Midnight","h1":"Cron Every Sunday at Midnight","description":"Run a cron every Sunday at midnight with 0 0 * * 0. Weekly Sunday maintenance.","explanation":"The expression 0 0 * * 0 runs at midnight every Sunday. Useful for weekly maintenance tasks.","faq":[{"q":"How do I run a cron every Sunday at midnight?","a":"Use 0 0 * * 0 in your crontab."}],"keywords":["cron sunday midnight","0 0 * * 0"]}</script>

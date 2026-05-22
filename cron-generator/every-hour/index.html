@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron job every hour?","acceptedAnswer":{"@type":"Answer","text":"Use 0 * * * * in your crontab. This runs at the start of every hour (minute 0)."}},{"@type":"Question","name":"Can I run a cron job every hour at minute 30?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use 30 * * * * to run at :30 past every hour."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Hour","description":"Run a cron job every hour at minute 0 with 0 * * * *. See examples for hourly, bi-hourly, and custom schedules.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-hour","cron":"0 * * * *","title":"Cron Every Hour - Hourly Job Schedule","h1":"Cron Every Hour","description":"Run a cron job every hour at minute 0 with 0 * * * *. See examples for hourly, bi-hourly, and custom schedules.","explanation":"The expression 0 * * * * runs at the top of every hour (00:00, 01:00, 02:00, etc.) every day.","faq":[{"q":"How do I run a cron job every hour?","a":"Use 0 * * * * in your crontab. This runs at the start of every hour (minute 0)."},{"q":"Can I run a cron job every hour at minute 30?","a":"Yes. Use 30 * * * * to run at :30 past every hour."}],"keywords":["cron every hour","hourly cron","0 * * * *"]}</script>

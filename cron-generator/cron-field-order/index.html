@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What are the 5 fields in a cron expression?","acceptedAnswer":{"@type":"Answer","text":"From left to right: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6)."}},{"@type":"Question","name":"Which field is which in cron?","acceptedAnswer":{"@type":"Answer","text":"The order is: minute hour day-of-month month day-of-week. A mnemonic: \"M H DOM MON DOW\"."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Field Order Explained","description":"Understand the 5 cron fields: minute, hour, day of month, month, day of week. Complete reference with examples.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: * * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-field-order","cron":"* * * * *","title":"Cron Field Order - 5 Fields Explained","h1":"Cron Field Order Explained","description":"Understand the 5 cron fields: minute, hour, day of month, month, day of week. Complete reference with examples.","explanation":"A cron expression has 5 fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6, where 0=Sunday).","faq":[{"q":"What are the 5 fields in a cron expression?","a":"From left to right: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6)."},{"q":"Which field is which in cron?","a":"The order is: minute hour day-of-month month day-of-week. A mnemonic: \"M H DOM MON DOW\"."}],"keywords":["cron field order","cron 5 fields","cron field meanings"]}</script>

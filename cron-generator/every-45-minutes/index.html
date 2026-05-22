@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What is the cron for every 45 minutes?","acceptedAnswer":{"@type":"Answer","text":"Use */45 * * * *. It runs at minute 0 and 45 of each hour."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every 45 Minutes","description":"Run a cron job every 45 minutes. See the expression and examples.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */45 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-45-minutes","cron":"*/45 * * * *","title":"Cron Every 45 Minutes - Setup Guide","h1":"Cron Every 45 Minutes","description":"Run a cron job every 45 minutes. See the expression and examples.","explanation":"The expression */45 * * * * triggers at minute 0 and minute 45 of every hour.","faq":[{"q":"What is the cron for every 45 minutes?","a":"Use */45 * * * *. It runs at minute 0 and 45 of each hour."}],"keywords":["cron every 45 minutes","*/45 * * * *"]}</script>

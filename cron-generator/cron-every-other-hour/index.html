@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron every other hour?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */2 * * * in your crontab. This runs at midnight, 2 AM, 4 AM, etc."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Other Hour","description":"Run a cron every other hour (every 2 hours) with 0 */2 * * *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 */2 * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-every-other-hour","cron":"0 */2 * * *","title":"Cron Every Other Hour - Alternating Hours","h1":"Cron Every Other Hour","description":"Run a cron every other hour (every 2 hours) with 0 */2 * * *.","explanation":"The expression 0 */2 * * * runs at the top of every 2nd hour: 0:00, 2:00, 4:00, 6:00, 8:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00, 22:00.","faq":[{"q":"How do I run a cron every other hour?","a":"Use 0 */2 * * * in your crontab. This runs at midnight, 2 AM, 4 AM, etc."}],"keywords":["cron every other hour","cron alternating hours","0 */2 * * *"]}</script>

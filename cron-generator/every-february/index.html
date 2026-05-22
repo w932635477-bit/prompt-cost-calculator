@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I run a cron every February?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 1 2 * for February 1st at midnight. Change the day-of-month for other February dates."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every February","description":"Run a cron job every February 1st with 0 0 1 2 *.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 1 2 * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"every-february","cron":"0 0 1 2 *","title":"Cron Every February - Annual February Schedule","h1":"Cron Every February","description":"Run a cron job every February 1st with 0 0 1 2 *.","explanation":"The expression 0 0 1 2 * runs at midnight on February 1st every year. The month field is 2 (February).","faq":[{"q":"How do I run a cron every February?","a":"Use 0 0 1 2 * for February 1st at midnight. Change the day-of-month for other February dates."}],"keywords":["cron february","0 0 1 2 *"]}</script>

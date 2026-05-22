@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I auto-renew Let's Encrypt with cron?","acceptedAnswer":{"@type":"Answer","text":"Add: 0 0 1 * * certbot renew --quiet && systemctl reload nginx. Certbot only renews certificates that are near expiry."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron SSL Certificate Renewal","description":"Automate SSL certificate renewal with cron and Let's Encrypt. Monthly schedule for certbot auto-renewal.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 0 1 * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-ssl-renewal","cron":"0 0 1 * *","title":"Cron SSL Certificate Renewal - Let's Encrypt Auto Renew","h1":"Cron SSL Certificate Renewal","description":"Automate SSL certificate renewal with cron and Let's Encrypt. Monthly schedule for certbot auto-renewal.","explanation":"Let's Encrypt certificates expire every 90 days. Use 0 0 1 * * to attempt renewal monthly. Certbot handles the actual renewal logic and only renews when needed.","faq":[{"q":"How do I auto-renew Let's Encrypt with cron?","a":"Add: 0 0 1 * * certbot renew --quiet && systemctl reload nginx. Certbot only renews certificates that are near expiry."}],"keywords":["cron ssl renewal","cron certbot","cron letsencrypt"]}</script>

@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"How do I set up data sync with cron?","acceptedAnswer":{"@type":"Answer","text":"Use */15 * * * * rsync -avz /source/ user@remote:/dest/ for file sync, or */15 * * * * your-sync-script.sh"}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Data Sync Schedule","description":"Automate data synchronization with cron. Run */15 * * * * to sync data every 15 minutes.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: */15 * * * * /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"cron-data-sync","cron":"*/15 * * * *","title":"Cron Data Synchronization - Sync Every 15 Minutes","h1":"Cron Data Sync Schedule","description":"Automate data synchronization with cron. Run */15 * * * * to sync data every 15 minutes.","explanation":"Use */15 * * * * to run data sync operations every 15 minutes. This is a good balance between data freshness and system load.","faq":[{"q":"How do I set up data sync with cron?","a":"Use */15 * * * * rsync -avz /source/ user@remote:/dest/ for file sync, or */15 * * * * your-sync-script.sh"}],"keywords":["cron data sync","cron rsync","cron file sync"]}</script>

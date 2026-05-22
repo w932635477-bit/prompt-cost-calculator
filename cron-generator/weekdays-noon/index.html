@@ -25,6 +25,9 @@
       "mainEntity": [{"@type":"Question","name":"What cron runs at noon on weekdays?","acceptedAnswer":{"@type":"Answer","text":"Use 0 12 * * 1-5 in your crontab."}}]
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Weekdays at Noon","description":"Run a cron job weekdays at noon with 0 12 * * 1-5.","step":[{"@type":"HowToStep","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","text":"Add the line: 0 12 * * 1-5 /path/to/your/script.sh"},{"@type":"HowToStep","text":"Save and exit. Verify with crontab -l."}]}
+    </script>
   </head>
   <body>
     <script type="application/json" id="seo-data">{"slug":"weekdays-noon","cron":"0 12 * * 1-5","title":"Cron Weekdays at Noon - Midday Work Schedule","h1":"Cron Weekdays at Noon","description":"Run a cron job weekdays at noon with 0 12 * * 1-5.","explanation":"The expression 0 12 * * 1-5 runs at 12:00 PM (noon) Monday through Friday.","faq":[{"q":"What cron runs at noon on weekdays?","a":"Use 0 12 * * 1-5 in your crontab."}],"keywords":["cron weekdays noon","0 12 * * 1-5"]}</script>
