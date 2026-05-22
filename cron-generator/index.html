@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron Expression Generator & Explainer | Free Online Tool</title>
+    <meta name="description" content="Free cron expression generator and explainer. Build cron schedules visually, convert natural language to cron, preview next run times. Supports Unix, Quartz, and AWS EventBridge formats." />
+    <meta name="keywords" content="cron expression generator, crontab generator, cron job schedule, cron maker, cron expression explainer, crontab builder, cron to human readable" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cron Expression Generator & Explainer" />
+    <meta property="og:description" content="Build cron schedules visually, convert natural language to cron, preview next run times. Supports Unix, Quartz, and AWS formats. Free, no login." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/" />
+    <meta property="og:site_name" content="Cron Generator" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cron Expression Generator & Explainer" />
+    <meta name="twitter:description" content="Build cron schedules visually. Supports Unix, Quartz, AWS. Free, no login." />
+
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/" />
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Cron Expression Generator",
+      "url": "https://prompt-cost-calculator-ten.vercel.app/cron-generator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free cron expression generator and explainer. Build, explain, and convert cron expressions with support for Unix, Quartz, and AWS EventBridge formats.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a cron expression?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A cron expression is a string that defines a schedule for running tasks. Unix cron uses 5 fields: minute, hour, day of month, month, and day of week. For example, 0 9 * * 1-5 means every weekday at 9:00 AM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I run a cron job every 5 minutes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use */5 * * * * to run a command every 5 minutes. The */5 in the minute field means 'every 5th value'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Unix cron and Quartz cron?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unix cron uses 5 fields (minute, hour, day, month, weekday). Quartz cron uses 6-7 fields, adding seconds and an optional year field. Quartz also uses ? instead of * for day-of-month and day-of-week fields when one is unspecified."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/main.tsx"></script>
+  </body>
+</html>
