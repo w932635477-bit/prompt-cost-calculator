@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron for Database Backup - Daily Backup Schedule</title>
+    <meta name="description" content="Schedule daily database backups with cron. Expression 0 2 * * * runs at 2 AM daily for automated MySQL, PostgreSQL, MongoDB backups." />
+    <meta name="keywords" content="cron database backup, cron mysql backup, cron postgresql backup" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-database-backup/" />
+    <meta property="og:title" content="Cron for Database Backup - Daily Backup Schedule" />
+    <meta property="og:description" content="Schedule daily database backups with cron. Expression 0 2 * * * runs at 2 AM daily for automated MySQL, PostgreSQL, MongoDB backups." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-database-backup/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron for Database Backup - Daily Backup Schedule" />
+    <meta name="twitter:description" content="Schedule daily database backups with cron. Expression 0 2 * * * runs at 2 AM daily for automated MySQL, PostgreSQL, MongoDB backups." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"What cron should I use for database backups?","acceptedAnswer":{"@type":"Answer","text":"0 2 * * * runs daily at 2 AM. For hourly backups, use 0 * * * *. For weekly, use 0 2 * * 0."}},{"@type":"Question","name":"How do I add date to backup filename in cron?","acceptedAnswer":{"@type":"Answer","text":"Use $(date +\\%F) in your command. The percent sign must be escaped with backslash in crontab."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"cron-database-backup","cron":"0 2 * * *","title":"Cron for Database Backup - Daily Backup Schedule","h1":"Cron Database Backup Schedule","description":"Schedule daily database backups with cron. Expression 0 2 * * * runs at 2 AM daily for automated MySQL, PostgreSQL, MongoDB backups.","explanation":"Use 0 2 * * * to run database backups at 2 AM daily. This ensures backups happen during low-traffic hours. Example: 0 2 * * * mysqldump -u root mydb > /backup/mydb_$(date +%F).sql","faq":[{"q":"What cron should I use for database backups?","a":"0 2 * * * runs daily at 2 AM. For hourly backups, use 0 * * * *. For weekly, use 0 2 * * 0."},{"q":"How do I add date to backup filename in cron?","a":"Use $(date +\\%F) in your command. The percent sign must be escaped with backslash in crontab."}],"keywords":["cron database backup","cron mysql backup","cron postgresql backup"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

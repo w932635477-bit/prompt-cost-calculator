@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron Environment Variables - PATH, SHELL, MAILTO</title>
+    <meta name="description" content="Understand cron environment variables. Set PATH, SHELL, MAILTO in your crontab for proper execution." />
+    <meta name="keywords" content="cron environment variables, cron PATH, cron MAILTO" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-environment-variables/" />
+    <meta property="og:title" content="Cron Environment Variables - PATH, SHELL, MAILTO" />
+    <meta property="og:description" content="Understand cron environment variables. Set PATH, SHELL, MAILTO in your crontab for proper execution." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-environment-variables/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron Environment Variables - PATH, SHELL, MAILTO" />
+    <meta name="twitter:description" content="Understand cron environment variables. Set PATH, SHELL, MAILTO in your crontab for proper execution." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Why does my cron job work manually but fails in crontab?","acceptedAnswer":{"@type":"Answer","text":"Cron uses a minimal PATH. Add PATH=/usr/local/bin:/usr/bin:/bin at the top of your crontab, or use full paths to all commands."}},{"@type":"Question","name":"How do I stop cron from sending emails?","acceptedAnswer":{"@type":"Answer","text":"Add MAILTO=\"\" at the top of your crontab, or redirect output: command >/dev/null 2>&1"}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"cron-environment-variables","cron":"0 0 * * *","title":"Cron Environment Variables - PATH, SHELL, MAILTO","h1":"Cron Environment Variables","description":"Understand cron environment variables. Set PATH, SHELL, MAILTO in your crontab for proper execution.","explanation":"Cron runs with a minimal environment. Set PATH at the top of your crontab if commands are not found. Use MAILTO to redirect output emails. Use SHELL to change the shell.","faq":[{"q":"Why does my cron job work manually but fails in crontab?","a":"Cron uses a minimal PATH. Add PATH=/usr/local/bin:/usr/bin:/bin at the top of your crontab, or use full paths to all commands."},{"q":"How do I stop cron from sending emails?","a":"Add MAILTO=\"\" at the top of your crontab, or redirect output: command >/dev/null 2>&1"}],"keywords":["cron environment variables","cron PATH","cron MAILTO"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

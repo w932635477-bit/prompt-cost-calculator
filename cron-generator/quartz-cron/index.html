@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quartz Cron Expressions - 7 Field Syntax</title>
+    <meta name="description" content="Learn Quartz Scheduler cron syntax. 7-field format with seconds. Used in Java, Spring, and many enterprise schedulers." />
+    <meta name="keywords" content="quartz cron, quartz scheduler cron, java cron expression" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/quartz-cron/" />
+    <meta property="og:title" content="Quartz Cron Expressions - 7 Field Syntax" />
+    <meta property="og:description" content="Learn Quartz Scheduler cron syntax. 7-field format with seconds. Used in Java, Spring, and many enterprise schedulers." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/quartz-cron/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Quartz Cron Expressions - 7 Field Syntax" />
+    <meta name="twitter:description" content="Learn Quartz Scheduler cron syntax. 7-field format with seconds. Used in Java, Spring, and many enterprise schedulers." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How does Quartz cron differ from Unix cron?","acceptedAnswer":{"@type":"Answer","text":"Quartz has 7 fields (adds seconds at the start and year at the end), supports L/W modifiers, and uses ? instead of * in conflicting day fields."}},{"@type":"Question","name":"How do I run every 5 minutes in Quartz?","acceptedAnswer":{"@type":"Answer","text":"Use 0 */5 * * * ? in Quartz. The first field is seconds (0), then */5 in minutes, and ? in day-of-week."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"quartz-cron","cron":"0 * * ? * *","title":"Quartz Cron Expressions - 7 Field Syntax","h1":"Quartz Cron Expressions","description":"Learn Quartz Scheduler cron syntax. 7-field format with seconds. Used in Java, Spring, and many enterprise schedulers.","explanation":"Quartz cron uses 7 fields: Seconds Minutes Hours Day-of-month Month Day-of-week Year. Key differences: starts with seconds, supports L (last) and W (weekday) modifiers, uses ? for \"no specific value\".","faq":[{"q":"How does Quartz cron differ from Unix cron?","a":"Quartz has 7 fields (adds seconds at the start and year at the end), supports L/W modifiers, and uses ? instead of * in conflicting day fields."},{"q":"How do I run every 5 minutes in Quartz?","a":"Use 0 */5 * * * ? in Quartz. The first field is seconds (0), then */5 in minutes, and ? in day-of-week."}],"keywords":["quartz cron","quartz scheduler cron","java cron expression"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

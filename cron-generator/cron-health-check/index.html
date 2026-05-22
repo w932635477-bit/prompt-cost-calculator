@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron Health Check - Monitor Every 5 Minutes</title>
+    <meta name="description" content="Set up server health checks with cron. Run */5 * * * * to monitor uptime, disk space, and service status." />
+    <meta name="keywords" content="cron health check, cron monitoring, cron server monitoring" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-health-check/" />
+    <meta property="og:title" content="Cron Health Check - Monitor Every 5 Minutes" />
+    <meta property="og:description" content="Set up server health checks with cron. Run */5 * * * * to monitor uptime, disk space, and service status." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-health-check/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron Health Check - Monitor Every 5 Minutes" />
+    <meta name="twitter:description" content="Set up server health checks with cron. Run */5 * * * * to monitor uptime, disk space, and service status." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I set up a cron health check?","acceptedAnswer":{"@type":"Answer","text":"Use */5 * * * * curl -f http://localhost:8080/health || echo \"Service down\" | mail -s \"Alert\" admin@example.com"}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"cron-health-check","cron":"*/5 * * * *","title":"Cron Health Check - Monitor Every 5 Minutes","h1":"Cron Health Check Schedule","description":"Set up server health checks with cron. Run */5 * * * * to monitor uptime, disk space, and service status.","explanation":"Use */5 * * * * to run health checks every 5 minutes. The script can check HTTP endpoints, disk space, memory usage, and service status.","faq":[{"q":"How do I set up a cron health check?","a":"Use */5 * * * * curl -f http://localhost:8080/health || echo \"Service down\" | mail -s \"Alert\" admin@example.com"}],"keywords":["cron health check","cron monitoring","cron server monitoring"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

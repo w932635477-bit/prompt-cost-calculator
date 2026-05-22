@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron Last Day of Month - Month End Schedule</title>
+    <meta name="description" content="Run a cron job on the last day of every month with 0 0 28-31 * *." />
+    <meta name="keywords" content="cron last day of month, cron month end" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/last-day-of-month/" />
+    <meta property="og:title" content="Cron Last Day of Month - Month End Schedule" />
+    <meta property="og:description" content="Run a cron job on the last day of every month with 0 0 28-31 * *." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/last-day-of-month/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron Last Day of Month - Month End Schedule" />
+    <meta name="twitter:description" content="Run a cron job on the last day of every month with 0 0 28-31 * *." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I run a cron on the last day of the month?","acceptedAnswer":{"@type":"Answer","text":"Use 0 0 28-31 * * and add date checking in your script: if [ \"$(date +%d -d tomorrow)\" = \"01\" ]; then your_command; fi"}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"last-day-of-month","cron":"0 0 28-31 * *","title":"Cron Last Day of Month - Month End Schedule","h1":"Cron Last Day of Month","description":"Run a cron job on the last day of every month with 0 0 28-31 * *.","explanation":"The expression 0 0 28-31 * * runs at midnight on days 28-31. Add logic in your script to verify it is actually the last day.","faq":[{"q":"How do I run a cron on the last day of the month?","a":"Use 0 0 28-31 * * and add date checking in your script: if [ \"$(date +%d -d tomorrow)\" = \"01\" ]; then your_command; fi"}],"keywords":["cron last day of month","cron month end"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

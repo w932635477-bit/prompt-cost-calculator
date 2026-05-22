@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWS EventBridge Cron Expressions - Complete Guide</title>
+    <meta name="description" content="Learn AWS EventBridge cron syntax. Different from Unix cron: uses cron() or rate() format with 6 fields." />
+    <meta name="keywords" content="aws eventbridge cron, aws cron expression, aws lambda schedule" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/aws-eventbridge-cron/" />
+    <meta property="og:title" content="AWS EventBridge Cron Expressions - Complete Guide" />
+    <meta property="og:description" content="Learn AWS EventBridge cron syntax. Different from Unix cron: uses cron() or rate() format with 6 fields." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/aws-eventbridge-cron/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AWS EventBridge Cron Expressions - Complete Guide" />
+    <meta name="twitter:description" content="Learn AWS EventBridge cron syntax. Different from Unix cron: uses cron() or rate() format with 6 fields." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How does AWS EventBridge cron differ from Unix cron?","acceptedAnswer":{"@type":"Answer","text":"AWS uses 6 fields (adds Year), requires ? instead of * in day fields when the other day field is specified, and wraps expressions in cron() or rate()."}},{"@type":"Question","name":"How do I run every 5 minutes in AWS EventBridge?","acceptedAnswer":{"@type":"Answer","text":"Use rate(5 minutes) or cron(0/5 * ? * * *). The rate() syntax is simpler for fixed intervals."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"aws-eventbridge-cron","cron":"cron(* * * * *)","title":"AWS EventBridge Cron Expressions - Complete Guide","h1":"AWS EventBridge Cron Expressions","description":"Learn AWS EventBridge cron syntax. Different from Unix cron: uses cron() or rate() format with 6 fields.","explanation":"AWS EventBridge uses a different cron format: cron(Minutes Hours Day-of-month Month Day-of-week Year). It requires a 6th field for year and uses ? for \"any\" in day fields. Example: cron(0 9 ? * MON-FRI *) for weekdays at 9 AM.","faq":[{"q":"How does AWS EventBridge cron differ from Unix cron?","a":"AWS uses 6 fields (adds Year), requires ? instead of * in day fields when the other day field is specified, and wraps expressions in cron() or rate()."},{"q":"How do I run every 5 minutes in AWS EventBridge?","a":"Use rate(5 minutes) or cron(0/5 * ? * * *). The rate() syntax is simpler for fixed intervals."}],"keywords":["aws eventbridge cron","aws cron expression","aws lambda schedule"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

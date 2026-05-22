@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron During Business Hours - 9 AM to 5 PM Weekdays</title>
+    <meta name="description" content="Run cron only during business hours (9 AM-5 PM, Mon-Fri) with 0 9-17 * * 1-5." />
+    <meta name="keywords" content="cron business hours, cron 9 to 5, cron work hours" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-business-hours/" />
+    <meta property="og:title" content="Cron During Business Hours - 9 AM to 5 PM Weekdays" />
+    <meta property="og:description" content="Run cron only during business hours (9 AM-5 PM, Mon-Fri) with 0 9-17 * * 1-5." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-business-hours/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron During Business Hours - 9 AM to 5 PM Weekdays" />
+    <meta name="twitter:description" content="Run cron only during business hours (9 AM-5 PM, Mon-Fri) with 0 9-17 * * 1-5." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I run a cron only during business hours?","acceptedAnswer":{"@type":"Answer","text":"Use 0 9-17 * * 1-5 in your crontab. This runs at 9, 10, 11, 12, 13, 14, 15, 16, and 17 (9 AM - 5 PM) on weekdays."}},{"@type":"Question","name":"Can I run every 30 minutes during business hours?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use */30 9-17 * * 1-5 to run every 30 minutes from 9 AM to 5 PM on weekdays."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"cron-business-hours","cron":"0 9-17 * * 1-5","title":"Cron During Business Hours - 9 AM to 5 PM Weekdays","h1":"Cron During Business Hours","description":"Run cron only during business hours (9 AM-5 PM, Mon-Fri) with 0 9-17 * * 1-5.","explanation":"The expression 0 9-17 * * 1-5 combines a range (9-17) in the hour field with a range (1-5) in the day-of-week field. It triggers at the top of each hour from 9 AM to 5 PM, Monday through Friday.","faq":[{"q":"How do I run a cron only during business hours?","a":"Use 0 9-17 * * 1-5 in your crontab. This runs at 9, 10, 11, 12, 13, 14, 15, 16, and 17 (9 AM - 5 PM) on weekdays."},{"q":"Can I run every 30 minutes during business hours?","a":"Yes. Use */30 9-17 * * 1-5 to run every 30 minutes from 9 AM to 5 PM on weekdays."}],"keywords":["cron business hours","cron 9 to 5","cron work hours"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

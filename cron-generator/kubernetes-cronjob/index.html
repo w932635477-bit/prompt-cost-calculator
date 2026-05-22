@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kubernetes CronJob Schedule - K8s Cron Expressions</title>
+    <meta name="description" content="Create Kubernetes CronJobs with cron expressions. Schedule containers to run on a time-based schedule." />
+    <meta name="keywords" content="kubernetes cronjob, k8s cronjob, kubernetes cron schedule" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/kubernetes-cronjob/" />
+    <meta property="og:title" content="Kubernetes CronJob Schedule - K8s Cron Expressions" />
+    <meta property="og:description" content="Create Kubernetes CronJobs with cron expressions. Schedule containers to run on a time-based schedule." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/kubernetes-cronjob/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Kubernetes CronJob Schedule - K8s Cron Expressions" />
+    <meta name="twitter:description" content="Create Kubernetes CronJobs with cron expressions. Schedule containers to run on a time-based schedule." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I create a CronJob in Kubernetes?","acceptedAnswer":{"@type":"Answer","text":"Define a CronJob resource with a schedule field using cron syntax. Example: schedule: \"0 2 * * *\" runs daily at 2 AM."}},{"@type":"Question","name":"What happens if a CronJob runs too long?","acceptedAnswer":{"@type":"Answer","text":"Set activeDeadlineSeconds to limit run time. Use concurrencyPolicy: Forbid to prevent overlapping runs."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"kubernetes-cronjob","cron":"0 * * * *","title":"Kubernetes CronJob Schedule - K8s Cron Expressions","h1":"Kubernetes CronJob Schedule","description":"Create Kubernetes CronJobs with cron expressions. Schedule containers to run on a time-based schedule.","explanation":"Kubernetes CronJobs use standard Unix cron format in the schedule field. Example: schedule: \"0 * * * *\" creates a job that runs every hour. K8s adds features like concurrencyPolicy, startingDeadlineSeconds, and successfulJobsHistoryLimit.","faq":[{"q":"How do I create a CronJob in Kubernetes?","a":"Define a CronJob resource with a schedule field using cron syntax. Example: schedule: \"0 2 * * *\" runs daily at 2 AM."},{"q":"What happens if a CronJob runs too long?","a":"Set activeDeadlineSeconds to limit run time. Use concurrencyPolicy: Forbid to prevent overlapping runs."}],"keywords":["kubernetes cronjob","k8s cronjob","kubernetes cron schedule"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

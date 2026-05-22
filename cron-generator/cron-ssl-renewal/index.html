@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron SSL Certificate Renewal - Let's Encrypt Auto Renew</title>
+    <meta name="description" content="Automate SSL certificate renewal with cron and Let's Encrypt. Monthly schedule for certbot auto-renewal." />
+    <meta name="keywords" content="cron ssl renewal, cron certbot, cron letsencrypt" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-ssl-renewal/" />
+    <meta property="og:title" content="Cron SSL Certificate Renewal - Let's Encrypt Auto Renew" />
+    <meta property="og:description" content="Automate SSL certificate renewal with cron and Let's Encrypt. Monthly schedule for certbot auto-renewal." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-ssl-renewal/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron SSL Certificate Renewal - Let's Encrypt Auto Renew" />
+    <meta name="twitter:description" content="Automate SSL certificate renewal with cron and Let's Encrypt. Monthly schedule for certbot auto-renewal." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I auto-renew Let's Encrypt with cron?","acceptedAnswer":{"@type":"Answer","text":"Add: 0 0 1 * * certbot renew --quiet && systemctl reload nginx. Certbot only renews certificates that are near expiry."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"cron-ssl-renewal","cron":"0 0 1 * *","title":"Cron SSL Certificate Renewal - Let's Encrypt Auto Renew","h1":"Cron SSL Certificate Renewal","description":"Automate SSL certificate renewal with cron and Let's Encrypt. Monthly schedule for certbot auto-renewal.","explanation":"Let's Encrypt certificates expire every 90 days. Use 0 0 1 * * to attempt renewal monthly. Certbot handles the actual renewal logic and only renews when needed.","faq":[{"q":"How do I auto-renew Let's Encrypt with cron?","a":"Add: 0 0 1 * * certbot renew --quiet && systemctl reload nginx. Certbot only renews certificates that are near expiry."}],"keywords":["cron ssl renewal","cron certbot","cron letsencrypt"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>

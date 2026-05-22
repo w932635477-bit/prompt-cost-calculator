@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron Timezone - Which TZ Does Cron Use?</title>
+    <meta name="description" content="Understand which timezone cron uses and how to change it. Set TZ variable or use CRON_TZ in your crontab." />
+    <meta name="keywords" content="cron timezone, cron TZ, CRON_TZ" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-timezone/" />
+    <meta property="og:title" content="Cron Timezone - Which TZ Does Cron Use?" />
+    <meta property="og:description" content="Understand which timezone cron uses and how to change it. Set TZ variable or use CRON_TZ in your crontab." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/cron-generator/cron-timezone/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron Timezone - Which TZ Does Cron Use?" />
+    <meta name="twitter:description" content="Understand which timezone cron uses and how to change it. Set TZ variable or use CRON_TZ in your crontab." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"What timezone does cron use?","acceptedAnswer":{"@type":"Answer","text":"Cron uses the system timezone. Check with timedatectl on systemd systems. Set CRON_TZ in your crontab to override."}},{"@type":"Question","name":"How do I run a cron in UTC?","acceptedAnswer":{"@type":"Answer","text":"Add CRON_TZ=UTC at the top of your crontab, or prefix specific jobs: 0 0 * * * TZ=UTC command"}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"cron-timezone","cron":"0 0 * * *","title":"Cron Timezone - Which TZ Does Cron Use?","h1":"Cron Timezone Settings","description":"Understand which timezone cron uses and how to change it. Set TZ variable or use CRON_TZ in your crontab.","explanation":"Cron uses the system timezone by default. You can set CRON_TZ=America/New_York at the top of your crontab, or set TZ per job: CRON_TZ=UTC before the job line.","faq":[{"q":"What timezone does cron use?","a":"Cron uses the system timezone. Check with timedatectl on systemd systems. Set CRON_TZ in your crontab to override."},{"q":"How do I run a cron in UTC?","a":"Add CRON_TZ=UTC at the top of your crontab, or prefix specific jobs: 0 0 * * * TZ=UTC command"}],"keywords":["cron timezone","cron TZ","CRON_TZ"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/long-tail-main.tsx"></script>
+  </body>
+</html>
