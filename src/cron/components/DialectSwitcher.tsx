@@ -13,15 +13,15 @@ const DIALECTS: { value: Dialect; label: string; description: string }[] = [
 
 export function DialectSwitcher({ value, onChange }: DialectSwitcherProps) {
   return (
-    <div className="flex gap-1 p-1 bg-gray-100 rounded-xl">
+    <div className="flex gap-0.5 p-1 bg-slate-100 rounded-lg">
       {DIALECTS.map(d => (
         <button
           key={d.value}
           onClick={() => onChange(d.value)}
-          className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-all ${
+          className={`px-3.5 py-[7px] text-[12px] font-semibold rounded-md transition-all min-h-[32px] ${
             value === d.value
-              ? 'bg-white text-gray-900 shadow-sm'
-              : 'text-gray-500 hover:text-gray-700'
+              ? 'bg-white text-slate-900 shadow-[0_1px_3px_rgba(0,0,0,0.08)]'
+              : 'text-slate-500 hover:text-slate-700'
           }`}
           title={d.description}
         >

@@ -52,91 +52,95 @@ export default function CronGeneratorApp() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
-      <div className="max-w-[980px] mx-auto px-4 py-8 sm:py-12">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
+      <div className="max-w-[920px] mx-auto px-5 sm:px-6 py-10 sm:py-16">
         {/* Header */}
-        <header className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
+        <header className="text-center mb-10">
+          <h1 className="text-[28px] sm:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
             Cron Expression Generator
           </h1>
-          <p className="text-base text-gray-500 max-w-xl mx-auto">
+          <p className="mt-2.5 text-[15px] text-slate-500 max-w-lg mx-auto leading-relaxed">
             Build, explain, and convert cron expressions. Supports Unix, Quartz, and AWS EventBridge.
           </p>
           <a
             href="/"
-            className="inline-block mt-3 text-sm text-blue-600 hover:text-blue-700 transition-colors"
+            className="inline-block mt-3 text-[13px] text-blue-600 hover:text-blue-700 font-medium transition-colors"
           >
             AI Cost Calculator
           </a>
         </header>
 
         {/* Main Tool Card */}
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-          {/* Expression Display */}
-          <div className="px-6 py-5 border-b border-gray-100 bg-gray-50/50">
+        <div className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)] overflow-hidden">
+          {/* Expression Display — the hero */}
+          <div className="px-6 sm:px-8 py-6 sm:py-7 border-b border-slate-100 bg-gradient-to-b from-slate-50/80 to-white">
             <div className="flex items-center justify-between gap-4 flex-wrap">
               <div className="flex-1 min-w-0">
-                <div className="text-xs text-gray-400 mb-1">Generated Expression</div>
+                <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Expression</div>
                 <div className="flex items-center gap-3">
-                  <code className={`text-2xl sm:text-3xl font-mono font-bold tracking-wider ${
-                    isValid ? 'text-gray-900' : 'text-red-400'
-                  }`}>
+                  <code className={`text-[28px] sm:text-[36px] font-bold tracking-[0.04em] leading-none ${
+                    isValid ? 'text-slate-900' : 'text-red-400'
+                  }`} style={{ fontFamily: "'JetBrains Mono', 'SF Mono', ui-monospace, monospace" }}>
                     {displayExpression}
                   </code>
                 </div>
               </div>
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex items-center gap-2.5 shrink-0">
                 <DialectSwitcher value={dialect} onChange={setDialect} />
                 {isValid && <CopyButton text={displayExpression} />}
               </div>
             </div>
             {parsed && (
-              <p className="mt-2 text-sm text-gray-600">{parsed.humanReadable}</p>
+              <p className="mt-3 text-[13px] text-slate-500 font-medium">{parsed.humanReadable}</p>
             )}
             {!isValid && unixExpression && (
-              <p className="mt-2 text-sm text-red-500">Invalid cron expression</p>
+              <p className="mt-3 text-[13px] text-red-500 font-medium">Invalid cron expression</p>
             )}
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex border-b border-gray-100">
+          <div className="flex border-b border-slate-100 bg-white">
             <button
               onClick={() => setTab('builder')}
-              className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+              className={`flex-1 px-4 py-3.5 text-[13px] font-semibold tracking-wide transition-colors relative ${
                 tab === 'builder'
-                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/30'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'text-blue-600'
+                  : 'text-slate-400 hover:text-slate-600'
               }`}
             >
               Builder
+              {tab === 'builder' && (
+                <span className="absolute bottom-0 left-1/4 right-1/4 h-[2px] bg-blue-600 rounded-full" />
+              )}
             </button>
             <button
               onClick={() => setTab('explainer')}
-              className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+              className={`flex-1 px-4 py-3.5 text-[13px] font-semibold tracking-wide transition-colors relative ${
                 tab === 'explainer'
-                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/30'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'text-blue-600'
+                  : 'text-slate-400 hover:text-slate-600'
               }`}
             >
               Explainer
+              {tab === 'explainer' && (
+                <span className="absolute bottom-0 left-1/4 right-1/4 h-[2px] bg-blue-600 rounded-full" />
+              )}
             </button>
           </div>
 
           {/* Tab Content */}
-          <div className="p-6">
+          <div className="p-6 sm:p-8">
             {tab === 'builder' && (
-              <div className="space-y-6">
-                {/* Natural Language Input */}
+              <div className="space-y-7">
                 <div>
-                  <h2 className="text-sm font-medium text-gray-700 mb-2">Natural Language</h2>
+                  <h2 className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider mb-3">Natural Language</h2>
                   <NaturalInput onCronGenerated={handleCronGenerated} />
                 </div>
 
-                <hr className="border-gray-100" />
+                <div className="border-t border-slate-100" />
 
-                {/* Visual Builder */}
                 <div>
-                  <h2 className="text-sm font-medium text-gray-700 mb-3">Visual Builder</h2>
+                  <h2 className="text-[13px] font-semibold text-slate-500 uppercase tracking-wider mb-4">Visual Builder</h2>
                   <CronBuilder fields={fields} onChange={setFields} />
                 </div>
               </div>
@@ -149,28 +153,28 @@ export default function CronGeneratorApp() {
 
           {/* Next Runs */}
           {parsed && (
-            <div className="px-6 py-5 border-t border-gray-100 bg-gray-50/30">
+            <div className="px-6 sm:px-8 py-5 border-t border-slate-100 bg-slate-50/40">
               <NextRuns runs={parsed.nextRuns} />
             </div>
           )}
         </div>
 
         {/* Common Patterns Reference */}
-        <div className="mt-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Common Cron Patterns</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="mt-12">
+          <h2 className="text-[17px] font-semibold text-slate-900 mb-5">Common Cron Patterns</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
             {ALL_PATTERNS.slice(0, 18).map((p, i) => (
               <button
                 key={i}
                 onClick={() => handleCronGenerated(p.cron)}
-                className="flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-xl hover:border-blue-300 hover:shadow-sm transition-all text-left group"
+                className="flex items-center justify-between px-4 py-3 bg-white border border-slate-200/80 rounded-xl hover:border-blue-300 hover:shadow-[0_2px_8px_rgba(59,130,246,0.08)] transition-all text-left group"
               >
                 <div className="min-w-0">
-                  <div className="text-sm text-gray-900 group-hover:text-blue-700 transition-colors truncate">{p.description}</div>
-                  <code className="text-xs font-mono text-gray-400">{p.cron}</code>
+                  <div className="text-[13px] font-medium text-slate-700 group-hover:text-blue-700 transition-colors truncate">{p.description}</div>
+                  <code className="text-[11px] text-slate-400" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{p.cron}</code>
                 </div>
-                <svg className="w-4 h-4 text-gray-300 group-hover:text-blue-400 shrink-0 ml-2 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg className="w-3.5 h-3.5 text-slate-300 group-hover:text-blue-400 shrink-0 ml-2 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             ))}
@@ -178,9 +182,9 @@ export default function CronGeneratorApp() {
         </div>
 
         {/* FAQ */}
-        <div className="mt-12">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <div className="space-y-3">
+        <div className="mt-14">
+          <h2 className="text-[17px] font-semibold text-slate-900 mb-5">Frequently Asked Questions</h2>
+          <div className="space-y-2.5">
             {[
               {
                 q: 'What is a cron expression?',
@@ -203,14 +207,14 @@ export default function CronGeneratorApp() {
                 a: 'Yes, completely free. No login required. All processing happens in your browser. No data is sent to any server.',
               },
             ].map((faq, i) => (
-              <details key={i} className="group bg-white border border-gray-200 rounded-xl overflow-hidden">
-                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer select-none hover:bg-gray-50 transition-colors">
-                  <span className="text-sm font-medium text-gray-900">{faq.q}</span>
-                  <svg className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <details key={i} className="group bg-white border border-slate-200/80 rounded-xl overflow-hidden hover:border-slate-300 transition-colors">
+                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer select-none hover:bg-slate-50/50 transition-colors">
+                  <span className="text-[14px] font-medium text-slate-800">{faq.q}</span>
+                  <svg className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200 shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">
+                <div className="px-5 pb-4 text-[13px] text-slate-600 leading-relaxed">
                   {faq.a}
                 </div>
               </details>
@@ -219,10 +223,10 @@ export default function CronGeneratorApp() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-xs text-gray-400">
+        <footer className="mt-16 text-center text-[12px] text-slate-400 pb-8">
           <p>Free cron expression generator. No login, no data collection.</p>
-          <p className="mt-1">
-            <a href="/" className="text-blue-500 hover:text-blue-600 transition-colors">AI Prompt Cost Calculator</a>
+          <p className="mt-1.5">
+            <a href="/" className="text-blue-500 hover:text-blue-600 font-medium transition-colors">AI Prompt Cost Calculator</a>
           </p>
         </footer>
       </div>

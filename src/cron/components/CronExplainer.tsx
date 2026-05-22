@@ -32,30 +32,31 @@ export function CronExplainer({ onExpressionParsed }: CronExplainerProps) {
   }
 
   return (
-    <div className="space-y-3">
-      <div className="flex gap-2">
+    <div className="space-y-4">
+      <div className="flex gap-2.5">
         <input
           type="text"
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Paste any cron expression (e.g., 0 9 * * 1-5)"
-          className="flex-1 px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-mono text-gray-900 placeholder-gray-400 placeholder:font-sans focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+          className="flex-1 px-4 py-3 bg-white border border-slate-200 rounded-xl text-[14px] text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+          style={{ fontFamily: "'JetBrains Mono', monospace" }}
         />
         <button
           onClick={handleExplain}
-          className="px-4 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors"
+          className="px-5 py-3 bg-slate-900 text-white text-[13px] font-semibold rounded-xl hover:bg-slate-800 active:scale-[0.97] transition-all shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
         >
           Explain
         </button>
       </div>
       {explanation && (
-        <div className="px-4 py-3 bg-blue-50 border border-blue-100 rounded-xl">
-          <p className="text-sm text-blue-900">{explanation}</p>
+        <div className="px-4 py-3.5 bg-blue-50 border border-blue-100 rounded-xl">
+          <p className="text-[14px] text-blue-900 font-medium">{explanation}</p>
         </div>
       )}
       {error && (
-        <p className="text-xs text-red-500">{error}</p>
+        <p className="text-[12px] text-red-500 font-medium">{error}</p>
       )}
     </div>
   )
