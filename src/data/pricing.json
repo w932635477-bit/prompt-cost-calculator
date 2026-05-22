@@ -1,0 +1,105 @@
+{
+  "lastUpdated": "2026-05-22",
+  "models": [
+    {
+      "id": "gpt-4o",
+      "provider": "OpenAI",
+      "name": "GPT-4o",
+      "inputPricePer1M": 2.50,
+      "outputPricePer1M": 10.00,
+      "contextWindow": 128000,
+      "tokenizerType": "tiktoken",
+      "tokenizerModel": "gpt-4o"
+    },
+    {
+      "id": "gpt-4o-mini",
+      "provider": "OpenAI",
+      "name": "GPT-4o Mini",
+      "inputPricePer1M": 0.15,
+      "outputPricePer1M": 0.60,
+      "contextWindow": 128000,
+      "tokenizerType": "tiktoken",
+      "tokenizerModel": "gpt-4o-mini"
+    },
+    {
+      "id": "o3",
+      "provider": "OpenAI",
+      "name": "o3",
+      "inputPricePer1M": 2.00,
+      "outputPricePer1M": 8.00,
+      "contextWindow": 200000,
+      "tokenizerType": "tiktoken",
+      "tokenizerModel": "o3"
+    },
+    {
+      "id": "o4-mini",
+      "provider": "OpenAI",
+      "name": "o4-mini",
+      "inputPricePer1M": 1.10,
+      "outputPricePer1M": 4.40,
+      "contextWindow": 200000,
+      "tokenizerType": "tiktoken",
+      "tokenizerModel": "o4-mini"
+    },
+    {
+      "id": "claude-sonnet-4-20250514",
+      "provider": "Anthropic",
+      "name": "Claude Sonnet 4",
+      "inputPricePer1M": 3.00,
+      "outputPricePer1M": 15.00,
+      "contextWindow": 200000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null
+    },
+    {
+      "id": "claude-haiku-4-20250514",
+      "provider": "Anthropic",
+      "name": "Claude Haiku 4",
+      "inputPricePer1M": 0.80,
+      "outputPricePer1M": 4.00,
+      "contextWindow": 200000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null
+    },
+    {
+      "id": "gemini-2.5-pro",
+      "provider": "Google",
+      "name": "Gemini 2.5 Pro",
+      "inputPricePer1M": 1.25,
+      "outputPricePer1M": 10.00,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null
+    },
+    {
+      "id": "gemini-2.5-flash",
+      "provider": "Google",
+      "name": "Gemini 2.5 Flash",
+      "inputPricePer1M": 0.15,
+      "outputPricePer1M": 0.60,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null
+    },
+    {
+      "id": "llama-4-maverick",
+      "provider": "Groq",
+      "name": "Llama 4 Maverick",
+      "inputPricePer1M": 0.20,
+      "outputPricePer1M": 0.60,
+      "contextWindow": 128000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null
+    },
+    {
+      "id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "name": "DeepSeek R1",
+      "inputPricePer1M": 0.55,
+      "outputPricePer1M": 2.19,
+      "contextWindow": 128000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null
+    }
+  ]
+}
