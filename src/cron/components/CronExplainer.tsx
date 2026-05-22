@@ -1,11 +1,13 @@
 import { useState, useCallback } from 'react'
 import { explainCron, isValidCron } from '../lib/cron-adapter'
+import { useT } from '../i18n'
 
 interface CronExplainerProps {
   onExpressionParsed: (expression: string) => void
 }
 
 export function CronExplainer({ onExpressionParsed }: CronExplainerProps) {
+  const t = useT()
   const [input, setInput] = useState('')
   const [explanation, setExplanation] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -19,10 +21,10 @@ export function CronExplainer({ onExpressionParsed }: CronExplainerProps) {
       setError(null)
       onExpressionParsed(expr)
     } else {
-      setError('Invalid cron expression. Use 5 fields: minute hour day month weekday')
+      setError(t.explainer.error)
       setExplanation(null)
     }
-  }, [input, onExpressionParsed])
+  }, [input, onExpressionParsed, t])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -39,7 +41,7 @@ export function CronExplainer({ onExpressionParsed }: CronExplainerProps) {
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Paste any cron expression (e.g., 0 9 * * 1-5)"
+          placeholder={t.explainer.placeholder}
           className="flex-1 px-4 py-3 bg-white border border-slate-200 rounded-xl text-[14px] text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
           style={{ fontFamily: "'JetBrains Mono', monospace" }}
         />
@@ -47,7 +49,7 @@ export function CronExplainer({ onExpressionParsed }: CronExplainerProps) {
           onClick={handleExplain}
           className="px-5 py-3 bg-slate-900 text-white text-[13px] font-semibold rounded-xl hover:bg-slate-800 active:scale-[0.97] transition-all shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
         >
-          Explain
+          {t.explainer.button}
         </button>
       </div>
       {explanation && (

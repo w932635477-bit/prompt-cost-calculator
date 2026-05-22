@@ -1,20 +1,23 @@
 import type { Dialect } from '../lib/types'
+import { useT } from '../i18n'
 
 interface DialectSwitcherProps {
   value: Dialect
   onChange: (dialect: Dialect) => void
 }
 
-const DIALECTS: { value: Dialect; label: string; description: string }[] = [
-  { value: 'unix', label: 'Unix', description: '5 fields (crontab)' },
-  { value: 'quartz', label: 'Quartz', description: '6-7 fields (Java)' },
-  { value: 'aws', label: 'AWS', description: 'EventBridge' },
-]
-
 export function DialectSwitcher({ value, onChange }: DialectSwitcherProps) {
+  const t = useT()
+
+  const dialects: { value: Dialect; label: string; description: string }[] = [
+    { value: 'unix', label: t.dialect.unix, description: t.dialect.unixDesc },
+    { value: 'quartz', label: t.dialect.quartz, description: t.dialect.quartzDesc },
+    { value: 'aws', label: t.dialect.aws, description: t.dialect.awsDesc },
+  ]
+
   return (
     <div className="flex gap-0.5 p-1 bg-slate-100 rounded-lg">
-      {DIALECTS.map(d => (
+      {dialects.map(d => (
         <button
           key={d.value}
           onClick={() => onChange(d.value)}

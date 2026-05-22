@@ -1,8 +1,11 @@
+import { useT } from '../i18n'
+
 interface NextRunsProps {
   runs: Date[]
 }
 
 export function NextRuns({ runs }: NextRunsProps) {
+  const t = useT()
   if (runs.length === 0) return null
 
   const formatDate = (date: Date) => {
@@ -23,7 +26,7 @@ export function NextRuns({ runs }: NextRunsProps) {
 
   return (
     <div className="space-y-3">
-      <h3 className="text-[12px] font-semibold text-slate-400 uppercase tracking-wider">Next 10 executions (UTC)</h3>
+      <h3 className="text-[12px] font-semibold text-slate-400 uppercase tracking-wider">{t.nextRuns.title}</h3>
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
         {runs.map((run, i) => (
           <div
