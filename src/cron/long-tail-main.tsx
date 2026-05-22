@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Analytics } from '@vercel/analytics/react'
 import '../index.css'
 import { LongTailPage } from './LongTailPage'
 import type { LongTailPage as LongTailPageData } from './seo/long-tail-data'
@@ -12,5 +13,6 @@ document.title = page.title
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <LongTailPage page={page} />
+    <Analytics />
   </StrictMode>,
 )

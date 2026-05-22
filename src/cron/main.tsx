@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Analytics } from '@vercel/analytics/react'
 import '../index.css'
 import CronGeneratorApp from './CronGeneratorApp'
 import { I18nProvider, loadLocale } from './i18n'
@@ -15,6 +16,7 @@ async function boot() {
       <I18nProvider value={{ locale: LOCALE, t: translations }}>
         <CronGeneratorApp />
       </I18nProvider>
+      <Analytics />
     </StrictMode>,
   )
 }
