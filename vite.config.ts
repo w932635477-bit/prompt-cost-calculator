@@ -43,6 +43,8 @@ export default defineConfig({
         cron: resolve(__dirname, 'cron-generator/index.html'),
         'cron-patterns': resolve(__dirname, 'cron-generator/common-patterns/index.html'),
         alternatives: resolve(__dirname, 'alternatives/index.html'),
+        'agent-safety': resolve(__dirname, 'agent-safety/index.html'),
+        'voice-pricing': resolve(__dirname, 'voice-agent-pricing/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,

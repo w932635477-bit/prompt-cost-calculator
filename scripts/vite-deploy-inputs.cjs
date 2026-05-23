@@ -31,5 +31,10 @@ module.exports = {
   'deploy-lt-circleci': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/circleci/index.html'),
   'deploy-lt-mailchimp': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/mailchimp/index.html'),
   'deploy-lt-asana': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/asana/index.html'),
-  'deploy-lt-onedrive': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/onedrive/index.html')
+  'deploy-lt-onedrive': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/onedrive/index.html'),
+  'deploy-lt-navidrome': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/navidrome/index.html'),
+  'deploy-lt-syncthing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/syncthing/index.html'),
+  'deploy-lt-vaultwarden': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/vaultwarden/index.html'),
+  'deploy-lt-docmost': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/docmost/index.html'),
+  'deploy-lt-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'deploy/obsidian/index.html')
 }

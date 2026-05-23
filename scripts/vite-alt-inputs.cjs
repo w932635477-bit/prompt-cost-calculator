@@ -37,5 +37,10 @@ module.exports = {
   'alt-lt-google-photos': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/google-photos/index.html'),
   'alt-lt-zapier': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/zapier/index.html'),
   'alt-lt-pastebin': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/pastebin/index.html'),
-  'alt-lt-bitly': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/bitly/index.html')
+  'alt-lt-bitly': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/bitly/index.html'),
+  'alt-lt-navidrome': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/navidrome/index.html'),
+  'alt-lt-syncthing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/syncthing/index.html'),
+  'alt-lt-vaultwarden': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/vaultwarden/index.html'),
+  'alt-lt-docmost': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/docmost/index.html'),
+  'alt-lt-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/obsidian/index.html')
 }

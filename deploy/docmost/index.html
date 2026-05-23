@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Docmost Wiki with Docker Compose</title>
+    <meta name="description" content="Deploy Docmost with Docker Compose. Open source collaborative wiki with real-time editing, page tree, and Notion-like blocks editor." />
+    <meta name="keywords" content="deploy docmost docker, docmost docker compose, docmost setup, self-hosted wiki docker, docmost deployment guide, docmost install" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/docmost/" />
+    <meta property="og:title" content="Deploy Docmost Wiki with Docker Compose" />
+    <meta property="og:description" content="Deploy Docmost with Docker Compose. Open source collaborative wiki with real-time editing, page tree, and Notion-like blocks editor." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/docmost/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Docmost Wiki with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Docmost with Docker Compose. Open source collaborative wiki with real-time editing, page tree, and Notion-like blocks editor." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Does Docmost need a database?","acceptedAnswer":{"@type":"Answer","text":"Yes. Docmost needs PostgreSQL and Redis. The docker-compose template below includes all three services."}},{"@type":"Question","name":"How much RAM does Docmost need?","acceptedAnswer":{"@type":"Answer","text":"Docmost itself uses ~256MB. With PostgreSQL and Redis, budget 1GB total. A $5/month VPS works fine."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Docmost Alternatives with Docker Compose","description":"Deploy Docmost with Docker Compose. Open source collaborative wiki with real-time editing, page tree, and Notion-like blocks editor.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Docmost","text":"Run docker compose up -d to deploy Docmost on port 3000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"docmost","saasName":"Docmost","title":"Deploy Docmost Wiki with Docker Compose","h1":"Deploy Docmost Self-Hosted Wiki","description":"Deploy Docmost with Docker Compose. Open source collaborative wiki with real-time editing, page tree, and Notion-like blocks editor.","keywords":["deploy docmost docker","docmost docker compose","docmost setup","self-hosted wiki docker","docmost deployment guide","docmost install"],"faq":[{"q":"Does Docmost need a database?","a":"Yes. Docmost needs PostgreSQL and Redis. The docker-compose template below includes all three services."},{"q":"How much RAM does Docmost need?","a":"Docmost itself uses ~256MB. With PostgreSQL and Redis, budget 1GB total. A $5/month VPS works fine."}],"deploys":[{"name":"Docmost","image":"docmost/docmost:latest","port":"3000:3000","volumes":[{"host":"./docmost-data","container":"/app/data"}],"env":[{"key":"APP_URL","value":"http://localhost:3000"},{"key":"APP_SECRET","value":"change-me-to-a-random-string"},{"key":"DATABASE_URL","value":"postgresql://docmost:docmost@postgres:5432/docmost"},{"key":"REDIS_URL","value":"redis://redis:6379"}],"dockerCompose":"services:\n  docmost:\n    image: docmost/docmost:latest\n    container_name: docmost\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./docmost-data:/app/data\n    environment:\n      APP_URL: http://localhost:3000\n      APP_SECRET: change-me-to-a-random-string\n      DATABASE_URL: postgresql://docmost:docmost@postgres:5432/docmost\n      REDIS_URL: redis://redis:6379","envFile":"APP_URL=http://localhost:3000\nAPP_SECRET=change-me-to-a-random-string\nDATABASE_URL=postgresql://docmost:docmost@postgres:5432/docmost\nREDIS_URL=redis://redis:6379","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"1GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

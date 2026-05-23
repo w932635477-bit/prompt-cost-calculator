@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Agent Safety Checklist - 18 Security Checks for Safe AI Agents</title>
+    <meta name="description" content="Free interactive checklist for building safe AI agents. 18 security checks covering prompt injection defense, tool access control, data privacy, and supply chain security. Based on real incidents." />
+    <meta name="keywords" content="ai agent security checklist, ai agent safety, prompt injection defense, ai agent setup guide, autonomous ai agent safety, ai agent security best practices, ai agent vulnerabilities, llm agent security" />
+
+    <meta property="og:title" content="AI Agent Safety Checklist - 18 Security Checks" />
+    <meta property="og:description" content="Interactive checklist for building safe AI agents. Covers prompt injection, tool security, data privacy, and supply chain. Free, no login required." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/agent-safety/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI Agent Safety Checklist - 18 Security Checks" />
+    <meta name="twitter:description" content="Interactive checklist for building safe AI agents. Free, no login required." />
+
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/agent-safety/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Agent Safety Checklist",
+      "url": "https://prompt-cost-calculator-ten.vercel.app/agent-safety/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free interactive security checklist for building safe AI agents. 18 checks covering prompt injection, tool security, data privacy, and supply chain."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is AI agent security?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI agent security is the practice of protecting autonomous AI systems from misuse, prompt injection, data leaks, and unauthorized actions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI agents need security checks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Agents operate with elevated permissions (API keys, database access, tool execution). A compromised agent can send unauthorized emails, modify data, or leak secrets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is prompt injection in AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompt injection is when malicious instructions hidden in user input trick the agent into ignoring its system prompt and executing unintended actions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I prevent prompt injection in my AI agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Separate system and user messages, validate all inputs, filter outputs for injection patterns, and require human approval for destructive actions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many of these checks are critical?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Of the 18 checks, 8 are marked critical. These address unrestricted tool access, unvalidated parameters, missing iteration limits, and supply chain vulnerabilities."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/agent-safety/main.tsx"></script>
+  </body>
+</html>

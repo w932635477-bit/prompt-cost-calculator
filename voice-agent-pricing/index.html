@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice AI Pricing Comparison - TTS API Cost Calculator | OpenAI, ElevenLabs, Deepgram</title>
+    <meta name="description" content="Compare voice AI pricing across OpenAI TTS, ElevenLabs, Deepgram, Google Cloud TTS, Azure Speech, and Gemini TTS. Calculate monthly costs for your voice agent instantly." />
+    <meta name="keywords" content="voice ai pricing comparison, tts api pricing, elevenlabs pricing, deepgram pricing, openai tts cost, voice agent cost per minute, tts cost calculator, speech synthesis pricing" />
+
+    <meta property="og:title" content="Voice AI Pricing Comparison - TTS API Cost Calculator" />
+    <meta property="og:description" content="Compare TTS API pricing across 6 providers. Calculate monthly costs for your voice agent. Free, no login required." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/voice-agent-pricing/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Voice AI Pricing Comparison" />
+    <meta name="twitter:description" content="Compare TTS API pricing across 6 providers. Free, no login required." />
+
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/voice-agent-pricing/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Voice AI Pricing Comparison",
+      "url": "https://prompt-cost-calculator-ten.vercel.app/voice-agent-pricing/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Compare TTS (text-to-speech) API pricing across OpenAI, ElevenLabs, Deepgram, Google Cloud, Azure, and Gemini. Calculate monthly costs for your voice agent."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is voice AI pricing calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most TTS providers charge per character of input text. OpenAI charges $15 per 1M characters, ElevenLabs charges $30 per 1M characters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cheapest voice AI API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deepgram Aura at $12 per 1M characters is the cheapest production option. Gemini TTS is free during preview."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many characters is a typical conversation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A typical customer service interaction is 500-2,000 characters per response. A 5-minute conversation generates roughly 5,000-10,000 characters total."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use per-character or per-minute pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most TTS APIs use per-character pricing because it is predictable. For budgeting, assume ~150 words per minute of speech, which is ~750-900 characters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about STT (speech-to-text) costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "STT pricing is separate and typically cheaper. Deepgram charges $0.0043/min, Google charges $0.016/min, Azure charges $0.01/min. A full voice agent needs both STT and TTS."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/voice-pricing/main.tsx"></script>
+  </body>
+</html>

@@ -737,4 +737,118 @@ export const DEPLOY_PAGES: DeployPage[] = [
       ], [], '1GB'),
     ],
   },
+  // === Trending Self-Hosted Tools ===
+  {
+    slug: 'navidrome',
+    saasName: 'Navidrome',
+    title: 'Deploy Navidrome Music Server with Docker Compose',
+    h1: 'Deploy Navidrome Self-Hosted Music Server',
+    description: 'Deploy Navidrome with Docker Compose. Self-hosted music streaming server with Spotify-like UI, smart playlists, and mobile apps.',
+    keywords: ['deploy navidrome docker', 'navidrome docker compose', 'navidrome setup', 'self-hosted music server docker', 'navidrome deployment guide'],
+    faq: [
+      { q: 'How much music can Navidrome handle?', a: 'Navidrome handles libraries of 100K+ tracks easily. It uses very little RAM (~20MB) regardless of library size since it streams files directly.' },
+      { q: 'Can I use Navidrome behind a reverse proxy?', a: 'Yes. Use Caddy, Nginx, or Traefik with HTTPS. Navidrome runs on port 4533 by default.' },
+    ],
+    deploys: [
+      dc('Navidrome', 'deluan/navidrome:latest', '4533:4533', [
+        { host: './music', container: '/music' },
+        { host: './navidrome-data', container: '/data' },
+      ], [
+        { key: 'ND_SCANSCHEDULE', value: '1h' },
+        { key: 'ND_LOGLEVEL', value: 'info' },
+        { key: 'ND_SESSIONTIMEOUT', value: '24h' },
+        { key: 'ND_ENABLECOVERANIMATION', value: 'true' },
+      ], '256MB'),
+    ],
+  },
+  {
+    slug: 'syncthing',
+    saasName: 'Syncthing',
+    title: 'Deploy Syncthing File Sync with Docker Compose',
+    h1: 'Deploy Syncthing Self-Hosted File Sync',
+    description: 'Deploy Syncthing with Docker Compose. Peer-to-peer encrypted file sync across devices with no central server.',
+    keywords: ['deploy syncthing docker', 'syncthing docker compose', 'syncthing setup', 'self-hosted file sync docker', 'syncthing deployment guide'],
+    faq: [
+      { q: 'Does Syncthing work through NAT?', a: 'Yes. Syncthing uses a global discovery server and relay network to connect through NAT and firewalls. Local sync works directly on LAN.' },
+      { q: 'How do I add a sync folder?', a: 'Open the Syncthing web UI at localhost:8384, click "Add Folder", set the local path, and share it with connected devices.' },
+    ],
+    deploys: [
+      dc('Syncthing', 'syncthing/syncthing:latest', '8384:8384', [
+        { host: './syncthing-config', container: '/var/syncthing' },
+        { host: './syncthing-data', container: '/var/syncthing/data' },
+      ], [], '256MB'),
+    ],
+  },
+  {
+    slug: 'vaultwarden',
+    saasName: 'Vaultwarden',
+    title: 'Deploy Vaultwarden Password Manager with Docker Compose',
+    h1: 'Deploy Vaultwarden Self-Hosted Password Manager',
+    description: 'Deploy Vaultwarden with Docker Compose. Lightweight Bitwarden-compatible password manager with browser extensions and mobile apps.',
+    keywords: ['deploy vaultwarden docker', 'vaultwarden docker compose', 'vaultwarden setup', 'self-hosted password manager docker', 'bitwarden docker'],
+    faq: [
+      { q: 'How do I connect Bitwarden apps to Vaultwarden?', a: 'In the Bitwarden app settings, change the server URL to your Vaultwarden instance (e.g. https://vault.example.com). All official Bitwarden clients are supported.' },
+      { q: 'Does Vaultwarden need HTTPS?', a: 'Yes. Browser extensions and mobile apps require HTTPS. Use a reverse proxy like Caddy with automatic HTTPS, or Nginx with Let\'s Encrypt.' },
+    ],
+    deploys: [
+      dc('Vaultwarden', 'vaultwarden/server:latest', '8080:80', [
+        { host: './vaultwarden-data', container: '/data' },
+      ], [
+        { key: 'WEBSOCKET_ENABLED', value: 'true' },
+        { key: 'SIGNUPS_ALLOWED', value: 'true' },
+        { key: 'INVITATIONS_ALLOWED', value: 'true' },
+      ], '128MB'),
+    ],
+  },
+  // === Trending Knowledge Management ===
+  {
+    slug: 'docmost',
+    saasName: 'Docmost',
+    title: 'Deploy Docmost Wiki with Docker Compose',
+    h1: 'Deploy Docmost Self-Hosted Wiki',
+    description: 'Deploy Docmost with Docker Compose. Open source collaborative wiki with real-time editing, page tree, and Notion-like blocks editor.',
+    keywords: ['deploy docmost docker', 'docmost docker compose', 'docmost setup', 'self-hosted wiki docker', 'docmost deployment guide', 'docmost install'],
+    faq: [
+      { q: 'Does Docmost need a database?', a: 'Yes. Docmost needs PostgreSQL and Redis. The docker-compose template below includes all three services.' },
+      { q: 'How much RAM does Docmost need?', a: 'Docmost itself uses ~256MB. With PostgreSQL and Redis, budget 1GB total. A $5/month VPS works fine.' },
+    ],
+    deploys: [
+      dc('Docmost', 'docmost/docmost:latest', '3000:3000', [
+        { host: './docmost-data', container: '/app/data' },
+      ], [
+        { key: 'APP_URL', value: 'http://localhost:3000' },
+        { key: 'APP_SECRET', value: 'change-me-to-a-random-string' },
+        { key: 'DATABASE_URL', value: 'postgresql://docmost:docmost@postgres:5432/docmost' },
+        { key: 'REDIS_URL', value: 'redis://redis:6379' },
+      ], '1GB'),
+    ],
+  },
+  {
+    slug: 'obsidian',
+    saasName: 'Obsidian (Self-Hosted Alternatives)',
+    title: 'Deploy Self-Hosted Obsidian Alternatives with Docker Compose',
+    h1: 'Deploy Self-Hosted Obsidian Alternatives',
+    description: 'Deploy Trilium Notes and Joplin Server with Docker Compose. Self-hosted knowledge management with graph views and Markdown.',
+    keywords: ['deploy trilium docker', 'deploy joplin server docker', 'self-hosted obsidian docker', 'trilium notes docker compose', 'joplin server docker compose'],
+    faq: [
+      { q: 'Can I self-host Obsidian itself?', a: 'No. Obsidian is a desktop/mobile app that stores files locally. For server-hosted alternatives with similar features, use Trilium Notes (web UI with graph view) or Joplin Server (sync server for Joplin clients).' },
+      { q: 'Which is easiest to deploy?', a: 'Trilium Notes is a single container with no dependencies. Joplin Server needs PostgreSQL.' },
+    ],
+    deploys: [
+      dc('Trilium Notes', 'zadam/trilium:latest', '8080:8080', [
+        { host: './trilium-data', container: '/home/node/trilium-data' },
+      ], [], '512MB'),
+      dc('Joplin Server', 'joplin/server:latest', '22300:22300', [
+        { host: './joplin-data', container: '/home/joplin/data' },
+      ], [
+        { key: 'APP_BASE_URL', value: 'http://localhost:22300' },
+        { key: 'APP_PORT', value: '22300' },
+        { key: 'DB_CLIENT', value: 'pg' },
+        { key: 'POSTGRES_HOST', value: 'postgres' },
+        { key: 'POSTGRES_DATABASE', value: 'joplin' },
+        { key: 'POSTGRES_USER', value: 'joplin' },
+        { key: 'POSTGRES_PASSWORD', value: 'joplin' },
+      ], '1GB'),
+    ],
+  },
 ]

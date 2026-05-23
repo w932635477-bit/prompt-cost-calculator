@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Obsidian Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Trilium Notes and Joplin Server with Docker Compose. Self-hosted knowledge management with graph views and Markdown." />
+    <meta name="keywords" content="deploy trilium docker, deploy joplin server docker, self-hosted obsidian docker, trilium notes docker compose, joplin server docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/obsidian/" />
+    <meta property="og:title" content="Deploy Self-Hosted Obsidian Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Trilium Notes and Joplin Server with Docker Compose. Self-hosted knowledge management with graph views and Markdown." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/obsidian/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Obsidian Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Trilium Notes and Joplin Server with Docker Compose. Self-hosted knowledge management with graph views and Markdown." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can I self-host Obsidian itself?","acceptedAnswer":{"@type":"Answer","text":"No. Obsidian is a desktop/mobile app that stores files locally. For server-hosted alternatives with similar features, use Trilium Notes (web UI with graph view) or Joplin Server (sync server for Joplin clients)."}},{"@type":"Question","name":"Which is easiest to deploy?","acceptedAnswer":{"@type":"Answer","text":"Trilium Notes is a single container with no dependencies. Joplin Server needs PostgreSQL."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Obsidian (Self-Hosted Alternatives) Alternatives with Docker Compose","description":"Deploy Trilium Notes and Joplin Server with Docker Compose. Self-hosted knowledge management with graph views and Markdown.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Trilium Notes","text":"Run docker compose up -d to deploy Trilium Notes on port 8080"},{"@type":"HowToStep","position":2,"name":"Deploy Joplin Server","text":"Run docker compose up -d to deploy Joplin Server on port 22300"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"obsidian","saasName":"Obsidian (Self-Hosted Alternatives)","title":"Deploy Self-Hosted Obsidian Alternatives with Docker Compose","h1":"Deploy Self-Hosted Obsidian Alternatives","description":"Deploy Trilium Notes and Joplin Server with Docker Compose. Self-hosted knowledge management with graph views and Markdown.","keywords":["deploy trilium docker","deploy joplin server docker","self-hosted obsidian docker","trilium notes docker compose","joplin server docker compose"],"faq":[{"q":"Can I self-host Obsidian itself?","a":"No. Obsidian is a desktop/mobile app that stores files locally. For server-hosted alternatives with similar features, use Trilium Notes (web UI with graph view) or Joplin Server (sync server for Joplin clients)."},{"q":"Which is easiest to deploy?","a":"Trilium Notes is a single container with no dependencies. Joplin Server needs PostgreSQL."}],"deploys":[{"name":"Trilium Notes","image":"zadam/trilium:latest","port":"8080:8080","volumes":[{"host":"./trilium-data","container":"/home/node/trilium-data"}],"env":[],"dockerCompose":"services:\n  triliumnotes:\n    image: zadam/trilium:latest\n    container_name: triliumnotes\n    ports:\n      - \"8080:8080\"\n    restart: unless-stopped\n    volumes:\n      - ./trilium-data:/home/node/trilium-data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"512MB"},{"name":"Joplin Server","image":"joplin/server:latest","port":"22300:22300","volumes":[{"host":"./joplin-data","container":"/home/joplin/data"}],"env":[{"key":"APP_BASE_URL","value":"http://localhost:22300"},{"key":"APP_PORT","value":"22300"},{"key":"DB_CLIENT","value":"pg"},{"key":"POSTGRES_HOST","value":"postgres"},{"key":"POSTGRES_DATABASE","value":"joplin"},{"key":"POSTGRES_USER","value":"joplin"},{"key":"POSTGRES_PASSWORD","value":"joplin"}],"dockerCompose":"services:\n  joplinserver:\n    image: joplin/server:latest\n    container_name: joplinserver\n    ports:\n      - \"22300:22300\"\n    restart: unless-stopped\n    volumes:\n      - ./joplin-data:/home/joplin/data\n    environment:\n      APP_BASE_URL: http://localhost:22300\n      APP_PORT: 22300\n      DB_CLIENT: pg\n      POSTGRES_HOST: postgres\n      POSTGRES_DATABASE: joplin\n      POSTGRES_USER: joplin\n      POSTGRES_PASSWORD: joplin","envFile":"APP_BASE_URL=http://localhost:22300\nAPP_PORT=22300\nDB_CLIENT=pg\nPOSTGRES_HOST=postgres\nPOSTGRES_DATABASE=joplin\nPOSTGRES_USER=joplin\nPOSTGRES_PASSWORD=joplin","deployCommand":"docker compose up -d","accessUrl":"http://localhost:22300","minRam":"1GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>
