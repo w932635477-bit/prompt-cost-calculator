@@ -11,10 +11,16 @@ const dataFile = path.join(__dirname, '..', 'src', 'cron', 'seo', 'long-tail-dat
 const dataContent = fs.readFileSync(dataFile, 'utf-8')
 const slugMatches = [...dataContent.matchAll(/slug: '([^']+)'/g)]
 
+// Read slugs from alternatives data
+const altDataFile = path.join(__dirname, '..', 'src', 'alternatives', 'seo', 'alternatives-data.ts')
+const altDataContent = fs.readFileSync(altDataFile, 'utf-8')
+const altSlugMatches = [...altDataContent.matchAll(/slug: '([^']+)'/g)]
+
 const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/common-patterns/', priority: '0.85', changefreq: 'weekly' },
+  { loc: BASE_URL + '/alternatives/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {
@@ -23,6 +29,10 @@ for (const locale of LOCALES) {
 
 for (const m of slugMatches) {
   allUrls.push({ loc: `${BASE_URL}/cron-generator/${m[1]}/`, priority: '0.8', changefreq: 'monthly' })
+}
+
+for (const m of altSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/alternatives/${m[1]}/`, priority: '0.8', changefreq: 'monthly' })
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

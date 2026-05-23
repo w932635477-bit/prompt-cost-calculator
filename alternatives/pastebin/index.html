@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Hosted Pastebin Alternative - Open Source Code Sharing</title>
+    <meta name="description" content="Replace Pastebin with self-hosted code sharing. Compare PrivateBin and Haste — encrypted, expirable, no ads." />
+    <meta name="keywords" content="self-hosted pastebin, pastebin alternative open source, privatebin, encrypted pastebin" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/alternatives/pastebin/" />
+    <meta property="og:title" content="Self-Hosted Pastebin Alternative - Open Source Code Sharing" />
+    <meta property="og:description" content="Replace Pastebin with self-hosted code sharing. Compare PrivateBin and Haste — encrypted, expirable, no ads." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/alternatives/pastebin/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Self-Hosted Pastebin Alternative - Open Source Code Sharing" />
+    <meta name="twitter:description" content="Replace Pastebin with self-hosted code sharing. Compare PrivateBin and Haste — encrypted, expirable, no ads." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Is PrivateBin secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. PrivateBin encrypts and decrypts data in the browser using AES-256. The server never sees the unencrypted content. Even if the server is compromised, your pastes remain encrypted."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"ItemList","name":"Self-Hosted Pastebin Alternatives","description":"Replace Pastebin with self-hosted code sharing. Compare PrivateBin and Haste — encrypted, expirable, no ads.","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"PrivateBin","description":"Zero-knowledge pastebin with client-side encryption and expiration.","url":"https://privatebin.info","license":"Zlib","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Haste","description":"Simple, fast pastebin with a clean interface.","url":"https://github.com/toptal/haste-server","license":"MIT","applicationCategory":"DeveloperApplication"}}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"pastebin","saasName":"Pastebin","category":"Code Sharing","icon":"📋","alternatives":[{"name":"PrivateBin","description":"Zero-knowledge pastebin with client-side encryption and expiration.","url":"https://privatebin.info","github":"https://github.com/PrivateBin/PrivateBin","license":"Zlib","difficulty":"Easy","docker":true,"dockerCommand":"docker run -d -p 8080:8080 privatebin/nginx-fpm-alpine","features":["Client-side encryption","Password protection","Expiration","Burn after read","File upload"]},{"name":"Haste","description":"Simple, fast pastebin with a clean interface.","url":"https://github.com/toptal/haste-server","github":"https://github.com/toptal/haste-server","license":"MIT","difficulty":"Easy","docker":true,"features":["Syntax highlighting","CLI tool","Keyboard shortcuts","Expiration"]}],"title":"Self-Hosted Pastebin Alternative - Open Source Code Sharing","h1":"Self-Hosted Pastebin Alternatives","description":"Replace Pastebin with self-hosted code sharing. Compare PrivateBin and Haste — encrypted, expirable, no ads.","explanation":"Pastebin shows ads, has reading limits for guests, and your pastes are indexed by search engines. PrivateBin encrypts everything client-side so even the server cannot read your pastes. Supports burn-after-read and expiration.","faq":[{"q":"Is PrivateBin secure?","a":"Yes. PrivateBin encrypts and decrypts data in the browser using AES-256. The server never sees the unencrypted content. Even if the server is compromised, your pastes remain encrypted."}],"keywords":["self-hosted pastebin","pastebin alternative open source","privatebin","encrypted pastebin"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/alternatives/long-tail-main.tsx"></script>
+  </body>
+</html>

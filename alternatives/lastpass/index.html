@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Hosted LastPass Alternative - Open Source Password Manager</title>
+    <meta name="description" content="Replace LastPass with self-hosted password management. Compare Vaultwarden and Passbolt — no subscription, full data ownership." />
+    <meta name="keywords" content="self-hosted lastpass, lastpass alternative open source, vaultwarden, self-hosted password manager" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/alternatives/lastpass/" />
+    <meta property="og:title" content="Self-Hosted LastPass Alternative - Open Source Password Manager" />
+    <meta property="og:description" content="Replace LastPass with self-hosted password management. Compare Vaultwarden and Passbolt — no subscription, full data ownership." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/alternatives/lastpass/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Self-Hosted LastPass Alternative - Open Source Password Manager" />
+    <meta name="twitter:description" content="Replace LastPass with self-hosted password management. Compare Vaultwarden and Passbolt — no subscription, full data ownership." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Is Vaultwarden safe?","acceptedAnswer":{"@type":"Answer","text":"Vaultwarden uses the same encryption as Bitwarden — AES-256 bit encryption. Your vault data is encrypted client-side before reaching the server. Even if the server is compromised, your passwords remain encrypted."}},{"@type":"Question","name":"Can I use Bitwarden browser extension with Vaultwarden?","acceptedAnswer":{"@type":"Answer","text":"Yes. Vaultwarden is fully compatible with all official Bitwarden clients (browser extensions, mobile apps, desktop apps, CLI)."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"ItemList","name":"Self-Hosted LastPass Alternatives","description":"Replace LastPass with self-hosted password management. Compare Vaultwarden and Passbolt — no subscription, full data ownership.","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Vaultwarden","description":"Lightweight Bitwarden-compatible server written in Rust. Full-featured, low resource usage.","url":"https://github.com/dani-garcia/vaultwarden","license":"AGPL-3.0","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Passbolt","description":"Team-oriented password manager with GPG encryption and collaborative features.","url":"https://www.passbolt.com","license":"AGPL-3.0","applicationCategory":"DeveloperApplication"}}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"lastpass","saasName":"LastPass","category":"Password Management","icon":"🔑","alternatives":[{"name":"Vaultwarden","description":"Lightweight Bitwarden-compatible server written in Rust. Full-featured, low resource usage.","url":"https://github.com/dani-garcia/vaultwarden","github":"https://github.com/dani-garcia/vaultwarden","license":"AGPL-3.0","difficulty":"Easy","docker":true,"dockerCommand":"docker run -d -p 8080:80 vaultwarden/server","features":["Bitwarden compatible","Browser extensions","Mobile apps","TOTP","Organizations","Emergency access"]},{"name":"Passbolt","description":"Team-oriented password manager with GPG encryption and collaborative features.","url":"https://www.passbolt.com","github":"https://github.com/passbolt/passbolt_api","license":"AGPL-3.0","difficulty":"Medium","docker":true,"dockerCommand":"docker run -d -p 443:443 passbolt/passbolt","features":["GPG encryption","Team sharing","Browser extension","API","AD/LDAP"]}],"title":"Self-Hosted LastPass Alternative - Open Source Password Manager","h1":"Self-Hosted LastPass Alternatives","description":"Replace LastPass with self-hosted password management. Compare Vaultwarden and Passbolt — no subscription, full data ownership.","explanation":"LastPass has suffered multiple security breaches. Vaultwarden uses the Bitwarden client apps (browser extensions, mobile) but runs on your own server, giving you the same experience with full data control. It uses only ~10MB of RAM.","faq":[{"q":"Is Vaultwarden safe?","a":"Vaultwarden uses the same encryption as Bitwarden — AES-256 bit encryption. Your vault data is encrypted client-side before reaching the server. Even if the server is compromised, your passwords remain encrypted."},{"q":"Can I use Bitwarden browser extension with Vaultwarden?","a":"Yes. Vaultwarden is fully compatible with all official Bitwarden clients (browser extensions, mobile apps, desktop apps, CLI)."}],"keywords":["self-hosted lastpass","lastpass alternative open source","vaultwarden","self-hosted password manager"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/alternatives/long-tail-main.tsx"></script>
+  </body>
+</html>
