@@ -25,3 +25,6 @@ dist-ssr
 .vercel
 .gstack/
 test-results/
+qa-*.cjs
+qa-screenshots/
+qa-visual/
