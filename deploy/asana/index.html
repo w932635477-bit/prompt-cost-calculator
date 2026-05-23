@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Asana Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Plane and Taiga with Docker Compose. Open source project management with issues, sprints, and kanban boards." />
+    <meta name="keywords" content="deploy plane docker, deploy taiga docker, self-hosted project management docker, plane docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/asana/" />
+    <meta property="og:title" content="Deploy Self-Hosted Asana Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Plane and Taiga with Docker Compose. Open source project management with issues, sprints, and kanban boards." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/asana/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Asana Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Plane and Taiga with Docker Compose. Open source project management with issues, sprints, and kanban boards." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can I import from Asana?","acceptedAnswer":{"@type":"Answer","text":"Plane supports CSV import of tasks and projects. Export your Asana data and import into Plane."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Asana Alternatives with Docker Compose","description":"Deploy Plane and Taiga with Docker Compose. Open source project management with issues, sprints, and kanban boards.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Plane","text":"Run docker compose up -d to deploy Plane on port 3000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"asana","saasName":"Asana","title":"Deploy Self-Hosted Asana Alternatives with Docker Compose","h1":"Deploy Self-Hosted Asana Alternatives","description":"Deploy Plane and Taiga with Docker Compose. Open source project management with issues, sprints, and kanban boards.","keywords":["deploy plane docker","deploy taiga docker","self-hosted project management docker","plane docker compose"],"faq":[{"q":"Can I import from Asana?","a":"Plane supports CSV import of tasks and projects. Export your Asana data and import into Plane."}],"deploys":[{"name":"Plane","image":"makeplane/plane:latest","port":"3000:3000","volumes":[{"host":"./plane-data","container":"/app/data"}],"env":[{"key":"WEB_URL","value":"http://localhost:3000"}],"dockerCompose":"services:\n  plane:\n    image: makeplane/plane:latest\n    container_name: plane\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./plane-data:/app/data\n    environment:\n      WEB_URL: http://localhost:3000","envFile":"WEB_URL=http://localhost:3000","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"2GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

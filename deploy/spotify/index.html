@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Spotify Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Navidrome music server with Docker Compose. Stream your music library anywhere with a modern web UI and mobile apps." />
+    <meta name="keywords" content="deploy navidrome docker, deploy jellyfin docker, self-hosted music server docker, navidrome docker compose, music streaming docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/spotify/" />
+    <meta property="og:title" content="Deploy Self-Hosted Spotify Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Navidrome music server with Docker Compose. Stream your music library anywhere with a modern web UI and mobile apps." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/spotify/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Spotify Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Navidrome music server with Docker Compose. Stream your music library anywhere with a modern web UI and mobile apps." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Which music server is easiest to self-host?","acceptedAnswer":{"@type":"Answer","text":"Navidrome is the lightest and fastest to set up with a single container. Jellyfin is more full-featured (also handles video) but needs more resources."}},{"@type":"Question","name":"Can I stream to my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Navidrome supports Subsonic/Airsonic API, compatible with Ultrasonic, DSub, and playSub apps on iOS and Android."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Spotify Alternatives with Docker Compose","description":"Deploy Navidrome music server with Docker Compose. Stream your music library anywhere with a modern web UI and mobile apps.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Navidrome","text":"Run docker compose up -d to deploy Navidrome on port 4533"},{"@type":"HowToStep","position":2,"name":"Deploy Jellyfin","text":"Run docker compose up -d to deploy Jellyfin on port 8096"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"spotify","saasName":"Spotify","title":"Deploy Self-Hosted Spotify Alternatives with Docker Compose","h1":"Deploy Self-Hosted Spotify Alternatives","description":"Deploy Navidrome music server with Docker Compose. Stream your music library anywhere with a modern web UI and mobile apps.","keywords":["deploy navidrome docker","deploy jellyfin docker","self-hosted music server docker","navidrome docker compose","music streaming docker"],"faq":[{"q":"Which music server is easiest to self-host?","a":"Navidrome is the lightest and fastest to set up with a single container. Jellyfin is more full-featured (also handles video) but needs more resources."},{"q":"Can I stream to my phone?","a":"Yes. Navidrome supports Subsonic/Airsonic API, compatible with Ultrasonic, DSub, and playSub apps on iOS and Android."}],"deploys":[{"name":"Navidrome","image":"deluan/navidrome:latest","port":"4533:4533","volumes":[{"host":"./music","container":"/music"},{"host":"./navidrome-data","container":"/data"}],"env":[{"key":"ND_SCANSCHEDULE","value":"1h"},{"key":"ND_LOGLEVEL","value":"info"},{"key":"ND_SESSIONTIMEOUT","value":"24h"}],"dockerCompose":"services:\n  navidrome:\n    image: deluan/navidrome:latest\n    container_name: navidrome\n    ports:\n      - \"4533:4533\"\n    restart: unless-stopped\n    volumes:\n      - ./music:/music\n      - ./navidrome-data:/data\n    environment:\n      ND_SCANSCHEDULE: 1h\n      ND_LOGLEVEL: info\n      ND_SESSIONTIMEOUT: 24h","envFile":"ND_SCANSCHEDULE=1h\nND_LOGLEVEL=info\nND_SESSIONTIMEOUT=24h","deployCommand":"docker compose up -d","accessUrl":"http://localhost:4533","minRam":"256MB"},{"name":"Jellyfin","image":"jellyfin/jellyfin:latest","port":"8096:8096","volumes":[{"host":"./jellyfin-config","container":"/config"},{"host":"./jellyfin-cache","container":"/cache"},{"host":"./music","container":"/media"}],"env":[],"dockerCompose":"services:\n  jellyfin:\n    image: jellyfin/jellyfin:latest\n    container_name: jellyfin\n    ports:\n      - \"8096:8096\"\n    restart: unless-stopped\n    volumes:\n      - ./jellyfin-config:/config\n      - ./jellyfin-cache:/cache\n      - ./music:/media\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8096","minRam":"1GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

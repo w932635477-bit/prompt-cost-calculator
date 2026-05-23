@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Google Drive Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Nextcloud, ownCloud, and Seafile with Docker Compose. Production-ready configs with .env templates and one-command deployment." />
+    <meta name="keywords" content="deploy nextcloud docker, deploy owncloud docker, deploy seafile docker, self-hosted cloud storage docker compose, nextcloud docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/google-drive/" />
+    <meta property="og:title" content="Deploy Self-Hosted Google Drive Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Nextcloud, ownCloud, and Seafile with Docker Compose. Production-ready configs with .env templates and one-command deployment." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/google-drive/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Google Drive Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Nextcloud, ownCloud, and Seafile with Docker Compose. Production-ready configs with .env templates and one-command deployment." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Which self-hosted cloud storage is easiest to deploy?","acceptedAnswer":{"@type":"Answer","text":"Seafile is the simplest with a single container. Nextcloud is the most feature-rich but needs more resources. ownCloud is enterprise-focused."}},{"@type":"Question","name":"How much storage do I need?","acceptedAnswer":{"@type":"Answer","text":"The software itself needs minimal space. Your data drives storage needs. Nextcloud and ownCloud work well with external storage mounts (S3, NFS)."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Google Drive Alternatives with Docker Compose","description":"Deploy Nextcloud, ownCloud, and Seafile with Docker Compose. Production-ready configs with .env templates and one-command deployment.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Nextcloud","text":"Run docker compose up -d to deploy Nextcloud on port 8080"},{"@type":"HowToStep","position":2,"name":"Deploy ownCloud","text":"Run docker compose up -d to deploy ownCloud on port 8081"},{"@type":"HowToStep","position":3,"name":"Deploy Seafile","text":"Run docker compose up -d to deploy Seafile on port 8082"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"google-drive","saasName":"Google Drive","title":"Deploy Self-Hosted Google Drive Alternatives with Docker Compose","h1":"Deploy Self-Hosted Google Drive Alternatives","description":"Deploy Nextcloud, ownCloud, and Seafile with Docker Compose. Production-ready configs with .env templates and one-command deployment.","keywords":["deploy nextcloud docker","deploy owncloud docker","deploy seafile docker","self-hosted cloud storage docker compose","nextcloud docker compose"],"faq":[{"q":"Which self-hosted cloud storage is easiest to deploy?","a":"Seafile is the simplest with a single container. Nextcloud is the most feature-rich but needs more resources. ownCloud is enterprise-focused."},{"q":"How much storage do I need?","a":"The software itself needs minimal space. Your data drives storage needs. Nextcloud and ownCloud work well with external storage mounts (S3, NFS)."}],"deploys":[{"name":"Nextcloud","image":"nextcloud:latest","port":"8080:80","volumes":[{"host":"./nextcloud-html","container":"/var/www/html"},{"host":"./nextcloud-data","container":"/var/www/html/data"}],"env":[{"key":"MYSQL_HOST","value":"db"},{"key":"MYSQL_DATABASE","value":"nextcloud"},{"key":"MYSQL_USER","value":"nextcloud"},{"key":"MYSQL_PASSWORD","value":"change-me"}],"dockerCompose":"services:\n  nextcloud:\n    image: nextcloud:latest\n    container_name: nextcloud\n    ports:\n      - \"8080:80\"\n    restart: unless-stopped\n    volumes:\n      - ./nextcloud-html:/var/www/html\n      - ./nextcloud-data:/var/www/html/data\n    environment:\n      MYSQL_HOST: db\n      MYSQL_DATABASE: nextcloud\n      MYSQL_USER: nextcloud\n      MYSQL_PASSWORD: change-me","envFile":"MYSQL_HOST=db\nMYSQL_DATABASE=nextcloud\nMYSQL_USER=nextcloud\nMYSQL_PASSWORD=change-me","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"2GB"},{"name":"ownCloud","image":"owncloud/server:latest","port":"8081:8080","volumes":[{"host":"./owncloud-data","container":"/mnt/data"}],"env":[],"dockerCompose":"services:\n  owncloud:\n    image: owncloud/server:latest\n    container_name: owncloud\n    ports:\n      - \"8081:8080\"\n    restart: unless-stopped\n    volumes:\n      - ./owncloud-data:/mnt/data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8081","minRam":"2GB"},{"name":"Seafile","image":"seafileltd/seafile-mc:latest","port":"8082:80","volumes":[{"host":"./seafile-data","container":"/shared"}],"env":[{"key":"DB_HOST","value":"db"},{"key":"DB_ROOT_PASSWD","value":"change-me"}],"dockerCompose":"services:\n  seafile:\n    image: seafileltd/seafile-mc:latest\n    container_name: seafile\n    ports:\n      - \"8082:80\"\n    restart: unless-stopped\n    volumes:\n      - ./seafile-data:/shared\n    environment:\n      DB_HOST: db\n      DB_ROOT_PASSWD: change-me","envFile":"DB_HOST=db\nDB_ROOT_PASSWD=change-me","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8082","minRam":"1GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

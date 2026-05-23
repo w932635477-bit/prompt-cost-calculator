@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Zoom Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Jitsi Meet video conferencing with Docker Compose. Free video calls with screen sharing, recording, and no account required." />
+    <meta name="keywords" content="deploy jitsi meet docker, self-hosted video conferencing docker, jitsi docker compose, zoom alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/zoom/" />
+    <meta property="og:title" content="Deploy Self-Hosted Zoom Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Jitsi Meet video conferencing with Docker Compose. Free video calls with screen sharing, recording, and no account required." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/zoom/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Zoom Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Jitsi Meet video conferencing with Docker Compose. Free video calls with screen sharing, recording, and no account required." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How many users can Jitsi Meet handle?","acceptedAnswer":{"@type":"Answer","text":"A single server handles 10-20 concurrent video participants. For larger meetings, use Jitsi's experimental SFU mode or add more JVB (video bridge) containers."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Zoom Alternatives with Docker Compose","description":"Deploy Jitsi Meet video conferencing with Docker Compose. Free video calls with screen sharing, recording, and no account required.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Jitsi Meet","text":"Run docker compose up -d to deploy Jitsi Meet on port 8443"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"zoom","saasName":"Zoom","title":"Deploy Self-Hosted Zoom Alternatives with Docker Compose","h1":"Deploy Self-Hosted Zoom Alternatives","description":"Deploy Jitsi Meet video conferencing with Docker Compose. Free video calls with screen sharing, recording, and no account required.","keywords":["deploy jitsi meet docker","self-hosted video conferencing docker","jitsi docker compose","zoom alternative docker"],"faq":[{"q":"How many users can Jitsi Meet handle?","a":"A single server handles 10-20 concurrent video participants. For larger meetings, use Jitsi's experimental SFU mode or add more JVB (video bridge) containers."}],"deploys":[{"name":"Jitsi Meet","image":"jitsi/docker-jitsi-meet:latest","port":"8443:8443","volumes":[{"host":"./jitsi-config","container":"/config"}],"env":[{"key":"ENABLE_AUTH","value":"1"},{"key":"ENABLE_GUESTS","value":"1"},{"key":"ENABLE_LOBBY","value":"1"},{"key":"PUBLIC_URL","value":"https://localhost:8443"}],"dockerCompose":"services:\n  jitsimeet:\n    image: jitsi/docker-jitsi-meet:latest\n    container_name: jitsimeet\n    ports:\n      - \"8443:8443\"\n    restart: unless-stopped\n    volumes:\n      - ./jitsi-config:/config\n    environment:\n      ENABLE_AUTH: 1\n      ENABLE_GUESTS: 1\n      ENABLE_LOBBY: 1\n      PUBLIC_URL: https://localhost:8443","envFile":"ENABLE_AUTH=1\nENABLE_GUESTS=1\nENABLE_LOBBY=1\nPUBLIC_URL=https://localhost:8443","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8443","minRam":"2GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

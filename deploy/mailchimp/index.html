@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Mailchimp Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Listmonk with Docker Compose. Self-hosted newsletter and mailing list manager with a modern UI." />
+    <meta name="keywords" content="deploy listmonk docker, self-hosted newsletter docker, listmonk docker compose, mailchimp alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/mailchimp/" />
+    <meta property="og:title" content="Deploy Self-Hosted Mailchimp Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Listmonk with Docker Compose. Self-hosted newsletter and mailing list manager with a modern UI." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/mailchimp/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Mailchimp Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Listmonk with Docker Compose. Self-hosted newsletter and mailing list manager with a modern UI." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can Listmonk handle large mailing lists?","acceptedAnswer":{"@type":"Answer","text":"Yes. Listmonk uses PostgreSQL and can handle millions of subscribers. It supports templating, bounce processing, and click tracking."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Mailchimp Alternatives with Docker Compose","description":"Deploy Listmonk with Docker Compose. Self-hosted newsletter and mailing list manager with a modern UI.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Listmonk","text":"Run docker compose up -d to deploy Listmonk on port 9000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"mailchimp","saasName":"Mailchimp","title":"Deploy Self-Hosted Mailchimp Alternatives with Docker Compose","h1":"Deploy Self-Hosted Mailchimp Alternatives","description":"Deploy Listmonk with Docker Compose. Self-hosted newsletter and mailing list manager with a modern UI.","keywords":["deploy listmonk docker","self-hosted newsletter docker","listmonk docker compose","mailchimp alternative docker"],"faq":[{"q":"Can Listmonk handle large mailing lists?","a":"Yes. Listmonk uses PostgreSQL and can handle millions of subscribers. It supports templating, bounce processing, and click tracking."}],"deploys":[{"name":"Listmonk","image":"listmonk/listmonk:latest","port":"9000:9000","volumes":[{"host":"./listmonk-data","container":"/listmonk/data"}],"env":[{"key":"LISTMONK_app__address","value":"0.0.0.0:9000"},{"key":"LISTMONK_db__host","value":"postgres"},{"key":"LISTMONK_db__port","value":"5432"},{"key":"LISTMONK_db__user","value":"listmonk"},{"key":"LISTMONK_db__password","value":"listmonk"}],"dockerCompose":"services:\n  listmonk:\n    image: listmonk/listmonk:latest\n    container_name: listmonk\n    ports:\n      - \"9000:9000\"\n    restart: unless-stopped\n    volumes:\n      - ./listmonk-data:/listmonk/data\n    environment:\n      LISTMONK_app__address: 0.0.0.0:9000\n      LISTMONK_db__host: postgres\n      LISTMONK_db__port: 5432\n      LISTMONK_db__user: listmonk\n      LISTMONK_db__password: listmonk","envFile":"LISTMONK_app__address=0.0.0.0:9000\nLISTMONK_db__host=postgres\nLISTMONK_db__port=5432\nLISTMONK_db__user=listmonk\nLISTMONK_db__password=listmonk","deployCommand":"docker compose up -d","accessUrl":"http://localhost:9000","minRam":"256MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

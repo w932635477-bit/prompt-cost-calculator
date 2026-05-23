@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Todoist Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Vikunja with Docker Compose. Self-hosted task management with lists, kanban, and calendar views." />
+    <meta name="keywords" content="deploy vikunja docker, self-hosted todo docker, vikunja docker compose, todoist alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/todoist/" />
+    <meta property="og:title" content="Deploy Self-Hosted Todoist Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Vikunja with Docker Compose. Self-hosted task management with lists, kanban, and calendar views." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/todoist/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Todoist Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Vikunja with Docker Compose. Self-hosted task management with lists, kanban, and calendar views." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can I import from Todoist?","acceptedAnswer":{"@type":"Answer","text":"Vikunja supports Todoist CSV import. Export your tasks from Todoist and import them into Vikunja."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Todoist Alternatives with Docker Compose","description":"Deploy Vikunja with Docker Compose. Self-hosted task management with lists, kanban, and calendar views.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Vikunja","text":"Run docker compose up -d to deploy Vikunja on port 3456"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"todoist","saasName":"Todoist","title":"Deploy Self-Hosted Todoist Alternatives with Docker Compose","h1":"Deploy Self-Hosted Todoist Alternatives","description":"Deploy Vikunja with Docker Compose. Self-hosted task management with lists, kanban, and calendar views.","keywords":["deploy vikunja docker","self-hosted todo docker","vikunja docker compose","todoist alternative docker"],"faq":[{"q":"Can I import from Todoist?","a":"Vikunja supports Todoist CSV import. Export your tasks from Todoist and import them into Vikunja."}],"deploys":[{"name":"Vikunja","image":"vikunja/vikunja:latest","port":"3456:3456","volumes":[{"host":"./vikunja-files","container":"/app/vikunja/files"}],"env":[{"key":"VIKUNJA_SERVICE_ROOTURL","value":"http://localhost:3456/"}],"dockerCompose":"services:\n  vikunja:\n    image: vikunja/vikunja:latest\n    container_name: vikunja\n    ports:\n      - \"3456:3456\"\n    restart: unless-stopped\n    volumes:\n      - ./vikunja-files:/app/vikunja/files\n    environment:\n      VIKUNJA_SERVICE_ROOTURL: http://localhost:3456/","envFile":"VIKUNJA_SERVICE_ROOTURL=http://localhost:3456/","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3456","minRam":"256MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

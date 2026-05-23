@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Airtable Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy NocoDB with Docker Compose. Turn any database into a smart spreadsheet with Airtable-like interface." />
+    <meta name="keywords" content="deploy nocodb docker, self-hosted airtable docker, nocodb docker compose, airtable alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/airtable/" />
+    <meta property="og:title" content="Deploy Self-Hosted Airtable Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy NocoDB with Docker Compose. Turn any database into a smart spreadsheet with Airtable-like interface." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/airtable/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Airtable Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy NocoDB with Docker Compose. Turn any database into a smart spreadsheet with Airtable-like interface." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can NocoDB connect to existing databases?","acceptedAnswer":{"@type":"Answer","text":"Yes. NocoDB supports MySQL, PostgreSQL, SQL Server, and SQLite. Connect to your existing database and get an Airtable-like interface instantly."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Airtable Alternatives with Docker Compose","description":"Deploy NocoDB with Docker Compose. Turn any database into a smart spreadsheet with Airtable-like interface.","step":[{"@type":"HowToStep","position":1,"name":"Deploy NocoDB","text":"Run docker compose up -d to deploy NocoDB on port 8080"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"airtable","saasName":"Airtable","title":"Deploy Self-Hosted Airtable Alternatives with Docker Compose","h1":"Deploy Self-Hosted Airtable Alternatives","description":"Deploy NocoDB with Docker Compose. Turn any database into a smart spreadsheet with Airtable-like interface.","keywords":["deploy nocodb docker","self-hosted airtable docker","nocodb docker compose","airtable alternative docker"],"faq":[{"q":"Can NocoDB connect to existing databases?","a":"Yes. NocoDB supports MySQL, PostgreSQL, SQL Server, and SQLite. Connect to your existing database and get an Airtable-like interface instantly."}],"deploys":[{"name":"NocoDB","image":"nocodb/nocodb:latest","port":"8080:8080","volumes":[{"host":"./nocodb-data","container":"/usr/app/data"}],"env":[],"dockerCompose":"services:\n  nocodb:\n    image: nocodb/nocodb:latest\n    container_name: nocodb\n    ports:\n      - \"8080:8080\"\n    restart: unless-stopped\n    volumes:\n      - ./nocodb-data:/usr/app/data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"256MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

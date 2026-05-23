@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Discord Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Element (Matrix) and Revolt with Docker Compose. Decentralized chat with E2E encryption, voice channels, and bridges." />
+    <meta name="keywords" content="deploy element matrix docker, deploy revolt docker, self-hosted discord docker, matrix synapse docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/discord/" />
+    <meta property="og:title" content="Deploy Self-Hosted Discord Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Element (Matrix) and Revolt with Docker Compose. Decentralized chat with E2E encryption, voice channels, and bridges." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/discord/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Discord Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Element (Matrix) and Revolt with Docker Compose. Decentralized chat with E2E encryption, voice channels, and bridges." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can Element bridge to Discord?","acceptedAnswer":{"@type":"Answer","text":"Yes. Matrix (Element's backend) supports bridges to Discord, Slack, Telegram, IRC, and more. Install the Discord bridge to sync messages between platforms."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Discord Alternatives with Docker Compose","description":"Deploy Element (Matrix) and Revolt with Docker Compose. Decentralized chat with E2E encryption, voice channels, and bridges.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Element","text":"Run docker compose up -d to deploy Element on port 8080"},{"@type":"HowToStep","position":2,"name":"Deploy Revolt","text":"Run docker compose up -d to deploy Revolt on port 3000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"discord","saasName":"Discord","title":"Deploy Self-Hosted Discord Alternatives with Docker Compose","h1":"Deploy Self-Hosted Discord Alternatives","description":"Deploy Element (Matrix) and Revolt with Docker Compose. Decentralized chat with E2E encryption, voice channels, and bridges.","keywords":["deploy element matrix docker","deploy revolt docker","self-hosted discord docker","matrix synapse docker compose"],"faq":[{"q":"Can Element bridge to Discord?","a":"Yes. Matrix (Element's backend) supports bridges to Discord, Slack, Telegram, IRC, and more. Install the Discord bridge to sync messages between platforms."}],"deploys":[{"name":"Element","image":"vectorim/element-web:latest","port":"8080:80","volumes":[],"env":[],"dockerCompose":"services:\n  element:\n    image: vectorim/element-web:latest\n    container_name: element\n    ports:\n      - \"8080:80\"\n    restart: unless-stopped\n\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"256MB"},{"name":"Revolt","image":"revolt/server:latest","port":"3000:3000","volumes":[{"host":"./revolt-data","container":"/data"}],"env":[],"dockerCompose":"services:\n  revolt:\n    image: revolt/server:latest\n    container_name: revolt\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./revolt-data:/data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"1GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

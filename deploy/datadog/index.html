@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Datadog Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Grafana + Prometheus + Loki with Docker Compose. Full observability stack with dashboards, alerts, and log management." />
+    <meta name="keywords" content="deploy grafana docker, deploy prometheus docker, self-hosted monitoring docker, grafana docker compose, datadog alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/datadog/" />
+    <meta property="og:title" content="Deploy Self-Hosted Datadog Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Grafana + Prometheus + Loki with Docker Compose. Full observability stack with dashboards, alerts, and log management." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/datadog/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Datadog Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Grafana + Prometheus + Loki with Docker Compose. Full observability stack with dashboards, alerts, and log management." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Is Grafana a good Datadog replacement?","acceptedAnswer":{"@type":"Answer","text":"Grafana + Prometheus covers metrics and dashboards. Add Loki for logs and Tempo for traces. The full stack replaces most Datadog features for free."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Datadog Alternatives with Docker Compose","description":"Deploy Grafana + Prometheus + Loki with Docker Compose. Full observability stack with dashboards, alerts, and log management.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Grafana","text":"Run docker compose up -d to deploy Grafana on port 3000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"datadog","saasName":"Datadog","title":"Deploy Self-Hosted Datadog Alternatives with Docker Compose","h1":"Deploy Self-Hosted Datadog Alternatives","description":"Deploy Grafana + Prometheus + Loki with Docker Compose. Full observability stack with dashboards, alerts, and log management.","keywords":["deploy grafana docker","deploy prometheus docker","self-hosted monitoring docker","grafana docker compose","datadog alternative docker"],"faq":[{"q":"Is Grafana a good Datadog replacement?","a":"Grafana + Prometheus covers metrics and dashboards. Add Loki for logs and Tempo for traces. The full stack replaces most Datadog features for free."}],"deploys":[{"name":"Grafana","image":"grafana/grafana:latest","port":"3000:3000","volumes":[{"host":"./grafana-data","container":"/var/lib/grafana"}],"env":[{"key":"GF_SECURITY_ADMIN_USER","value":"admin"},{"key":"GF_SECURITY_ADMIN_PASSWORD","value":"admin"}],"dockerCompose":"services:\n  grafana:\n    image: grafana/grafana:latest\n    container_name: grafana\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./grafana-data:/var/lib/grafana\n    environment:\n      GF_SECURITY_ADMIN_USER: admin\n      GF_SECURITY_ADMIN_PASSWORD: admin","envFile":"GF_SECURITY_ADMIN_USER=admin\nGF_SECURITY_ADMIN_PASSWORD=admin","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"512MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

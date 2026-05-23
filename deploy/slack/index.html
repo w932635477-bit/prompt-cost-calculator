@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Slack Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Mattermost, Rocket.Chat, and Element (Matrix) with Docker Compose. Production-ready configs with .env templates, volume mounts, and one-command deployment." />
+    <meta name="keywords" content="deploy mattermost docker, deploy rocket.chat docker, deploy element matrix docker, self-hosted slack docker compose, mattermost docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/slack/" />
+    <meta property="og:title" content="Deploy Self-Hosted Slack Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Mattermost, Rocket.Chat, and Element (Matrix) with Docker Compose. Production-ready configs with .env templates, volume mounts, and one-command deployment." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/slack/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Slack Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Mattermost, Rocket.Chat, and Element (Matrix) with Docker Compose. Production-ready configs with .env templates, volume mounts, and one-command deployment." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Which self-hosted Slack alternative is easiest to deploy?","acceptedAnswer":{"@type":"Answer","text":"Mattermost has the simplest Docker setup with a single container. Rocket.Chat requires MongoDB alongside it. Element (Matrix) requires Synapse and is the most complex."}},{"@type":"Question","name":"How much RAM do I need to self-host a Slack alternative?","acceptedAnswer":{"@type":"Answer","text":"Mattermost and Rocket.Chat need 2GB+ RAM. Element/Synapse needs 4GB+ for production use. All three run fine on a $5-10/month VPS."}},{"@type":"Question","name":"Can I migrate from Slack to a self-hosted alternative?","acceptedAnswer":{"@type":"Answer","text":"Mattermost and Rocket.Chat both offer Slack import tools. Channels, messages, and users can be migrated with built-in tools."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Slack Alternatives with Docker Compose","description":"Deploy Mattermost, Rocket.Chat, and Element (Matrix) with Docker Compose. Production-ready configs with .env templates, volume mounts, and one-command deployment.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Mattermost","text":"Run docker compose up -d to deploy Mattermost on port 8065"},{"@type":"HowToStep","position":2,"name":"Deploy Rocket.Chat","text":"Run docker compose up -d to deploy Rocket.Chat on port 3000"},{"@type":"HowToStep","position":3,"name":"Deploy Element","text":"Run docker compose up -d to deploy Element on port 8080"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"slack","saasName":"Slack","title":"Deploy Self-Hosted Slack Alternatives with Docker Compose","h1":"Deploy Self-Hosted Slack Alternatives","description":"Deploy Mattermost, Rocket.Chat, and Element (Matrix) with Docker Compose. Production-ready configs with .env templates, volume mounts, and one-command deployment.","keywords":["deploy mattermost docker","deploy rocket.chat docker","deploy element matrix docker","self-hosted slack docker compose","mattermost docker compose"],"faq":[{"q":"Which self-hosted Slack alternative is easiest to deploy?","a":"Mattermost has the simplest Docker setup with a single container. Rocket.Chat requires MongoDB alongside it. Element (Matrix) requires Synapse and is the most complex."},{"q":"How much RAM do I need to self-host a Slack alternative?","a":"Mattermost and Rocket.Chat need 2GB+ RAM. Element/Synapse needs 4GB+ for production use. All three run fine on a $5-10/month VPS."},{"q":"Can I migrate from Slack to a self-hosted alternative?","a":"Mattermost and Rocket.Chat both offer Slack import tools. Channels, messages, and users can be migrated with built-in tools."}],"deploys":[{"name":"Mattermost","image":"mattermost/mattermost-preview:latest","port":"8065:8065","volumes":[{"host":"./mattermost-data","container":"/mattermost/data"},{"host":"./mattermost-config","container":"/mattermost/config"},{"host":"./mattermost-plugins","container":"/mattermost/plugins"}],"env":[{"key":"MM_SQLSETTINGS_DRIVERNAME","value":"postgres"},{"key":"MM_SERVICESETTINGS_SITEURL","value":"http://localhost:8065"}],"dockerCompose":"services:\n  mattermost:\n    image: mattermost/mattermost-preview:latest\n    container_name: mattermost\n    ports:\n      - \"8065:8065\"\n    restart: unless-stopped\n    volumes:\n      - ./mattermost-data:/mattermost/data\n      - ./mattermost-config:/mattermost/config\n      - ./mattermost-plugins:/mattermost/plugins\n    environment:\n      MM_SQLSETTINGS_DRIVERNAME: postgres\n      MM_SERVICESETTINGS_SITEURL: http://localhost:8065","envFile":"MM_SQLSETTINGS_DRIVERNAME=postgres\nMM_SERVICESETTINGS_SITEURL=http://localhost:8065","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8065","minRam":"2GB"},{"name":"Rocket.Chat","image":"rocket.chat:latest","port":"3000:3000","volumes":[{"host":"./rocket-uploads","container":"/app/uploads"}],"env":[{"key":"MONGO_URL","value":"mongodb://mongo:27017/rocketchat"},{"key":"ROOT_URL","value":"http://localhost:3000"}],"dockerCompose":"services:\n  rocketchat:\n    image: rocket.chat:latest\n    container_name: rocketchat\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./rocket-uploads:/app/uploads\n    environment:\n      MONGO_URL: mongodb://mongo:27017/rocketchat\n      ROOT_URL: http://localhost:3000","envFile":"MONGO_URL=mongodb://mongo:27017/rocketchat\nROOT_URL=http://localhost:3000","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"2GB"},{"name":"Element","image":"vectorim/element-web:latest","port":"8080:80","volumes":[],"env":[],"dockerCompose":"services:\n  element:\n    image: vectorim/element-web:latest\n    container_name: element\n    ports:\n      - \"8080:80\"\n    restart: unless-stopped\n\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"1GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

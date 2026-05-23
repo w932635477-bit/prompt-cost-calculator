@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Notion Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Outline wiki with Docker Compose. Production-ready config with PostgreSQL, Redis, .env template, and one-command deployment." />
+    <meta name="keywords" content="deploy outline wiki docker, self-hosted notion docker compose, outline docker compose, notion alternative docker deploy" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/notion/" />
+    <meta property="og:title" content="Deploy Self-Hosted Notion Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Outline wiki with Docker Compose. Production-ready config with PostgreSQL, Redis, .env template, and one-command deployment." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/notion/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Notion Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Outline wiki with Docker Compose. Production-ready config with PostgreSQL, Redis, .env template, and one-command deployment." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Which Notion alternative is best for self-hosting?","acceptedAnswer":{"@type":"Answer","text":"Outline is the most popular self-hosted Notion alternative with Docker support. It includes real-time collaboration, Markdown support, and Slack integration."}},{"@type":"Question","name":"Does Outline require external services?","acceptedAnswer":{"@type":"Answer","text":"Outline needs PostgreSQL and Redis. The docker-compose template below includes all three services."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Notion Alternatives with Docker Compose","description":"Deploy Outline wiki with Docker Compose. Production-ready config with PostgreSQL, Redis, .env template, and one-command deployment.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Outline","text":"Run docker compose up -d to deploy Outline on port 3000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"notion","saasName":"Notion","title":"Deploy Self-Hosted Notion Alternatives with Docker Compose","h1":"Deploy Self-Hosted Notion Alternatives","description":"Deploy Outline wiki with Docker Compose. Production-ready config with PostgreSQL, Redis, .env template, and one-command deployment.","keywords":["deploy outline wiki docker","self-hosted notion docker compose","outline docker compose","notion alternative docker deploy"],"faq":[{"q":"Which Notion alternative is best for self-hosting?","a":"Outline is the most popular self-hosted Notion alternative with Docker support. It includes real-time collaboration, Markdown support, and Slack integration."},{"q":"Does Outline require external services?","a":"Outline needs PostgreSQL and Redis. The docker-compose template below includes all three services."}],"deploys":[{"name":"Outline","image":"outlinewiki/outline:latest","port":"3000:3000","volumes":[{"host":"./outline-data","container":"/var/lib/outline/data"}],"env":[{"key":"SECRET_KEY","value":"change-me-to-a-random-string"},{"key":"DATABASE_URL","value":"postgres://outline:outline@postgres:5432/outline"},{"key":"REDIS_URL","value":"redis://redis:6379"},{"key":"URL","value":"http://localhost:3000"},{"key":"PORT","value":"3000"}],"dockerCompose":"services:\n  outline:\n    image: outlinewiki/outline:latest\n    container_name: outline\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./outline-data:/var/lib/outline/data\n    environment:\n      SECRET_KEY: change-me-to-a-random-string\n      DATABASE_URL: postgres://outline:outline@postgres:5432/outline\n      REDIS_URL: redis://redis:6379\n      URL: http://localhost:3000\n      PORT: 3000","envFile":"SECRET_KEY=change-me-to-a-random-string\nDATABASE_URL=postgres://outline:outline@postgres:5432/outline\nREDIS_URL=redis://redis:6379\nURL=http://localhost:3000\nPORT=3000","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"1GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

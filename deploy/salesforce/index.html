@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Salesforce Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Twenty CRM and ERPNext with Docker Compose. Open source CRM with contacts, deals, and pipeline management." />
+    <meta name="keywords" content="deploy twenty crm docker, deploy erpnext docker, self-hosted crm docker, twenty crm docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/salesforce/" />
+    <meta property="og:title" content="Deploy Self-Hosted Salesforce Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Twenty CRM and ERPNext with Docker Compose. Open source CRM with contacts, deals, and pipeline management." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/salesforce/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Salesforce Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Twenty CRM and ERPNext with Docker Compose. Open source CRM with contacts, deals, and pipeline management." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can I migrate from Salesforce?","acceptedAnswer":{"@type":"Answer","text":"Twenty CRM supports CSV import of contacts and deals. For complex migrations, use the REST API to sync data programmatically."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Salesforce Alternatives with Docker Compose","description":"Deploy Twenty CRM and ERPNext with Docker Compose. Open source CRM with contacts, deals, and pipeline management.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Twenty CRM","text":"Run docker compose up -d to deploy Twenty CRM on port 3000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"salesforce","saasName":"Salesforce","title":"Deploy Self-Hosted Salesforce Alternatives with Docker Compose","h1":"Deploy Self-Hosted Salesforce Alternatives","description":"Deploy Twenty CRM and ERPNext with Docker Compose. Open source CRM with contacts, deals, and pipeline management.","keywords":["deploy twenty crm docker","deploy erpnext docker","self-hosted crm docker","twenty crm docker compose"],"faq":[{"q":"Can I migrate from Salesforce?","a":"Twenty CRM supports CSV import of contacts and deals. For complex migrations, use the REST API to sync data programmatically."}],"deploys":[{"name":"Twenty CRM","image":"twentycrm/twenty:latest","port":"3000:3000","volumes":[{"host":"./twenty-data","container":"/app/data"}],"env":[{"key":"PG_HOST","value":"postgres"},{"key":"PG_DATABASE","value":"default"},{"key":"PG_USERNAME","value":"twenty"},{"key":"PG_PASSWORD","value":"twenty"},{"key":"SERVER_URL","value":"http://localhost:3000"}],"dockerCompose":"services:\n  twentycrm:\n    image: twentycrm/twenty:latest\n    container_name: twentycrm\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./twenty-data:/app/data\n    environment:\n      PG_HOST: postgres\n      PG_DATABASE: default\n      PG_USERNAME: twenty\n      PG_PASSWORD: twenty\n      SERVER_URL: http://localhost:3000","envFile":"PG_HOST=postgres\nPG_DATABASE=default\nPG_USERNAME=twenty\nPG_PASSWORD=twenty\nSERVER_URL=http://localhost:3000","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"2GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

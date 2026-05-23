@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Zapier Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy n8n workflow automation with Docker Compose. Connect 400+ services with visual workflows, no code required." />
+    <meta name="keywords" content="deploy n8n docker, self-hosted automation docker, n8n docker compose, zapier alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/zapier/" />
+    <meta property="og:title" content="Deploy Self-Hosted Zapier Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy n8n workflow automation with Docker Compose. Connect 400+ services with visual workflows, no code required." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/zapier/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Zapier Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy n8n workflow automation with Docker Compose. Connect 400+ services with visual workflows, no code required." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How does n8n compare to Zapier?","acceptedAnswer":{"@type":"Answer","text":"n8n is free for unlimited workflows and executions. Zapier charges per task. n8n has a visual node editor similar to Zapier but with more flexibility for technical users."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Zapier Alternatives with Docker Compose","description":"Deploy n8n workflow automation with Docker Compose. Connect 400+ services with visual workflows, no code required.","step":[{"@type":"HowToStep","position":1,"name":"Deploy n8n","text":"Run docker compose up -d to deploy n8n on port 5678"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"zapier","saasName":"Zapier","title":"Deploy Self-Hosted Zapier Alternatives with Docker Compose","h1":"Deploy Self-Hosted Zapier Alternatives","description":"Deploy n8n workflow automation with Docker Compose. Connect 400+ services with visual workflows, no code required.","keywords":["deploy n8n docker","self-hosted automation docker","n8n docker compose","zapier alternative docker"],"faq":[{"q":"How does n8n compare to Zapier?","a":"n8n is free for unlimited workflows and executions. Zapier charges per task. n8n has a visual node editor similar to Zapier but with more flexibility for technical users."}],"deploys":[{"name":"n8n","image":"n8nio/n8n:latest","port":"5678:5678","volumes":[{"host":"./n8n-data","container":"/home/node/.n8n"}],"env":[{"key":"N8N_HOST","value":"localhost"},{"key":"N8N_PORT","value":"5678"},{"key":"N8N_PROTOCOL","value":"http"},{"key":"GENERIC_TIMEZONE","value":"UTC"}],"dockerCompose":"services:\n  n8n:\n    image: n8nio/n8n:latest\n    container_name: n8n\n    ports:\n      - \"5678:5678\"\n    restart: unless-stopped\n    volumes:\n      - ./n8n-data:/home/node/.n8n\n    environment:\n      N8N_HOST: localhost\n      N8N_PORT: 5678\n      N8N_PROTOCOL: http\n      GENERIC_TIMEZONE: UTC","envFile":"N8N_HOST=localhost\nN8N_PORT=5678\nN8N_PROTOCOL=http\nGENERIC_TIMEZONE=UTC","deployCommand":"docker compose up -d","accessUrl":"http://localhost:5678","minRam":"512MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

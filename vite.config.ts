@@ -26,6 +26,14 @@ const altInputs = Object.fromEntries(
   altSlugMatches.map(m => [`alt-lt-${m[1]}`, resolve(__dirname, `alternatives/${m[1]}/index.html`)])
 )
 
+// Load deploy page inputs from generated data
+const deployDataFile = resolve(__dirname, 'src/deploy/seo/deploy-data.ts')
+const deployDataContent = fs.readFileSync(deployDataFile, 'utf-8')
+const deploySlugMatches = [...deployDataContent.matchAll(/slug: '([^']+)'/g)]
+const deployInputs = Object.fromEntries(
+  deploySlugMatches.map(m => [`deploy-lt-${m[1]}`, resolve(__dirname, `deploy/${m[1]}/index.html`)])
+)
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -38,6 +46,7 @@ export default defineConfig({
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
+        ...deployInputs,
       },
     },
   },

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Evernote Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Trilium Notes and Memos with Docker Compose. Self-hosted note-taking with Markdown, hierarchical notebooks, and web clippers." />
+    <meta name="keywords" content="deploy trilium docker, deploy memos docker, self-hosted notes docker, trilium docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/evernote/" />
+    <meta property="og:title" content="Deploy Self-Hosted Evernote Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Trilium Notes and Memos with Docker Compose. Self-hosted note-taking with Markdown, hierarchical notebooks, and web clippers." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/evernote/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Evernote Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Trilium Notes and Memos with Docker Compose. Self-hosted note-taking with Markdown, hierarchical notebooks, and web clippers." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can I import from Evernote?","acceptedAnswer":{"@type":"Answer","text":"Trilium Notes supports ENEX import from Evernote. Joplin also has an Evernote import tool built in."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Evernote Alternatives with Docker Compose","description":"Deploy Trilium Notes and Memos with Docker Compose. Self-hosted note-taking with Markdown, hierarchical notebooks, and web clippers.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Trilium Notes","text":"Run docker compose up -d to deploy Trilium Notes on port 8080"},{"@type":"HowToStep","position":2,"name":"Deploy Memos","text":"Run docker compose up -d to deploy Memos on port 5230"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"evernote","saasName":"Evernote","title":"Deploy Self-Hosted Evernote Alternatives with Docker Compose","h1":"Deploy Self-Hosted Evernote Alternatives","description":"Deploy Trilium Notes and Memos with Docker Compose. Self-hosted note-taking with Markdown, hierarchical notebooks, and web clippers.","keywords":["deploy trilium docker","deploy memos docker","self-hosted notes docker","trilium docker compose"],"faq":[{"q":"Can I import from Evernote?","a":"Trilium Notes supports ENEX import from Evernote. Joplin also has an Evernote import tool built in."}],"deploys":[{"name":"Trilium Notes","image":"zadam/trilium:latest","port":"8080:8080","volumes":[{"host":"./trilium-data","container":"/data"}],"env":[],"dockerCompose":"services:\n  triliumnotes:\n    image: zadam/trilium:latest\n    container_name: triliumnotes\n    ports:\n      - \"8080:8080\"\n    restart: unless-stopped\n    volumes:\n      - ./trilium-data:/data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"256MB"},{"name":"Memos","image":"neosmemo/memos:latest","port":"5230:5230","volumes":[{"host":"./memos-data","container":"/var/opt/memos"}],"env":[],"dockerCompose":"services:\n  memos:\n    image: neosmemo/memos:latest\n    container_name: memos\n    ports:\n      - \"5230:5230\"\n    restart: unless-stopped\n    volumes:\n      - ./memos-data:/var/opt/memos\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:5230","minRam":"128MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

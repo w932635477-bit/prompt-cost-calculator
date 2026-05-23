@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted GitHub Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Gitea and GitLab CE with Docker Compose. Lightweight Git hosting with pull requests, CI/CD, and package registries." />
+    <meta name="keywords" content="deploy gitea docker, deploy gitlab docker, self-hosted git docker compose, gitea docker compose, gitlab ce docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/github/" />
+    <meta property="og:title" content="Deploy Self-Hosted GitHub Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Gitea and GitLab CE with Docker Compose. Lightweight Git hosting with pull requests, CI/CD, and package registries." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/github/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted GitHub Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Gitea and GitLab CE with Docker Compose. Lightweight Git hosting with pull requests, CI/CD, and package registries." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Gitea or GitLab CE for self-hosting?","acceptedAnswer":{"@type":"Answer","text":"Gitea is lightweight (runs on 512MB RAM) and perfect for small teams. GitLab CE has more features (CI/CD, monitoring) but needs 4GB+ RAM."}},{"@type":"Question","name":"Can I migrate repositories from GitHub?","acceptedAnswer":{"@type":"Answer","text":"Both Gitea and GitLab CE support importing repositories from GitHub via URL or API."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted GitHub Alternatives with Docker Compose","description":"Deploy Gitea and GitLab CE with Docker Compose. Lightweight Git hosting with pull requests, CI/CD, and package registries.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Gitea","text":"Run docker compose up -d to deploy Gitea on port 3000"},{"@type":"HowToStep","position":2,"name":"Deploy GitLab CE","text":"Run docker compose up -d to deploy GitLab CE on port 8080"},{"@type":"HowToStep","position":3,"name":"Deploy Forgejo","text":"Run docker compose up -d to deploy Forgejo on port 3001"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"github","saasName":"GitHub","title":"Deploy Self-Hosted GitHub Alternatives with Docker Compose","h1":"Deploy Self-Hosted GitHub Alternatives","description":"Deploy Gitea and GitLab CE with Docker Compose. Lightweight Git hosting with pull requests, CI/CD, and package registries.","keywords":["deploy gitea docker","deploy gitlab docker","self-hosted git docker compose","gitea docker compose","gitlab ce docker"],"faq":[{"q":"Gitea or GitLab CE for self-hosting?","a":"Gitea is lightweight (runs on 512MB RAM) and perfect for small teams. GitLab CE has more features (CI/CD, monitoring) but needs 4GB+ RAM."},{"q":"Can I migrate repositories from GitHub?","a":"Both Gitea and GitLab CE support importing repositories from GitHub via URL or API."}],"deploys":[{"name":"Gitea","image":"gitea/gitea:latest","port":"3000:3000","volumes":[{"host":"./gitea-data","container":"/data"},{"host":"/etc/timezone","container":"/etc/timezone:ro"}],"env":[{"key":"USER_UID","value":"1000"},{"key":"USER_GID","value":"1000"},{"key":"GITEA__database__DB_TYPE","value":"sqlite3"}],"dockerCompose":"services:\n  gitea:\n    image: gitea/gitea:latest\n    container_name: gitea\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./gitea-data:/data\n      - /etc/timezone:/etc/timezone:ro\n    environment:\n      USER_UID: 1000\n      USER_GID: 1000\n      GITEA__database__DB_TYPE: sqlite3","envFile":"USER_UID=1000\nUSER_GID=1000\nGITEA__database__DB_TYPE=sqlite3","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"512MB"},{"name":"GitLab CE","image":"gitlab/gitlab-ce:latest","port":"8080:8080","volumes":[{"host":"./gitlab-config","container":"/etc/gitlab"},{"host":"./gitlab-data","container":"/var/opt/gitlab"},{"host":"./gitlab-logs","container":"/var/log/gitlab"}],"env":[{"key":"GITLAB_OMNIBUS_CONFIG","value":"external_url 'http://localhost:8080'"}],"dockerCompose":"services:\n  gitlabce:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlabce\n    ports:\n      - \"8080:8080\"\n    restart: unless-stopped\n    volumes:\n      - ./gitlab-config:/etc/gitlab\n      - ./gitlab-data:/var/opt/gitlab\n      - ./gitlab-logs:/var/log/gitlab\n    environment:\n      GITLAB_OMNIBUS_CONFIG: external_url 'http://localhost:8080'","envFile":"GITLAB_OMNIBUS_CONFIG=external_url 'http://localhost:8080'","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"4GB"},{"name":"Forgejo","image":"codeberg.org/forgejo/forgejo:latest","port":"3001:3000","volumes":[{"host":"./forgejo-data","container":"/data"}],"env":[{"key":"USER_UID","value":"1000"},{"key":"USER_GID","value":"1000"}],"dockerCompose":"services:\n  forgejo:\n    image: codeberg.org/forgejo/forgejo:latest\n    container_name: forgejo\n    ports:\n      - \"3001:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./forgejo-data:/data\n    environment:\n      USER_UID: 1000\n      USER_GID: 1000","envFile":"USER_UID=1000\nUSER_GID=1000","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3001","minRam":"512MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Confluence Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy BookStack and Wiki.js with Docker Compose. Self-hosted knowledge base and documentation platform." />
+    <meta name="keywords" content="deploy bookstack docker, deploy wikijs docker, self-hosted wiki docker, bookstack docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/confluence/" />
+    <meta property="og:title" content="Deploy Self-Hosted Confluence Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy BookStack and Wiki.js with Docker Compose. Self-hosted knowledge base and documentation platform." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/confluence/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Confluence Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy BookStack and Wiki.js with Docker Compose. Self-hosted knowledge base and documentation platform." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"BookStack or Wiki.js for documentation?","acceptedAnswer":{"@type":"Answer","text":"BookStack has a book/chapter/page structure similar to Confluence. Wiki.js has a more modern UI with support for multiple storage backends and git integration."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Confluence Alternatives with Docker Compose","description":"Deploy BookStack and Wiki.js with Docker Compose. Self-hosted knowledge base and documentation platform.","step":[{"@type":"HowToStep","position":1,"name":"Deploy BookStack","text":"Run docker compose up -d to deploy BookStack on port 8080"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"confluence","saasName":"Confluence","title":"Deploy Self-Hosted Confluence Alternatives with Docker Compose","h1":"Deploy Self-Hosted Confluence Alternatives","description":"Deploy BookStack and Wiki.js with Docker Compose. Self-hosted knowledge base and documentation platform.","keywords":["deploy bookstack docker","deploy wikijs docker","self-hosted wiki docker","bookstack docker compose"],"faq":[{"q":"BookStack or Wiki.js for documentation?","a":"BookStack has a book/chapter/page structure similar to Confluence. Wiki.js has a more modern UI with support for multiple storage backends and git integration."}],"deploys":[{"name":"BookStack","image":"solidnerd/bookstack:latest","port":"8080:8080","volumes":[{"host":"./bookstack-uploads","container":"/var/www/bookstack/public/uploads"},{"host":"./bookstack-storage","container":"/var/www/bookstack/storage"}],"env":[{"key":"DB_HOST","value":"mysql"},{"key":"DB_DATABASE","value":"bookstack"},{"key":"DB_USERNAME","value":"bookstack"},{"key":"DB_PASSWORD","value":"change-me"},{"key":"APP_URL","value":"http://localhost:8080"}],"dockerCompose":"services:\n  bookstack:\n    image: solidnerd/bookstack:latest\n    container_name: bookstack\n    ports:\n      - \"8080:8080\"\n    restart: unless-stopped\n    volumes:\n      - ./bookstack-uploads:/var/www/bookstack/public/uploads\n      - ./bookstack-storage:/var/www/bookstack/storage\n    environment:\n      DB_HOST: mysql\n      DB_DATABASE: bookstack\n      DB_USERNAME: bookstack\n      DB_PASSWORD: change-me\n      APP_URL: http://localhost:8080","envFile":"DB_HOST=mysql\nDB_DATABASE=bookstack\nDB_USERNAME=bookstack\nDB_PASSWORD=change-me\nAPP_URL=http://localhost:8080","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"512MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

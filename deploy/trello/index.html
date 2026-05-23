@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Trello Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy WeKan and Kanboard with Docker Compose. Open source kanban boards with swimlanes, checklists, and Trello import." />
+    <meta name="keywords" content="deploy wekan docker, deploy kanboard docker, self-hosted kanban docker, wekan docker compose, trello alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/trello/" />
+    <meta property="og:title" content="Deploy Self-Hosted Trello Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy WeKan and Kanboard with Docker Compose. Open source kanban boards with swimlanes, checklists, and Trello import." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/trello/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Trello Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy WeKan and Kanboard with Docker Compose. Open source kanban boards with swimlanes, checklists, and Trello import." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can I import my Trello boards?","acceptedAnswer":{"@type":"Answer","text":"WeKan has built-in Trello import. Export your Trello boards as JSON and import directly into WeKan."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Trello Alternatives with Docker Compose","description":"Deploy WeKan and Kanboard with Docker Compose. Open source kanban boards with swimlanes, checklists, and Trello import.","step":[{"@type":"HowToStep","position":1,"name":"Deploy WeKan","text":"Run docker compose up -d to deploy WeKan on port 8080"},{"@type":"HowToStep","position":2,"name":"Deploy Kanboard","text":"Run docker compose up -d to deploy Kanboard on port 8081"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"trello","saasName":"Trello","title":"Deploy Self-Hosted Trello Alternatives with Docker Compose","h1":"Deploy Self-Hosted Trello Alternatives","description":"Deploy WeKan and Kanboard with Docker Compose. Open source kanban boards with swimlanes, checklists, and Trello import.","keywords":["deploy wekan docker","deploy kanboard docker","self-hosted kanban docker","wekan docker compose","trello alternative docker"],"faq":[{"q":"Can I import my Trello boards?","a":"WeKan has built-in Trello import. Export your Trello boards as JSON and import directly into WeKan."}],"deploys":[{"name":"WeKan","image":"wekanteam/wekan:latest","port":"8080:8080","volumes":[{"host":"./wekan-data","container":"/data"}],"env":[{"key":"ROOT_URL","value":"http://localhost:8080"},{"key":"MONGO_URL","value":"mongodb://mongo:27017/wekan"}],"dockerCompose":"services:\n  wekan:\n    image: wekanteam/wekan:latest\n    container_name: wekan\n    ports:\n      - \"8080:8080\"\n    restart: unless-stopped\n    volumes:\n      - ./wekan-data:/data\n    environment:\n      ROOT_URL: http://localhost:8080\n      MONGO_URL: mongodb://mongo:27017/wekan","envFile":"ROOT_URL=http://localhost:8080\nMONGO_URL=mongodb://mongo:27017/wekan","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"1GB"},{"name":"Kanboard","image":"kanboard/kanboard:latest","port":"8081:80","volumes":[{"host":"./kanboard-data","container":"/var/www/app/data"},{"host":"./kanboard-plugins","container":"/var/www/app/plugins"}],"env":[],"dockerCompose":"services:\n  kanboard:\n    image: kanboard/kanboard:latest\n    container_name: kanboard\n    ports:\n      - \"8081:80\"\n    restart: unless-stopped\n    volumes:\n      - ./kanboard-data:/var/www/app/data\n      - ./kanboard-plugins:/var/www/app/plugins\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8081","minRam":"256MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

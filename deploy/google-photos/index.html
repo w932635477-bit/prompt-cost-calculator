@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Google Photos Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Immich and PhotoPrism with Docker Compose. Self-hosted photo management with face recognition, maps, and album sharing." />
+    <meta name="keywords" content="deploy immich docker, deploy photoprism docker, self-hosted photos docker, immich docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/google-photos/" />
+    <meta property="og:title" content="Deploy Self-Hosted Google Photos Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Immich and PhotoPrism with Docker Compose. Self-hosted photo management with face recognition, maps, and album sharing." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/google-photos/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Google Photos Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Immich and PhotoPrism with Docker Compose. Self-hosted photo management with face recognition, maps, and album sharing." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Immich or PhotoPrism?","acceptedAnswer":{"@type":"Answer","text":"Immich is designed as a Google Photos clone with mobile apps. PhotoPrism is more focused on browsing and organizing large photo collections with AI-powered search."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Google Photos Alternatives with Docker Compose","description":"Deploy Immich and PhotoPrism with Docker Compose. Self-hosted photo management with face recognition, maps, and album sharing.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Immich","text":"Run docker compose up -d to deploy Immich on port 2283"},{"@type":"HowToStep","position":2,"name":"Deploy PhotoPrism","text":"Run docker compose up -d to deploy PhotoPrism on port 2342"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"google-photos","saasName":"Google Photos","title":"Deploy Self-Hosted Google Photos Alternatives with Docker Compose","h1":"Deploy Self-Hosted Google Photos Alternatives","description":"Deploy Immich and PhotoPrism with Docker Compose. Self-hosted photo management with face recognition, maps, and album sharing.","keywords":["deploy immich docker","deploy photoprism docker","self-hosted photos docker","immich docker compose"],"faq":[{"q":"Immich or PhotoPrism?","a":"Immich is designed as a Google Photos clone with mobile apps. PhotoPrism is more focused on browsing and organizing large photo collections with AI-powered search."}],"deploys":[{"name":"Immich","image":"ghcr.io/immich-app/immich:latest","port":"2283:2283","volumes":[{"host":"./immich-upload","container":"/usr/src/app/upload"}],"env":[{"key":"DB_HOSTNAME","value":"database"},{"key":"DB_USERNAME","value":"postgres"},{"key":"DB_PASSWORD","value":"postgres"},{"key":"DB_DATABASE_NAME","value":"immich"},{"key":"REDIS_HOSTNAME","value":"redis"}],"dockerCompose":"services:\n  immich:\n    image: ghcr.io/immich-app/immich:latest\n    container_name: immich\n    ports:\n      - \"2283:2283\"\n    restart: unless-stopped\n    volumes:\n      - ./immich-upload:/usr/src/app/upload\n    environment:\n      DB_HOSTNAME: database\n      DB_USERNAME: postgres\n      DB_PASSWORD: postgres\n      DB_DATABASE_NAME: immich\n      REDIS_HOSTNAME: redis","envFile":"DB_HOSTNAME=database\nDB_USERNAME=postgres\nDB_PASSWORD=postgres\nDB_DATABASE_NAME=immich\nREDIS_HOSTNAME=redis","deployCommand":"docker compose up -d","accessUrl":"http://localhost:2283","minRam":"2GB"},{"name":"PhotoPrism","image":"photoprism/photoprism:latest","port":"2342:2342","volumes":[{"host":"./photoprism-storage","container":"/photoprism/storage"},{"host":"./photos","container":"/photoprism/originals"}],"env":[{"key":"PHOTOPRISM_ADMIN_PASSWORD","value":"change-me"},{"key":"PHOTOPRISM_SITE_URL","value":"http://localhost:2342"}],"dockerCompose":"services:\n  photoprism:\n    image: photoprism/photoprism:latest\n    container_name: photoprism\n    ports:\n      - \"2342:2342\"\n    restart: unless-stopped\n    volumes:\n      - ./photoprism-storage:/photoprism/storage\n      - ./photos:/photoprism/originals\n    environment:\n      PHOTOPRISM_ADMIN_PASSWORD: change-me\n      PHOTOPRISM_SITE_URL: http://localhost:2342","envFile":"PHOTOPRISM_ADMIN_PASSWORD=change-me\nPHOTOPRISM_SITE_URL=http://localhost:2342","deployCommand":"docker compose up -d","accessUrl":"http://localhost:2342","minRam":"2GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

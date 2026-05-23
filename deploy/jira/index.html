@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Jira Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Plane and Redmine with Docker Compose. Open source project management with issues, sprints, and kanban boards." />
+    <meta name="keywords" content="deploy plane docker, deploy redmine docker, self-hosted jira docker compose, plane docker compose, redmine docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/jira/" />
+    <meta property="og:title" content="Deploy Self-Hosted Jira Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Plane and Redmine with Docker Compose. Open source project management with issues, sprints, and kanban boards." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/jira/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Jira Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Plane and Redmine with Docker Compose. Open source project management with issues, sprints, and kanban boards." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Which Jira alternative is easiest to self-host?","acceptedAnswer":{"@type":"Answer","text":"Redmine is the simplest with a single container. Plane has a modern UI but requires more services (Redis, minio)."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Jira Alternatives with Docker Compose","description":"Deploy Plane and Redmine with Docker Compose. Open source project management with issues, sprints, and kanban boards.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Plane","text":"Run docker compose up -d to deploy Plane on port 3000"},{"@type":"HowToStep","position":2,"name":"Deploy Redmine","text":"Run docker compose up -d to deploy Redmine on port 3001"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"jira","saasName":"Jira","title":"Deploy Self-Hosted Jira Alternatives with Docker Compose","h1":"Deploy Self-Hosted Jira Alternatives","description":"Deploy Plane and Redmine with Docker Compose. Open source project management with issues, sprints, and kanban boards.","keywords":["deploy plane docker","deploy redmine docker","self-hosted jira docker compose","plane docker compose","redmine docker"],"faq":[{"q":"Which Jira alternative is easiest to self-host?","a":"Redmine is the simplest with a single container. Plane has a modern UI but requires more services (Redis, minio)."}],"deploys":[{"name":"Plane","image":"makeplane/plane:latest","port":"3000:3000","volumes":[{"host":"./plane-data","container":"/app/data"}],"env":[{"key":"WEB_URL","value":"http://localhost:3000"},{"key":"CORS_ALLOWED_ORIGINS","value":"http://localhost:3000"}],"dockerCompose":"services:\n  plane:\n    image: makeplane/plane:latest\n    container_name: plane\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./plane-data:/app/data\n    environment:\n      WEB_URL: http://localhost:3000\n      CORS_ALLOWED_ORIGINS: http://localhost:3000","envFile":"WEB_URL=http://localhost:3000\nCORS_ALLOWED_ORIGINS=http://localhost:3000","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"2GB"},{"name":"Redmine","image":"redmine:latest","port":"3001:3000","volumes":[{"host":"./redmine-files","container":"/usr/src/redmine/files"},{"host":"./redmine-plugins","container":"/usr/src/redmine/plugins"}],"env":[{"key":"REDMINE_DB_MYSQL","value":"db"},{"key":"REDMINE_DB_PASSWORD","value":"change-me"}],"dockerCompose":"services:\n  redmine:\n    image: redmine:latest\n    container_name: redmine\n    ports:\n      - \"3001:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./redmine-files:/usr/src/redmine/files\n      - ./redmine-plugins:/usr/src/redmine/plugins\n    environment:\n      REDMINE_DB_MYSQL: db\n      REDMINE_DB_PASSWORD: change-me","envFile":"REDMINE_DB_MYSQL=db\nREDMINE_DB_PASSWORD=change-me","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3001","minRam":"512MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

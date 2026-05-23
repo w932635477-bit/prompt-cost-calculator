@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Dropbox Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Nextcloud and Syncthing with Docker Compose. Self-hosted file sync with no storage limits and no subscription fees." />
+    <meta name="keywords" content="deploy syncthing docker, deploy nextcloud docker, self-hosted file sync docker, syncthing docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/dropbox/" />
+    <meta property="og:title" content="Deploy Self-Hosted Dropbox Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Nextcloud and Syncthing with Docker Compose. Self-hosted file sync with no storage limits and no subscription fees." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/dropbox/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Dropbox Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Nextcloud and Syncthing with Docker Compose. Self-hosted file sync with no storage limits and no subscription fees." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Syncthing or Nextcloud for file sync?","acceptedAnswer":{"@type":"Answer","text":"Syncthing is peer-to-peer with no central server needed. Nextcloud is a full cloud platform with web access, sharing, and collaboration features."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Dropbox Alternatives with Docker Compose","description":"Deploy Nextcloud and Syncthing with Docker Compose. Self-hosted file sync with no storage limits and no subscription fees.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Syncthing","text":"Run docker compose up -d to deploy Syncthing on port 8384"},{"@type":"HowToStep","position":2,"name":"Deploy Nextcloud","text":"Run docker compose up -d to deploy Nextcloud on port 8080"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"dropbox","saasName":"Dropbox","title":"Deploy Self-Hosted Dropbox Alternatives with Docker Compose","h1":"Deploy Self-Hosted Dropbox Alternatives","description":"Deploy Nextcloud and Syncthing with Docker Compose. Self-hosted file sync with no storage limits and no subscription fees.","keywords":["deploy syncthing docker","deploy nextcloud docker","self-hosted file sync docker","syncthing docker compose"],"faq":[{"q":"Syncthing or Nextcloud for file sync?","a":"Syncthing is peer-to-peer with no central server needed. Nextcloud is a full cloud platform with web access, sharing, and collaboration features."}],"deploys":[{"name":"Syncthing","image":"syncthing/syncthing:latest","port":"8384:8384","volumes":[{"host":"./syncthing-config","container":"/var/syncthing"}],"env":[],"dockerCompose":"services:\n  syncthing:\n    image: syncthing/syncthing:latest\n    container_name: syncthing\n    ports:\n      - \"8384:8384\"\n    restart: unless-stopped\n    volumes:\n      - ./syncthing-config:/var/syncthing\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8384","minRam":"256MB"},{"name":"Nextcloud","image":"nextcloud:latest","port":"8080:80","volumes":[{"host":"./nextcloud-html","container":"/var/www/html"},{"host":"./nextcloud-data","container":"/var/www/html/data"}],"env":[],"dockerCompose":"services:\n  nextcloud:\n    image: nextcloud:latest\n    container_name: nextcloud\n    ports:\n      - \"8080:80\"\n    restart: unless-stopped\n    volumes:\n      - ./nextcloud-html:/var/www/html\n      - ./nextcloud-data:/var/www/html/data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"2GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

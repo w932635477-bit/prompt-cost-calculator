@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted WordPress Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Ghost and WordPress self-hosted with Docker Compose. Professional blogging and CMS with themes, plugins, and SEO tools." />
+    <meta name="keywords" content="deploy ghost docker, deploy wordpress docker, self-hosted blog docker, ghost docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/wordpress-com/" />
+    <meta property="og:title" content="Deploy Self-Hosted WordPress Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Ghost and WordPress self-hosted with Docker Compose. Professional blogging and CMS with themes, plugins, and SEO tools." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/wordpress-com/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted WordPress Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Ghost and WordPress self-hosted with Docker Compose. Professional blogging and CMS with themes, plugins, and SEO tools." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Ghost or WordPress for blogging?","acceptedAnswer":{"@type":"Answer","text":"Ghost is modern, fast, and built for publishing with native newsletter support. WordPress has more plugins and themes but is heavier."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted WordPress.com Alternatives with Docker Compose","description":"Deploy Ghost and WordPress self-hosted with Docker Compose. Professional blogging and CMS with themes, plugins, and SEO tools.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Ghost","text":"Run docker compose up -d to deploy Ghost on port 2368"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"wordpress-com","saasName":"WordPress.com","title":"Deploy Self-Hosted WordPress Alternatives with Docker Compose","h1":"Deploy Self-Hosted WordPress Alternatives","description":"Deploy Ghost and WordPress self-hosted with Docker Compose. Professional blogging and CMS with themes, plugins, and SEO tools.","keywords":["deploy ghost docker","deploy wordpress docker","self-hosted blog docker","ghost docker compose"],"faq":[{"q":"Ghost or WordPress for blogging?","a":"Ghost is modern, fast, and built for publishing with native newsletter support. WordPress has more plugins and themes but is heavier."}],"deploys":[{"name":"Ghost","image":"ghost:latest","port":"2368:2368","volumes":[{"host":"./ghost-content","container":"/var/lib/ghost/content"}],"env":[{"key":"url","value":"http://localhost:2368"},{"key":"database__client","value":"mysql"},{"key":"database__connection__host","value":"db"},{"key":"database__connection__user","value":"root"},{"key":"database__connection__password","value":"change-me"},{"key":"database__connection__database","value":"ghost"}],"dockerCompose":"services:\n  ghost:\n    image: ghost:latest\n    container_name: ghost\n    ports:\n      - \"2368:2368\"\n    restart: unless-stopped\n    volumes:\n      - ./ghost-content:/var/lib/ghost/content\n    environment:\n      url: http://localhost:2368\n      database__client: mysql\n      database__connection__host: db\n      database__connection__user: root\n      database__connection__password: change-me\n      database__connection__database: ghost","envFile":"url=http://localhost:2368\ndatabase__client=mysql\ndatabase__connection__host=db\ndatabase__connection__user=root\ndatabase__connection__password=change-me\ndatabase__connection__database=ghost","deployCommand":"docker compose up -d","accessUrl":"http://localhost:2368","minRam":"512MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

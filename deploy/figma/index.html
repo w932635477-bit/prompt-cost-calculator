@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Figma Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Penpot design platform with Docker Compose. Open source design and prototyping tool with SVG-native workflows." />
+    <meta name="keywords" content="deploy penpot docker, self-hosted design tool docker, penpot docker compose, figma alternative docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/figma/" />
+    <meta property="og:title" content="Deploy Self-Hosted Figma Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Penpot design platform with Docker Compose. Open source design and prototyping tool with SVG-native workflows." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/figma/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Figma Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Penpot design platform with Docker Compose. Open source design and prototyping tool with SVG-native workflows." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Is Penpot a real Figma replacement?","acceptedAnswer":{"@type":"Answer","text":"Penpot covers most design use cases with SVG-native approach. It supports components, flex layout, prototyping, and real-time collaboration. Missing some Figma plugins ecosystem."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Figma Alternatives with Docker Compose","description":"Deploy Penpot design platform with Docker Compose. Open source design and prototyping tool with SVG-native workflows.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Penpot","text":"Run docker compose up -d to deploy Penpot on port 9001"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"figma","saasName":"Figma","title":"Deploy Self-Hosted Figma Alternatives with Docker Compose","h1":"Deploy Self-Hosted Figma Alternatives","description":"Deploy Penpot design platform with Docker Compose. Open source design and prototyping tool with SVG-native workflows.","keywords":["deploy penpot docker","self-hosted design tool docker","penpot docker compose","figma alternative docker"],"faq":[{"q":"Is Penpot a real Figma replacement?","a":"Penpot covers most design use cases with SVG-native approach. It supports components, flex layout, prototyping, and real-time collaboration. Missing some Figma plugins ecosystem."}],"deploys":[{"name":"Penpot","image":"penpotapp/frontend:latest","port":"9001:80","volumes":[{"host":"./penpot-assets","container":"/opt/data/assets"}],"env":[{"key":"PENPOT_PUBLIC_URI","value":"http://localhost:9001"},{"key":"PENPOT_DATABASE_URI","value":"postgresql://penpot:penpot@postgres/penpot"},{"key":"PENPOT_REDIS_URI","value":"redis://redis/0"}],"dockerCompose":"services:\n  penpot:\n    image: penpotapp/frontend:latest\n    container_name: penpot\n    ports:\n      - \"9001:80\"\n    restart: unless-stopped\n    volumes:\n      - ./penpot-assets:/opt/data/assets\n    environment:\n      PENPOT_PUBLIC_URI: http://localhost:9001\n      PENPOT_DATABASE_URI: postgresql://penpot:penpot@postgres/penpot\n      PENPOT_REDIS_URI: redis://redis/0","envFile":"PENPOT_PUBLIC_URI=http://localhost:9001\nPENPOT_DATABASE_URI=postgresql://penpot:penpot@postgres/penpot\nPENPOT_REDIS_URI=redis://redis/0","deployCommand":"docker compose up -d","accessUrl":"http://localhost:9001","minRam":"2GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

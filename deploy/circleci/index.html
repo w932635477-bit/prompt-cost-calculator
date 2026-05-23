@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted CI/CD with Docker Compose</title>
+    <meta name="description" content="Deploy Gitea Actions and Woodpecker CI with Docker Compose. Self-hosted continuous integration with Docker-in-Docker support." />
+    <meta name="keywords" content="deploy woodpecker docker, self-hosted ci cd docker, woodpecker docker compose, gitea actions docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/circleci/" />
+    <meta property="og:title" content="Deploy Self-Hosted CI/CD with Docker Compose" />
+    <meta property="og:description" content="Deploy Gitea Actions and Woodpecker CI with Docker Compose. Self-hosted continuous integration with Docker-in-Docker support." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/circleci/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted CI/CD with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Gitea Actions and Woodpecker CI with Docker Compose. Self-hosted continuous integration with Docker-in-Docker support." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Which CI/CD is easiest to self-host?","acceptedAnswer":{"@type":"Answer","text":"Woodpecker CI is a simple CI that integrates with Gitea and GitHub. Gitea Actions is built into Gitea and uses GitHub Actions syntax."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted CircleCI Alternatives with Docker Compose","description":"Deploy Gitea Actions and Woodpecker CI with Docker Compose. Self-hosted continuous integration with Docker-in-Docker support.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Woodpecker CI","text":"Run docker compose up -d to deploy Woodpecker CI on port 8000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"circleci","saasName":"CircleCI","title":"Deploy Self-Hosted CI/CD with Docker Compose","h1":"Deploy Self-Hosted CI/CD Alternatives","description":"Deploy Gitea Actions and Woodpecker CI with Docker Compose. Self-hosted continuous integration with Docker-in-Docker support.","keywords":["deploy woodpecker docker","self-hosted ci cd docker","woodpecker docker compose","gitea actions docker"],"faq":[{"q":"Which CI/CD is easiest to self-host?","a":"Woodpecker CI is a simple CI that integrates with Gitea and GitHub. Gitea Actions is built into Gitea and uses GitHub Actions syntax."}],"deploys":[{"name":"Woodpecker CI","image":"woodpeckerci/woodpecker-server:latest","port":"8000:8000","volumes":[{"host":"./woodpecker-data","container":"/var/lib/woodpecker"}],"env":[{"key":"WOODPECKER_OPEN","value":"true"},{"key":"WOODPECKER_HOST","value":"http://localhost:8000"},{"key":"WOODPECKER_GITEA","value":"true"},{"key":"WOODPECKER_GITEA_URL","value":"http://gitea:3000"}],"dockerCompose":"services:\n  woodpeckerci:\n    image: woodpeckerci/woodpecker-server:latest\n    container_name: woodpeckerci\n    ports:\n      - \"8000:8000\"\n    restart: unless-stopped\n    volumes:\n      - ./woodpecker-data:/var/lib/woodpecker\n    environment:\n      WOODPECKER_OPEN: true\n      WOODPECKER_HOST: http://localhost:8000\n      WOODPECKER_GITEA: true\n      WOODPECKER_GITEA_URL: http://gitea:3000","envFile":"WOODPECKER_OPEN=true\nWOODPECKER_HOST=http://localhost:8000\nWOODPECKER_GITEA=true\nWOODPECKER_GITEA_URL=http://gitea:3000","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8000","minRam":"512MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

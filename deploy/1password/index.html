@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted 1Password Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Vaultwarden as a 1Password alternative. Bitwarden-compatible password manager with browser extensions, mobile apps, and TOTP." />
+    <meta name="keywords" content="deploy vaultwarden docker, 1password alternative docker, self-hosted password manager docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/1password/" />
+    <meta property="og:title" content="Deploy Self-Hosted 1Password Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Vaultwarden as a 1Password alternative. Bitwarden-compatible password manager with browser extensions, mobile apps, and TOTP." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/1password/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted 1Password Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Vaultwarden as a 1Password alternative. Bitwarden-compatible password manager with browser extensions, mobile apps, and TOTP." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Can I import passwords from 1Password?","acceptedAnswer":{"@type":"Answer","text":"Yes. Bitwarden (and Vaultwarden) supports direct import from 1Password .1pif and .1pux export files."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted 1Password Alternatives with Docker Compose","description":"Deploy Vaultwarden as a 1Password alternative. Bitwarden-compatible password manager with browser extensions, mobile apps, and TOTP.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Vaultwarden","text":"Run docker compose up -d to deploy Vaultwarden on port 8080"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"1password","saasName":"1Password","title":"Deploy Self-Hosted 1Password Alternatives with Docker Compose","h1":"Deploy Self-Hosted 1Password Alternatives","description":"Deploy Vaultwarden as a 1Password alternative. Bitwarden-compatible password manager with browser extensions, mobile apps, and TOTP.","keywords":["deploy vaultwarden docker","1password alternative docker","self-hosted password manager docker compose"],"faq":[{"q":"Can I import passwords from 1Password?","a":"Yes. Bitwarden (and Vaultwarden) supports direct import from 1Password .1pif and .1pux export files."}],"deploys":[{"name":"Vaultwarden","image":"vaultwarden/server:latest","port":"8080:80","volumes":[{"host":"./vaultwarden-data","container":"/data"}],"env":[],"dockerCompose":"services:\n  vaultwarden:\n    image: vaultwarden/server:latest\n    container_name: vaultwarden\n    ports:\n      - \"8080:80\"\n    restart: unless-stopped\n    volumes:\n      - ./vaultwarden-data:/data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"128MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Self-Hosted Zendesk Alternatives with Docker Compose</title>
+    <meta name="description" content="Deploy Chatwoot and Zammad with Docker Compose. Open source customer support with omnichannel inbox, live chat, and ticketing." />
+    <meta name="keywords" content="deploy chatwoot docker, deploy zammad docker, self-hosted helpdesk docker, chatwoot docker compose" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/zendesk/" />
+    <meta property="og:title" content="Deploy Self-Hosted Zendesk Alternatives with Docker Compose" />
+    <meta property="og:description" content="Deploy Chatwoot and Zammad with Docker Compose. Open source customer support with omnichannel inbox, live chat, and ticketing." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/zendesk/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Self-Hosted Zendesk Alternatives with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Chatwoot and Zammad with Docker Compose. Open source customer support with omnichannel inbox, live chat, and ticketing." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Chatwoot or Zammad for customer support?","acceptedAnswer":{"@type":"Answer","text":"Chatwoot excels at omnichannel (WhatsApp, Facebook, Instagram, web chat). Zammad is stronger for traditional email ticketing with SLA management."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Zendesk Alternatives with Docker Compose","description":"Deploy Chatwoot and Zammad with Docker Compose. Open source customer support with omnichannel inbox, live chat, and ticketing.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Chatwoot","text":"Run docker compose up -d to deploy Chatwoot on port 3000"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"zendesk","saasName":"Zendesk","title":"Deploy Self-Hosted Zendesk Alternatives with Docker Compose","h1":"Deploy Self-Hosted Zendesk Alternatives","description":"Deploy Chatwoot and Zammad with Docker Compose. Open source customer support with omnichannel inbox, live chat, and ticketing.","keywords":["deploy chatwoot docker","deploy zammad docker","self-hosted helpdesk docker","chatwoot docker compose"],"faq":[{"q":"Chatwoot or Zammad for customer support?","a":"Chatwoot excels at omnichannel (WhatsApp, Facebook, Instagram, web chat). Zammad is stronger for traditional email ticketing with SLA management."}],"deploys":[{"name":"Chatwoot","image":"chatwoot/chatwoot:latest","port":"3000:3000","volumes":[{"host":"./chatwoot-data","container":"/app/storage"}],"env":[{"key":"FRONTEND_URL","value":"http://localhost:3000"},{"key":"POSTGRES_HOST","value":"postgres"},{"key":"POSTGRES_USERNAME","value":"chatwoot"},{"key":"POSTGRES_PASSWORD","value":"change-me"},{"key":"REDIS_URL","value":"redis://redis:6379"}],"dockerCompose":"services:\n  chatwoot:\n    image: chatwoot/chatwoot:latest\n    container_name: chatwoot\n    ports:\n      - \"3000:3000\"\n    restart: unless-stopped\n    volumes:\n      - ./chatwoot-data:/app/storage\n    environment:\n      FRONTEND_URL: http://localhost:3000\n      POSTGRES_HOST: postgres\n      POSTGRES_USERNAME: chatwoot\n      POSTGRES_PASSWORD: change-me\n      REDIS_URL: redis://redis:6379","envFile":"FRONTEND_URL=http://localhost:3000\nPOSTGRES_HOST=postgres\nPOSTGRES_USERNAME=chatwoot\nPOSTGRES_PASSWORD=change-me\nREDIS_URL=redis://redis:6379","deployCommand":"docker compose up -d","accessUrl":"http://localhost:3000","minRam":"2GB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>
