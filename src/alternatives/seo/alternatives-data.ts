@@ -45,7 +45,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Can I access my self-hosted cloud storage from mobile?', a: 'Yes. Nextcloud, ownCloud, and Seafile all have official iOS and Android apps that connect to your self-hosted server.' },
       { q: 'How much does it cost to self-host cloud storage?', a: 'The software is free. You need a server — a $5/month VPS can handle personal use, or use an old PC/NAS at home for zero monthly cost.' },
     ],
-    keywords: ['self-hosted google drive', 'google drive alternative open source', 'nextcloud vs owncloud', 'self-hosted cloud storage'],
+    keywords: ['self-hosted google drive', 'google drive alternative open source', 'nextcloud vs owncloud', 'self-hosted cloud storage', 'self-hosted Google Drive alternative', 'best open source Google Drive alternative', 'free Google Drive replacement'],
   },
   {
     slug: 'dropbox',
@@ -65,7 +65,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Is Syncthing a good Dropbox replacement?', a: 'Yes for sync, no for sharing. Syncthing excels at keeping folders in sync across devices but lacks Dropbox-style sharing links. Use Nextcloud if you need both.' },
       { q: 'Can I self-host Dropbox without Docker?', a: 'Yes. Nextcloud and Syncthing both support native installation on Linux, Windows, and macOS.' },
     ],
-    keywords: ['self-hosted dropbox', 'dropbox alternative open source', 'syncthing vs nextcloud', 'self-hosted file sync'],
+    keywords: ['self-hosted dropbox', 'dropbox alternative open source', 'syncthing vs nextcloud', 'self-hosted file sync', 'self-hosted Dropbox alternative', 'best open source Dropbox alternative', 'free Dropbox replacement'],
   },
   {
     slug: 'onedrive',
@@ -83,7 +83,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I replace OneDrive and Office 365 together?', a: 'Yes. Nextcloud includes Collabora (LibreOffice-based) or OnlyOffice for document editing, replacing both OneDrive and Word/Excel/PowerPoint online.' },
     ],
-    keywords: ['self-hosted onedrive', 'onedrive alternative open source', 'microsoft onedrive replacement'],
+    keywords: ['self-hosted onedrive', 'onedrive alternative open source', 'microsoft onedrive replacement', 'self-hosted OneDrive alternative', 'best open source OneDrive alternative', 'free OneDrive replacement'],
   },
 
   // === Note-Taking ===
@@ -99,13 +99,13 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     ],
     title: 'Self-Hosted Notion Alternative - Open Source Knowledge Management',
     h1: 'Self-Hosted Notion Alternatives',
-    description: 'Replace Notion with open source alternatives. Compare AppFlowy, Outline, and Logseq — local-first, no vendor lock-in.',
+    description: 'Replace Notion with open source self-hosted alternatives. Compare AppFlowy, Outline, and Logseq — databases, wikis, knowledge graphs, no subscription fees.',
     explanation: 'Notion stores all your notes on their servers and requires internet access for most features. Self-hosted alternatives offer local-first data storage (your files on your disk), offline access, and no subscription fees. AppFlowy is the closest Notion clone, Outline is best for team wikis, and Logseq excels at personal knowledge graphs.',
     faq: [
       { q: 'Which is the closest open source alternative to Notion?', a: 'AppFlowy is the most similar to Notion with databases, kanban boards, and rich text editing. It even supports importing from Notion.' },
       { q: 'Can I import my Notion data?', a: 'Yes. AppFlowy and Outline both support importing from Notion export files. Logseq can import markdown files.' },
     ],
-    keywords: ['self-hosted notion', 'notion alternative open source', 'appflowy vs notion', 'logseq vs notion'],
+    keywords: ['self-hosted notion', 'notion alternative open source', 'appflowy vs notion', 'logseq vs notion', 'self-hosted Notion alternative', 'best open source Notion alternative', 'free Notion replacement'],
   },
   {
     slug: 'evernote',
@@ -119,12 +119,12 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     ],
     title: 'Self-Hosted Evernote Alternative - Open Source Notes',
     h1: 'Self-Hosted Evernote Alternatives',
-    description: 'Replace Evernote with open source note-taking apps. Compare Joplin, Trilium Notes, and Memos — no subscription, local-first.',
+    description: 'Replace Evernote with open source note-taking apps. Compare Joplin, Trilium Notes, and Memos — no subscription, local-first, full data ownership.',
     explanation: 'Evernote has repeatedly raised prices and limited free tier features. Self-hosted alternatives give you unlimited notes, no subscription, and full control over your data. Joplin is the most direct replacement with a web clipper and mobile apps.',
     faq: [
       { q: 'Can I import Evernote notes into Joplin?', a: 'Yes. Joplin has a built-in Evernote importer that preserves notebooks, tags, and attachments.' },
     ],
-    keywords: ['self-hosted evernote', 'evernote alternative open source', 'joplin vs evernote', 'self-hosted notes'],
+    keywords: ['self-hosted evernote', 'evernote alternative open source', 'joplin vs evernote', 'self-hosted notes', 'self-hosted Evernote alternative', 'best open source Evernote alternative', 'free Evernote replacement'],
   },
 
   // === Communication ===
@@ -146,7 +146,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Which is the easiest Slack alternative to self-host?', a: 'Mattermost is the most straightforward with a Docker-based setup and Slack-compatible keyboard shortcuts and interface.' },
       { q: 'Can I migrate Slack history?', a: 'Yes. Mattermost has a Slack import tool. Rocket.Chat also supports importing from Slack.' },
     ],
-    keywords: ['self-hosted slack', 'slack alternative open source', 'mattermost vs slack', 'rocket.chat self-hosted'],
+    keywords: ['self-hosted slack', 'slack alternative open source', 'mattermost vs slack', 'rocket.chat self-hosted', 'self-hosted Slack alternative', 'best open source Slack alternative', 'free Slack replacement'],
   },
   {
     slug: 'discord',
@@ -165,7 +165,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I bridge Discord to a self-hosted alternative?', a: 'Yes. Matrix (Element) has a Discord bridge that syncs messages between platforms, making migration gradual.' },
     ],
-    keywords: ['self-hosted discord', 'discord alternative open source', 'revolt chat', 'element matrix discord'],
+    keywords: ['self-hosted discord', 'discord alternative open source', 'revolt chat', 'element matrix discord', 'self-hosted Discord alternative', 'best open source Discord alternative', 'free Discord replacement'],
   },
   {
     slug: 'zoom',
@@ -178,12 +178,12 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     ],
     title: 'Self-Hosted Zoom Alternative - Open Source Video Conferencing',
     h1: 'Self-Hosted Zoom Alternatives',
-    description: 'Replace Zoom with self-hosted video conferencing. Compare Jitsi Meet and BigBlueButton — no time limits, no meeting restrictions.',
+    description: 'Replace Zoom with self-hosted video conferencing. Compare Jitsi Meet and BigBlueButton — no time limits, no meeting restrictions, full privacy control.',
     explanation: 'Zoom limits free meetings to 40 minutes and has faced privacy controversies. Jitsi Meet provides unlimited meeting duration, no account requirements for participants, and can be deployed in minutes with Docker.',
     faq: [
       { q: 'Is Jitsi Meet as good as Zoom?', a: 'For most use cases, yes. Jitsi supports screen sharing, recording, breakout rooms, and up to 100 participants. The interface is simpler than Zoom but covers essential features.' },
     ],
-    keywords: ['self-hosted zoom', 'zoom alternative open source', 'jitsi meet self-hosted', 'open source video conferencing'],
+    keywords: ['self-hosted zoom', 'zoom alternative open source', 'jitsi meet self-hosted', 'open source video conferencing', 'self-hosted Zoom alternative', 'best open source Zoom alternative', 'free Zoom replacement'],
   },
 
   // === Password Management ===
@@ -204,7 +204,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Is Vaultwarden safe?', a: 'Vaultwarden uses the same encryption as Bitwarden — AES-256 bit encryption. Your vault data is encrypted client-side before reaching the server. Even if the server is compromised, your passwords remain encrypted.' },
       { q: 'Can I use Bitwarden browser extension with Vaultwarden?', a: 'Yes. Vaultwarden is fully compatible with all official Bitwarden clients (browser extensions, mobile apps, desktop apps, CLI).' },
     ],
-    keywords: ['self-hosted lastpass', 'lastpass alternative open source', 'vaultwarden', 'self-hosted password manager'],
+    keywords: ['self-hosted lastpass', 'lastpass alternative open source', 'vaultwarden', 'self-hosted password manager', 'self-hosted LastPass alternative', 'best open source LastPass alternative', 'free LastPass replacement'],
   },
   {
     slug: '1password',
@@ -222,7 +222,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I import 1Password data into Vaultwarden?', a: 'Yes. Bitwarden clients (which Vaultwarden is compatible with) support direct import from 1Password export files.' },
     ],
-    keywords: ['self-hosted 1password', '1password alternative open source', 'vaultwarden self-hosted'],
+    keywords: ['self-hosted 1password', '1password alternative open source', 'vaultwarden self-hosted', 'self-hosted 1Password alternative', 'best open source 1Password alternative', 'free 1Password replacement'],
   },
 
   // === Project Management ===
@@ -243,7 +243,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I migrate from Jira to Plane?', a: 'Yes. Plane supports importing from Jira via CSV export or direct API import for issues and projects.' },
     ],
-    keywords: ['self-hosted jira', 'jira alternative open source', 'plane project management', 'redmine self-hosted'],
+    keywords: ['self-hosted jira', 'jira alternative open source', 'plane project management', 'redmine self-hosted', 'self-hosted Jira alternative', 'best open source Jira alternative', 'free Jira replacement'],
   },
   {
     slug: 'trello',
@@ -262,7 +262,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I import Trello boards into WeKan?', a: 'Yes. WeKan has a direct Trello import feature that preserves boards, cards, labels, checklists, and attachments.' },
     ],
-    keywords: ['self-hosted trello', 'trello alternative open source', 'wekan self-hosted', 'open source kanban'],
+    keywords: ['self-hosted trello', 'trello alternative open source', 'wekan self-hosted', 'open source kanban', 'self-hosted Trello alternative', 'best open source Trello alternative', 'free Trello replacement'],
   },
 
   // === Media Streaming ===
@@ -284,7 +284,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Can I use Spotify-like features with Navidrome?', a: 'Yes. Navidrome supports smart playlists, favorites, most played, recently added, and has mobile apps via Subsonic-compatible clients (Ultrasonic, DSub, play:Sub).' },
       { q: 'Does Navidrome support podcasts?', a: 'Not natively. Use a dedicated podcast app like gpodder2 or mix Navidrome with a separate podcast solution.' },
     ],
-    keywords: ['self-hosted spotify', 'spotify alternative open source', 'navidrome', 'self-hosted music server'],
+    keywords: ['self-hosted spotify', 'spotify alternative open source', 'navidrome', 'self-hosted music server', 'self-hosted Spotify alternative', 'best open source Spotify alternative', 'free Spotify replacement'],
   },
   {
     slug: 'netflix',
@@ -304,7 +304,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Jellyfin vs Plex — which is better?', a: 'Jellyfin is fully free and open source. Plex has a more polished UI and better device support but requires Plex Pass ($4.99/month) for hardware transcoding, Live TV, and mobile streaming.' },
       { q: 'Can Jellyfin handle 4K content?', a: 'Yes. With hardware-accelerated transcoding (Intel QuickSync, NVIDIA NVENC, or AMD AMF), Jellyfin can transcode 4K content in real time.' },
     ],
-    keywords: ['self-hosted netflix', 'netflix alternative open source', 'jellyfin vs plex', 'self-hosted media server'],
+    keywords: ['self-hosted netflix', 'netflix alternative open source', 'jellyfin vs plex', 'self-hosted media server', 'self-hosted Netflix alternative', 'best open source Netflix alternative', 'free Netflix replacement'],
   },
 
   // === Code Hosting ===
@@ -326,7 +326,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Gitea vs GitLab — which should I choose?', a: 'Gitea if you want lightweight and fast (runs on 512MB RAM). GitLab CE if you need built-in CI/CD, container registry, and enterprise features (needs 4GB+ RAM).' },
       { q: 'Can I migrate GitHub repositories?', a: 'Yes. All three support importing from GitHub including issues, pull requests, and wiki pages.' },
     ],
-    keywords: ['self-hosted github', 'github alternative open source', 'gitea vs gitlab', 'self-hosted git server'],
+    keywords: ['self-hosted github', 'github alternative open source', 'gitea vs gitlab', 'self-hosted git server', 'self-hosted GitHub alternative', 'best open source GitHub alternative', 'free GitHub replacement'],
   },
 
   // === Email ===
@@ -348,7 +348,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Is self-hosting email difficult?', a: 'It used to be. Mail-in-a-Box makes it straightforward on a fresh Ubuntu VPS. The hardest part is DNS configuration (SPF, DKIM, DMARC) which Mail-in-a-Box guides you through.' },
       { q: 'Will my self-hosted email land in spam?', a: 'Properly configured email (SPF, DKIM, DMARC, rDNS) with a dedicated IP and clean domain reputation will not land in spam. Mail-in-a-Box handles most of this automatically.' },
     ],
-    keywords: ['self-hosted gmail', 'gmail alternative open source', 'mail-in-a-box', 'self-hosted email server'],
+    keywords: ['self-hosted gmail', 'gmail alternative open source', 'mail-in-a-box', 'self-hosted email server', 'self-hosted Gmail alternative', 'best open source Gmail alternative', 'free Gmail replacement'],
   },
 
   // === Wiki ===
@@ -369,7 +369,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I import Confluence content?', a: 'BookStack has a Confluence import tool. Wiki.js supports importing from Confluence via API. Outline can import HTML and Markdown exports.' },
     ],
-    keywords: ['self-hosted confluence', 'confluence alternative open source', 'bookstack', 'wiki.js self-hosted'],
+    keywords: ['self-hosted confluence', 'confluence alternative open source', 'bookstack', 'wiki.js self-hosted', 'self-hosted Confluence alternative', 'best open source Confluence alternative', 'free Confluence replacement'],
   },
 
   // === Database / Spreadsheet ===
@@ -389,7 +389,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can NocoDB connect to an existing database?', a: 'Yes. NocoDB can connect to MySQL, PostgreSQL, SQL Server, and SQLite databases, instantly giving them a spreadsheet-like interface.' },
     ],
-    keywords: ['self-hosted airtable', 'airtable alternative open source', 'nocodb', 'baserow self-hosted'],
+    keywords: ['self-hosted airtable', 'airtable alternative open source', 'nocodb', 'baserow self-hosted', 'self-hosted Airtable alternative', 'best open source Airtable alternative', 'free Airtable replacement'],
   },
 
   // === Analytics ===
@@ -411,7 +411,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Is Plausible GDPR compliant?', a: 'Yes. Plausible does not use cookies, does not collect personal data, and does not track across sites. No consent banner is needed.' },
       { q: 'Can I import Google Analytics data?', a: 'Matomo has a direct Google Analytics importer. Plausible and Umami start fresh but are fast to set up.' },
     ],
-    keywords: ['self-hosted google analytics', 'google analytics alternative open source', 'plausible analytics', 'umami self-hosted'],
+    keywords: ['self-hosted google analytics', 'google analytics alternative open source', 'plausible analytics', 'umami self-hosted', 'self-hosted Google Analytics alternative', 'best open source Google Analytics alternative', 'free Google Analytics replacement'],
   },
 
   // === CRM ===
@@ -432,7 +432,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Is there a free self-hosted CRM?', a: 'Yes. Twenty, Monica, and EspoCRM are all free to self-host with no user limits.' },
     ],
-    keywords: ['self-hosted salesforce', 'salesforce alternative open source', 'open source CRM', 'twenty CRM'],
+    keywords: ['self-hosted salesforce', 'salesforce alternative open source', 'open source CRM', 'twenty CRM', 'self-hosted Salesforce alternative', 'best open source Salesforce alternative', 'free Salesforce replacement'],
   },
 
   // === Monitoring ===
@@ -453,7 +453,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'What is the Grafana + Prometheus stack?', a: 'Prometheus collects and stores metrics from your applications. Grafana visualizes those metrics in dashboards. Together they replace most Datadog functionality for free.' },
     ],
-    keywords: ['self-hosted datadog', 'datadog alternative open source', 'grafana prometheus', 'uptime kuma'],
+    keywords: ['self-hosted datadog', 'datadog alternative open source', 'grafana prometheus', 'uptime kuma', 'self-hosted Datadog alternative', 'best open source Datadog alternative', 'free Datadog replacement'],
   },
 
   // === Customer Support ===
@@ -474,7 +474,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can Chatwoot replace Zendesk completely?', a: 'For most small-to-medium teams, yes. Chatwoot covers live chat, email, social media, and WhatsApp. It may lack some enterprise features like advanced SLA management.' },
     ],
-    keywords: ['self-hosted zendesk', 'zendesk alternative open source', 'chatwoot', 'freescout self-hosted'],
+    keywords: ['self-hosted zendesk', 'zendesk alternative open source', 'chatwoot', 'freescout self-hosted', 'self-hosted Zendesk alternative', 'best open source Zendesk alternative', 'free Zendesk replacement'],
   },
 
   // === CMS ===
@@ -495,7 +495,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'What is the difference between WordPress.com and WordPress.org?', a: 'WordPress.com hosts your site on their servers with restrictions. WordPress.org is the self-hosted version you install on your own server with full control, all plugins, and all themes.' },
     ],
-    keywords: ['self-hosted wordpress', 'wordpress alternative open source', 'ghost cms', 'strapi headless cms'],
+    keywords: ['self-hosted wordpress', 'wordpress alternative open source', 'ghost cms', 'strapi headless cms', 'self-hosted WordPress.com alternative', 'best open source WordPress.com alternative', 'free WordPress.com replacement'],
   },
 
   // === Design ===
@@ -515,7 +515,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can Penpot replace Figma for professional work?', a: 'Penpot covers most design and prototyping needs. It may lack some advanced Figma features like auto-layout or certain plugins, but it is actively closing the gap.' },
     ],
-    keywords: ['self-hosted figma', 'figma alternative open source', 'penpot', 'open source design tool'],
+    keywords: ['self-hosted figma', 'figma alternative open source', 'penpot', 'open source design tool', 'self-hosted Figma alternative', 'best open source Figma alternative', 'free Figma replacement'],
   },
 
   // === Task Management ===
@@ -535,7 +535,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I sync Vikunja with my phone?', a: 'Yes. Vikunja supports CalDAV, so you can sync tasks with Apple Reminders, Google Tasks, or any CalDAV-compatible app.' },
     ],
-    keywords: ['self-hosted todoist', 'todoist alternative open source', 'vikunja', 'open source task management'],
+    keywords: ['self-hosted todoist', 'todoist alternative open source', 'vikunja', 'open source task management', 'self-hosted Todoist alternative', 'best open source Todoist alternative', 'free Todoist replacement'],
   },
 
   // === Forms ===
@@ -556,7 +556,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Is there a fully self-hosted Typeform alternative?', a: 'OhMyForm is the closest fully open-source alternative with a visual form builder, analytics, and API access. It can be self-hosted with Docker.' },
     ],
-    keywords: ['self-hosted typeform', 'typeform alternative open source', 'open source form builder'],
+    keywords: ['self-hosted typeform', 'typeform alternative open source', 'open source form builder', 'self-hosted Typeform alternative', 'best open source Typeform alternative', 'free Typeform replacement'],
   },
 
   // === Email Marketing ===
@@ -576,7 +576,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'How does Listmonk send emails?', a: 'Listmonk uses your own SMTP server or transactional email provider (Amazon SES, SendGrid, Mailgun, etc.). This gives you full control and much lower sending costs.' },
     ],
-    keywords: ['self-hosted mailchimp', 'mailchimp alternative open source', 'listmonk', 'mautic self-hosted'],
+    keywords: ['self-hosted mailchimp', 'mailchimp alternative open source', 'listmonk', 'mautic self-hosted', 'self-hosted Mailchimp alternative', 'best open source Mailchimp alternative', 'free Mailchimp replacement'],
   },
 
   // === Password Manager (additional) ===
@@ -595,7 +595,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Vaultwarden vs official Bitwarden self-hosted?', a: 'Vaultwarden is a lightweight reimplementation in Rust that uses ~10MB RAM vs 2GB+ for the official server. It is compatible with all Bitwarden clients. Use the official server only if you need enterprise features like SSO or SCIM.' },
     ],
-    keywords: ['vaultwarden', 'self-hosted bitwarden', 'bitwarden vaultwarden', 'lightweight bitwarden server'],
+    keywords: ['vaultwarden', 'self-hosted bitwarden', 'bitwarden vaultwarden', 'lightweight bitwarden server', 'self-hosted Bitwarden (Cloud) alternative', 'best open source Bitwarden (Cloud) alternative', 'free Bitwarden (Cloud) replacement'],
   },
 
   // === Identity ===
@@ -615,7 +615,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Keycloak vs Logto — which should I choose?', a: 'Keycloak for enterprise use with LDAP/AD integration and complex identity brokering. Logto for modern apps with a better developer experience and lighter resource footprint.' },
     ],
-    keywords: ['self-hosted auth0', 'auth0 alternative open source', 'keycloak', 'logto self-hosted'],
+    keywords: ['self-hosted auth0', 'auth0 alternative open source', 'keycloak', 'logto self-hosted', 'self-hosted Auth0 alternative', 'best open source Auth0 alternative', 'free Auth0 replacement'],
   },
 
   // === Search ===
@@ -636,7 +636,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Meilisearch vs Typesense?', a: 'Both are excellent. Meilisearch has a more mature ecosystem and built-in dashboard. Typesense offers built-in vector search for semantic/AI-powered search and is written in C++ for maximum performance.' },
     ],
-    keywords: ['self-hosted algolia', 'algolia alternative open source', 'meilisearch', 'typesense self-hosted'],
+    keywords: ['self-hosted algolia', 'algolia alternative open source', 'meilisearch', 'typesense self-hosted', 'self-hosted Algolia alternative', 'best open source Algolia alternative', 'free Algolia replacement'],
   },
 
   // === Screenshot/Snippet ===
@@ -656,7 +656,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Can I get Loom-like async video messaging self-hosted?', a: 'Not as a single tool yet. Use Peek/ShareX for recording + Nextcloud/FileRun for sharing. This gives you full control over your recordings.' },
     ],
-    keywords: ['self-hosted loom', 'loom alternative open source', 'open source screen recording', 'peek screen recorder'],
+    keywords: ['self-hosted loom', 'loom alternative open source', 'open source screen recording', 'peek screen recorder', 'self-hosted Loom alternative', 'best open source Loom alternative', 'free Loom replacement'],
   },
 
   // === CI/CD ===
@@ -677,7 +677,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Are Drone and Woodpecker the same?', a: 'Woodpecker is a community fork of Drone after Drone moved to a different license. Woodpecker continues as open source with active development and improvements.' },
     ],
-    keywords: ['self-hosted circleci', 'circleci alternative open source', 'drone ci', 'woodpecker ci'],
+    keywords: ['self-hosted circleci', 'circleci alternative open source', 'drone ci', 'woodpecker ci', 'self-hosted CircleCI alternative', 'best open source CircleCI alternative', 'free CircleCI replacement'],
   },
 
   // === Photo Management ===
@@ -699,7 +699,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       { q: 'Immich vs PhotoPrism — which is better?', a: 'Immich is closer to Google Photos with mobile apps for automatic backup. PhotoPrism has better AI tagging and album organization. Many users run both.' },
       { q: 'Can I auto-backup photos from my phone?', a: 'Yes. Immich has official iOS and Android apps that automatically backup photos, just like Google Photos.' },
     ],
-    keywords: ['self-hosted google photos', 'google photos alternative open source', 'immich', 'photoprism'],
+    keywords: ['self-hosted google photos', 'google photos alternative open source', 'immich', 'photoprism', 'self-hosted Google Photos alternative', 'best open source Google Photos alternative', 'free Google Photos replacement'],
   },
 
   // === Automation ===
@@ -720,7 +720,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Is n8n really unlimited?', a: 'Yes. Self-hosted n8n has no execution limits, no workflow limits, and no task counting. You are limited only by your server resources.' },
     ],
-    keywords: ['self-hosted zapier', 'zapier alternative open source', 'n8n self-hosted', 'open source automation'],
+    keywords: ['self-hosted zapier', 'zapier alternative open source', 'n8n self-hosted', 'open source automation', 'self-hosted Zapier alternative', 'best open source Zapier alternative', 'free Zapier replacement'],
   },
 
   // === Pastebin ===
@@ -740,7 +740,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Is PrivateBin secure?', a: 'Yes. PrivateBin encrypts and decrypts data in the browser using AES-256. The server never sees the unencrypted content. Even if the server is compromised, your pastes remain encrypted.' },
     ],
-    keywords: ['self-hosted pastebin', 'pastebin alternative open source', 'privatebin', 'encrypted pastebin'],
+    keywords: ['self-hosted pastebin', 'pastebin alternative open source', 'privatebin', 'encrypted pastebin', 'self-hosted Pastebin alternative', 'best open source Pastebin alternative', 'free Pastebin replacement'],
   },
 
   // === URL Shortener ===
@@ -760,37 +760,37 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     faq: [
       { q: 'Which URL shortener is better — Shlink or YOURLS?', a: 'Shlink is more modern with better analytics and API design. YOURLS is battle-tested with more plugins. Choose Shlink for new projects, YOURLS if you need specific plugins.' },
     ],
-    keywords: ['self-hosted bitly', 'bitly alternative open source', 'shlink', 'yourls', 'self-hosted url shortener'],
+    keywords: ['self-hosted bitly', 'bitly alternative open source', 'shlink', 'yourls', 'self-hosted url shortener', 'self-hosted Bitly alternative', 'best open source Bitly alternative', 'free Bitly replacement'],
   },
 ]
 
 // Categories for the main page
 export const CATEGORIES = [
-  { name: 'Cloud Storage', icon: '📁', tools: ['google-drive', 'dropbox', 'onedrive'] },
-  { name: 'Note-Taking', icon: '📝', tools: ['notion', 'evernote'] },
-  { name: 'Communication', icon: '💬', tools: ['slack', 'discord', 'zoom'] },
-  { name: 'Password Management', icon: '🔑', tools: ['lastpass', '1password', 'bitwarden-cloud'] },
-  { name: 'Project Management', icon: '📋', tools: ['jira', 'trello'] },
-  { name: 'Media Streaming', icon: '🎵', tools: ['spotify', 'netflix'] },
-  { name: 'Code Hosting', icon: '🐙', tools: ['github'] },
-  { name: 'Email', icon: '📧', tools: ['gmail'] },
-  { name: 'Wiki', icon: '📚', tools: ['confluence'] },
-  { name: 'Database', icon: '🗃️', tools: ['airtable'] },
-  { name: 'Analytics', icon: '📊', tools: ['google-analytics'] },
-  { name: 'CRM', icon: '💼', tools: ['salesforce'] },
-  { name: 'Monitoring', icon: '📈', tools: ['datadog'] },
-  { name: 'Customer Support', icon: '🎧', tools: ['zendesk'] },
-  { name: 'CMS', icon: '🌐', tools: ['wordpress-com'] },
-  { name: 'Design', icon: '🎨', tools: ['figma'] },
-  { name: 'Task Management', icon: '✅', tools: ['todoist'] },
-  { name: 'Forms', icon: '📋', tools: ['typeform'] },
-  { name: 'Email Marketing', icon: '✉️', tools: ['mailchimp'] },
-  { name: 'Identity', icon: '🔐', tools: ['auth0'] },
-  { name: 'Search', icon: '🔍', tools: ['algolia'] },
-  { name: 'CI/CD', icon: '🔄', tools: ['circleci'] },
-  { name: 'Photo Management', icon: '📷', tools: ['google-photos'] },
-  { name: 'Automation', icon: '⚡', tools: ['zapier'] },
-  { name: 'Code Sharing', icon: '📋', tools: ['pastebin'] },
-  { name: 'URL Shortener', icon: '🔗', tools: ['bitly'] },
-  { name: 'Screen Recording', icon: '🎥', tools: ['loom'] },
+  { name: 'Cloud Storage', icon: '📁', tools: ['google-drive', 'dropbox', 'onedrive'], applicationCategory: 'UtilitiesApplication' },
+  { name: 'Note-Taking', icon: '📝', tools: ['notion', 'evernote'], applicationCategory: 'ProductivityApplication' },
+  { name: 'Communication', icon: '💬', tools: ['slack', 'discord', 'zoom'], applicationCategory: 'SocialNetworkingApplication' },
+  { name: 'Password Management', icon: '🔑', tools: ['lastpass', '1password', 'bitwarden-cloud'], applicationCategory: 'UtilitiesApplication' },
+  { name: 'Project Management', icon: '📋', tools: ['jira', 'trello'], applicationCategory: 'BusinessApplication' },
+  { name: 'Media Streaming', icon: '🎵', tools: ['spotify', 'netflix'], applicationCategory: 'MultimediaApplication' },
+  { name: 'Code Hosting', icon: '🐙', tools: ['github'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Email', icon: '📧', tools: ['gmail'], applicationCategory: 'UtilitiesApplication' },
+  { name: 'Wiki', icon: '📚', tools: ['confluence'], applicationCategory: 'ProductivityApplication' },
+  { name: 'Database', icon: '🗃️', tools: ['airtable'], applicationCategory: 'BusinessApplication' },
+  { name: 'Analytics', icon: '📊', tools: ['google-analytics'], applicationCategory: 'BusinessApplication' },
+  { name: 'CRM', icon: '💼', tools: ['salesforce'], applicationCategory: 'BusinessApplication' },
+  { name: 'Monitoring', icon: '📈', tools: ['datadog'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Customer Support', icon: '🎧', tools: ['zendesk'], applicationCategory: 'BusinessApplication' },
+  { name: 'CMS', icon: '🌐', tools: ['wordpress-com'], applicationCategory: 'ProductivityApplication' },
+  { name: 'Design', icon: '🎨', tools: ['figma'], applicationCategory: 'DesignApplication' },
+  { name: 'Task Management', icon: '✅', tools: ['todoist'], applicationCategory: 'ProductivityApplication' },
+  { name: 'Forms', icon: '📋', tools: ['typeform'], applicationCategory: 'ProductivityApplication' },
+  { name: 'Email Marketing', icon: '✉️', tools: ['mailchimp'], applicationCategory: 'BusinessApplication' },
+  { name: 'Identity', icon: '🔐', tools: ['auth0'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Search', icon: '🔍', tools: ['algolia'], applicationCategory: 'DeveloperApplication' },
+  { name: 'CI/CD', icon: '🔄', tools: ['circleci'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Photo Management', icon: '📷', tools: ['google-photos'], applicationCategory: 'MultimediaApplication' },
+  { name: 'Automation', icon: '⚡', tools: ['zapier'], applicationCategory: 'ProductivityApplication' },
+  { name: 'Code Sharing', icon: '📋', tools: ['pastebin'], applicationCategory: 'DeveloperApplication' },
+  { name: 'URL Shortener', icon: '🔗', tools: ['bitly'], applicationCategory: 'UtilitiesApplication' },
+  { name: 'Screen Recording', icon: '🎥', tools: ['loom'], applicationCategory: 'ProductivityApplication' },
 ]
