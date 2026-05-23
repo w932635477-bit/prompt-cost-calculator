@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { VOICE_PROVIDERS, FAQ_DATA } from './voice-data'
+import { GlobalNav } from '../components/GlobalNav'
 
 export default function VoicePricingApp() {
   const [charsPerMonth, setCharsPerMonth] = useState(1000000)
@@ -16,6 +17,7 @@ export default function VoicePricingApp() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      <GlobalNav current="/voice-agent-pricing/" />
       <nav className="border-b border-gray-200 dark:border-gray-800 px-4 py-3">
         <div className="max-w-5xl mx-auto flex items-center gap-3">
           <a href="/" className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">AI Dev Tools</a>

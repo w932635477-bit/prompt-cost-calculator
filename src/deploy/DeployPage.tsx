@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import type { DeployPage as DeployPageData } from './seo/deploy-data'
+import { GlobalNav } from '../components/GlobalNav'
 
 function getSeoData(): DeployPageData | null {
   const el = document.getElementById('seo-data')
@@ -41,6 +42,7 @@ export default function DeployPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <GlobalNav current="/deploy/" />
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-4 py-6">
           <nav className="text-sm text-gray-500 mb-2" aria-label="Breadcrumb">

@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# AI Developer Tools
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Free, open-source tools for developers working with AI APIs and self-hosted software.
 
-Currently, two official plugins are available:
+Live at [prompt-cost-calculator-ten.vercel.app](https://prompt-cost-calculator-ten.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tools
 
-## React Compiler
+| Tool | URL | Description |
+|------|-----|-------------|
+| AI Prompt Cost Calculator | [/](https://prompt-cost-calculator-ten.vercel.app/) | Compare API pricing across GPT-4o, Claude, Gemini, Llama 4, DeepSeek R1 |
+| Cron Expression Generator | [/cron-generator/](https://prompt-cost-calculator-ten.vercel.app/cron-generator/) | 161 cron expressions with explanations (every 5 min, every hour, every Monday, etc.) |
+| Self-Hosted Alternatives | [/alternatives/](https://prompt-cost-calculator-ten.vercel.app/alternatives/) | Open-source alternatives to Slack, Notion, Google Drive, and 33 other SaaS tools |
+| Docker Deploy Generator | [/deploy/](https://prompt-cost-calculator-ten.vercel.app/deploy/) | Copy-paste Docker Compose configs for 30 self-hosted applications |
+| Voice AI Pricing Calculator | [/voice-agent-pricing/](https://prompt-cost-calculator-ten.vercel.app/voice-agent-pricing/) | Compare TTS/STT pricing across 6 voice AI providers (OpenAI, ElevenLabs, Deepgram, etc.) |
+| AI Agent Safety Checklist | [/agent-safety/](https://prompt-cost-calculator-ten.vercel.app/agent-safety/) | 18-item safety checklist for building production AI agents |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- Vite + React + TypeScript
+- Tailwind CSS
+- Deployed on Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## License
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+MIT

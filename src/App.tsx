@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { PromptInput } from './components/PromptInput'
 import { UsageSlider } from './components/UsageSlider'
 import { ComparisonTable } from './components/ComparisonTable'
+import { GlobalNav } from './components/GlobalNav'
 import { calculateCosts } from './lib/calculator'
 import type { ModelCostResult, ModelPricing } from './lib/types'
 import pricingData from './data/pricing.json'
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f]" onKeyDown={handleKeyDown}>
+      <GlobalNav current="/" />
       <div className="max-w-[980px] mx-auto px-6">
         {/* Hero */}
         <header className="pt-20 pb-16 text-center">

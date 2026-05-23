@@ -8,6 +8,7 @@ import { NextRuns } from './components/NextRuns'
 import { DialectSwitcher } from './components/DialectSwitcher'
 import { CopyButton } from './components/CopyButton'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
+import { GlobalNav } from '../components/GlobalNav'
 import { useT, useLocale } from './i18n'
 
 type Tab = 'builder' | 'explainer'
@@ -54,6 +55,7 @@ export default function CronGeneratorApp() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
+      <GlobalNav current="/cron-generator/" />
       <div className="max-w-[920px] mx-auto px-5 sm:px-6 py-10 sm:py-16">
         {/* Header */}
         <header className="text-center mb-10">

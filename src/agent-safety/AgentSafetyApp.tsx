@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { CHECKLIST_ITEMS, CHECKLIST_CATEGORIES, FAQ_DATA, type CheckItem } from './checklist-data'
+import { GlobalNav } from '../components/GlobalNav'
 
 const SEVERITY_CONFIG = {
   critical: { label: 'Critical', bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-700 dark:text-red-300', border: 'border-red-300 dark:border-red-700' },
@@ -98,6 +99,7 @@ export default function AgentSafetyApp() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      <GlobalNav current="/agent-safety/" />
       <nav className="border-b border-gray-200 dark:border-gray-800 px-4 py-3">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
