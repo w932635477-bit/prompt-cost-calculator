@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/alternatives/:slug/", "destination": "/alternatives/:slug/index.html" },
+    { "source": "/alternatives/:slug", "destination": "/alternatives/:slug/index.html" },
+    { "source": "/cron-generator/:slug/", "destination": "/cron-generator/:slug/index.html" },
+    { "source": "/cron-generator/:slug", "destination": "/cron-generator/:slug/index.html" }
+  ]
+}
