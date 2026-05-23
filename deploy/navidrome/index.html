@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Navidrome Music Server with Docker Compose</title>
+    <meta name="description" content="Deploy Navidrome with Docker Compose. Self-hosted music streaming server with Spotify-like UI, smart playlists, and mobile apps." />
+    <meta name="keywords" content="deploy navidrome docker, navidrome docker compose, navidrome setup, self-hosted music server docker, navidrome deployment guide" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/navidrome/" />
+    <meta property="og:title" content="Deploy Navidrome Music Server with Docker Compose" />
+    <meta property="og:description" content="Deploy Navidrome with Docker Compose. Self-hosted music streaming server with Spotify-like UI, smart playlists, and mobile apps." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/navidrome/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Navidrome Music Server with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Navidrome with Docker Compose. Self-hosted music streaming server with Spotify-like UI, smart playlists, and mobile apps." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How much music can Navidrome handle?","acceptedAnswer":{"@type":"Answer","text":"Navidrome handles libraries of 100K+ tracks easily. It uses very little RAM (~20MB) regardless of library size since it streams files directly."}},{"@type":"Question","name":"Can I use Navidrome behind a reverse proxy?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use Caddy, Nginx, or Traefik with HTTPS. Navidrome runs on port 4533 by default."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Navidrome Alternatives with Docker Compose","description":"Deploy Navidrome with Docker Compose. Self-hosted music streaming server with Spotify-like UI, smart playlists, and mobile apps.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Navidrome","text":"Run docker compose up -d to deploy Navidrome on port 4533"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"navidrome","saasName":"Navidrome","title":"Deploy Navidrome Music Server with Docker Compose","h1":"Deploy Navidrome Self-Hosted Music Server","description":"Deploy Navidrome with Docker Compose. Self-hosted music streaming server with Spotify-like UI, smart playlists, and mobile apps.","keywords":["deploy navidrome docker","navidrome docker compose","navidrome setup","self-hosted music server docker","navidrome deployment guide"],"faq":[{"q":"How much music can Navidrome handle?","a":"Navidrome handles libraries of 100K+ tracks easily. It uses very little RAM (~20MB) regardless of library size since it streams files directly."},{"q":"Can I use Navidrome behind a reverse proxy?","a":"Yes. Use Caddy, Nginx, or Traefik with HTTPS. Navidrome runs on port 4533 by default."}],"deploys":[{"name":"Navidrome","image":"deluan/navidrome:latest","port":"4533:4533","volumes":[{"host":"./music","container":"/music"},{"host":"./navidrome-data","container":"/data"}],"env":[{"key":"ND_SCANSCHEDULE","value":"1h"},{"key":"ND_LOGLEVEL","value":"info"},{"key":"ND_SESSIONTIMEOUT","value":"24h"},{"key":"ND_ENABLECOVERANIMATION","value":"true"}],"dockerCompose":"services:\n  navidrome:\n    image: deluan/navidrome:latest\n    container_name: navidrome\n    ports:\n      - \"4533:4533\"\n    restart: unless-stopped\n    volumes:\n      - ./music:/music\n      - ./navidrome-data:/data\n    environment:\n      ND_SCANSCHEDULE: 1h\n      ND_LOGLEVEL: info\n      ND_SESSIONTIMEOUT: 24h\n      ND_ENABLECOVERANIMATION: true","envFile":"ND_SCANSCHEDULE=1h\nND_LOGLEVEL=info\nND_SESSIONTIMEOUT=24h\nND_ENABLECOVERANIMATION=true","deployCommand":"docker compose up -d","accessUrl":"http://localhost:4533","minRam":"256MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Vaultwarden Password Manager with Docker Compose</title>
+    <meta name="description" content="Deploy Vaultwarden with Docker Compose. Lightweight Bitwarden-compatible password manager with browser extensions and mobile apps." />
+    <meta name="keywords" content="deploy vaultwarden docker, vaultwarden docker compose, vaultwarden setup, self-hosted password manager docker, bitwarden docker" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/vaultwarden/" />
+    <meta property="og:title" content="Deploy Vaultwarden Password Manager with Docker Compose" />
+    <meta property="og:description" content="Deploy Vaultwarden with Docker Compose. Lightweight Bitwarden-compatible password manager with browser extensions and mobile apps." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/vaultwarden/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Vaultwarden Password Manager with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Vaultwarden with Docker Compose. Lightweight Bitwarden-compatible password manager with browser extensions and mobile apps." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I connect Bitwarden apps to Vaultwarden?","acceptedAnswer":{"@type":"Answer","text":"In the Bitwarden app settings, change the server URL to your Vaultwarden instance (e.g. https://vault.example.com). All official Bitwarden clients are supported."}},{"@type":"Question","name":"Does Vaultwarden need HTTPS?","acceptedAnswer":{"@type":"Answer","text":"Yes. Browser extensions and mobile apps require HTTPS. Use a reverse proxy like Caddy with automatic HTTPS, or Nginx with Let's Encrypt."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Vaultwarden Alternatives with Docker Compose","description":"Deploy Vaultwarden with Docker Compose. Lightweight Bitwarden-compatible password manager with browser extensions and mobile apps.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Vaultwarden","text":"Run docker compose up -d to deploy Vaultwarden on port 8080"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"vaultwarden","saasName":"Vaultwarden","title":"Deploy Vaultwarden Password Manager with Docker Compose","h1":"Deploy Vaultwarden Self-Hosted Password Manager","description":"Deploy Vaultwarden with Docker Compose. Lightweight Bitwarden-compatible password manager with browser extensions and mobile apps.","keywords":["deploy vaultwarden docker","vaultwarden docker compose","vaultwarden setup","self-hosted password manager docker","bitwarden docker"],"faq":[{"q":"How do I connect Bitwarden apps to Vaultwarden?","a":"In the Bitwarden app settings, change the server URL to your Vaultwarden instance (e.g. https://vault.example.com). All official Bitwarden clients are supported."},{"q":"Does Vaultwarden need HTTPS?","a":"Yes. Browser extensions and mobile apps require HTTPS. Use a reverse proxy like Caddy with automatic HTTPS, or Nginx with Let's Encrypt."}],"deploys":[{"name":"Vaultwarden","image":"vaultwarden/server:latest","port":"8080:80","volumes":[{"host":"./vaultwarden-data","container":"/data"}],"env":[{"key":"WEBSOCKET_ENABLED","value":"true"},{"key":"SIGNUPS_ALLOWED","value":"true"},{"key":"INVITATIONS_ALLOWED","value":"true"}],"dockerCompose":"services:\n  vaultwarden:\n    image: vaultwarden/server:latest\n    container_name: vaultwarden\n    ports:\n      - \"8080:80\"\n    restart: unless-stopped\n    volumes:\n      - ./vaultwarden-data:/data\n    environment:\n      WEBSOCKET_ENABLED: true\n      SIGNUPS_ALLOWED: true\n      INVITATIONS_ALLOWED: true","envFile":"WEBSOCKET_ENABLED=true\nSIGNUPS_ALLOWED=true\nINVITATIONS_ALLOWED=true","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8080","minRam":"128MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>

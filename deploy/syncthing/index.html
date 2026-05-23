@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Syncthing File Sync with Docker Compose</title>
+    <meta name="description" content="Deploy Syncthing with Docker Compose. Peer-to-peer encrypted file sync across devices with no central server." />
+    <meta name="keywords" content="deploy syncthing docker, syncthing docker compose, syncthing setup, self-hosted file sync docker, syncthing deployment guide" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/deploy/syncthing/" />
+    <meta property="og:title" content="Deploy Syncthing File Sync with Docker Compose" />
+    <meta property="og:description" content="Deploy Syncthing with Docker Compose. Peer-to-peer encrypted file sync across devices with no central server." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/deploy/syncthing/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Deploy Syncthing File Sync with Docker Compose" />
+    <meta name="twitter:description" content="Deploy Syncthing with Docker Compose. Peer-to-peer encrypted file sync across devices with no central server." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"Does Syncthing work through NAT?","acceptedAnswer":{"@type":"Answer","text":"Yes. Syncthing uses a global discovery server and relay network to connect through NAT and firewalls. Local sync works directly on LAN."}},{"@type":"Question","name":"How do I add a sync folder?","acceptedAnswer":{"@type":"Answer","text":"Open the Syncthing web UI at localhost:8384, click \"Add Folder\", set the local path, and share it with connected devices."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Deploy Self-Hosted Syncthing Alternatives with Docker Compose","description":"Deploy Syncthing with Docker Compose. Peer-to-peer encrypted file sync across devices with no central server.","step":[{"@type":"HowToStep","position":1,"name":"Deploy Syncthing","text":"Run docker compose up -d to deploy Syncthing on port 8384"}]}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"syncthing","saasName":"Syncthing","title":"Deploy Syncthing File Sync with Docker Compose","h1":"Deploy Syncthing Self-Hosted File Sync","description":"Deploy Syncthing with Docker Compose. Peer-to-peer encrypted file sync across devices with no central server.","keywords":["deploy syncthing docker","syncthing docker compose","syncthing setup","self-hosted file sync docker","syncthing deployment guide"],"faq":[{"q":"Does Syncthing work through NAT?","a":"Yes. Syncthing uses a global discovery server and relay network to connect through NAT and firewalls. Local sync works directly on LAN."},{"q":"How do I add a sync folder?","a":"Open the Syncthing web UI at localhost:8384, click \"Add Folder\", set the local path, and share it with connected devices."}],"deploys":[{"name":"Syncthing","image":"syncthing/syncthing:latest","port":"8384:8384","volumes":[{"host":"./syncthing-config","container":"/var/syncthing"},{"host":"./syncthing-data","container":"/var/syncthing/data"}],"env":[],"dockerCompose":"services:\n  syncthing:\n    image: syncthing/syncthing:latest\n    container_name: syncthing\n    ports:\n      - \"8384:8384\"\n    restart: unless-stopped\n    volumes:\n      - ./syncthing-config:/var/syncthing\n      - ./syncthing-data:/var/syncthing/data\n","envFile":"","deployCommand":"docker compose up -d","accessUrl":"http://localhost:8384","minRam":"256MB"}]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/deploy/main.tsx"></script>
+  </body>
+</html>
