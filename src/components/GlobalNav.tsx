@@ -5,6 +5,7 @@ const TOOLS = [
   { name: 'Compare', path: '/compare/' },
   { name: 'Docker Deploy', path: '/deploy/' },
   { name: 'Voice Pricing', path: '/voice-agent-pricing/' },
+  { name: 'Token Tracker', path: '/token-tracker/' },
   { name: 'Agent Safety', path: '/agent-safety/' },
 ]
 

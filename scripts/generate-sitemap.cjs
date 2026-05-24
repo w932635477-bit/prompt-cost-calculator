@@ -26,6 +26,11 @@ const compareDataFile = path.join(__dirname, '..', 'src', 'compare', 'seo', 'com
 const compareDataContent = fs.readFileSync(compareDataFile, 'utf-8')
 const compareSlugMatches = [...compareDataContent.matchAll(/slug: '([^']+)'/g)]
 
+// Read slugs from token tracker data
+const trackerDataFile = path.join(__dirname, '..', 'src', 'token-tracker', 'seo', 'scene-data.ts')
+const trackerDataContent = fs.readFileSync(trackerDataFile, 'utf-8')
+const trackerSlugMatches = [...trackerDataContent.matchAll(/slug: '([^']+)'/g)]
+
 const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
@@ -35,6 +40,7 @@ const allUrls = [
   { loc: BASE_URL + '/voice-agent-pricing/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/compare/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/deploy/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/token-tracker/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {
@@ -55,6 +61,10 @@ for (const m of deploySlugMatches) {
 
 for (const m of compareSlugMatches) {
   allUrls.push({ loc: `${BASE_URL}/compare/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+for (const m of trackerSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/token-tracker/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

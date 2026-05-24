@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Agent Cost Calculator — Estimate Autonomous Agent API Costs</title>
+    <meta name="description" content="Calculate monthly costs for AI agents. Compare model costs for autonomous agents, tool-using agents, and multi-step reasoning systems across all major AI providers." />
+    <meta name="keywords" content="ai agent cost calculator, autonomous agent pricing, ai agent api cost, agent monthly cost, how much do ai agents cost" />
+    <link rel="canonical" href="https://prompt-cost-calculator-ten.vercel.app/token-tracker/ai-agent-cost/" />
+    <meta property="og:title" content="AI Agent Cost Calculator — Estimate Autonomous Agent API Costs" />
+    <meta property="og:description" content="Calculate monthly costs for AI agents. Compare model costs for autonomous agents, tool-using agents, and multi-step reasoning systems across all major AI providers." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://prompt-cost-calculator-ten.vercel.app/token-tracker/ai-agent-cost/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI Agent Cost Calculator — Estimate Autonomous Agent API Costs" />
+    <meta name="twitter:description" content="Calculate monthly costs for AI agents. Compare model costs for autonomous agents, tool-using agents, and multi-step reasoning systems across all major AI providers." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How much does an AI agent cost per month?","acceptedAnswer":{"@type":"Answer","text":"Costs vary by model and usage. Use this calculator to get exact estimates for your specific use case."}},{"@type":"Question","name":"Which AI model is cheapest for agent?","acceptedAnswer":{"@type":"Answer","text":"GPT-4o Mini and Gemini Flash are typically the cheapest options. Check the comparison table for exact pricing."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"scene":"agent","defaultPrompt":"You are an autonomous AI agent with access to the following tools: web_search, code_execute, file_read, file_write. Break down the user task into steps and execute them sequentially. Use tools when needed. Report your progress after each step.","defaultOutputTokens":2000,"defaultCallsPerMonth":1000}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/token-tracker/main.tsx"></script>
+  </body>
+</html>

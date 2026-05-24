@@ -42,6 +42,14 @@ const compareInputs = Object.fromEntries(
   compareSlugMatches.map(m => [`cmp-lt-${m[1]}`, resolve(__dirname, `compare/${m[1]}/index.html`)])
 )
 
+// Load token tracker scene page inputs from generated data
+const trackerDataFile = resolve(__dirname, 'src/token-tracker/seo/scene-data.ts')
+const trackerDataContent = fs.readFileSync(trackerDataFile, 'utf-8')
+const trackerSlugMatches = [...trackerDataContent.matchAll(/slug: '([^']+)'/g)]
+const trackerInputs = Object.fromEntries(
+  trackerSlugMatches.map(m => [`tracker-lt-${m[1]}`, resolve(__dirname, `token-tracker/${m[1]}/index.html`)])
+)
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -55,11 +63,13 @@ export default defineConfig({
         'agent-safety': resolve(__dirname, 'agent-safety/index.html'),
         'voice-pricing': resolve(__dirname, 'voice-agent-pricing/index.html'),
         compare: resolve(__dirname, 'compare/index.html'),
+        'token-tracker': resolve(__dirname, 'token-tracker/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
         ...deployInputs,
         ...compareInputs,
+        ...trackerInputs,
       },
     },
   },

@@ -1,23 +1,12 @@
 import { useState, useCallback } from 'react'
 import type { ComparePage } from './seo/compare-data'
 import { COMPARE_PAGES } from './seo/compare-data'
+import { GlobalNav } from '../components/GlobalNav'
 
 function getData(): ComparePage | null {
   const el = document.getElementById('seo-data')
   if (!el) return null
   try { return JSON.parse(el.textContent || '{}') } catch { return null }
-}
-
-const DIFFICULTY_STYLES: Record<string, { badge: string; icon: string }> = {
-  Easy: { badge: 'bg-green-100 text-green-700 border-green-200', icon: '✓' },
-  Medium: { badge: 'bg-yellow-100 text-yellow-700 border-yellow-200', icon: '▲' },
-  Hard: { badge: 'bg-red-100 text-red-700 border-red-200', icon: '⚠' },
-}
-
-const WINNER_STYLES = {
-  a: { bg: 'bg-blue-50 border-blue-300', text: 'text-blue-700', label: '🏆 Winner' },
-  b: { bg: 'bg-purple-50 border-purple-300', text: 'text-purple-700', label: '🏆 Winner' },
-  tie: { bg: 'bg-gray-50 border-gray-300', text: 'text-gray-700', label: '🤝 Tie' },
 }
 
 function CopyButton({ text }: { text: string }) {
@@ -29,234 +18,241 @@ function CopyButton({ text }: { text: string }) {
     })
   }, [text])
   return (
-    <button onClick={copy} className="text-xs text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white" aria-label={copied ? 'Copied' : 'Copy command'}>
+    <button onClick={copy} className="text-xs text-[#86868b] hover:text-[#1d1d1f] transition-colors" aria-label={copied ? 'Copied' : 'Copy'}>
       {copied ? 'Copied!' : 'Copy'}
     </button>
   )
 }
 
-function formatFeature(v: string | boolean) {
-  if (v === true) return <span className="text-green-600 font-medium">Yes</span>
-  if (v === false) return <span className="text-gray-400">—</span>
-  return <span className="text-gray-700">{v}</span>
+function FeatureValue({ v }: { v: string | boolean }) {
+  if (v === true) return <span className="text-[#30d158] font-medium">Yes</span>
+  if (v === false) return <span className="text-[#86868b]">—</span>
+  return <span className="text-[#1d1d1f]">{v}</span>
+}
+
+const DIFFICULTY_STYLES: Record<string, string> = {
+  Easy: 'bg-[#30d158]/10 text-[#30d158]',
+  Medium: 'bg-amber-500/10 text-amber-600',
+  Hard: 'bg-red-500/10 text-red-600',
 }
 
 export default function ComparePageComponent() {
   const data = getData()
-  if (!data) return <div className="p-8 text-center text-gray-500">Loading...</div>
+  if (!data) return <div className="p-8 text-center text-[#86868b]">Loading...</div>
 
   const relatedSlugs = COMPARE_PAGES.filter(p => p.slug !== data.slug).slice(0, 4)
-  const wStyle = WINNER_STYLES[data.winner]
+  const winnerName = data.winner === 'a' ? data.productA.name : data.winner === 'b' ? data.productB.name : 'Both'
+  const winnerProd = data.winner === 'b' ? data.productB : data.productA
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-4 py-6">
-          <nav className="text-sm text-gray-500 mb-2" aria-label="Breadcrumb">
-            <a href="/" className="hover:text-blue-600">Home</a>
-            <span className="mx-2" aria-hidden="true">/</span>
-            <a href="/compare/" className="hover:text-blue-600">Compare</a>
-            <span className="mx-2" aria-hidden="true">/</span>
-            <span className="text-gray-700">{data.productA.name} vs {data.productB.name}</span>
+    <div className="min-h-screen bg-[#f5f5f7]">
+      <GlobalNav current="/compare/" />
+
+      <main className="max-w-[780px] mx-auto px-6 py-10">
+        {/* Hero */}
+        <div className="mb-8">
+          <nav className="text-sm text-[#86868b] mb-4" aria-label="Breadcrumb">
+            <a href="/" className="hover:text-[#0071E3] transition-colors">Home</a>
+            <span className="mx-1.5">/</span>
+            <a href="/compare/" className="hover:text-[#0071E3] transition-colors">Compare</a>
+            <span className="mx-1.5">/</span>
+            <span className="text-[#1d1d1f]">{data.productA.name} vs {data.productB.name}</span>
           </nav>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{data.h1}</h1>
-          <p className="text-gray-600 mt-2 text-lg leading-relaxed">{data.description}</p>
+          <h1 className="text-3xl md:text-4xl font-semibold text-[#1d1d1f] tracking-tight mb-3">{data.h1}</h1>
+          <p className="text-[#86868b] text-lg leading-relaxed">{data.description}</p>
         </div>
-      </header>
 
-      <main className="max-w-5xl mx-auto px-4 py-8">
-        {/* Summary */}
-        <section className={`${wStyle.bg} border rounded-xl p-6 mb-6`}>
-          <div className={`text-sm font-medium ${wStyle.text} mb-2`}>Quick Verdict</div>
-          <p className="text-gray-800 leading-relaxed">{data.summary}</p>
-        </section>
+        {/* Quick Verdict */}
+        <div className="mb-6 bg-white rounded-2xl p-5 shadow-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-xs bg-[#0071E3]/10 text-[#0071E3] px-2.5 py-0.5 rounded-full font-medium">
+              Quick Verdict
+            </span>
+            <span className="text-sm font-medium text-[#1d1d1f]">{winnerName} wins</span>
+          </div>
+          <p className="text-[#86868b] leading-relaxed">{data.summary}</p>
+        </div>
 
-        {/* Side-by-side cards */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        {/* Side-by-side product cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {([data.productA, data.productB] as const).map((prod, i) => {
-            const diff = DIFFICULTY_STYLES[prod.difficulty] || DIFFICULTY_STYLES.Medium
             const isWinner = (data.winner === 'a' && i === 0) || (data.winner === 'b' && i === 1)
+            const diffClass = DIFFICULTY_STYLES[prod.difficulty] || DIFFICULTY_STYLES.Medium
             return (
-              <div key={prod.name} className={`bg-white rounded-xl border-2 p-6 ${isWinner ? 'border-blue-400 shadow-md' : 'border-gray-200'}`}>
-                <div className="flex items-center gap-3 mb-3">
+              <div key={prod.name} className={`bg-white rounded-2xl p-5 shadow-sm transition-all ${isWinner ? 'ring-2 ring-[#0071E3]/20 border border-[#0071E3]/30' : 'border border-[#e8e8ed]'}`}>
+                <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl" aria-hidden="true">{prod.logo}</span>
-                  <div>
-                    <h2 className="text-xl font-bold text-gray-900">{prod.name}</h2>
-                    <p className="text-sm text-gray-500">{prod.tagline}</p>
+                  <div className="flex-1 min-w-0">
+                    <h2 className="font-semibold text-lg text-[#1d1d1f]">{prod.name}</h2>
+                    <p className="text-sm text-[#86868b] truncate">{prod.tagline}</p>
                   </div>
-                  {isWinner && <span className="ml-auto text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">{wStyle.label}</span>}
+                  {isWinner && (
+                    <span className="text-xs bg-[#0071E3] text-white px-2.5 py-1 rounded-full font-medium">Winner</span>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 text-sm mb-4">
-                  <div className="bg-gray-50 rounded-lg p-2.5">
-                    <div className="text-gray-500 text-xs">License</div>
-                    <div className="font-medium text-gray-900">{prod.license}</div>
+                  <div className="bg-[#f5f5f7] rounded-xl p-2.5">
+                    <div className="text-[#86868b] text-xs mb-0.5">License</div>
+                    <div className="font-medium text-[#1d1d1f]">{prod.license}</div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-2.5">
-                    <div className="text-gray-500 text-xs">Difficulty</div>
-                    <span className={`px-2 py-0.5 rounded-full text-xs ${diff.badge}`}>{prod.difficulty}</span>
+                  <div className="bg-[#f5f5f7] rounded-xl p-2.5">
+                    <div className="text-[#86868b] text-xs mb-0.5">Difficulty</div>
+                    <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${diffClass}`}>{prod.difficulty}</span>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-2.5">
-                    <div className="text-gray-500 text-xs">Self-Hosted</div>
-                    <div className="font-medium">{prod.selfHosted ? '✅ Yes' : '❌ No'}</div>
+                  <div className="bg-[#f5f5f7] rounded-xl p-2.5">
+                    <div className="text-[#86868b] text-xs mb-0.5">Self-Hosted</div>
+                    <div className="font-medium text-[#1d1d1f]">{prod.selfHosted ? 'Yes' : 'No'}</div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-2.5">
-                    <div className="text-gray-500 text-xs">Pricing</div>
-                    <div className="font-medium text-gray-900">{prod.pricing}</div>
+                  <div className="bg-[#f5f5f7] rounded-xl p-2.5">
+                    <div className="text-[#86868b] text-xs mb-0.5">Pricing</div>
+                    <div className="font-medium text-[#1d1d1f]">{prod.pricing}</div>
                   </div>
                 </div>
 
-                <div className="flex gap-2 text-sm">
-                  {prod.github && <a href={prod.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">GitHub</a>}
-                  <a href={prod.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Website</a>
+                <div className="flex gap-3 text-sm">
+                  {prod.github && (
+                    <a href={prod.github} target="_blank" rel="noopener noreferrer" className="text-[#0071E3] hover:underline">GitHub</a>
+                  )}
+                  <a href={prod.url} target="_blank" rel="noopener noreferrer" className="text-[#0071E3] hover:underline">Website</a>
                 </div>
               </div>
             )
           })}
-        </section>
+        </div>
 
         {/* Feature comparison table */}
-        <section className="bg-white rounded-xl border border-gray-200 p-6 mb-8 overflow-x-auto">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Feature Comparison</h2>
-          <table className="w-full text-sm" aria-label={`Comparing ${data.productA.name} and ${data.productB.name}`}>
-            <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="text-left py-3 px-3 text-gray-600 font-medium">Feature</th>
-                <th className="text-center py-3 px-3 text-gray-900 font-semibold">{data.productA.logo} {data.productA.name}</th>
-                <th className="text-center py-3 px-3 text-gray-900 font-semibold">{data.productB.logo} {data.productB.name}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.features.map((f, i) => (
-                <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : ''}>
-                  <td className="py-2.5 px-3 text-gray-700 font-medium">{f.name}</td>
-                  <td className="text-center py-2.5 px-3">{formatFeature(f.a)}</td>
-                  <td className="text-center py-2.5 px-3">{formatFeature(f.b)}</td>
+        <div className="mb-8 bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div className="p-5 border-b border-[#e8e8ed]">
+            <h2 className="text-xl font-semibold text-[#1d1d1f] tracking-tight">Feature Comparison</h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm" aria-label={`Comparing ${data.productA.name} and ${data.productB.name}`}>
+              <thead>
+                <tr className="border-b border-[#e8e8ed]">
+                  <th className="text-left py-3 px-5 font-medium text-[#86868b]">Feature</th>
+                  <th className="text-center py-3 px-5 font-medium text-[#1d1d1f]">{data.productA.logo} {data.productA.name}</th>
+                  <th className="text-center py-3 px-5 font-medium text-[#1d1d1f]">{data.productB.logo} {data.productB.name}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
+              </thead>
+              <tbody>
+                {data.features.map((f, i) => (
+                  <tr key={i} className={i % 2 === 0 ? 'bg-[#f5f5f7]/50' : ''}>
+                    <td className="py-3 px-5 font-medium text-[#1d1d1f]">{f.name}</td>
+                    <td className="text-center py-3 px-5"><FeatureValue v={f.a} /></td>
+                    <td className="text-center py-3 px-5"><FeatureValue v={f.b} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         {/* Pros & Cons */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">{data.productA.logo} {data.productA.name} Pros & Cons</h2>
-            <div className="space-y-2 mb-4">
-              {data.prosA.map((p, i) => (
-                <div key={i} className="flex gap-2 text-sm">
-                  <span className="text-green-500 shrink-0">+</span>
-                  <span className="text-gray-700">{p}</span>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          {[
+            { name: data.productA.name, logo: data.productA.logo, pros: data.prosA, cons: data.consA },
+            { name: data.productB.name, logo: data.productB.logo, pros: data.prosB, cons: data.consB },
+          ].map(({ name, logo, pros, cons }) => (
+            <div key={name} className="bg-white rounded-2xl p-5 shadow-sm">
+              <h2 className="text-base font-semibold text-[#1d1d1f] mb-4">{logo} {name}</h2>
+              <div className="space-y-2.5 mb-4">
+                {pros.map((p, i) => (
+                  <div key={i} className="flex gap-2.5 text-sm">
+                    <span className="text-[#30d158] shrink-0 mt-0.5">+</span>
+                    <span className="text-[#1d1d1f]">{p}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-2.5">
+                {cons.map((c, i) => (
+                  <div key={i} className="flex gap-2.5 text-sm">
+                    <span className="text-red-500 shrink-0 mt-0.5">−</span>
+                    <span className="text-[#86868b]">{c}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="space-y-2">
-              {data.consA.map((c, i) => (
-                <div key={i} className="flex gap-2 text-sm">
-                  <span className="text-red-500 shrink-0">−</span>
-                  <span className="text-gray-600">{c}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">{data.productB.logo} {data.productB.name} Pros & Cons</h2>
-            <div className="space-y-2 mb-4">
-              {data.prosB.map((p, i) => (
-                <div key={i} className="flex gap-2 text-sm">
-                  <span className="text-green-500 shrink-0">+</span>
-                  <span className="text-gray-700">{p}</span>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-2">
-              {data.consB.map((c, i) => (
-                <div key={i} className="flex gap-2 text-sm">
-                  <span className="text-red-500 shrink-0">−</span>
-                  <span className="text-gray-600">{c}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          ))}
+        </div>
 
         {/* Winner + Docker Compose */}
-        <section className={`${wStyle.bg} border rounded-xl p-6 mb-8`}>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">
-            Our Pick: {data.winner === 'a' ? data.productA.name : data.winner === 'b' ? data.productB.name : 'Both'}
-          </h2>
-          <p className="text-gray-800 leading-relaxed mb-4">{data.winnerReason}</p>
+        <div className="mb-8 bg-white rounded-2xl p-5 shadow-sm">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs bg-[#0071E3]/10 text-[#0071E3] px-2.5 py-0.5 rounded-full font-medium">
+              Our Pick
+            </span>
+            <h2 className="text-xl font-semibold text-[#1d1d1f] tracking-tight">{winnerName}</h2>
+          </div>
+          <p className="text-[#86868b] leading-relaxed mb-4">{data.winnerReason}</p>
 
-          {(() => {
-            const winnerProd = data.winner === 'a' ? data.productA : data.productB
-            if (winnerProd.dockerCompose) {
-              return (
-                <div className="bg-gray-900 rounded-lg p-4 mt-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <div className="text-xs text-gray-400 mb-2">Deploy {winnerProd.name} with Docker Compose</div>
-                      <pre className="text-sm text-green-400 font-mono whitespace-pre-wrap break-all">{winnerProd.dockerCompose}</pre>
-                    </div>
-                    <CopyButton text={winnerProd.dockerCompose} />
-                  </div>
+          {winnerProd.dockerCompose && (
+            <div className="bg-[#1d1d1f] rounded-xl p-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0">
+                  <div className="text-xs text-[#86868b] mb-2">Deploy {winnerProd.name} with Docker Compose</div>
+                  <pre className="text-sm text-[#30d158] font-mono whitespace-pre-wrap break-all leading-relaxed">{winnerProd.dockerCompose}</pre>
                 </div>
-              )
-            }
-            return null
-          })()}
-        </section>
+                <CopyButton text={winnerProd.dockerCompose} />
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* FAQ */}
-        <section className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-5">Frequently Asked Questions</h2>
-          <div className="space-y-6">
+        <div className="mb-10">
+          <h2 className="text-2xl font-semibold text-[#1d1d1f] tracking-tight mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-3">
             {data.faq.map((item, i) => (
-              <div key={i}>
-                <h3 className="font-semibold text-gray-900 leading-relaxed">{item.q}</h3>
-                <p className="text-gray-600 mt-1.5 leading-relaxed">{item.a}</p>
-              </div>
+              <details key={i} className="group bg-white rounded-2xl shadow-sm overflow-hidden">
+                <summary className="cursor-pointer p-5 text-base font-medium text-[#1d1d1f] group-open:text-[#0071E3] transition-colors">
+                  {item.q}
+                </summary>
+                <div className="px-5 pb-5 text-base text-[#86868b] leading-relaxed">
+                  {item.a}
+                </div>
+              </details>
             ))}
           </div>
-        </section>
+        </div>
 
         {/* Related comparisons */}
         {relatedSlugs.length > 0 && (
-          <section className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">More Comparisons</h2>
+          <div className="mb-10">
+            <h2 className="text-xl font-semibold text-[#1d1d1f] tracking-tight mb-4">More Comparisons</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {relatedSlugs.map(rp => (
                 <a
                   key={rp.slug}
                   href={`/compare/${rp.slug}/`}
-                  className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-[border-color,box-shadow] group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow group"
                 >
-                  <span className="text-xl" aria-hidden="true">{rp.productA.logo} ⚡ {rp.productB.logo}</span>
-                  <div>
-                    <div className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">{rp.productA.name} vs {rp.productB.name}</div>
-                    <div className="text-xs text-gray-500">{rp.productA.tagline}</div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg">{rp.productA.logo}</span>
+                    <span className="text-[#86868b] text-sm">vs</span>
+                    <span className="text-lg">{rp.productB.logo}</span>
                   </div>
-                  <span className="ml-auto text-gray-400 group-hover:text-blue-500" aria-hidden="true">&rarr;</span>
+                  <div className="font-medium text-[#1d1d1f] group-hover:text-[#0071E3] transition-colors text-sm">
+                    {rp.productA.name} vs {rp.productB.name}
+                  </div>
                 </a>
               ))}
             </div>
-          </section>
+          </div>
         )}
 
-        <div className="text-center py-4">
-          <a href="/compare/" className="text-blue-600 hover:underline">&larr; All comparisons</a>
-          <span className="mx-4 text-gray-300" aria-hidden="true">|</span>
-          <a href="/alternatives/" className="text-blue-600 hover:underline">Self-Hosted Alternatives</a>
-          <span className="mx-4 text-gray-300" aria-hidden="true">|</span>
-          <a href="/" className="text-blue-600 hover:underline">AI Cost Calculator</a>
-        </div>
+        {/* Footer */}
+        <footer className="border-t border-[#e8e8ed] pt-6 text-center text-sm text-[#86868b]">
+          <p>Free side-by-side tool comparisons. No login required.</p>
+          <p className="mt-2">
+            <a href="/" className="text-[#0071E3] hover:underline">AI Cost Calculator</a>
+            <span className="mx-1.5">&middot;</span>
+            <a href="/cron-generator/" className="text-[#0071E3] hover:underline">Cron Generator</a>
+            <span className="mx-1.5">&middot;</span>
+            <a href="/alternatives/" className="text-[#0071E3] hover:underline">Self-Hosted Alternatives</a>
+          </p>
+        </footer>
       </main>
-
-      <footer className="border-t border-gray-200 bg-white">
-        <div className="max-w-5xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
-          <p>Side-by-side comparisons of self-hosted and SaaS tools.</p>
-        </div>
-      </footer>
     </div>
   )
 }
