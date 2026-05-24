@@ -30,6 +30,7 @@ for (const page of SCENE_PAGES) {
 
   const seoData = JSON.stringify({
     scene: page.scene,
+    h1: page.h1,
     defaultPrompt: page.defaultPrompt,
     defaultOutputTokens: page.defaultOutputTokens,
     defaultCallsPerMonth: page.defaultCallsPerMonth,

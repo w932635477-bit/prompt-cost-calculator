@@ -31,7 +31,7 @@ const FAQ_DATA = [
   { q: 'What counts as a "call"?', a: 'One call = one API request to the model. Each call includes input tokens (your prompt) and output tokens (the model response). Both are billed separately.' },
 ]
 
-function getSeoData(): { scene: string; defaultPrompt: string; defaultOutputTokens: number; defaultCallsPerMonth: number } | null {
+function getSeoData(): { scene: string; h1: string; defaultPrompt: string; defaultOutputTokens: number; defaultCallsPerMonth: number } | null {
   const el = document.getElementById('seo-data')
   if (!el) return null
   try { return JSON.parse(el.textContent || 'null') } catch { return null }
@@ -39,6 +39,7 @@ function getSeoData(): { scene: string; defaultPrompt: string; defaultOutputToke
 
 export default function TokenTrackerApp() {
   const seoData = useMemo(() => getSeoData(), [])
+  const pageTitle = seoData?.h1 || 'AI Token Cost Tracker'
   const defaultScene = seoData?.scene || 'chatbot'
   const defaultSceneData = SCENES.find(s => s.id === defaultScene) || SCENES[0]
 
@@ -99,7 +100,7 @@ export default function TokenTrackerApp() {
         {/* Hero */}
         <div className="mb-10">
           <h1 className="text-3xl md:text-4xl font-semibold text-[#1d1d1f] tracking-tight mb-3">
-            AI Token Cost Tracker
+            {pageTitle}
           </h1>
           <p className="text-[#86868b] text-lg leading-relaxed">
             Estimate monthly AI costs across 10 models. Pick a use case or enter your own prompt to see real-time cost projections.
