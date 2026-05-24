@@ -58,6 +58,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         cron: resolve(__dirname, 'cron-generator/index.html'),
         'cron-patterns': resolve(__dirname, 'cron-generator/common-patterns/index.html'),
+        'vercel-cron': resolve(__dirname, 'cron-generator/vercel-cron/index.html'),
         alternatives: resolve(__dirname, 'alternatives/index.html'),
         deploy: resolve(__dirname, 'deploy/index.html'),
         'agent-safety': resolve(__dirname, 'agent-safety/index.html'),

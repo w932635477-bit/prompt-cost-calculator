@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vercel Cron Job Syntax Guide &amp; Generator | vercel.json Examples</title>
+    <meta name="description" content="Generate cron expressions for Vercel scheduled functions. Copy vercel.json configs, preview next run times, and learn the syntax with real examples. Free tool." />
+    <meta name="keywords" content="vercel cron job, vercel cron syntax, vercel.json crons, vercel scheduled functions, vercel cron job syntax, vercel cron generator, vercel cron example" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vercel Cron Job Syntax Guide &amp; Generator" />
+    <meta property="og:description" content="Generate cron expressions for Vercel scheduled functions. Copy vercel.json configs, preview next run times, and learn the syntax." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codehelper.xyz/cron-generator/vercel-cron/" />
+    <meta property="og:site_name" content="CodeHelper" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vercel Cron Job Syntax Guide &amp; Generator" />
+    <meta name="twitter:description" content="Generate cron expressions for Vercel. Copy vercel.json configs, learn syntax, get examples." />
+
+    <link rel="canonical" href="https://codehelper.xyz/cron-generator/vercel-cron/" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Vercel Cron Job Generator",
+      "url": "https://codehelper.xyz/cron-generator/vercel-cron/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free cron expression generator for Vercel scheduled functions. Generate vercel.json configs, preview next run times, and learn the syntax.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I set up a cron job on Vercel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add a \"crons\" array to your vercel.json. Each entry needs a \"path\" (your API route) and a \"schedule\" (standard 5-field cron expression). Deploy and Vercel handles the rest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cron syntax for vercel.json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vercel uses standard Unix 5-field cron: minute hour day-of-month month day-of-week. For example, \"0 */6 * * *\" runs every 6 hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Vercel support 6-field cron expressions with seconds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Vercel cron uses the standard 5-field Unix cron format. The minimum interval is 1 minute. You cannot specify seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are Vercel cron job limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hobby (free): 1 cron job, 60s timeout. Pro: 2 cron jobs, 300s timeout. Enterprise: unlimited cron jobs, configurable timeout. All plans: minimum 1-minute interval, UTC timezone only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I debug a Vercel cron job?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use vercel logs --follow to stream real-time logs, or check the Functions tab in the Vercel dashboard. Look for the cron trigger in log entries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Vercel cron jobs on the free plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Hobby (free) plan supports 1 cron job with a 60-second function timeout. For multiple cron jobs or longer timeouts, upgrade to Pro."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Set Up Vercel Cron Jobs",
+      "description": "Configure scheduled tasks on Vercel using vercel.json cron syntax.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "text": "Create an API route in your Next.js project (e.g., app/api/cleanup/route.ts)."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Add a vercel.json file to your project root with a crons array containing your schedule and path."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Deploy to Vercel. The cron job starts automatically based on your schedule."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Verify execution using vercel logs --follow or the Vercel dashboard."
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/cron/vercel-main.tsx"></script>
+  </body>
+</html>
