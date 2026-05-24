@@ -2,6 +2,7 @@ const TOOLS = [
   { name: 'AI Cost Calculator', path: '/' },
   { name: 'Cron Generator', path: '/cron-generator/' },
   { name: 'Self-Hosted Alternatives', path: '/alternatives/' },
+  { name: 'Compare', path: '/compare/' },
   { name: 'Docker Deploy', path: '/deploy/' },
   { name: 'Voice Pricing', path: '/voice-agent-pricing/' },
   { name: 'Agent Safety', path: '/agent-safety/' },

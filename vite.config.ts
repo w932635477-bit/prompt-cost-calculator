@@ -34,6 +34,14 @@ const deployInputs = Object.fromEntries(
   deploySlugMatches.map(m => [`deploy-lt-${m[1]}`, resolve(__dirname, `deploy/${m[1]}/index.html`)])
 )
 
+// Load compare page inputs from generated data
+const compareDataFile = resolve(__dirname, 'src/compare/seo/compare-data.ts')
+const compareDataContent = fs.readFileSync(compareDataFile, 'utf-8')
+const compareSlugMatches = [...compareDataContent.matchAll(/slug: '([^']+)'/g)]
+const compareInputs = Object.fromEntries(
+  compareSlugMatches.map(m => [`cmp-lt-${m[1]}`, resolve(__dirname, `compare/${m[1]}/index.html`)])
+)
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -45,10 +53,12 @@ export default defineConfig({
         alternatives: resolve(__dirname, 'alternatives/index.html'),
         'agent-safety': resolve(__dirname, 'agent-safety/index.html'),
         'voice-pricing': resolve(__dirname, 'voice-agent-pricing/index.html'),
+        compare: resolve(__dirname, 'compare/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
         ...deployInputs,
+        ...compareInputs,
       },
     },
   },
