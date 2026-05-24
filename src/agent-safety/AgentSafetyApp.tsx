@@ -3,9 +3,9 @@ import { CHECKLIST_ITEMS, CHECKLIST_CATEGORIES, FAQ_DATA, type CheckItem } from 
 import { GlobalNav } from '../components/GlobalNav'
 
 const SEVERITY_CONFIG = {
-  critical: { label: 'Critical', bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-700 dark:text-red-300', border: 'border-red-300 dark:border-red-700' },
-  warning: { label: 'Warning', bg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-700 dark:text-yellow-300', border: 'border-yellow-300 dark:border-yellow-700' },
-  info: { label: 'Info', bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-700 dark:text-blue-300', border: 'border-blue-300 dark:border-blue-700' },
+  critical: { label: 'Critical', bg: 'bg-red-500/10', text: 'text-red-600' },
+  warning: { label: 'Warning', bg: 'bg-amber-500/10', text: 'text-amber-600' },
+  info: { label: 'Info', bg: 'bg-[#0071E3]/10', text: 'text-[#0071E3]' },
 }
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -24,14 +24,14 @@ function CheckCard({ item, checked, onToggle }: { item: CheckItem; checked: bool
   const sev = SEVERITY_CONFIG[item.severity]
 
   return (
-    <div className={`border rounded-xl p-5 transition-all ${checked ? 'border-green-300 dark:border-green-700 bg-green-50/80 dark:bg-green-900/20' : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'}`}>
+    <div className={`rounded-2xl p-5 transition-all shadow-sm ${checked ? 'bg-[#0071E3]/[0.04] shadow-none' : 'bg-white hover:shadow-md'}`}>
       <div className="flex items-start gap-4">
         <button
           onClick={onToggle}
-          className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-colors ${
+          className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center transition-all ${
             checked
-              ? 'bg-green-500 border-green-500 text-white'
-              : 'border-gray-300 dark:border-gray-600 hover:border-green-400 dark:hover:border-green-500'
+              ? 'bg-[#0071E3] text-white shadow-sm'
+              : 'bg-[#f5f5f7] hover:bg-[#e8e8ed]'
           }`}
           aria-label={checked ? 'Uncheck' : 'Check'}
         >
@@ -39,7 +39,7 @@ function CheckCard({ item, checked, onToggle }: { item: CheckItem; checked: bool
         </button>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className={`font-medium text-base ${checked ? 'line-through text-gray-400 dark:text-gray-500' : 'text-gray-900 dark:text-gray-100'}`}>
+            <h3 className={`font-medium text-base ${checked ? 'line-through text-[#86868b]' : 'text-[#1d1d1f]'}`}>
               {item.title}
             </h3>
             <span className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${sev.bg} ${sev.text}`}>
@@ -48,21 +48,21 @@ function CheckCard({ item, checked, onToggle }: { item: CheckItem; checked: bool
           </div>
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mt-1.5"
+            className="text-sm text-[#86868b] hover:text-[#1d1d1f] mt-1.5 transition-colors"
           >
-            {expanded ? 'Hide details ▲' : 'Show details ▼'}
+            {expanded ? 'Hide details' : 'Show details'}
           </button>
           {expanded && (
             <div className="mt-4 space-y-3">
-              <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
+              <p className="text-base text-[#86868b] leading-relaxed">{item.description}</p>
               {item.codeExample && (
-                <pre className="text-sm bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto font-mono leading-relaxed">
+                <pre className="text-sm bg-[#1d1d1f] text-[#30d158] p-4 rounded-xl overflow-x-auto font-mono leading-relaxed">
                   {item.codeExample}
                 </pre>
               )}
               {item.references && (
-                <div className="text-sm text-gray-500">
-                  References: {item.references.map((r, i) => <a key={i} href={r} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">{r}</a>)}
+                <div className="text-sm text-[#86868b]">
+                  References: {item.references.map((r, i) => <a key={i} href={r} target="_blank" rel="noopener noreferrer" className="text-[#0071E3] hover:underline">{r}</a>)}
                 </div>
               )}
             </div>
@@ -98,42 +98,33 @@ export default function AgentSafetyApp() {
   const progressPct = Math.round((totalChecked / totalItems) * 100)
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-[#f5f5f7]">
       <GlobalNav current="/agent-safety/" />
-      <nav className="border-b border-gray-200 dark:border-gray-800 px-4 py-3">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <a href="/" className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">AI Dev Tools</a>
-            <span className="text-gray-300 dark:text-gray-600">/</span>
-            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Agent Safety Checklist</span>
-          </div>
-        </div>
-      </nav>
 
-      <main className="max-w-4xl mx-auto px-4 py-8">
+      <main className="max-w-[780px] mx-auto px-6 py-10">
         {/* Header */}
         <div className="mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          <h1 className="text-3xl md:text-4xl font-semibold text-[#1d1d1f] tracking-tight mb-3">
             AI Agent Safety Checklist
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
-            18 security checks for building safe AI agents. Covers prompt injection defense, tool access control, data privacy, and supply chain security. Based on real incidents including the May 2025 npm supply chain attack.
+          <p className="text-[#86868b] text-lg leading-relaxed">
+            18 security checks for building safe AI agents. Covers prompt injection defense, tool access control, data privacy, and supply chain security.
           </p>
         </div>
 
         {/* Progress */}
-        <div className="mb-8 bg-gray-50 dark:bg-gray-800 rounded-xl p-5">
+        <div className="mb-8 bg-white rounded-2xl p-5 shadow-sm">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="text-sm font-medium text-[#1d1d1f]">
               {totalChecked}/{totalItems} checks completed
             </span>
-            <span className={`text-sm font-medium ${progressPct === 100 ? 'text-green-600' : criticalChecked === criticalTotal ? 'text-yellow-600' : 'text-red-600'}`}>
+            <span className={`text-sm font-medium ${progressPct === 100 ? 'text-[#30d158]' : criticalChecked === criticalTotal ? 'text-amber-500' : 'text-red-500'}`}>
               {progressPct === 100 ? 'All checks passed' : criticalChecked === criticalTotal ? `Critical done (${criticalChecked}/${criticalTotal})` : `Critical: ${criticalChecked}/${criticalTotal}`}
             </span>
           </div>
-          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+          <div className="w-full bg-[#f5f5f7] rounded-full h-2">
             <div
-              className={`h-2.5 rounded-full transition-all ${progressPct === 100 ? 'bg-green-500' : criticalChecked === criticalTotal ? 'bg-yellow-500' : 'bg-blue-500'}`}
+              className={`h-2 rounded-full transition-all ${progressPct === 100 ? 'bg-[#30d158]' : criticalChecked === criticalTotal ? 'bg-amber-400' : 'bg-[#0071E3]'}`}
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -143,10 +134,10 @@ export default function AgentSafetyApp() {
         <div className="mb-8 flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`text-sm px-4 py-2 rounded-full border transition-colors ${
+            className={`text-sm px-4 py-2 rounded-full transition-all ${
               selectedCategory === 'all'
-                ? 'bg-gray-900 text-white border-gray-900 dark:bg-gray-100 dark:text-gray-900 dark:border-gray-100'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700'
+                ? 'bg-[#1d1d1f] text-white shadow-sm'
+                : 'bg-white text-[#86868b] hover:bg-[#e8e8ed] shadow-sm'
             }`}
           >
             All ({totalItems})
@@ -157,10 +148,10 @@ export default function AgentSafetyApp() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`text-sm px-4 py-2 rounded-full border transition-colors ${
+                className={`text-sm px-4 py-2 rounded-full transition-all ${
                   selectedCategory === cat
-                    ? 'bg-gray-900 text-white border-gray-900 dark:bg-gray-100 dark:text-gray-900 dark:border-gray-100'
-                    : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700'
+                    ? 'bg-[#1d1d1f] text-white shadow-sm'
+                    : 'bg-white text-[#86868b] hover:bg-[#e8e8ed] shadow-sm'
                 }`}
               >
                 {CATEGORY_ICONS[cat]} {cat} ({count})
@@ -170,7 +161,7 @@ export default function AgentSafetyApp() {
         </div>
 
         {/* Checklist */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {filteredItems.map(item => (
             <CheckCard
               key={item.id}
@@ -182,17 +173,17 @@ export default function AgentSafetyApp() {
         </div>
 
         {/* FAQ */}
-        <div className="mt-16 border-t border-gray-200 dark:border-gray-700 pt-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-8">
+        <div className="mt-16">
+          <h2 className="text-2xl font-semibold text-[#1d1d1f] tracking-tight mb-6">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {FAQ_DATA.map((faq, i) => (
-              <details key={i} className="group border border-gray-200 dark:border-gray-700 rounded-xl">
-                <summary className="cursor-pointer p-5 text-base font-medium text-gray-900 dark:text-gray-100 group-open:text-blue-600 dark:group-open:text-blue-400">
+              <details key={i} className="group bg-white rounded-2xl shadow-sm overflow-hidden">
+                <summary className="cursor-pointer p-5 text-base font-medium text-[#1d1d1f] group-open:text-[#0071E3] transition-colors">
                   {faq.q}
                 </summary>
-                <div className="px-5 pb-5 text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                <div className="px-5 pb-5 text-base text-[#86868b] leading-relaxed">
                   {faq.a}
                 </div>
               </details>
@@ -201,16 +192,16 @@ export default function AgentSafetyApp() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-6 text-center text-xs text-gray-400">
+        <footer className="mt-12 border-t border-[#e8e8ed] pt-6 text-center text-sm text-[#86868b]">
           <p>Free AI Agent Safety Checklist. No login required.</p>
-          <p className="mt-1">
-            <a href="/" className="text-blue-500 hover:underline">AI Cost Calculator</a>
-            {' · '}
-            <a href="/cron-generator/" className="text-blue-500 hover:underline">Cron Generator</a>
-            {' · '}
-            <a href="/alternatives/" className="text-blue-500 hover:underline">Self-Hosted Alternatives</a>
-            {' · '}
-            <a href="/deploy/" className="text-blue-500 hover:underline">Docker Deploy</a>
+          <p className="mt-2">
+            <a href="/" className="text-[#0071E3] hover:underline">AI Cost Calculator</a>
+            <span className="mx-1.5">&middot;</span>
+            <a href="/cron-generator/" className="text-[#0071E3] hover:underline">Cron Generator</a>
+            <span className="mx-1.5">&middot;</span>
+            <a href="/alternatives/" className="text-[#0071E3] hover:underline">Self-Hosted Alternatives</a>
+            <span className="mx-1.5">&middot;</span>
+            <a href="/deploy/" className="text-[#0071E3] hover:underline">Docker Deploy</a>
           </p>
         </footer>
       </main>

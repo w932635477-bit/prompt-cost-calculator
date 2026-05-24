@@ -34,6 +34,7 @@ const allUrls = [
   { loc: BASE_URL + '/agent-safety/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/voice-agent-pricing/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/compare/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/deploy/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {
