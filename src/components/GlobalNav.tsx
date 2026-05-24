@@ -17,7 +17,7 @@ export function GlobalNav({ current }: { current: string }) {
             <li key={tool.path}>
               <a
                 href={tool.path}
-                className={`px-3 py-1.5 rounded-lg transition-colors ${
+                className={`px-3 py-2.5 rounded-lg transition-colors ${
                   tool.path === current
                     ? 'bg-[#0071E3]/10 text-[#0071E3] font-medium'
                     : 'text-[#86868b] hover:text-[#1d1d1f] hover:bg-gray-100'
