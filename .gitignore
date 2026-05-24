@@ -28,3 +28,5 @@ test-results/
 qa-*.cjs
 qa-screenshots/
 qa-visual/
+qa-prod-visual/
+public/promptcostcalculator*.txt
