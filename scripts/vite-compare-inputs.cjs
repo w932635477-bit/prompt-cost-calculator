@@ -8,5 +8,17 @@ module.exports = {
   'cmp-lt-joplin-vs-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/joplin-vs-obsidian/index.html'),
   'cmp-lt-vaultwarden-vs-bitwarden': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/vaultwarden-vs-bitwarden/index.html'),
   'cmp-lt-immich-vs-google-photos': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/immich-vs-google-photos/index.html'),
-  'cmp-lt-gitea-vs-github': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/gitea-vs-github/index.html')
+  'cmp-lt-gitea-vs-github': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/gitea-vs-github/index.html'),
+  'cmp-lt-jellyfin-vs-plex': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/jellyfin-vs-plex/index.html'),
+  'cmp-lt-wordpress-vs-ghost': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/wordpress-vs-ghost/index.html'),
+  'cmp-lt-pi-hole-vs-adguard-home': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/pi-hole-vs-adguard-home/index.html'),
+  'cmp-lt-home-assistant-vs-openhab': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/home-assistant-vs-openhab/index.html'),
+  'cmp-lt-traefik-vs-nginx-proxy-manager': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/traefik-vs-nginx-proxy-manager/index.html'),
+  'cmp-lt-portainer-vs-yacht': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/portainer-vs-yacht/index.html'),
+  'cmp-lt-prometheus-vs-grafana': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/prometheus-vs-grafana/index.html'),
+  'cmp-lt-authentik-vs-authelia': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/authentik-vs-authelia/index.html'),
+  'cmp-lt-minio-vs-ceph': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/minio-vs-ceph/index.html'),
+  'cmp-lt-pleroma-vs-mastodon': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/pleroma-vs-mastodon/index.html'),
+  'cmp-lt-mealie-vs-tandoor': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mealie-vs-tandoor/index.html'),
+  'cmp-lt-stirling-pdf-vs-pdfding': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/stirling-pdf-vs-pdfding/index.html')
 }
