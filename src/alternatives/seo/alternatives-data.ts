@@ -920,7 +920,7 @@ export const CATEGORIES = [
   { name: 'Cloud Storage', icon: '📁', tools: ['google-drive', 'dropbox', 'onedrive'], applicationCategory: 'UtilitiesApplication' },
   { name: 'Note-Taking', icon: '📝', tools: ['notion', 'evernote'], applicationCategory: 'ProductivityApplication' },
   { name: 'Communication', icon: '💬', tools: ['slack', 'discord', 'zoom'], applicationCategory: 'SocialNetworkingApplication' },
-  { name: 'Password Management', icon: '🔑', tools: ['lastpass', '1password', 'bitwarden-cloud'], applicationCategory: 'UtilitiesApplication' },
+  { name: 'Password Management', icon: '🔑', tools: ['lastpass', '1password', 'bitwarden-cloud', 'vaultwarden'], applicationCategory: 'UtilitiesApplication' },
   { name: 'Project Management', icon: '📋', tools: ['jira', 'trello'], applicationCategory: 'BusinessApplication' },
   { name: 'Media Streaming', icon: '🎵', tools: ['spotify', 'netflix'], applicationCategory: 'MultimediaApplication' },
   { name: 'Code Hosting', icon: '🐙', tools: ['github'], applicationCategory: 'DeveloperApplication' },
@@ -946,6 +946,5 @@ export const CATEGORIES = [
   { name: 'Screen Recording', icon: '🎥', tools: ['loom'], applicationCategory: 'ProductivityApplication' },
   { name: 'Music Streaming', icon: '🎶', tools: ['navidrome'], applicationCategory: 'MultimediaApplication' },
   { name: 'File Sync', icon: '🔄', tools: ['syncthing'], applicationCategory: 'UtilitiesApplication' },
-  { name: 'Password Management', icon: '🛡️', tools: ['vaultwarden'], applicationCategory: 'UtilitiesApplication' },
   { name: 'Knowledge Management', icon: '📄', tools: ['docmost', 'obsidian'], applicationCategory: 'ProductivityApplication' },
 ]
