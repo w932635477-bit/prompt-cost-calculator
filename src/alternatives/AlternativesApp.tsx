@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { ALTERNATIVE_PAGES, CATEGORIES } from './seo/alternatives-data'
 import { GlobalNav } from '../components/GlobalNav'
+import ToolFinderCard from './finder/ToolFinderCard'
 
 export default function AlternativesApp() {
   const [search, setSearch] = useState('')
@@ -61,6 +62,10 @@ export default function AlternativesApp() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-8">
+        <div className="max-w-xl mx-auto mb-8">
+          <ToolFinderCard />
+        </div>
+
         <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => setActiveCategory(null)}
