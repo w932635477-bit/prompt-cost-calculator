@@ -240,11 +240,13 @@ Tool Finder 不新增URL，嵌在 `/alternatives/` 页面。推荐结果通过�
 8. `RecommendationCard` 组件：推荐结果 + 维度指示器
 9. 集成到 `AlternativesApp.tsx` 顶部
 
-### Phase 4: GitHub数据 (可选, 0.5天)
+### Phase 4: GitHub数据 (已实施, 构建时方案)
 
-10. Vercel Serverless Function: 批量获取GitHub stats
-11. 构建时注入 `githubStars` / `lastCommitDate` 等字段
-12. 前端展示数据源标注
+10. `scripts/fetch-github-stats.cjs`: 扫源文件提取 81 个唯一 repo，认证 API 批量拉取
+11. 写入 `src/alternatives/seo/github-stats.json`，运行时由 `mergeGitHubStats()` 注入
+12. 新增 `Maintenance Activity` 维度，标注 `Source: GitHub API (yyyy-mm-dd)`
+13. token 缺失或失败时构建照常（`|| true`），仅隐藏活跃度维度
+14. 本地：`.env.local` 写 `GITHUB_TOKEN=ghp_xxx` ；Vercel：环境变量同名
 
 ## 10. 不做什么
 

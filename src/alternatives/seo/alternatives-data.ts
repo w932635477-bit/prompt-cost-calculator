@@ -1,3 +1,5 @@
+import githubStats from './github-stats.json'
+
 export type ScenarioTag =
   // Team size
   | 'solo_dev' | 'small_team' | 'enterprise'
@@ -31,6 +33,9 @@ export interface SelfHostedAlt {
   dockerCommand?: string
   features: string[]
   scenarioTags?: ScenarioTag[]
+  githubStars?: number
+  lastCommitDate?: string
+  maintenanceStatus?: 'active' | 'maintenance' | 'declining' | 'archived'
 }
 
 export interface AlternativePage {
@@ -47,7 +52,7 @@ export interface AlternativePage {
   keywords: string[]
 }
 
-export const ALTERNATIVE_PAGES: AlternativePage[] = [
+const _RAW_PAGES: AlternativePage[] = [
   // === Cloud Storage ===
   {
     slug: 'google-drive',
@@ -894,6 +899,21 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     keywords: ['obsidian self hosted', 'obsidian alternative open source', 'self-hosted obsidian', 'logseq vs obsidian', 'trilium notes', 'obsidian self hosted alternative', 'best self-hosted knowledge management'],
   },
 ]
+
+function mergeGitHubStats(pages: AlternativePage[]): AlternativePage[] {
+  const stats = (githubStats as { stats?: Record<string, { githubStars?: number; lastCommitDate?: string; maintenanceStatus?: SelfHostedAlt['maintenanceStatus'] }> }).stats ?? {}
+  if (!Object.keys(stats).length) return pages
+  return pages.map(page => ({
+    ...page,
+    alternatives: page.alternatives.map(alt => {
+      const key = alt.github.replace(/\.git$/, '').replace(/\/$/, '')
+      const s = stats[key]
+      return s ? { ...alt, ...s } : alt
+    }),
+  }))
+}
+
+export const ALTERNATIVE_PAGES: AlternativePage[] = mergeGitHubStats(_RAW_PAGES)
 
 // Categories for the main page
 export const CATEGORIES = [

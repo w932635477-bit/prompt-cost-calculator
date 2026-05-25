@@ -153,6 +153,25 @@ function analyzeDimensions(
     }
   }
 
+  // Maintenance activity (only when GitHub data is available)
+  if (alt.maintenanceStatus) {
+    const stars = alt.githubStars
+    const lastCommit = alt.lastCommitDate
+    const status: DimensionMatch['status'] =
+      alt.maintenanceStatus === 'active' ? 'strong' :
+      alt.maintenanceStatus === 'maintenance' ? 'moderate' : 'weak'
+    const starsText = typeof stars === 'number'
+      ? stars >= 1000 ? `${(stars / 1000).toFixed(1)}k stars` : `${stars} stars`
+      : 'unknown stars'
+    const commitText = lastCommit ? `last commit ${lastCommit}` : 'no recent activity'
+    dims.push({
+      dimension: 'Maintenance Activity',
+      status,
+      reason: `${starsText}, ${commitText} (${alt.maintenanceStatus})`,
+      dataSource: `GitHub API (${new Date().toISOString().slice(0, 10)})`,
+    })
+  }
+
   return dims
 }
 
