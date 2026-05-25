@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
 
-const BASE_URL = 'https://prompt-cost-calculator-ten.vercel.app'
+const BASE_URL = 'https://codehelper.xyz'
 const OUTPUT_DIR = path.join(__dirname, '..', 'alternatives')
 const TMP_FILE = path.join(__dirname, '_tmp_alt_data.mjs')
 

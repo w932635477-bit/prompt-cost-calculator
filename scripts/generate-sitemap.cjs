@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
 
-const BASE_URL = 'https://prompt-cost-calculator-ten.vercel.app'
+const BASE_URL = 'https://codehelper.xyz'
 const LOCALES = ['zh', 'ja', 'es', 'pt', 'fr', 'de', 'ko']
 const DIST_DIR = path.join(__dirname, '..', 'dist')
 

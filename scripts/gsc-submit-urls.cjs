@@ -12,7 +12,7 @@ function curlPost(url, body, headers = {}) {
 }
 
 const KEY_FILE = path.join(process.env.HOME, 'Downloads', 'gsc-indexing-497309-c9c682ceec78.json')
-const BASE = 'https://prompt-cost-calculator-ten.vercel.app'
+const BASE = 'https://codehelper.xyz'
 
 const NEW_URLS = [
   // Compare hub

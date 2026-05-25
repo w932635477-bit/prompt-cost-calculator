@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://prompt-cost-calculator-ten.vercel.app/sitemap.xml
+Sitemap: https://codehelper.xyz/sitemap.xml

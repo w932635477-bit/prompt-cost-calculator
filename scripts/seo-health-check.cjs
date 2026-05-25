@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
 
-const BASE = 'https://prompt-cost-calculator-ten.vercel.app'
+const BASE = 'https://codehelper.xyz'
 
 // All 9 project hubs + key sub-pages
 const PAGES = [
