@@ -2,7 +2,7 @@
 // Run: npx tsx src/alternatives/finder/test-match.ts
 
 import { ALTERNATIVE_PAGES } from '../seo/alternatives-data'
-import { findMatches, computeWeights, scoreAlternative } from './types'
+import { findMatches, computeWeights } from './types'
 import type { ScenarioInput } from './types'
 
 let passed = 0
@@ -42,6 +42,7 @@ console.log('\nTest 2: Enterprise advanced security-first scenario')
 const enterprise: ScenarioInput = { teamSize: 'large', techLevel: 'advanced', server: 'dedicated', priority: 'security' }
 const results2 = findMatches(allAlts, soloBeginner) // Re-run with wrong input intentionally to test
 const results2Real = findMatches(allAlts, enterprise)
+assert(results2.length > 0, 'Solo scenario also returns results (sanity check)')
 assert(results2Real.length > 0, 'Returns results for enterprise scenario')
 if (results2Real.length > 0) {
   const top = results2Real[0]

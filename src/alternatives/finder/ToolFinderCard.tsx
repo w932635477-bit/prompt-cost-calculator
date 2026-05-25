@@ -212,7 +212,7 @@ export default function ToolFinderCard() {
           <h3 className="text-sm font-semibold text-gray-700">
             Recommendations for {selectedPage?.saasName}
           </h3>
-          {results.map((rec, i) => (
+          {results.map(rec => (
             <a
               key={rec.alt.name}
               href={`/alternatives/${selectedSlug}/`}
