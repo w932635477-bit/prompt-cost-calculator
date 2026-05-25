@@ -59,9 +59,35 @@ function PillGroup<T extends string>({
   )
 }
 
-function RecommendationCard({ rec }: { rec: Recommendation }) {
+function StrengthMeter({ status }: { status: 'strong' | 'moderate' | 'weak' }) {
+  const filled = status === 'strong' ? 5 : status === 'moderate' ? 3 : 1
+  const color = status === 'strong' ? 'bg-green-500' : status === 'moderate' ? 'bg-yellow-400' : 'bg-gray-300'
+  const label = status === 'strong' ? 'Strong' : status === 'moderate' ? 'Moderate' : 'Weak'
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-5">
+    <span className="inline-flex items-center gap-1.5 shrink-0" aria-label={`${label} match`}>
+      <span className="flex gap-0.5">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span
+            key={i}
+            className={`w-1.5 h-1.5 rounded-full ${i < filled ? color : 'bg-gray-200'}`}
+          />
+        ))}
+      </span>
+      <span className="text-xs font-medium text-gray-500">{label}</span>
+    </span>
+  )
+}
+
+function RecommendationCard({ rec, rank }: { rec: Recommendation; rank: number }) {
+  const isBest = rank === 0
+  const headerLabel = isBest ? '✅ Best Match' : '👍 Also Consider'
+  const headerColor = isBest ? 'text-green-700' : 'text-blue-700'
+
+  return (
+    <div className={`bg-white rounded-xl border p-5 ${isBest ? 'border-green-300 ring-1 ring-green-100' : 'border-gray-200'}`}>
+      <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${headerColor}`}>
+        {headerLabel}
+      </div>
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="text-lg font-semibold text-gray-900">{rec.alt.name}</h3>
@@ -74,26 +100,15 @@ function RecommendationCard({ rec }: { rec: Recommendation }) {
         )}
       </div>
 
-      <div className="mt-4 space-y-2">
+      <div className="mt-4 space-y-3">
         {rec.matchDimensions.map(dim => (
-          <div key={dim.dimension} className="flex items-start gap-3">
-            <span
-              className={`mt-0.5 w-2.5 h-2.5 rounded-full shrink-0 ${
-                dim.status === 'strong'
-                  ? 'bg-green-500'
-                  : dim.status === 'moderate'
-                    ? 'bg-yellow-400'
-                    : 'bg-gray-300'
-              }`}
-              title={dim.status}
-            />
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-800">{dim.dimension}</span>
-                <span className="text-xs text-gray-400">{dim.status}</span>
-              </div>
-              <p className="text-xs text-gray-500 mt-0.5">{dim.reason}</p>
+          <div key={dim.dimension} className="border-l-2 border-gray-100 pl-3">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-sm font-medium text-gray-800">{dim.dimension}</span>
+              <StrengthMeter status={dim.status} />
             </div>
+            <p className="text-xs text-gray-500 mt-1">{dim.reason}</p>
+            <p className="text-[10px] text-gray-400 mt-0.5 italic">Source: {dim.dataSource}</p>
           </div>
         ))}
       </div>
@@ -103,10 +118,6 @@ function RecommendationCard({ rec }: { rec: Recommendation }) {
           <code className="text-xs text-gray-700 break-all">{rec.alt.dockerCommand}</code>
         </div>
       )}
-
-      <div className="mt-3 flex items-center justify-between">
-        <span className="text-xs text-gray-400">Data: {rec.matchDimensions[0]?.dataSource ?? 'Feature analysis'}</span>
-      </div>
     </div>
   )
 }
@@ -212,13 +223,13 @@ export default function ToolFinderCard() {
           <h3 className="text-sm font-semibold text-gray-700">
             Recommendations for {selectedPage?.saasName}
           </h3>
-          {results.map(rec => (
+          {results.map((rec, idx) => (
             <a
               key={rec.alt.name}
               href={`/alternatives/${selectedSlug}/`}
               className="block hover:shadow-md transition-shadow"
             >
-              <RecommendationCard rec={rec} />
+              <RecommendationCard rec={rec} rank={idx} />
             </a>
           ))}
         </div>
