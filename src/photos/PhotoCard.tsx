@@ -9,9 +9,27 @@ const SOURCE_BADGE: Record<string, string> = {
   pixabay: 'bg-[#5fa825] text-white',
 }
 
+// Trigger Unsplash download endpoint (required by Unsplash API guidelines)
+// before navigating to actual image. Pexels/Pixabay don't require this.
+async function handleDownload(photo: PhotoResult, e: React.MouseEvent) {
+  if (photo.source !== 'unsplash') return  // direct nav for other sources
+  e.preventDefault()
+  // Photo id is "unsplash_<id>" — strip prefix
+  const photoId = photo.id.replace(/^unsplash_/, '')
+  try {
+    // Fire-and-forget tracking ping via our backend (which holds the key)
+    await fetch(`/api/photos/track-download?id=${encodeURIComponent(photoId)}`, { method: 'POST' })
+  } catch {
+    // Non-blocking: even if tracking fails, let user proceed
+  }
+  // Now navigate to the actual download URL
+  window.open(photo.url.download, '_blank', 'noopener,noreferrer')
+}
+
 export default function PhotoCard({ photo }: { photo: PhotoResult }) {
   const [imgLoaded, setImgLoaded] = useState(false)
   const { license } = photo
+  const isUnsplash = photo.source === 'unsplash'
 
   return (
     <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
@@ -57,13 +75,40 @@ export default function PhotoCard({ photo }: { photo: PhotoResult }) {
           </span>
         </div>
 
-        {/* Author + dimensions */}
+        {/* Author + dimensions — Unsplash gets explicit attribution format */}
         <div className="text-xs text-[#86868b] mb-2 truncate">
-          <a href={photo.author.profileUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#0071E3]">
-            {photo.author.name}
-          </a>
-          <span className="mx-1.5">·</span>
-          <span>{photo.dimensions.width}×{photo.dimensions.height}</span>
+          {isUnsplash ? (
+            <>
+              Photo by{' '}
+              <a
+                href={photo.author.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#0071E3] underline-offset-2 hover:underline"
+              >
+                {photo.author.name}
+              </a>
+              {' '}on{' '}
+              <a
+                href="https://unsplash.com/?utm_source=codehelper&utm_medium=referral"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#0071E3] underline-offset-2 hover:underline"
+              >
+                Unsplash
+              </a>
+              <span className="mx-1.5">·</span>
+              <span>{photo.dimensions.width}×{photo.dimensions.height}</span>
+            </>
+          ) : (
+            <>
+              <a href={photo.author.profileUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#0071E3]">
+                {photo.author.name}
+              </a>
+              <span className="mx-1.5">·</span>
+              <span>{photo.dimensions.width}×{photo.dimensions.height}</span>
+            </>
+          )}
         </div>
 
         {/* Actions */}
@@ -72,6 +117,7 @@ export default function PhotoCard({ photo }: { photo: PhotoResult }) {
             href={photo.url.download}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => handleDownload(photo, e)}
             className="flex-1 text-center text-xs py-1.5 px-2 bg-[#0071E3] text-white rounded-lg hover:bg-[#0077ED] transition-colors font-medium"
           >
             Download
