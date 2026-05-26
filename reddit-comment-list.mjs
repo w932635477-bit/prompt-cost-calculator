@@ -74,10 +74,19 @@ const url = `https://www.reddit.com/r/${SUBREDDIT}/new/.json?limit=${LIMIT * 2}`
 
 const PROXY = process.env.https_proxy || process.env.HTTPS_PROXY || 'http://127.0.0.1:7890';
 
-const res = await fetch(url, {
-  headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' },
-  dispatcher: await import('undici').then(u => new u.ProxyAgent(PROXY)),
-});
+const { execSync } = await import('node:child_process');
+const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36';
+let body;
+try {
+  body = execSync(
+    `curl -s --max-time 15 -x "${PROXY}" -H "User-Agent: ${UA}" -H "Accept: application/json" "${url}"`,
+    { encoding: 'utf-8' }
+  );
+} catch (e) {
+  console.error(`Failed to fetch via curl: ${e.message}`);
+  process.exit(1);
+}
+const res = { ok: body.startsWith('{'), status: body.startsWith('{') ? 200 : 0, statusText: 'curl', json: async () => JSON.parse(body) };
 
 if (!res.ok) {
   console.error(`Failed to fetch: ${res.status} ${res.statusText}`);

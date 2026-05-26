@@ -1,0 +1,186 @@
+{
+  "generatedAt": "2026-05-26T03:48:43.166Z",
+  "summary": {
+    "totalIndexable": 266,
+    "totalSubmitted": 20,
+    "coverage": 7.5,
+    "todaysSubmissions": 10,
+    "dailyQuota": 10,
+    "remainingToday": 0
+  },
+  "sections": [
+    {
+      "name": "cron-generator",
+      "total": 160,
+      "submitted": 3,
+      "remaining": 157
+    },
+    {
+      "name": "alternatives",
+      "total": 42,
+      "submitted": 3,
+      "remaining": 39
+    },
+    {
+      "name": "deploy",
+      "total": 36,
+      "submitted": 9,
+      "remaining": 27
+    },
+    {
+      "name": "compare",
+      "total": 20,
+      "submitted": 1,
+      "remaining": 19
+    },
+    {
+      "name": "token-tracker",
+      "total": 5,
+      "submitted": 1,
+      "remaining": 4
+    },
+    {
+      "name": "home",
+      "total": 1,
+      "submitted": 1,
+      "remaining": 0
+    },
+    {
+      "name": "agent-safety",
+      "total": 1,
+      "submitted": 1,
+      "remaining": 0
+    },
+    {
+      "name": "voice-agent-pricing",
+      "total": 1,
+      "submitted": 1,
+      "remaining": 0
+    }
+  ],
+  "dailyBars": [
+    {
+      "day": "2026-05-25",
+      "count": 10
+    },
+    {
+      "day": "2026-05-26",
+      "count": 10
+    }
+  ],
+  "suggestedBatch": [
+    "https://codehelper.xyz/compare/obsidian-vs-notion/",
+    "https://codehelper.xyz/compare/notion-vs-obsidian/",
+    "https://codehelper.xyz/compare/nextcloud-vs-owncloud/",
+    "https://codehelper.xyz/compare/joplin-vs-obsidian/",
+    "https://codehelper.xyz/compare/vaultwarden-vs-bitwarden/",
+    "https://codehelper.xyz/compare/immich-vs-google-photos/",
+    "https://codehelper.xyz/compare/gitea-vs-github/",
+    "https://codehelper.xyz/compare/jellyfin-vs-plex/",
+    "https://codehelper.xyz/compare/wordpress-vs-ghost/",
+    "https://codehelper.xyz/compare/pi-hole-vs-adguard-home/"
+  ],
+  "recentSubmissions": [
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-monday/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.250Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-hour/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.233Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/zapier/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.216Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/lastpass/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.199Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/netflix/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.184Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/spotify/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.168Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/google-drive/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.151Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/notion/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.135Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/github/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.118Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/slack/",
+      "day": "2026-05-26",
+      "ts": "2026-05-26T03:39:11.100Z"
+    },
+    {
+      "url": "https://codehelper.xyz/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T10:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T11:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/alternatives/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T12:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/deploy/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T13:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/compare/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T14:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/token-tracker/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T15:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/agent-safety/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T16:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/voice-agent-pricing/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T17:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/alternatives/google-drive/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T18:00:00.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/alternatives/slack/",
+      "day": "2026-05-25",
+      "ts": "2026-05-25T19:00:00.000Z"
+    }
+  ],
+  "gscMetrics": null
+}

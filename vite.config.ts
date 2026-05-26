@@ -65,6 +65,7 @@ export default defineConfig({
         'voice-pricing': resolve(__dirname, 'voice-agent-pricing/index.html'),
         compare: resolve(__dirname, 'compare/index.html'),
         'token-tracker': resolve(__dirname, 'token-tracker/index.html'),
+        'admin-dashboard': resolve(__dirname, 'admin/dashboard/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
