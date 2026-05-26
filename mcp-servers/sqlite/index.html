@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQLite MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Query and modify SQLite databases on disk. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="sqlite mcp server, sqlite mcp, claude desktop sqlite mcp, cursor sqlite mcp, sqlite mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/sqlite/" />
+    <meta property="og:title" content="SQLite MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Query and modify SQLite databases on disk. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/sqlite/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="SQLite MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Query and modify SQLite databases on disk. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the SQLite MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-sqlite /path/to/db.sqlite. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use SQLite MCP?","acceptedAnswer":{"@type":"Answer","text":"Analyzing your iMessage chat.db for word frequencies Other typical scenarios: Querying browser history.db for time-tracking insights; Local prototyping where Postgres is overkill; Reading a SQLite file an app exported as a backup."}},{"@type":"Question","name":"What environment variables does SQLite MCP need?","acceptedAnswer":{"@type":"Answer","text":"None — runs out of the box."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"SQLite MCP Server","description":"Lightweight server pointing at a single SQLite file. Read-only by default unless you flip a flag. Perfect for ad-hoc analysis of app databases (Apple Photos, Things, browser history) or for prototype data that doesn't need a real DB.","url":"https://codehelper.xyz/mcp-servers/sqlite/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"sqlite","name":"SQLite","category":"data","oneLiner":"Query and modify SQLite databases on disk.","description":"Lightweight server pointing at a single SQLite file. Read-only by default unless you flip a flag. Perfect for ad-hoc analysis of app databases (Apple Photos, Things, browser history) or for prototype data that doesn't need a real DB.","useCase":["Analyzing your iMessage chat.db for word frequencies","Querying browser history.db for time-tracking insights","Local prototyping where Postgres is overkill","Reading a SQLite file an app exported as a backup"],"whenNot":["Multi-user databases — SQLite locks aggressively under concurrent writes","When the data is in Postgres or MySQL — use those servers directly","Very large databases (10GB+) — query times balloon"],"installCommand":"npx -y @modelcontextprotocol/server-sqlite /path/to/db.sqlite","claudeDesktopConfig":{"mcpServers":{"sqlite":{"command":"npx","args":["-y","@modelcontextprotocol/server-sqlite","/Users/you/Library/Messages/chat.db"]}}},"envVars":[],"commonPitfalls":["macOS protected paths (Messages, Mail) require Full Disk Access for the terminal Claude Desktop launches with","Don't point at write-locked files an app is using — copy first","WAL files (.db-wal, .db-shm) need to be in the same dir; copy all three"],"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

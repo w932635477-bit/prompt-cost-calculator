@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentry MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Pull error events and issue context into Claude for triage. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="sentry mcp server, sentry mcp, claude desktop sentry mcp, cursor sentry mcp, sentry mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/sentry/" />
+    <meta property="og:title" content="Sentry MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Pull error events and issue context into Claude for triage. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/sentry/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Sentry MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Pull error events and issue context into Claude for triage. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Sentry MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @sentry/mcp-server. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Sentry MCP?","acceptedAnswer":{"@type":"Answer","text":"\"What's the most-impacting error this week\" with full stack trace Other typical scenarios: Triaging unowned issues by inferring component from stack; Generating fix PRs from a Sentry event with full context; Periodic error report drafted into a Slack message."}},{"@type":"Question","name":"What environment variables does Sentry MCP need?","acceptedAnswer":{"@type":"Answer","text":"SENTRY_AUTH_TOKEN (required): User token from settings/account/api/auth-tokens; SENTRY_ORG (required): Org slug from Sentry URL"}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sentry MCP Server","description":"Connects to your Sentry org and lets the model query issues, list events, fetch stack traces, and update issue status. Pairs naturally with the GitHub MCP for \"find the regression, write the fix, open a PR\" flows.","url":"https://codehelper.xyz/mcp-servers/sentry/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"sentry","name":"Sentry","category":"devops","oneLiner":"Pull error events and issue context into Claude for triage.","description":"Connects to your Sentry org and lets the model query issues, list events, fetch stack traces, and update issue status. Pairs naturally with the GitHub MCP for \"find the regression, write the fix, open a PR\" flows.","useCase":["\"What's the most-impacting error this week\" with full stack trace","Triaging unowned issues by inferring component from stack","Generating fix PRs from a Sentry event with full context","Periodic error report drafted into a Slack message"],"whenNot":["Bugsnag, Rollbar, or other APMs — different servers","Real-time alerting (use Sentry's native alert rules, not the MCP)","Read-only org access — write ops need user-level token"],"installCommand":"npx -y @sentry/mcp-server","claudeDesktopConfig":{"mcpServers":{"sentry":{"command":"npx","args":["-y","@sentry/mcp-server"],"env":{"SENTRY_AUTH_TOKEN":"sntrys_xxx"}}}},"envVars":[{"key":"SENTRY_AUTH_TOKEN","required":true,"note":"User token from settings/account/api/auth-tokens"},{"key":"SENTRY_ORG","required":true,"note":"Org slug from Sentry URL"}],"commonPitfalls":["Auth token must have project:read minimum; defaults are too narrow","Self-hosted Sentry needs SENTRY_HOST env var pointing at your URL","Issue list paginates at 25; ask for specific issue IDs for deep dives"],"sourceUrl":"https://github.com/getsentry/sentry-mcp","officialBy":"community","popularity":"medium"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

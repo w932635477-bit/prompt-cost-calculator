@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt PII Redactor — Free Browser-Only LLM Anonymizer (Email, Phone, API Key, Card)</title>
+    <meta name="description" content="Redact PII from prompts before sending to ChatGPT, Claude, or any LLM. 100% browser-only — no network requests, no storage. Detects emails, API keys, credit cards, and phone numbers with confidence levels." />
+    <meta name="keywords" content="redact pii from prompt, prompt anonymizer free, mask pii in prompt, llm privacy filter free, remove pii before chatgpt, browser pii redactor, prompt pii blocker, anonymize prompt openai, claude prompt anonymizer" />
+    <link rel="canonical" href="https://codehelper.xyz/pii-redactor/" />
+    <meta property="og:title" content="Prompt PII Redactor — Browser-Only LLM Anonymizer" />
+    <meta property="og:description" content="Strip PII from prompts before sending to LLMs. Zero network requests, zero storage." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codehelper.xyz/pii-redactor/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Prompt PII Redactor" />
+    <meta name="twitter:description" content="Browser-only LLM anonymizer. No network, no storage." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Prompt PII Redactor",
+      "url": "https://codehelper.xyz/pii-redactor/",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free browser-only PII redactor for prompts. Strip emails, API keys, credit cards, and phone numbers before sending to ChatGPT or Claude."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Is this safe for sensitive data?","acceptedAnswer":{"@type":"Answer","text":"All processing happens in your browser. No fetch/XHR calls with your text, no localStorage, no analytics. The live network counter on the page tracks outbound requests in real time."}},
+        {"@type":"Question","name":"What does the redactor detect?","acceptedAnswer":{"@type":"Answer","text":"Four high-confidence categories: emails, API keys (OpenAI, Anthropic, AWS, GitHub, Google, Stripe, Slack), Luhn-validated credit cards, and phone numbers (heuristic, marked Possible)."}},
+        {"@type":"Question","name":"Why don't you redact names or addresses?","acceptedAnswer":{"@type":"Answer","text":"Name and address detection has high false-positive rates. We prefer to redact 4 categories reliably than 10 unreliably."}},
+        {"@type":"Question","name":"Can I use it offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once loaded, the page works fully offline — open DevTools Network tab, set Offline, type, and redactions still work."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/pii-redactor/main.tsx"></script>
+  </body>
+</html>

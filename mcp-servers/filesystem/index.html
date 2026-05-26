@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filesystem MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Read and write files in directories you allow-list. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="filesystem mcp server, filesystem mcp, claude desktop filesystem mcp, cursor filesystem mcp, filesystem mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/filesystem/" />
+    <meta property="og:title" content="Filesystem MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Read and write files in directories you allow-list. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/filesystem/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Filesystem MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Read and write files in directories you allow-list. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Filesystem MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-filesystem /Users/you/projects. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Filesystem MCP?","acceptedAnswer":{"@type":"Answer","text":"Reviewing a project directory before answering questions about it Other typical scenarios: Generating new files (code, docs, configs) directly into a workspace; Renaming or reorganizing many files based on natural-language rules; Searching across large doc collections without uploading them."}},{"@type":"Question","name":"What environment variables does Filesystem MCP need?","acceptedAnswer":{"@type":"Answer","text":"None — runs out of the box."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Filesystem MCP Server","description":"Anthropic's reference filesystem server gives Claude scoped access to local directories. You allow-list specific folders; the model can list, read, write, search, and move files within those bounds. The de-facto starting point for any local file workflow.","url":"https://codehelper.xyz/mcp-servers/filesystem/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"filesystem","name":"Filesystem","category":"files","oneLiner":"Read and write files in directories you allow-list.","description":"Anthropic's reference filesystem server gives Claude scoped access to local directories. You allow-list specific folders; the model can list, read, write, search, and move files within those bounds. The de-facto starting point for any local file workflow.","useCase":["Reviewing a project directory before answering questions about it","Generating new files (code, docs, configs) directly into a workspace","Renaming or reorganizing many files based on natural-language rules","Searching across large doc collections without uploading them"],"whenNot":["Reading from S3, Google Drive, or other cloud storage (use a cloud-specific server)","When you need transactional writes or file locking (no atomic guarantees)","For untrusted directories with secrets — the model sees everything in scope"],"installCommand":"npx -y @modelcontextprotocol/server-filesystem /Users/you/projects","claudeDesktopConfig":{"mcpServers":{"filesystem":{"command":"npx","args":["-y","@modelcontextprotocol/server-filesystem","/Users/you/projects"]}}},"envVars":[],"commonPitfalls":["Forgetting to restart Claude Desktop after editing the JSON — config is read once at startup","Pointing it at your home directory by mistake — the model can read everything in scope","Path arguments are positional, not flags — multiple paths work but absolute paths only"],"vsAlternative":{"name":"Google Drive MCP","pickThis":"when files live on the same machine as Claude Desktop","pickOther":"when files are in Google Drive and shared across teammates"},"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

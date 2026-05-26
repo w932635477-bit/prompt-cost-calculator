@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Caching Cost Calculator — Claude, GPT-4o, DeepSeek, Gemini</title>
+    <meta name="description" content="Free prompt caching cost calculator for Anthropic Claude, OpenAI GPT-4o, DeepSeek, and Gemini. Compare monthly LLM bills with and without caching, find break-even, pick the cheapest model." />
+    <meta name="keywords" content="prompt caching calculator, claude prompt caching cost, anthropic prompt caching cost, prompt caching savings calculator, cached tokens calculator, openai prompt caching cost, deepseek caching cost, gemini context caching cost, llm cost with caching, prompt cache savings" />
+    <link rel="canonical" href="https://codehelper.xyz/prompt-cache-calculator/" />
+    <meta property="og:title" content="Prompt Caching Cost Calculator — All 6 Models" />
+    <meta property="og:description" content="Compare LLM monthly cost with and without prompt caching. Anthropic, OpenAI, DeepSeek, Gemini side by side." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codehelper.xyz/prompt-cache-calculator/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Prompt Caching Cost Calculator" />
+    <meta name="twitter:description" content="Compare prompt caching cost across Claude, GPT-4o, DeepSeek, Gemini." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Prompt Caching Cost Calculator",
+      "url": "https://codehelper.xyz/prompt-cache-calculator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Compare prompt caching costs across Anthropic Claude, OpenAI GPT-4o, DeepSeek, and Gemini."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How accurate is the prompt caching calculator?","acceptedAnswer":{"@type":"Answer","text":"Token estimates use chars/4 heuristic, accurate to within 5-15% for English prose. Use the Tokens input mode for exact values from your tokenizer."}},
+        {"@type":"Question","name":"Why does Anthropic show a write cost but OpenAI does not?","acceptedAnswer":{"@type":"Answer","text":"Anthropic uses explicit cache_control which charges 1.25x base input rate to write the cache entry. OpenAI auto-caches without a separate write fee, charging 0.5x base for cached reads."}},
+        {"@type":"Question","name":"What is the break-even point?","acceptedAnswer":{"@type":"Answer","text":"For vendors with a write cost, the call count where per-call savings repay the write cost. Below break-even, caching is more expensive than not caching."}},
+        {"@type":"Question","name":"Which LLM has the cheapest prompt caching?","acceptedAnswer":{"@type":"Answer","text":"Depends on volume and prompt size. Claude Haiku and DeepSeek win for high-volume cached workloads; Gemini Flash for very large contexts. Use the ranking table to see your scenario."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/cache-calculator/main.tsx"></script>
+  </body>
+</html>

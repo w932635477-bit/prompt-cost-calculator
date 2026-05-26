@@ -7,6 +7,8 @@
     { "source": "/deploy/:slug/", "destination": "/deploy/:slug/index.html" },
     { "source": "/deploy/:slug", "destination": "/deploy/:slug/index.html" },
     { "source": "/compare/:slug/", "destination": "/compare/:slug/index.html" },
-    { "source": "/compare/:slug", "destination": "/compare/:slug/index.html" }
+    { "source": "/compare/:slug", "destination": "/compare/:slug/index.html" },
+    { "source": "/mcp-servers/:slug/", "destination": "/mcp-servers/:slug/index.html" },
+    { "source": "/mcp-servers/:slug", "destination": "/mcp-servers/:slug/index.html" }
   ]
 }

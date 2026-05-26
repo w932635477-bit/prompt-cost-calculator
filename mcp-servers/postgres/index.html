@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Postgres MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Query Postgres databases with SQL the model writes for you. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="postgres mcp server, postgres mcp, claude desktop postgres mcp, cursor postgres mcp, postgres mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/postgres/" />
+    <meta property="og:title" content="Postgres MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Query Postgres databases with SQL the model writes for you. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/postgres/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Postgres MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Query Postgres databases with SQL the model writes for you. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Postgres MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@host:5432/db. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Postgres MCP?","acceptedAnswer":{"@type":"Answer","text":"\"How many active users signed up last week\" — model writes the SQL Other typical scenarios: Schema migrations review: ask Claude to inspect current shape vs target; Debugging slow queries with EXPLAIN ANALYZE without leaving the chat; Generating sample data for tests based on real distributions."}},{"@type":"Question","name":"What environment variables does Postgres MCP need?","acceptedAnswer":{"@type":"Answer","text":"None — runs out of the box."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Postgres MCP Server","description":"Connects to any Postgres instance via connection string. The model can list schemas, inspect tables, run SELECT queries, and (with explicit permission) execute writes. Ships with a read-only mode that prevents accidental UPDATE/DELETE.","url":"https://codehelper.xyz/mcp-servers/postgres/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"postgres","name":"Postgres","category":"data","oneLiner":"Query Postgres databases with SQL the model writes for you.","description":"Connects to any Postgres instance via connection string. The model can list schemas, inspect tables, run SELECT queries, and (with explicit permission) execute writes. Ships with a read-only mode that prevents accidental UPDATE/DELETE.","useCase":["\"How many active users signed up last week\" — model writes the SQL","Schema migrations review: ask Claude to inspect current shape vs target","Debugging slow queries with EXPLAIN ANALYZE without leaving the chat","Generating sample data for tests based on real distributions"],"whenNot":["Production databases without read-only mode + connection allow-listing","Very large result sets — output is token-bounded; aggregate first","Non-Postgres SQL dialects (MSSQL, Oracle) — use a different server"],"installCommand":"npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@host:5432/db","claudeDesktopConfig":{"mcpServers":{"postgres":{"command":"npx","args":["-y","@modelcontextprotocol/server-postgres","postgresql://user:pass@host:5432/db"]}}},"envVars":[],"commonPitfalls":["Connection string in plain JSON — use a separate read-only role, not your superuser","Always start in read-only mode for prod; promote to writes only for dev","pg_hba.conf on managed PG (Supabase, RDS) often blocks new IPs — allow-list first"],"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/postgres","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

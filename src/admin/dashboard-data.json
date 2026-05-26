@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-26T03:48:43.166Z",
+  "generatedAt": "2026-05-26T08:31:26.788Z",
   "summary": {
-    "totalIndexable": 266,
-    "totalSubmitted": 20,
+    "totalIndexable": 281,
+    "totalSubmitted": 21,
     "coverage": 7.5,
-    "todaysSubmissions": 10,
+    "todaysSubmissions": 11,
     "dailyQuota": 10,
     "remainingToday": 0
   },
@@ -34,6 +34,12 @@
       "remaining": 19
     },
     {
+      "name": "mcp-servers",
+      "total": 11,
+      "submitted": 0,
+      "remaining": 11
+    },
+    {
       "name": "token-tracker",
       "total": 5,
       "submitted": 1,
@@ -56,6 +62,30 @@
       "total": 1,
       "submitted": 1,
       "remaining": 0
+    },
+    {
+      "name": "finder",
+      "total": 1,
+      "submitted": 1,
+      "remaining": 0
+    },
+    {
+      "name": "photos",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "prompt-cache-calculator",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "pii-redactor",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
     }
   ],
   "dailyBars": [
@@ -65,7 +95,7 @@
     },
     {
       "day": "2026-05-26",
-      "count": 10
+      "count": 11
     }
   ],
   "suggestedBatch": [

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slack MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Read channels, post messages, manage threads from Claude. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="slack mcp server, slack mcp, claude desktop slack mcp, cursor slack mcp, slack mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/slack/" />
+    <meta property="og:title" content="Slack MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Read channels, post messages, manage threads from Claude. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/slack/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Slack MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Read channels, post messages, manage threads from Claude. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Slack MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-slack. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Slack MCP?","acceptedAnswer":{"@type":"Answer","text":"Daily standup summary across 5 channels in one prompt Other typical scenarios: Drafting a launch announcement, then posting to #general after review; Finding the message where someone mentioned a specific bug; Bulk-reacting to messages in a moderation backlog."}},{"@type":"Question","name":"What environment variables does Slack MCP need?","acceptedAnswer":{"@type":"Answer","text":"SLACK_BOT_TOKEN (required): Bot User OAuth Token, starts with xoxb-; SLACK_TEAM_ID (required): Workspace ID, looks like T0XXXXXXX"}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Slack MCP Server","description":"Talk to your Slack workspace as tools. Read channel history, post messages, react with emojis, manage threads, look up users. Requires a Slack bot token. Useful for summarizing standups, drafting announcements, or triaging DMs.","url":"https://codehelper.xyz/mcp-servers/slack/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"slack","name":"Slack","category":"api","oneLiner":"Read channels, post messages, manage threads from Claude.","description":"Talk to your Slack workspace as tools. Read channel history, post messages, react with emojis, manage threads, look up users. Requires a Slack bot token. Useful for summarizing standups, drafting announcements, or triaging DMs.","useCase":["Daily standup summary across 5 channels in one prompt","Drafting a launch announcement, then posting to #general after review","Finding the message where someone mentioned a specific bug","Bulk-reacting to messages in a moderation backlog"],"whenNot":["Discord — use the Discord MCP instead","When you need real-time webhooks (MCP is request-driven)","Cross-workspace operations — bot tokens are per-workspace"],"installCommand":"npx -y @modelcontextprotocol/server-slack","claudeDesktopConfig":{"mcpServers":{"slack":{"command":"npx","args":["-y","@modelcontextprotocol/server-slack"],"env":{"SLACK_BOT_TOKEN":"xoxb-xxx","SLACK_TEAM_ID":"T0xxxx"}}}},"envVars":[{"key":"SLACK_BOT_TOKEN","required":true,"note":"Bot User OAuth Token, starts with xoxb-"},{"key":"SLACK_TEAM_ID","required":true,"note":"Workspace ID, looks like T0XXXXXXX"}],"commonPitfalls":["Bot needs to be invited to private channels first; it sees nothing in channels it isn't in","Posting tokens in JSON config = audit risk; use env vars from a secret manager","OAuth scopes matter: need channels:history, chat:write, users:read minimum"],"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/slack","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

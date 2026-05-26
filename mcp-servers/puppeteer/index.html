@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puppeteer MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Navigate, click, screenshot, and scrape live web pages. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="puppeteer mcp server, puppeteer mcp, claude desktop puppeteer mcp, cursor puppeteer mcp, puppeteer mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/puppeteer/" />
+    <meta property="og:title" content="Puppeteer MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Navigate, click, screenshot, and scrape live web pages. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/puppeteer/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Puppeteer MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Navigate, click, screenshot, and scrape live web pages. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Puppeteer MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-puppeteer. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Puppeteer MCP?","acceptedAnswer":{"@type":"Answer","text":"Verifying a Vercel preview deploy actually shows the new content Other typical scenarios: Scraping a JS-heavy page that fetch + readability cannot parse; Testing a login flow end-to-end with screenshot evidence; Capturing competitor pages for design or pricing comparison."}},{"@type":"Question","name":"What environment variables does Puppeteer MCP need?","acceptedAnswer":{"@type":"Answer","text":"None — runs out of the box."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Puppeteer MCP Server","description":"Puppeteer MCP runs a headless Chromium that the model controls. Useful for scraping JS-rendered pages, testing flows, taking screenshots of staging deploys, and verifying that \"did the deploy actually update the homepage\" without leaving Claude.","url":"https://codehelper.xyz/mcp-servers/puppeteer/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"puppeteer","name":"Puppeteer","category":"browser","oneLiner":"Navigate, click, screenshot, and scrape live web pages.","description":"Puppeteer MCP runs a headless Chromium that the model controls. Useful for scraping JS-rendered pages, testing flows, taking screenshots of staging deploys, and verifying that \"did the deploy actually update the homepage\" without leaving Claude.","useCase":["Verifying a Vercel preview deploy actually shows the new content","Scraping a JS-heavy page that fetch + readability cannot parse","Testing a login flow end-to-end with screenshot evidence","Capturing competitor pages for design or pricing comparison"],"whenNot":["Anti-bot protected sites (Cloudflare Turnstile, hCaptcha) — will fail","When you only need page text — use a Fetch MCP, much lighter","Long-running monitoring — Puppeteer is per-call, not persistent"],"installCommand":"npx -y @modelcontextprotocol/server-puppeteer","claudeDesktopConfig":{"mcpServers":{"puppeteer":{"command":"npx","args":["-y","@modelcontextprotocol/server-puppeteer"]}}},"envVars":[],"commonPitfalls":["First call downloads ~150MB Chromium — patience on initial install","Headless detection on some sites — set userAgent or use Playwright instead","Screenshots over 1MB get truncated in some clients — scope to viewport"],"vsAlternative":{"name":"Chrome DevTools MCP","pickThis":"for headless server-side automation, no UI needed","pickOther":"when you want Claude to inspect your already-open Chrome tabs"},"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

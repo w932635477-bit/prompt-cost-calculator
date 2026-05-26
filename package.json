@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/fetch-github-stats.cjs || true && node scripts/generate-long-tail-html.cjs && node scripts/generate-alternatives-html.cjs && node scripts/generate-deploy-html.cjs && tsc -b && vite build && node scripts/generate-sitemap.cjs && node scripts/build-dashboard-data.cjs",
+    "build": "node scripts/fetch-github-stats.cjs || true && node scripts/generate-long-tail-html.cjs && node scripts/generate-alternatives-html.cjs && node scripts/generate-deploy-html.cjs && node scripts/generate-mcp-html.cjs && tsc -b && vite build && node scripts/generate-sitemap.cjs && node scripts/build-dashboard-data.cjs",
     "fetch:github": "node scripts/fetch-github-stats.cjs",
     "lint": "eslint .",
     "preview": "vite preview",

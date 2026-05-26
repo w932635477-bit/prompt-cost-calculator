@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Persistent knowledge graph the model can recall across sessions. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="memory mcp server, memory mcp, claude desktop memory mcp, cursor memory mcp, memory mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/memory/" />
+    <meta property="og:title" content="Memory MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Persistent knowledge graph the model can recall across sessions. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/memory/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Memory MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Persistent knowledge graph the model can recall across sessions. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Memory MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-memory. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Memory MCP?","acceptedAnswer":{"@type":"Answer","text":"Remembering project conventions across multiple chats Other typical scenarios: Tracking people: \"Sarah is the eng lead on auth, Bob does infra\"; Building a personal knowledge base of decisions over time; Cross-session continuity for ongoing research."}},{"@type":"Question","name":"What environment variables does Memory MCP need?","acceptedAnswer":{"@type":"Answer","text":"MEMORY_FILE_PATH (optional): Override default ~/.local/share/mcp-memory location"}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Memory MCP Server","description":"A simple graph database the model writes facts into and queries later. Survives across Claude Desktop sessions. Useful for \"remember that I prefer X\" or for building up project context over weeks. The poor-person's long-term memory.","url":"https://codehelper.xyz/mcp-servers/memory/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"memory","name":"Memory","category":"productivity","oneLiner":"Persistent knowledge graph the model can recall across sessions.","description":"A simple graph database the model writes facts into and queries later. Survives across Claude Desktop sessions. Useful for \"remember that I prefer X\" or for building up project context over weeks. The poor-person's long-term memory.","useCase":["Remembering project conventions across multiple chats","Tracking people: \"Sarah is the eng lead on auth, Bob does infra\"","Building a personal knowledge base of decisions over time","Cross-session continuity for ongoing research"],"whenNot":["Short-term reminders within one chat (just paste them)","Sensitive data (it's a local SQLite, but no encryption at rest)","When you have CRMs or note apps — use those servers directly"],"installCommand":"npx -y @modelcontextprotocol/server-memory","claudeDesktopConfig":{"mcpServers":{"memory":{"command":"npx","args":["-y","@modelcontextprotocol/server-memory"]}}},"envVars":[{"key":"MEMORY_FILE_PATH","required":false,"note":"Override default ~/.local/share/mcp-memory location"}],"commonPitfalls":["Model has to be told \"remember this\" or \"check what you know about X\" — not automatic","Knowledge graph queries can return stale facts; explicit overwrite needed","No multi-user mode — this is per-machine, not shared"],"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/memory","officialBy":"anthropic","popularity":"medium"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

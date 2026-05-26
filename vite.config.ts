@@ -50,6 +50,14 @@ const trackerInputs = Object.fromEntries(
   trackerSlugMatches.map(m => [`tracker-lt-${m[1]}`, resolve(__dirname, `token-tracker/${m[1]}/index.html`)])
 )
 
+// Load mcp detail page inputs from generated data
+const mcpDataFile = resolve(__dirname, 'src/mcp/seo/mcp-data.ts')
+const mcpDataContent = fs.readFileSync(mcpDataFile, 'utf-8')
+const mcpSlugMatches = [...mcpDataContent.matchAll(/slug: '([^']+)'/g)]
+const mcpInputs = Object.fromEntries(
+  mcpSlugMatches.map(m => [`mcp-d-${m[1]}`, resolve(__dirname, `mcp-servers/${m[1]}/index.html`)])
+)
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -68,12 +76,16 @@ export default defineConfig({
         'admin-dashboard': resolve(__dirname, 'admin/dashboard/index.html'),
         'finder-notes': resolve(__dirname, 'finder/notes/index.html'),
         photos: resolve(__dirname, 'photos/index.html'),
+        'prompt-cache-calculator': resolve(__dirname, 'prompt-cache-calculator/index.html'),
+        'mcp-servers': resolve(__dirname, 'mcp-servers/index.html'),
+        'pii-redactor': resolve(__dirname, 'pii-redactor/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
         ...deployInputs,
         ...compareInputs,
         ...trackerInputs,
+        ...mcpInputs,
       },
     },
   },

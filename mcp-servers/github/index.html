@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Read repos, manage issues, open PRs from inside Claude or Cursor. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="github mcp server, github mcp, claude desktop github mcp, cursor github mcp, github mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/github/" />
+    <meta property="og:title" content="GitHub MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Read repos, manage issues, open PRs from inside Claude or Cursor. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/github/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="GitHub MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Read repos, manage issues, open PRs from inside Claude or Cursor. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the GitHub MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-github. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use GitHub MCP?","acceptedAnswer":{"@type":"Answer","text":"Asking Claude to find every TODO across all your repos Other typical scenarios: Generating a PR that fixes a bug, with a descriptive title and body, in one step; Triaging issues into labels based on natural-language categories; Cross-repo refactors that touch a private monorepo and a public SDK."}},{"@type":"Question","name":"What environment variables does GitHub MCP need?","acceptedAnswer":{"@type":"Answer","text":"GITHUB_PERSONAL_ACCESS_TOKEN (required): Fine-grained token recommended; minimum scopes: repo, read:org"}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"GitHub MCP Server","description":"GitHub MCP exposes the GitHub REST and GraphQL APIs as tools the model can call. It can read code, search across repos, create branches, push commits, manage issues, and open pull requests. Requires a personal access token with the right scopes.","url":"https://codehelper.xyz/mcp-servers/github/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"github","name":"GitHub","category":"code","oneLiner":"Read repos, manage issues, open PRs from inside Claude or Cursor.","description":"GitHub MCP exposes the GitHub REST and GraphQL APIs as tools the model can call. It can read code, search across repos, create branches, push commits, manage issues, and open pull requests. Requires a personal access token with the right scopes.","useCase":["Asking Claude to find every TODO across all your repos","Generating a PR that fixes a bug, with a descriptive title and body, in one step","Triaging issues into labels based on natural-language categories","Cross-repo refactors that touch a private monorepo and a public SDK"],"whenNot":["Self-hosted Gitea or GitLab (use the dedicated server for those)","When you only need read access — the filesystem server + git CLI is faster locally","CI/CD operations — use a workflow runner directly, not the model"],"installCommand":"npx -y @modelcontextprotocol/server-github","claudeDesktopConfig":{"mcpServers":{"github":{"command":"npx","args":["-y","@modelcontextprotocol/server-github"],"env":{"GITHUB_PERSONAL_ACCESS_TOKEN":"ghp_xxx"}}}},"envVars":[{"key":"GITHUB_PERSONAL_ACCESS_TOKEN","required":true,"note":"Fine-grained token recommended; minimum scopes: repo, read:org"}],"commonPitfalls":["Token with too-wide scopes — fine-grained PAT scoped to specific repos is safer","Rate limits hit fast on big monorepos; cache or narrow your queries","GraphQL pagination errors silently — verify expected counts on big result sets","Don't commit the token to claude_desktop_config.json if you sync the file"],"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/github","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

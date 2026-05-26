@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brave Search MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Web search results piped into the model, free tier 2k/month. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="brave search mcp server, brave search mcp, claude desktop brave search mcp, cursor brave search mcp, brave-search mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/brave-search/" />
+    <meta property="og:title" content="Brave Search MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Web search results piped into the model, free tier 2k/month. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/brave-search/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Brave Search MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Web search results piped into the model, free tier 2k/month. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Brave Search MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-brave-search. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Brave Search MCP?","acceptedAnswer":{"@type":"Answer","text":"Asking \"what changed in TypeScript 5.7\" and getting current results Other typical scenarios: Research on niche topics where Wikipedia or training data are stale; Citation hunting — get URLs to ground a claim; Competitive analysis: \"compare pricing across X, Y, Z\"."}},{"@type":"Question","name":"What environment variables does Brave Search MCP need?","acceptedAnswer":{"@type":"Answer","text":"BRAVE_API_KEY (required): Free tier at search.brave.com/api, 2000 queries/month"}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Brave Search MCP Server","description":"Brave's independent search API as an MCP server. Returns snippets and URLs the model can then fetch. The free tier is generous enough for personal research; paid tiers scale to millions of queries.","url":"https://codehelper.xyz/mcp-servers/brave-search/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"brave-search","name":"Brave Search","category":"search","oneLiner":"Web search results piped into the model, free tier 2k/month.","description":"Brave's independent search API as an MCP server. Returns snippets and URLs the model can then fetch. The free tier is generous enough for personal research; paid tiers scale to millions of queries.","useCase":["Asking \"what changed in TypeScript 5.7\" and getting current results","Research on niche topics where Wikipedia or training data are stale","Citation hunting — get URLs to ground a claim","Competitive analysis: \"compare pricing across X, Y, Z\""],"whenNot":["When you need Google ranking specifically (Brave's index differs)","For semantic search over your own docs (use Exa or a vector DB)","High-volume scraping — they'll rate-limit you fast"],"installCommand":"npx -y @modelcontextprotocol/server-brave-search","claudeDesktopConfig":{"mcpServers":{"brave-search":{"command":"npx","args":["-y","@modelcontextprotocol/server-brave-search"],"env":{"BRAVE_API_KEY":"BSAxxx"}}}},"envVars":[{"key":"BRAVE_API_KEY","required":true,"note":"Free tier at search.brave.com/api, 2000 queries/month"}],"commonPitfalls":["Free tier rate-limits at ~1 query/second; bursty workloads get 429","Image and news search are separate endpoints — default is web only","Some regional results differ from Google — verify if you need parity"],"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>

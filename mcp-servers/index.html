@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCP Server Directory — Curated Model Context Protocol Servers for Claude Desktop and Cursor</title>
+    <meta name="description" content="Curated directory of Model Context Protocol (MCP) servers. Each entry includes install commands, Claude Desktop and Cursor config JSON, use cases, and common pitfalls. Browse by category or search." />
+    <meta name="keywords" content="list of mcp servers, mcp server directory, best mcp server, claude desktop mcp setup, cursor mcp config, model context protocol servers, mcp server list, anthropic mcp" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/" />
+    <meta property="og:title" content="MCP Server Directory — Claude Desktop and Cursor" />
+    <meta property="og:description" content="Curated MCP servers with install commands, config JSON, use cases, and pitfalls." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MCP Server Directory" />
+    <meta name="twitter:description" content="Curated Model Context Protocol servers." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MCP Server Directory",
+      "url": "https://codehelper.xyz/mcp-servers/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Curated directory of Model Context Protocol servers for Claude Desktop and Cursor."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What is MCP?","acceptedAnswer":{"@type":"Answer","text":"Model Context Protocol is Anthropic's open standard for letting AI clients (Claude Desktop, Cursor) talk to external systems. Each server exposes tools the model can call."}},
+        {"@type":"Question","name":"How do I install an MCP server in Claude Desktop?","acceptedAnswer":{"@type":"Answer","text":"Edit ~/Library/Application Support/Claude/claude_desktop_config.json (Mac), paste the config JSON shown on the server's detail page, then quit and relaunch Claude Desktop. The config is read once at startup."}},
+        {"@type":"Question","name":"Are these MCP servers safe?","acceptedAnswer":{"@type":"Answer","text":"Anthropic-published servers are sandboxed by client permission scopes. Community servers vary — read the source repo before installing one with elevated permissions."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/main.tsx"></script>
+  </body>
+</html>

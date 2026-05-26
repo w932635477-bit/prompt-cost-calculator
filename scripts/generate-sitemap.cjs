@@ -31,6 +31,11 @@ const trackerDataFile = path.join(__dirname, '..', 'src', 'token-tracker', 'seo'
 const trackerDataContent = fs.readFileSync(trackerDataFile, 'utf-8')
 const trackerSlugMatches = [...trackerDataContent.matchAll(/slug: '([^']+)'/g)]
 
+// Read slugs from MCP server data
+const mcpDataFile = path.join(__dirname, '..', 'src', 'mcp', 'seo', 'mcp-data.ts')
+const mcpDataContent = fs.readFileSync(mcpDataFile, 'utf-8')
+const mcpSlugMatches = [...mcpDataContent.matchAll(/slug: '([^']+)'/g)]
+
 const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
@@ -43,6 +48,9 @@ const allUrls = [
   { loc: BASE_URL + '/token-tracker/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/finder/notes/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/photos/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/prompt-cache-calculator/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/mcp-servers/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/pii-redactor/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {
@@ -67,6 +75,10 @@ for (const m of compareSlugMatches) {
 
 for (const m of trackerSlugMatches) {
   allUrls.push({ loc: `${BASE_URL}/token-tracker/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+for (const m of mcpSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/mcp-servers/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

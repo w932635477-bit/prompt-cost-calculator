@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch MCP Server — Install, Config, Use Cases</title>
+    <meta name="description" content="Fetch a URL and return clean text, the lightweight Puppeteer. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta name="keywords" content="fetch mcp server, fetch mcp, claude desktop fetch mcp, cursor fetch mcp, fetch mcp install" />
+    <link rel="canonical" href="https://codehelper.xyz/mcp-servers/fetch/" />
+    <meta property="og:title" content="Fetch MCP Server — Install, Config, Use Cases" />
+    <meta property="og:description" content="Fetch a URL and return clean text, the lightweight Puppeteer. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://codehelper.xyz/mcp-servers/fetch/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Fetch MCP Server — Install, Config, Use Cases" />
+    <meta name="twitter:description" content="Fetch a URL and return clean text, the lightweight Puppeteer. Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How do I install the Fetch MCP server?","acceptedAnswer":{"@type":"Answer","text":"Run: npx -y @modelcontextprotocol/server-fetch. Then paste the config JSON shown on this page into your Claude Desktop or Cursor config file."}},{"@type":"Question","name":"When should I use Fetch MCP?","acceptedAnswer":{"@type":"Answer","text":"Reading a blog post the model hasn't seen before Other typical scenarios: Pulling docs pages into context; Summarizing news articles from a feed; Quick research without firing up a full browser."}},{"@type":"Question","name":"What environment variables does Fetch MCP need?","acceptedAnswer":{"@type":"Answer","text":"None — runs out of the box."}}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Fetch MCP Server","description":"Simple HTTP fetcher that converts pages to readable markdown. No browser, no JS execution — just requests + readability. Fast, cheap, and good enough for static sites, blog posts, RSS feeds, and well-marked-up content.","url":"https://codehelper.xyz/mcp-servers/fetch/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"fetch","name":"Fetch","category":"browser","oneLiner":"Fetch a URL and return clean text, the lightweight Puppeteer.","description":"Simple HTTP fetcher that converts pages to readable markdown. No browser, no JS execution — just requests + readability. Fast, cheap, and good enough for static sites, blog posts, RSS feeds, and well-marked-up content.","useCase":["Reading a blog post the model hasn't seen before","Pulling docs pages into context","Summarizing news articles from a feed","Quick research without firing up a full browser"],"whenNot":["Pages that require JS to render content (use Puppeteer)","Pages behind auth (no cookie support; use a domain-specific server)","Multi-page flows or interactions (clicking, filling forms)"],"installCommand":"npx -y @modelcontextprotocol/server-fetch","claudeDesktopConfig":{"mcpServers":{"fetch":{"command":"npx","args":["-y","@modelcontextprotocol/server-fetch"]}}},"envVars":[],"commonPitfalls":["No JS — SPAs return empty content; check by curling first","Robots.txt is respected; some sites block all bots","Content > 100KB gets truncated; ask the model to chunk and re-fetch"],"vsAlternative":{"name":"Puppeteer MCP","pickThis":"for static, server-rendered pages — 10x faster","pickOther":"when JS execution is required"},"sourceUrl":"https://github.com/modelcontextprotocol/servers/tree/main/src/fetch","officialBy":"anthropic","popularity":"high"}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/mcp/detail-main.tsx"></script>
+  </body>
+</html>
