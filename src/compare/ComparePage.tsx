@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import type { ComparePage } from './seo/compare-data'
 import { COMPARE_PAGES } from './seo/compare-data'
+import { ALTERNATIVE_PAGES } from '../alternatives/seo/alternatives-data'
 import { GlobalNav } from '../components/GlobalNav'
 
 function getData(): ComparePage | null {
@@ -43,6 +44,22 @@ export default function ComparePageComponent() {
   const relatedSlugs = COMPARE_PAGES.filter(p => p.slug !== data.slug).slice(0, 4)
   const winnerName = data.winner === 'a' ? data.productA.name : data.winner === 'b' ? data.productB.name : 'Both'
   const winnerProd = data.winner === 'b' ? data.productB : data.productA
+
+  // Find alternatives hub pages featuring either product (A or B)
+  const altLinks = [data.productA, data.productB].map(prod => {
+    const hit = ALTERNATIVE_PAGES.find(ap =>
+      ap.saasName.toLowerCase() === prod.name.toLowerCase() ||
+      ap.alternatives.some(a => a.name.toLowerCase() === prod.name.toLowerCase())
+    )
+    return hit ? { product: prod.name, slug: hit.slug, saasName: hit.saasName } : null
+  }).filter(Boolean) as { product: string; slug: string; saasName: string }[]
+  // Dedupe by slug
+  const seenSlugs = new Set<string>()
+  const uniqueAltLinks = altLinks.filter(l => {
+    if (seenSlugs.has(l.slug)) return false
+    seenSlugs.add(l.slug)
+    return true
+  })
 
   return (
     <div className="min-h-screen bg-[#f5f5f7]">
@@ -235,6 +252,30 @@ export default function ComparePageComponent() {
                   <div className="font-medium text-[#1d1d1f] group-hover:text-[#0071E3] transition-colors text-sm">
                     {rp.productA.name} vs {rp.productB.name}
                   </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Cross-link to Alternatives hub pages featuring these products */}
+        {uniqueAltLinks.length > 0 && (
+          <div className="mb-10">
+            <h2 className="text-xl font-semibold text-[#1d1d1f] tracking-tight mb-4">See All Self-Hosted Alternatives</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {uniqueAltLinks.map(link => (
+                <a
+                  key={link.slug}
+                  href={`/alternatives/${link.slug}/`}
+                  className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow group flex items-center justify-between"
+                >
+                  <div>
+                    <div className="text-xs text-[#86868b]">All alternatives to</div>
+                    <div className="font-medium text-[#1d1d1f] group-hover:text-[#0071E3] transition-colors">
+                      {link.saasName}
+                    </div>
+                  </div>
+                  <span className="text-[#86868b] group-hover:text-[#0071E3]">&rarr;</span>
                 </a>
               ))}
             </div>

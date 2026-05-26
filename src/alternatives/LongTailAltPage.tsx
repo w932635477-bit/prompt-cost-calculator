@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import type { AlternativePage } from './seo/alternatives-data'
 import { ALTERNATIVE_PAGES } from './seo/alternatives-data'
+import { COMPARE_PAGES } from '../compare/seo/compare-data'
 
 function getSeoData(): AlternativePage | null {
   const el = document.getElementById('seo-data')
@@ -66,6 +67,13 @@ export default function LongTailAltPage() {
 
   const relatedSlugs = RELATED[data.slug] || []
   const relatedPages = relatedSlugs.map(s => ALTERNATIVE_PAGES.find(p => p.slug === s)).filter(Boolean) as AlternativePage[]
+
+  const altNames = new Set([data.saasName.toLowerCase(), ...data.alternatives.map(a => a.name.toLowerCase())])
+  const relatedComparisons = COMPARE_PAGES.filter(cp => {
+    const a = cp.productA.name.toLowerCase()
+    const b = cp.productB.name.toLowerCase()
+    return altNames.has(a) || altNames.has(b)
+  }).slice(0, 4)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -217,6 +225,31 @@ export default function LongTailAltPage() {
             ))}
           </div>
         </section>
+
+        {relatedComparisons.length > 0 && (
+          <section className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Compare Side-by-Side</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {relatedComparisons.map(cp => (
+                <a
+                  key={cp.slug}
+                  href={`/compare/${cp.slug}/`}
+                  className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-[border-color,box-shadow] group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                >
+                  <span className="text-lg" aria-hidden="true">{cp.productA.logo}</span>
+                  <span className="text-gray-400 text-sm">vs</span>
+                  <span className="text-lg" aria-hidden="true">{cp.productB.logo}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors text-sm truncate">
+                      {cp.productA.name} vs {cp.productB.name}
+                    </div>
+                  </div>
+                  <span className="text-gray-400 group-hover:text-blue-500" aria-hidden="true">&rarr;</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {relatedPages.length > 0 && (
           <section className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
