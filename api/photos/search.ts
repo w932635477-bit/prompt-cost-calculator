@@ -6,8 +6,8 @@
 //
 // Caching: in-memory LRU (24h TTL) — survives within a serverless instance
 
-import { searchUnsplash, searchPexels, searchPixabay, dedupe } from './_adapters'
-import type { PhotoResult } from './_adapters'
+import { searchUnsplash, searchPexels, searchPixabay, dedupe } from './_adapters.js'
+import type { PhotoResult } from './_adapters.js'
 
 const CACHE = new Map<string, { ts: number; data: PhotoResult[] }>()
 const TTL_MS = 24 * 60 * 60 * 1000 // 24h

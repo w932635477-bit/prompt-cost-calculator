@@ -1,8 +1,8 @@
 // api/photos/_adapters.ts
 // Adapters: per-source raw API → unified PhotoResult shape
 
-import { UNSPLASH_LICENSE, PEXELS_LICENSE, PIXABAY_LICENSE } from './_license'
-import type { PhotoLicense } from './_license'
+import { UNSPLASH_LICENSE, PEXELS_LICENSE, PIXABAY_LICENSE } from './_license.js'
+import type { PhotoLicense } from './_license.js'
 
 export interface PhotoResult {
   id: string
