@@ -3,6 +3,7 @@ const TOOLS = [
   { name: 'Cron Generator', path: '/cron-generator/' },
   { name: 'Self-Hosted Alternatives', path: '/alternatives/' },
   { name: 'Notes Finder', path: '/finder/notes/' },
+  { name: 'Free Photos', path: '/photos/' },
   { name: 'Compare', path: '/compare/' },
   { name: 'Docker Deploy', path: '/deploy/' },
   { name: 'Voice Pricing', path: '/voice-agent-pricing/' },
