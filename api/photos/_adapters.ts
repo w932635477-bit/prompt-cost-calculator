@@ -58,12 +58,14 @@ export async function searchUnsplash(query: string, page: number, key: string): 
     return []
   }
   const data = await res.json() as { results: UnsplashPhoto[] }
+  // Unsplash compliance: append UTM params to attribution URLs
+  const utm = '?utm_source=codehelper&utm_medium=referral'
   return data.results.map(p => ({
     id: `unsplash_${p.id}`,
     source: 'unsplash' as const,
-    url: { thumb: p.urls.thumb, full: p.urls.regular, download: p.links.download },
+    url: { thumb: p.urls.thumb, full: p.urls.regular, download: p.links.download + utm },
     dimensions: { width: p.width, height: p.height },
-    author: { name: p.user.name, profileUrl: p.user.links.html },
+    author: { name: p.user.name, profileUrl: p.user.links.html + utm },
     license: UNSPLASH_LICENSE,
     tags: p.tags?.map(t => t.title) || [],
     fetchedAt: new Date().toISOString(),
