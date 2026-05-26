@@ -41,6 +41,7 @@ const allUrls = [
   { loc: BASE_URL + '/compare/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/deploy/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/token-tracker/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/finder/notes/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {

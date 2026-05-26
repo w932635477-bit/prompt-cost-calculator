@@ -66,6 +66,7 @@ export default defineConfig({
         compare: resolve(__dirname, 'compare/index.html'),
         'token-tracker': resolve(__dirname, 'token-tracker/index.html'),
         'admin-dashboard': resolve(__dirname, 'admin/dashboard/index.html'),
+        'finder-notes': resolve(__dirname, 'finder/notes/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
