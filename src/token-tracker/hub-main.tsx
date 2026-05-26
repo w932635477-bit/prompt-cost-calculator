@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client'
 import '../index.css'
 import { SCENE_PAGES } from './seo/scene-data'
 import { GlobalNav } from '../components/GlobalNav'
+import { EmailCapture } from '../components/EmailCapture'
 
 function TokenTrackerHub() {
   return (
@@ -63,4 +64,9 @@ function TokenTrackerHub() {
   )
 }
 
-createRoot(document.getElementById('root')!).render(<TokenTrackerHub />)
+createRoot(document.getElementById('root')!).render(
+  <>
+    <TokenTrackerHub />
+    <EmailCapture source="token-tracker" />
+  </>,
+)
