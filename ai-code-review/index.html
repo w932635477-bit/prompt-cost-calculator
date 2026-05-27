@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Code Review Checklist — How to Review AI-Generated Code Before Merge</title>
+    <meta name="description" content="Free interactive checklist for reviewing AI-generated pull requests. 25 checks across 7 categories: correctness, security, performance, error handling, testing, dependencies, and architecture. Copy a review summary for your PR." />
+    <meta name="keywords" content="ai code review checklist, how to review ai generated code, ai pr review, ai code review best practices, review ai generated pull request, ai coding review guide, ai code quality checklist, chatgpt code review, copilot code review, claude code review" />
+    <link rel="canonical" href="https://codehelper.xyz/ai-code-review/" />
+    <meta property="og:title" content="AI Code Review Checklist — Review AI-Generated Code Before Merge" />
+    <meta property="og:description" content="Free 25-point interactive checklist for reviewing AI-generated pull requests. Security, correctness, performance, testing — cover them all." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codehelper.xyz/ai-code-review/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI Code Review Checklist" />
+    <meta name="twitter:description" content="25-point interactive checklist for reviewing AI-generated code before merge." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Code Review Checklist",
+      "url": "https://codehelper.xyz/ai-code-review/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free interactive 25-point checklist for reviewing AI-generated pull requests. Covers correctness, security, performance, error handling, testing, dependencies, and architecture."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Why does AI-generated code need different review than human-written code?","acceptedAnswer":{"@type":"Answer","text":"AI assistants tend to skip edge cases, hallucinate API usage, add unnecessary dependencies, and produce code that looks correct but contains subtle logic errors. The code often works for the happy path but fails silently on boundary conditions. A structured checklist catches these patterns."}},
+        {"@type":"Question","name":"How many items should I check before approving a PR?","acceptedAnswer":{"@type":"Answer","text":"Critical items (marked in red) should all pass. Warning items (yellow) depend on your team's risk tolerance. A passing score is typically 80%+ with all critical items checked."}},
+        {"@type":"Question","name":"Should I use this for every AI-assisted PR?","acceptedAnswer":{"@type":"Answer","text":"Yes, especially for PRs where AI wrote more than 30% of the diff. Small AI suggestions (a rename, a bug fix) need fewer checks. Large AI-generated features deserve the full checklist."}},
+        {"@type":"Question","name":"Can I customize this checklist for my team?","acceptedAnswer":{"@type":"Answer","text":"Copy the checklist summary and adapt it. The categories map to common code review concerns — add or remove items based on your stack and risk profile."}},
+        {"@type":"Question","name":"Is this based on research or just opinion?","acceptedAnswer":{"@type":"Answer","text":"The checklist is based on analysis of common AI coding failure patterns documented in Hacker News discussions (417+ comments on 'Using AI to write better code more slowly'), DEV Community reports on developer honesty, and production incident patterns from teams using Copilot and Claude."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/ai-code-review/main.tsx"></script>
+  </body>
+</html>

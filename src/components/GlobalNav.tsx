@@ -12,6 +12,7 @@ const TOOLS = [
   { name: 'MCP Servers', path: '/mcp-servers/' },
   { name: 'PII Redactor', path: '/pii-redactor/' },
   { name: 'Agent Safety', path: '/agent-safety/' },
+  { name: 'AI Code Review', path: '/ai-code-review/' },
 ]
 
 export function GlobalNav({ current }: { current: string }) {
