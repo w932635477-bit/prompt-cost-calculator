@@ -20,5 +20,10 @@ module.exports = {
   'cmp-lt-minio-vs-ceph': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/minio-vs-ceph/index.html'),
   'cmp-lt-pleroma-vs-mastodon': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/pleroma-vs-mastodon/index.html'),
   'cmp-lt-mealie-vs-tandoor': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mealie-vs-tandoor/index.html'),
-  'cmp-lt-stirling-pdf-vs-pdfding': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/stirling-pdf-vs-pdfding/index.html')
+  'cmp-lt-stirling-pdf-vs-pdfding': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/stirling-pdf-vs-pdfding/index.html'),
+  'cmp-lt-zulip-vs-mattermost': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/zulip-vs-mattermost/index.html'),
+  'cmp-lt-zulip-vs-rocketchat': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/zulip-vs-rocketchat/index.html'),
+  'cmp-lt-mattermost-vs-rocketchat': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mattermost-vs-rocketchat/index.html'),
+  'cmp-lt-element-vs-zulip': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/element-vs-zulip/index.html'),
+  'cmp-lt-revolt-vs-element': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/revolt-vs-element/index.html')
 }

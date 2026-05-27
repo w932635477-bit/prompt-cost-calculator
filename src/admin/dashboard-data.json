@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-27T02:44:53.993Z",
+  "generatedAt": "2026-05-27T10:26:02.963Z",
   "summary": {
-    "totalIndexable": 284,
-    "totalSubmitted": 31,
-    "coverage": 10.9,
+    "totalIndexable": 290,
+    "totalSubmitted": 34,
+    "coverage": 11.7,
     "todaysSubmissions": 10,
     "dailyQuota": 10,
     "remainingToday": 0
@@ -29,9 +29,9 @@
     },
     {
       "name": "compare",
-      "total": 20,
+      "total": 25,
       "submitted": 5,
-      "remaining": 15
+      "remaining": 20
     },
     {
       "name": "mcp-servers",
@@ -48,8 +48,14 @@
     {
       "name": "ai-code-review",
       "total": 3,
-      "submitted": 0,
-      "remaining": 3
+      "submitted": 3,
+      "remaining": 0
+    },
+    {
+      "name": "finder",
+      "total": 2,
+      "submitted": 1,
+      "remaining": 1
     },
     {
       "name": "home",
@@ -65,12 +71,6 @@
     },
     {
       "name": "voice-agent-pricing",
-      "total": 1,
-      "submitted": 1,
-      "remaining": 0
-    },
-    {
-      "name": "finder",
       "total": 1,
       "submitted": 1,
       "remaining": 0
@@ -106,6 +106,10 @@
     {
       "day": "2026-05-27",
       "count": 10
+    },
+    {
+      "day": "undefined",
+      "count": 3
     }
   ],
   "suggestedBatch": [
@@ -121,6 +125,21 @@
     "https://codehelper.xyz/compare/prometheus-vs-grafana/"
   ],
   "recentSubmissions": [
+    {
+      "url": "https://codehelper.xyz/ai-code-review/ai-pr-review-checklist/",
+      "date": "2026-05-28",
+      "status": "queued"
+    },
+    {
+      "url": "https://codehelper.xyz/ai-code-review/how-to-review-ai-generated-code/",
+      "date": "2026-05-28",
+      "status": "queued"
+    },
+    {
+      "url": "https://codehelper.xyz/ai-code-review/",
+      "date": "2026-05-28",
+      "status": "queued"
+    },
     {
       "url": "https://codehelper.xyz/compare/immich-vs-google-photos/",
       "day": "2026-05-27",
@@ -205,21 +224,6 @@
       "url": "https://codehelper.xyz/deploy/google-drive/",
       "day": "2026-05-26",
       "ts": "2026-05-26T03:39:11.151Z"
-    },
-    {
-      "url": "https://codehelper.xyz/deploy/notion/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.135Z"
-    },
-    {
-      "url": "https://codehelper.xyz/deploy/github/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.118Z"
-    },
-    {
-      "url": "https://codehelper.xyz/deploy/slack/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.100Z"
     }
   ],
   "gscMetrics": null
