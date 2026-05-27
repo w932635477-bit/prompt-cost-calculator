@@ -112,10 +112,12 @@ function build() {
   const dailyBars = aggregateBySubmittedDay(quota).slice(-30)
 
   // Suggested next batch
+  const normalizeTs = (s) => s.ts || s.date || ''
+  const normalizeDay = (s) => s.day || s.date || ''
   const cooldownCutoff = Date.now() - 30 * 86400 * 1000
   const cooldownSet = new Set(
     quota.submissions
-      .filter(s => new Date(s.ts).getTime() > cooldownCutoff)
+      .filter(s => new Date(normalizeTs(s)).getTime() > cooldownCutoff)
       .map(s => s.url)
   )
   const priority = (u) => {
@@ -143,7 +145,11 @@ function build() {
     sections,
     dailyBars,
     suggestedBatch,
-    recentSubmissions: quota.submissions.slice(-20).reverse(),
+    recentSubmissions: quota.submissions.slice(-20).reverse().map(s => ({
+      url: s.url,
+      day: normalizeDay(s),
+      ts: normalizeTs(s),
+    })),
     gscMetrics: gscData,
   }
 

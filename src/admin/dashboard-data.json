@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T10:26:02.963Z",
+  "generatedAt": "2026-05-27T10:46:11.845Z",
   "summary": {
     "totalIndexable": 290,
     "totalSubmitted": 34,
@@ -127,18 +127,18 @@
   "recentSubmissions": [
     {
       "url": "https://codehelper.xyz/ai-code-review/ai-pr-review-checklist/",
-      "date": "2026-05-28",
-      "status": "queued"
+      "day": "2026-05-28",
+      "ts": "2026-05-28"
     },
     {
       "url": "https://codehelper.xyz/ai-code-review/how-to-review-ai-generated-code/",
-      "date": "2026-05-28",
-      "status": "queued"
+      "day": "2026-05-28",
+      "ts": "2026-05-28"
     },
     {
       "url": "https://codehelper.xyz/ai-code-review/",
-      "date": "2026-05-28",
-      "status": "queued"
+      "day": "2026-05-28",
+      "ts": "2026-05-28"
     },
     {
       "url": "https://codehelper.xyz/compare/immich-vs-google-photos/",
