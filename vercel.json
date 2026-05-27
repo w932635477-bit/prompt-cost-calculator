@@ -11,6 +11,8 @@
     { "source": "/mcp-servers/:slug/", "destination": "/mcp-servers/:slug/index.html" },
     { "source": "/mcp-servers/:slug", "destination": "/mcp-servers/:slug/index.html" },
     { "source": "/ai-code-review/:slug/", "destination": "/ai-code-review/:slug/index.html" },
-    { "source": "/ai-code-review/:slug", "destination": "/ai-code-review/:slug/index.html" }
+    { "source": "/ai-code-review/:slug", "destination": "/ai-code-review/:slug/index.html" },
+    { "source": "/finder/:slug/", "destination": "/finder/:slug/index.html" },
+    { "source": "/finder/:slug", "destination": "/finder/:slug/index.html" }
   ]
 }
