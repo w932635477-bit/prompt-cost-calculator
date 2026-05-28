@@ -34,14 +34,15 @@ for (const s of MCP_SERVERS) {
   const dir = join(OUTPUT_DIR, s.slug);
   mkdirSync(dir, { recursive: true });
 
-  const title = s.name + ' MCP Server — Install, Config, Use Cases';
-  const desc = s.oneLiner + ' Install command, Claude Desktop and Cursor config JSON, use cases, and common pitfalls.';
+  const title = s.name + ' MCP Server — 1 Command Install for Claude & Cursor | codehelper';
+  const desc = 'Connect ' + s.name + ' to Claude or Cursor in 30 seconds. ' + s.oneLiner + ' Free, open source, with config examples.';
   const keywords = [
     s.name.toLowerCase() + ' mcp server',
     s.name.toLowerCase() + ' mcp',
     'claude desktop ' + s.name.toLowerCase() + ' mcp',
     'cursor ' + s.name.toLowerCase() + ' mcp',
     s.slug + ' mcp install',
+    s.slug + ' mcp ' + s.name.toLowerCase(),
   ].join(', ');
 
   const faqSchema = [
