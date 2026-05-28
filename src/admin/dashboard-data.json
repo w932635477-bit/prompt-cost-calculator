@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-05-27T10:46:11.845Z",
+  "generatedAt": "2026-05-28T02:47:24.548Z",
   "summary": {
-    "totalIndexable": 290,
+    "totalIndexable": 293,
     "totalSubmitted": 34,
-    "coverage": 11.7,
-    "todaysSubmissions": 10,
+    "coverage": 11.6,
+    "todaysSubmissions": 0,
     "dailyQuota": 10,
-    "remainingToday": 0
+    "remainingToday": 10
   },
   "sections": [
     {
@@ -29,9 +29,9 @@
     },
     {
       "name": "compare",
-      "total": 25,
+      "total": 27,
       "submitted": 5,
-      "remaining": 20
+      "remaining": 22
     },
     {
       "name": "mcp-servers",
@@ -92,6 +92,12 @@
       "total": 1,
       "submitted": 1,
       "remaining": 0
+    },
+    {
+      "name": "ai-agent-data-access",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
     }
   ],
   "dailyBars": [

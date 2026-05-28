@@ -30,3 +30,9 @@ qa-screenshots/
 qa-visual/
 qa-prod-visual/
 public/promptcostcalculator*.txt
+
+# Secrets
+scripts/_gsc_oauth_token.json
+
+# CodeGraph index cache
+.codegraph/
