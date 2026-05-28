@@ -1,17 +1,26 @@
 #!/usr/bin/env node
 /**
- * Gemini TTS — generate voiceover MP3 via curl (respects proxy).
+ * Gemini TTS — generate voiceover MP3 via @google/genai SDK (respects proxy).
  *
  * Usage:
  *   node scripts/gemini-tts.cjs <input.txt> [output.mp3]
  *
- * Model: gemini-2.5-flash-preview-tts, Voice: Aoede
+ * Model: gemini-3.1-flash-tts-preview, Voice: Aoede
  */
 
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
 const { execSync } = require('child_process')
+const { GoogleGenAI } = require('@google/genai')
+
+// Route Node.js fetch through system proxy (Clash Verge)
+const proxyUrl = process.env.https_proxy || process.env.HTTPS_PROXY || process.env.http_proxy || process.env.HTTP_PROXY
+if (proxyUrl) {
+  const { ProxyAgent, setGlobalDispatcher } = require('undici')
+  setGlobalDispatcher(new ProxyAgent(proxyUrl))
+  console.log(`Proxy: ${proxyUrl}`)
+}
 
 const MODEL = 'gemini-3.1-flash-tts-preview'
 const VOICE = 'Aoede'
@@ -19,8 +28,6 @@ const VOICE = 'Aoede'
 function loadEnv() {
   const env = {
     GEMINI_API_KEY: process.env.GEMINI_API_KEY || '',
-    YUNWU_API_KEY: process.env.YUNWU_API_KEY || '',
-    YUNWU_BASE_URL: process.env.YUNWU_BASE_URL || 'https://yunwu.ai',
   }
   const envFile = path.join(os.homedir(), 'FireSing', 'docs', 'content', '.env')
   if (fs.existsSync(envFile)) {
@@ -54,13 +61,23 @@ function createWav(pcmData, sampleRate, channels, bitsPerSample) {
   return Buffer.concat([header, pcmData])
 }
 
-function synthesize(text, outputPath) {
+async function synthesize(text, outputPath) {
   const env = loadEnv()
+  if (!env.GEMINI_API_KEY) throw new Error('GEMINI_API_KEY not found')
+
+  console.log(`Model: ${MODEL}`)
+  console.log(`Voice: ${VOICE}`)
+  console.log(`Text: ${text.length} chars`)
+
+  const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY })
+
   const prompt = `Read aloud the following text in a natural, conversational Chinese tone:\n\n${text}`
 
-  const body = JSON.stringify({
-    contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: {
+  console.log('Calling Gemini API via SDK...')
+  const response = await ai.models.generateContent({
+    model: MODEL,
+    contents: prompt,
+    config: {
       responseModalities: ['AUDIO'],
       speechConfig: {
         voiceConfig: {
@@ -70,60 +87,12 @@ function synthesize(text, outputPath) {
     },
   })
 
-  console.log(`Model: ${MODEL}`)
-  console.log(`Voice: ${VOICE}`)
-  console.log(`Text: ${text.length} chars`)
-
-  // Try Google direct first, fall back to yunwu.ai proxy
-  const endpoints = []
-  if (env.GEMINI_API_KEY) {
-    endpoints.push({
-      name: 'Google direct',
-      url: `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${env.GEMINI_API_KEY}`,
-    })
-  }
-  if (env.YUNWU_API_KEY) {
-    endpoints.push({
-      name: 'yunwu.ai proxy',
-      url: `${env.YUNWU_BASE_URL}/v1beta/models/${MODEL}:generateContent?key=${env.YUNWU_API_KEY}`,
-    })
-  }
-  if (endpoints.length === 0) {
-    throw new Error('No API key found (GEMINI_API_KEY or YUNWU_API_KEY)')
-  }
-
-  const tmpJson = `/tmp/gemini-tts-response-${Date.now()}.json`
-  const escapedBody = body.replace(/'/g, "'\\''")
-  let response = null
-
-  for (const ep of endpoints) {
-    console.log(`Trying ${ep.name}...`)
-    try {
-      execSync(
-        `curl -s -X POST '${ep.url}' -H 'Content-Type: application/json' -d '${escapedBody}' -o '${tmpJson}'`,
-        { timeout: 120000 },
-      )
-      response = JSON.parse(fs.readFileSync(tmpJson, 'utf-8'))
-      if (response.error) {
-        console.log(`  ${ep.name}: ${response.error.code} - ${response.error.message}`)
-        response = null
-        continue
-      }
-      console.log(`  ${ep.name}: OK`)
-      break
-    } catch (e) {
-      console.log(`  ${ep.name}: ${e.message}`)
-      response = null
-    }
-  }
-
-  if (fs.existsSync(tmpJson)) fs.unlinkSync(tmpJson)
-  if (!response) throw new Error('All endpoints failed')
-
   const audioB64 = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data
   if (!audioB64) {
     throw new Error(`No audio in response: ${JSON.stringify(response).substring(0, 500)}`)
   }
+
+  console.log('API returned audio data')
 
   const pcmBuffer = Buffer.from(audioB64, 'base64')
   const wavPath = outputPath.replace(/\.mp3$/, '.wav')
@@ -154,4 +123,4 @@ const outputPath = args[1] ? path.resolve(args[1]) : inputPath.replace(/\.\w+$/,
 const text = fs.readFileSync(inputPath, 'utf-8').trim()
 if (!text) { console.error('Empty input'); process.exit(1) }
 
-synthesize(text, outputPath)
+synthesize(text, outputPath).catch(e => { console.error(e); process.exit(1) })

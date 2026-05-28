@@ -25,5 +25,7 @@ module.exports = {
   'cmp-lt-zulip-vs-rocketchat': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/zulip-vs-rocketchat/index.html'),
   'cmp-lt-mattermost-vs-rocketchat': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mattermost-vs-rocketchat/index.html'),
   'cmp-lt-element-vs-zulip': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/element-vs-zulip/index.html'),
-  'cmp-lt-revolt-vs-element': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/revolt-vs-element/index.html')
+  'cmp-lt-revolt-vs-element': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/revolt-vs-element/index.html'),
+  'cmp-lt-logseq-vs-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/logseq-vs-obsidian/index.html'),
+  'cmp-lt-outline-vs-notion': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/outline-vs-notion/index.html')
 }

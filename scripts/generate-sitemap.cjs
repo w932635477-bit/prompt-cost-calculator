@@ -55,6 +55,7 @@ const allUrls = [
   { loc: BASE_URL + '/ai-code-review/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-code-review/how-to-review-ai-generated-code/', priority: '0.85', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-code-review/ai-pr-review-checklist/', priority: '0.85', changefreq: 'weekly' },
+  { loc: BASE_URL + '/ai-agent-data-access/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {

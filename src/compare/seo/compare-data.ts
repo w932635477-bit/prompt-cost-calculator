@@ -1833,4 +1833,122 @@ volumes:
     ],
     keywords: ['revolt vs element', 'element vs revolt', 'discord alternative self hosted', 'revolt chat review', 'matrix chat self hosted', 'best self hosted discord alternative 2026'],
   },
+  {
+    slug: 'logseq-vs-obsidian',
+    productA: {
+      name: 'Logseq', tagline: 'Open-source outliner for knowledge management', logo: '🗂️',
+      url: 'https://logseq.com', github: 'https://github.com/logseq/logseq',
+      license: 'AGPL-3.0', selfHosted: false, docker: false,
+      pricing: 'Free / Sync $5/mo / Pro $15/mo', difficulty: 'Easy',
+    },
+    productB: {
+      name: 'Obsidian', tagline: 'Local-first markdown knowledge base', logo: '💎',
+      url: 'https://obsidian.md', github: 'https://github.com/obsidianmd/obsidian-api',
+      license: 'Proprietary (free for personal)', selfHosted: false, docker: false,
+      pricing: 'Free / Sync $4/mo / Publish $8/mo', difficulty: 'Easy',
+    },
+    title: 'Logseq vs Obsidian — Which Open-Source Note-Taking App Wins in 2026?',
+    h1: 'Logseq vs Obsidian: Outliner vs Markdown Note-Taking',
+    description: 'Logseq vs Obsidian comparison. Open-source outliner vs local-first markdown knowledge base. Features, graph view, plugins, pricing, and which note-taking app wins for different use cases.',
+    summary: 'Logseq wins for structured outlining, daily journals, and open-source purists. Obsidian wins for plugin flexibility, markdown editing, and a polished experience. Different paradigms for different workflows.',
+    features: [
+      { name: 'Open Source', a: true, b: 'Proprietary' },
+      { name: 'Editing Model', a: 'Outliner (blocks)', b: 'Markdown (pages)' },
+      { name: 'Graph View', a: true, b: true },
+      { name: 'Backlinks', a: true, b: true },
+      { name: 'Plugin Ecosystem', a: '200+', b: '1,000+' },
+      { name: 'Offline Access', a: true, b: true },
+      { name: 'Sync Cost', a: '$5/mo', b: '$4/mo' },
+      { name: 'PDF Annotation', a: true, b: 'Via plugin' },
+      { name: 'Mobile App', a: true, b: true },
+      { name: 'Free Plan', a: true, b: true },
+    ],
+    prosA: ['Fully open source under AGPL-3.0', 'Block-level outliner is great for structured thinking', 'Built-in daily journals and task management', 'PDF annotation built-in without plugins', 'Works with local folders — no lock-in'],
+    consA: ['Smaller plugin ecosystem (200+ vs 1,000+)', 'Performance can lag with very large graphs', 'Less polished mobile experience', 'Sync requires paid plan ($5/month)'],
+    prosB: ['Massive plugin ecosystem with 1,000+ community plugins', 'Polished UI and smooth editing experience', 'Your data is standard markdown files', 'Canvas for visual thinking and whiteboarding', 'Excellent mobile apps on iOS and Android'],
+    consB: ['Proprietary license — not open source', 'No built-in outliner mode', 'Collaboration requires paid plans', 'Some advanced features need plugins'],
+    winner: 'tie',
+    winnerReason: 'Logseq and Obsidian serve different workflows. Logseq is best for outliner-first thinking, daily journals, and open-source values. Obsidian is best for markdown-native writing, plugin flexibility, and a polished experience. Try both and pick the paradigm that fits your brain.',
+    faq: [
+      { q: 'Is Logseq better than Obsidian?', a: 'It depends on your workflow. Logseq excels at outliner-style thinking with block-level references and daily journals. Obsidian excels at long-form markdown writing with a rich plugin ecosystem.' },
+      { q: 'Can I use Logseq and Obsidian together?', a: 'Yes. Both work with local markdown files. You can point both apps at the same folder. Some formatting differences exist (Logseq uses Org-style properties).' },
+      { q: 'Which is better for PKM (Personal Knowledge Management)?', a: 'Both are excellent. Logseq is better for atomic, block-level notes and Zettelkasten. Obsidian is better for longer articles and visual knowledge graphs with Canvas.' },
+      { q: 'Is Logseq really free?', a: 'Yes. Logseq is open source (AGPL-3.0) and the core app is free forever. Sync and some premium features cost $5/month.' },
+    ],
+    keywords: ['logseq vs obsidian', 'logseq review', 'obsidian alternative open source', 'logseq vs obsidian 2026', 'best note taking app open source', 'logseq outliner'],
+  },
+  {
+    slug: 'outline-vs-notion',
+    productA: {
+      name: 'Outline', tagline: 'Open-source self-hosted knowledge base wiki', logo: '📖',
+      url: 'https://getoutline.com', github: 'https://github.com/outline/outline',
+      license: 'BSL 1.1', selfHosted: true, docker: true,
+      dockerCompose: `version: '3'
+services:
+  outline:
+    image: outlinewiki/outline:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - outline_data:/var/lib/outline/data
+    environment:
+      - SECRET_KEY=changeme
+      - DATABASE_URL=postgres://outline:changeme@db:5432/outline
+      - REDIS_URL=redis://redis:6379
+      - URL=http://localhost:3000
+      - PORT=3000
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=outline
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=outline
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+volumes:
+  outline_data:
+  db_data:`,
+      pricing: 'Free (self-hosted) / Cloud from $10/mo', difficulty: 'Medium',
+    },
+    productB: {
+      name: 'Notion', tagline: 'All-in-one workspace with databases', logo: '📝',
+      url: 'https://notion.so', github: '',
+      license: 'Proprietary', selfHosted: false, docker: false,
+      pricing: 'Free / Plus $8/mo / Business $15/mo', difficulty: 'Easy',
+    },
+    title: 'Outline vs Notion — Self-Hosted Wiki vs Cloud Workspace (2026)',
+    h1: 'Outline vs Notion: Self-Hosted Wiki vs Cloud Workspace',
+    description: 'Outline vs Notion comparison. Open-source self-hosted wiki vs cloud-based all-in-one workspace. Features, self-hosting, collaboration, pricing, and which knowledge base to choose.',
+    summary: 'Outline wins for teams who need a fast, self-hosted wiki with full data control. Notion wins for teams who want an all-in-one workspace with databases, templates, and zero infrastructure management.',
+    features: [
+      { name: 'Self-Hosted', a: true, b: false },
+      { name: 'Markdown Editor', a: true, b: 'Partial' },
+      { name: 'Real-time Collaboration', a: true, b: true },
+      { name: 'Database/Tables', a: false, b: true },
+      { name: 'Full-text Search', a: true, b: true },
+      { name: 'API', a: 'REST + GraphQL', b: 'REST API' },
+      { name: 'SSO/SAML', a: true, b: 'Business plan' },
+      { name: 'Mobile App', a: 'PWA', b: true },
+      { name: 'Free Plan', a: 'Self-hosted', b: true },
+      { name: 'Open Source', a: true, b: false },
+    ],
+    prosA: ['Fully self-hosted — your data never leaves your server', 'Fast, clean wiki interface built for documentation', 'SSO with Google, Slack, OIDC, and SAML', 'Real-time collaborative editing', 'GraphQL and REST API for integrations'],
+    consA: ['No database/table features like Notion', 'Requires PostgreSQL and Redis to self-host', 'BSL license (converts to Apache after 3 years)', 'No native mobile app (PWA only)', 'Smaller template and integration ecosystem'],
+    prosB: ['Powerful databases with filters, sorts, and relations', 'No infrastructure to manage — works immediately', 'Beautiful templates for every use case', 'Excellent real-time collaboration for teams', 'Free for small teams (up to 10 members)'],
+    consB: ['Your data lives on Notion servers — no self-hosting', 'Requires internet for most features', 'Export is limited — vendor lock-in risk', 'No end-to-end encryption', 'Performance degrades with large databases'],
+    winner: 'a',
+    winnerReason: 'For teams that value data sovereignty and want a fast, focused wiki, Outline wins. Self-host it and your knowledge base stays on your infrastructure. Choose Notion only if you need databases, templates, and zero DevOps.',
+    faq: [
+      { q: 'Can I self-host Outline for free?', a: 'Yes. Outline is free to self-host. You need a server with Docker, PostgreSQL, and Redis. The Docker Compose setup takes about 10 minutes.' },
+      { q: 'Is Outline a good Notion replacement?', a: 'For documentation and wikis, yes. Outline is fast and focused. But it lacks Notion\'s database features, templates, and all-in-one workspace approach.' },
+      { q: 'Does Outline support real-time collaboration?', a: 'Yes. Multiple users can edit the same document simultaneously with presence indicators and live cursors.' },
+      { q: 'What databases does Outline support?', a: 'Outline uses PostgreSQL for its database. It does not have Notion-style database/table features for managing structured data within documents.' },
+    ],
+    keywords: ['outline wiki', 'outline vs notion', 'self hosted notion alternative', 'outline self hosted', 'best self hosted wiki', 'notion alternative open source'],
+  },
 ]
