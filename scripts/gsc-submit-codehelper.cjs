@@ -1,7 +1,35 @@
+#!/usr/bin/env node
+/**
+ * GSC URL Indexing — OAuth 2.0 local server flow
+ *
+ * Starts a local HTTP server to receive the OAuth callback.
+ * First run opens a browser for you to authorize with your Google account.
+ * Token is cached for future runs.
+ *
+ * Usage:
+ *   node scripts/gsc-submit-codehelper.cjs
+ *   node scripts/gsc-submit-codehelper.cjs https://codehelper.xyz/some/page/
+ */
+
 const fs = require('fs')
 const path = require('path')
-const crypto = require('crypto')
 const { execSync } = require('child_process')
+const http = require('http')
+const { URL } = require('url')
+
+const TOKEN_CACHE = path.join(__dirname, '_gsc_oauth_token.json')
+const BASE = 'https://codehelper.xyz'
+const REDIRECT_PORT = 8089
+const REDIRECT_URI = `http://localhost:${REDIRECT_PORT}`
+
+const CLIENT_ID = process.env.GSC_CLIENT_ID || ''
+const CLIENT_SECRET = process.env.GSC_CLIENT_SECRET || ''
+
+const URLS = [
+  `${BASE}/compare/logseq-vs-obsidian/`,
+  `${BASE}/compare/outline-vs-notion/`,
+  `${BASE}/agent-data-access/`,
+]
 
 function curlPost(url, body, headers = {}) {
   const headerArgs = Object.entries(headers).map(([k, v]) => `-H '${k}: ${v}'`).join(' ')
@@ -10,63 +38,119 @@ function curlPost(url, body, headers = {}) {
   return execSync(cmd, { encoding: 'utf-8', timeout: 15000 })
 }
 
-const KEY_FILE = path.join(process.env.HOME, 'Downloads', 'gsc-indexing-497309-c9c682ceec78.json')
-const BASE = 'https://codehelper.xyz'
-
-// Priority order: hubs first (most SEO weight), then yesterday's leftovers,
-// then the tools that just shipped (Tool Finder etc).
-const URLS = [
-  // Hubs — must re-crawl after domain migration so Google sees new canonicals
-  `${BASE}/`,
-  `${BASE}/cron-generator/`,
-  `${BASE}/alternatives/`,
-  `${BASE}/deploy/`,
-  `${BASE}/compare/`,
-  `${BASE}/token-tracker/`,
-  `${BASE}/agent-safety/`,
-  `${BASE}/voice-agent-pricing/`,
-  // Yesterday's leftover (gsc-indexing-todo-20260522.md, now on codehelper.xyz)
-  `${BASE}/alternatives/google-drive/`,
-  `${BASE}/deploy/slack/`,
-  `${BASE}/deploy/github/`,
-  `${BASE}/deploy/notion/`,
-  `${BASE}/deploy/google-drive/`,
-  `${BASE}/deploy/spotify/`,
-  `${BASE}/deploy/netflix/`,
-  `${BASE}/deploy/lastpass/`,
-  `${BASE}/deploy/zapier/`,
-  `${BASE}/cron-generator/every-hour/`,
-  `${BASE}/cron-generator/every-monday/`,
-]
-
-function base64url(buf) {
-  return buf.toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_')
+function loadCachedToken() {
+  if (!fs.existsSync(TOKEN_CACHE)) return null
+  try {
+    const data = JSON.parse(fs.readFileSync(TOKEN_CACHE, 'utf-8'))
+    if (data.expiry_date && Date.now() < data.expiry_date) return data.access_token
+    if (data.refresh_token) return refreshAccessToken(data.refresh_token)
+  } catch {}
+  return null
 }
 
-function getAccessToken(key) {
-  const now = Math.floor(Date.now() / 1000)
-  const header = { alg: 'RS256', typ: 'JWT' }
-  const payload = {
-    iss: key.client_email,
-    scope: 'https://www.googleapis.com/auth/indexing',
-    aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600,
+function refreshAccessToken(refreshToken) {
+  if (!CLIENT_ID || !CLIENT_SECRET) {
+    console.log('No CLIENT_ID/SECRET set, cannot refresh token')
+    return null
   }
-  const headerB64 = base64url(Buffer.from(JSON.stringify(header)))
-  const payloadB64 = base64url(Buffer.from(JSON.stringify(payload)))
-  const signInput = `${headerB64}.${payloadB64}`
-  const sign = crypto.createSign('RSA-SHA256')
-  sign.update(signInput)
-  const signature = base64url(sign.sign(key.private_key))
-  const jwt = `${signInput}.${signature}`
-  const body = `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`
-  const result = curlPost('https://oauth2.googleapis.com/token', body, {
+  const body = `client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&refresh_token=${refreshToken}&grant_type=refresh_token`
+  const result = JSON.parse(curlPost('https://oauth2.googleapis.com/token', body, {
     'Content-Type': 'application/x-www-form-urlencoded',
+  }))
+  if (!result.access_token) {
+    console.log('Refresh failed:', JSON.stringify(result))
+    return null
+  }
+  const token = {
+    access_token: result.access_token,
+    refresh_token: refreshToken,
+    expiry_date: Date.now() + (result.expires_in || 3600) * 1000,
+  }
+  fs.writeFileSync(TOKEN_CACHE, JSON.stringify(token, null, 2))
+  return token.access_token
+}
+
+function oauthLocalServerFlow() {
+  if (!CLIENT_ID || !CLIENT_SECRET) {
+    console.log('GSC_CLIENT_ID or GSC_CLIENT_SECRET env var not set.')
+    console.log('')
+    console.log('Setup:')
+    console.log('  1. Go to https://console.cloud.google.com/apis/credentials')
+    console.log('  2. Create Credentials > OAuth client ID > Web application')
+    console.log('  3. Add http://localhost:8089 to Authorized redirect URIs')
+    console.log('  4. Run:')
+    console.log('     export GSC_CLIENT_ID="your-client-id.apps.googleusercontent.com"')
+    console.log('     export GSC_CLIENT_SECRET="your-client-secret"')
+    process.exit(1)
+  }
+
+  const scope = encodeURIComponent('https://www.googleapis.com/auth/indexing')
+  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=${scope}&access_type=offline&prompt=consent`
+
+  return new Promise((resolve, reject) => {
+    const server = http.createServer(async (req, res) => {
+      try {
+        const reqUrl = new URL(req.url, REDIRECT_URI)
+        const code = reqUrl.searchParams.get('code')
+        const error = reqUrl.searchParams.get('error')
+
+        if (error) {
+          res.end('<h1>Authorization denied</h1><p>You can close this tab.</p>')
+          server.close()
+          reject(new Error(`OAuth error: ${error}`))
+          return
+        }
+
+        if (!code) {
+          res.end('<h1>Invalid response</h1>')
+          server.close()
+          reject(new Error('No auth code received'))
+          return
+        }
+
+        // Exchange code for token
+        const tokenBody = `code=${code}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&grant_type=authorization_code`
+        const tokenResult = JSON.parse(curlPost('https://oauth2.googleapis.com/token', tokenBody, {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }))
+
+        if (!tokenResult.access_token) {
+          res.end(`<h1>Token error</h1><pre>${JSON.stringify(tokenResult, null, 2)}</pre>`)
+          server.close()
+          reject(new Error('Failed to get access token'))
+          return
+        }
+
+        const token = {
+          access_token: tokenResult.access_token,
+          refresh_token: tokenResult.refresh_token || '',
+          expiry_date: Date.now() + (tokenResult.expires_in || 3600) * 1000,
+        }
+        fs.writeFileSync(TOKEN_CACHE, JSON.stringify(token, null, 2))
+
+        res.end('<h1>Authorization successful!</h1><p>You can close this tab and go back to the terminal.</p>')
+        server.close()
+        resolve(token.access_token)
+      } catch (e) {
+        res.end(`<h1>Error</h1><pre>${e.message}</pre>`)
+        server.close()
+        reject(e)
+      }
+    })
+
+    server.listen(REDIRECT_PORT, () => {
+      console.log(`\nAuthorize this app:`)
+      console.log(`  Open: ${authUrl}`)
+      console.log(`\nWaiting for authorization...`)
+      try { execSync(`open "${authUrl}"`, { stdio: 'ignore' }) } catch {}
+    })
+
+    // Timeout after 5 minutes
+    setTimeout(() => {
+      server.close()
+      reject(new Error('Authorization timed out'))
+    }, 300000)
   })
-  const data = JSON.parse(result)
-  if (!data.access_token) throw new Error(`Token error: ${JSON.stringify(data)}`)
-  return data.access_token
 }
 
 function submitUrl(url, token) {
@@ -85,37 +169,46 @@ function submitUrl(url, token) {
   }
 }
 
-function run() {
-  const key = JSON.parse(fs.readFileSync(KEY_FILE, 'utf-8'))
-  console.log(`Service account: ${key.client_email}`)
-  console.log(`URLs to submit: ${URLS.length}\n`)
+async function run() {
+  const urls = process.argv.slice(2)
+  const targetUrls = urls.length > 0 ? urls : URLS
 
-  const token = getAccessToken(key)
-  console.log('Access token obtained\n')
+  console.log(`URLs to submit: ${targetUrls.length}`)
 
+  let token = loadCachedToken()
+
+  if (!token) {
+    token = await oauthLocalServerFlow()
+    console.log('Authorization successful!\n')
+  }
+
+  console.log('')
   let ok = 0, fail = 0
   const failures = []
-  for (const url of URLS) {
+  for (const url of targetUrls) {
     try {
       const result = submitUrl(url, token)
       if (result.status === 'ok') {
         ok++
-        console.log(`  ✓ ${url}`)
+        console.log(`  OK ${url}`)
       } else {
         fail++
         failures.push(result)
-        console.log(`  ✗ ${url} — ${result.code}: ${result.message}`)
+        console.log(`  FAIL ${url} - ${result.code}: ${result.message}`)
       }
     } catch (e) {
       fail++
       failures.push({ url, error: e.message })
-      console.log(`  ✗ ${url} — ${e.message}`)
+      console.log(`  FAIL ${url} - ${e.message}`)
     }
   }
-  console.log(`\n${'═'.repeat(50)}`)
-  console.log(`SUCCESS: ${ok}  FAILED: ${fail}  TOTAL: ${URLS.length}`)
-  console.log(`${'═'.repeat(50)}`)
+  console.log(`\n${'='.repeat(50)}`)
+  console.log(`SUCCESS: ${ok}  FAILED: ${fail}  TOTAL: ${targetUrls.length}`)
+  console.log(`${'='.repeat(50)}`)
   if (failures.length) console.log('\nFailures:', JSON.stringify(failures, null, 2))
 }
 
-run()
+run().catch(e => {
+  console.error(e.message)
+  process.exit(1)
+})
