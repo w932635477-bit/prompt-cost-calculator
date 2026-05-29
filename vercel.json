@@ -1,4 +1,14 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://codehelper.xyz/$1",
+      "permanent": true,
+      "has": [
+        { "type": "host", "value": "prompt-cost-calculator-ten.vercel.app" }
+      ]
+    }
+  ],
   "headers": [
     {
       "source": "/sitemap.xml",
