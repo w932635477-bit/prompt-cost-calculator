@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Security Policy (CSP) Header Generator — Free Visual CSP Builder</title>
+    <meta name="description" content="Free visual CSP header generator. Build Content-Security-Policy headers for default-src, script-src, style-src, and all directives. Toggle Report-Only mode, preview live, copy the header. 100% client-side." />
+    <meta name="keywords" content="content security policy generator, csp header builder, csp generator online, content security policy header tool, csp directive builder, csp nonce, strict csp, csp report-only, csp policy generator" />
+    <link rel="canonical" href="https://codehelper.xyz/csp-generator/" />
+    <meta property="og:title" content="CSP Header Generator — Free Visual Content Security Policy Builder" />
+    <meta property="og:description" content="Build Content-Security-Policy headers visually. Toggle directives, add domains, preview live, copy the header. Free and browser-only." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codehelper.xyz/csp-generator/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="CSP Header Generator — Visual Content Security Policy Builder" />
+    <meta name="twitter:description" content="Free visual CSP builder. Toggle directives, add domains, preview live." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CSP Header Generator",
+      "url": "https://codehelper.xyz/csp-generator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free visual CSP header generator. Build Content-Security-Policy headers with all directives. Browser-only, no data sent to servers."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What is a Content Security Policy (CSP)?","acceptedAnswer":{"@type":"Answer","text":"A CSP is an HTTP response header that tells browsers which sources of content are allowed to load on your page. It prevents XSS, clickjacking, and other injection attacks by restricting scripts, styles, images, and other resources."}},
+        {"@type":"Question","name":"Content-Security-Policy vs Content-Security-Policy-Report-Only?","acceptedAnswer":{"@type":"Answer","text":"Content-Security-Policy enforces the policy and blocks violations. Content-Security-Policy-Report-Only logs violations to a report endpoint without blocking anything. Use Report-Only mode to test your policy before enforcement."}},
+        {"@type":"Question","name":"Should I use unsafe-inline and unsafe-eval?","acceptedAnswer":{"@type":"Answer","text":"Avoid them in production. unsafe-inline allows inline scripts and event handlers, defeating XSS protection. unsafe-eval allows eval() and similar APIs. Use nonces or hashes instead. During development, they are useful for quick testing."}},
+        {"@type":"Question","name":"What does strict-dynamic do?","acceptedAnswer":{"@type":"Answer","text":"strict-dynamic allows scripts loaded by trusted scripts (via nonces or hashes) to load additional scripts. It is part of CSP Level 3 and works with nonce-based policies."}},
+        {"@type":"Question","name":"How do I test my CSP header before deploying?","acceptedAnswer":{"@type":"Answer","text":"Use Report-Only mode first. Set Content-Security-Policy-Report-Only with your policy and a report-uri endpoint. Monitor violation reports for a few days, then switch to enforcement mode."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/csp-generator/main.tsx"></script>
+  </body>
+</html>

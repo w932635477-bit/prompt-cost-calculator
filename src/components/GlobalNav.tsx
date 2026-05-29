@@ -9,6 +9,7 @@ const TOOLS = [
   { name: 'Docker Deploy', path: '/deploy/' },
   { name: 'Voice Pricing', path: '/voice-agent-pricing/' },
   { name: 'Token Tracker', path: '/token-tracker/' },
+  { name: 'CSP Generator', path: '/csp-generator/' },
   { name: 'Cache Calculator', path: '/prompt-cache-calculator/' },
   { name: 'MCP Servers', path: '/mcp-servers/' },
   { name: 'PII Redactor', path: '/pii-redactor/' },

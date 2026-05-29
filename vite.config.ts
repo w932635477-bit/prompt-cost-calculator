@@ -79,6 +79,7 @@ export default defineConfig({
         photos: resolve(__dirname, 'photos/index.html'),
         'prompt-cache-calculator': resolve(__dirname, 'prompt-cache-calculator/index.html'),
         'mcp-servers': resolve(__dirname, 'mcp-servers/index.html'),
+        'csp-generator': resolve(__dirname, 'csp-generator/index.html'),
         'pii-redactor': resolve(__dirname, 'pii-redactor/index.html'),
         'ai-code-review': resolve(__dirname, 'ai-code-review/index.html'),
         'ai-review-guide': resolve(__dirname, 'ai-code-review/how-to-review-ai-generated-code/index.html'),

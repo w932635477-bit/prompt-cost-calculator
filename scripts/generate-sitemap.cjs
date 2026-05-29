@@ -51,6 +51,7 @@ const allUrls = [
   { loc: BASE_URL + '/photos/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/prompt-cache-calculator/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/mcp-servers/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/csp-generator/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/pii-redactor/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-code-review/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-code-review/how-to-review-ai-generated-code/', priority: '0.85', changefreq: 'weekly' },
