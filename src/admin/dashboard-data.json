@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-28T02:47:24.548Z",
+  "generatedAt": "2026-05-29T07:29:33.436Z",
   "summary": {
-    "totalIndexable": 293,
-    "totalSubmitted": 34,
-    "coverage": 11.6,
+    "totalIndexable": 294,
+    "totalSubmitted": 225,
+    "coverage": 76.5,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -12,14 +12,14 @@
     {
       "name": "cron-generator",
       "total": 160,
-      "submitted": 3,
-      "remaining": 157
+      "submitted": 127,
+      "remaining": 33
     },
     {
       "name": "alternatives",
       "total": 42,
-      "submitted": 3,
-      "remaining": 39
+      "submitted": 42,
+      "remaining": 0
     },
     {
       "name": "deploy",
@@ -30,14 +30,14 @@
     {
       "name": "compare",
       "total": 27,
-      "submitted": 5,
-      "remaining": 22
+      "submitted": 27,
+      "remaining": 0
     },
     {
       "name": "mcp-servers",
       "total": 11,
-      "submitted": 3,
-      "remaining": 8
+      "submitted": 7,
+      "remaining": 4
     },
     {
       "name": "token-tracker",
@@ -54,8 +54,8 @@
     {
       "name": "finder",
       "total": 2,
-      "submitted": 1,
-      "remaining": 1
+      "submitted": 2,
+      "remaining": 0
     },
     {
       "name": "home",
@@ -88,6 +88,12 @@
       "remaining": 0
     },
     {
+      "name": "csp-generator",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
       "name": "pii-redactor",
       "total": 1,
       "submitted": 1,
@@ -96,8 +102,8 @@
     {
       "name": "ai-agent-data-access",
       "total": 1,
-      "submitted": 0,
-      "remaining": 1
+      "submitted": 1,
+      "remaining": 0
     }
   ],
   "dailyBars": [
@@ -114,122 +120,126 @@
       "count": 10
     },
     {
+      "day": "2026-05-28",
+      "count": 191
+    },
+    {
       "day": "undefined",
       "count": 3
     }
   ],
   "suggestedBatch": [
-    "https://codehelper.xyz/compare/obsidian-vs-notion/",
-    "https://codehelper.xyz/compare/nextcloud-vs-owncloud/",
-    "https://codehelper.xyz/compare/gitea-vs-github/",
-    "https://codehelper.xyz/compare/jellyfin-vs-plex/",
-    "https://codehelper.xyz/compare/wordpress-vs-ghost/",
-    "https://codehelper.xyz/compare/pi-hole-vs-adguard-home/",
-    "https://codehelper.xyz/compare/home-assistant-vs-openhab/",
-    "https://codehelper.xyz/compare/traefik-vs-nginx-proxy-manager/",
-    "https://codehelper.xyz/compare/portainer-vs-yacht/",
-    "https://codehelper.xyz/compare/prometheus-vs-grafana/"
+    "https://codehelper.xyz/csp-generator/",
+    "https://codehelper.xyz/cron-generator/zh/",
+    "https://codehelper.xyz/cron-generator/ja/",
+    "https://codehelper.xyz/cron-generator/pt/",
+    "https://codehelper.xyz/cron-generator/fr/",
+    "https://codehelper.xyz/cron-generator/ko/",
+    "https://codehelper.xyz/cron-generator/weekdays-9am/",
+    "https://codehelper.xyz/cron-generator/weekdays-8am/",
+    "https://codehelper.xyz/cron-generator/weekdays-5pm/",
+    "https://codehelper.xyz/cron-generator/weekdays-6pm/"
   ],
   "recentSubmissions": [
     {
-      "url": "https://codehelper.xyz/ai-code-review/ai-pr-review-checklist/",
+      "url": "https://codehelper.xyz/cron-generator/every-tuesday-2pm/",
       "day": "2026-05-28",
-      "ts": "2026-05-28"
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/ai-code-review/how-to-review-ai-generated-code/",
+      "url": "https://codehelper.xyz/cron-generator/every-thursday/",
       "day": "2026-05-28",
-      "ts": "2026-05-28"
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/ai-code-review/",
+      "url": "https://codehelper.xyz/cron-generator/every-thursday-3pm/",
       "day": "2026-05-28",
-      "ts": "2026-05-28"
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/compare/immich-vs-google-photos/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.226Z"
+      "url": "https://codehelper.xyz/cron-generator/every-sunday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/compare/vaultwarden-vs-bitwarden/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.210Z"
+      "url": "https://codehelper.xyz/cron-generator/every-sunday-noon/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/compare/joplin-vs-obsidian/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.195Z"
+      "url": "https://codehelper.xyz/cron-generator/every-sunday-6pm/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/compare/notion-vs-obsidian/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.181Z"
+      "url": "https://codehelper.xyz/cron-generator/every-saturday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/mcp-servers/github/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.165Z"
+      "url": "https://codehelper.xyz/cron-generator/every-saturday-9am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/mcp-servers/filesystem/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.149Z"
+      "url": "https://codehelper.xyz/cron-generator/every-saturday-8am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/photos/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.134Z"
+      "url": "https://codehelper.xyz/cron-generator/every-quarter/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/prompt-cache-calculator/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.119Z"
+      "url": "https://codehelper.xyz/cron-generator/every-october/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/mcp-servers/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.101Z"
+      "url": "https://codehelper.xyz/cron-generator/every-month/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/pii-redactor/",
-      "day": "2026-05-27",
-      "ts": "2026-05-27T01:21:49.082Z"
+      "url": "https://codehelper.xyz/cron-generator/every-monday-wednesday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/cron-generator/every-monday/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.250Z"
+      "url": "https://codehelper.xyz/cron-generator/every-monday-wednesday-friday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/cron-generator/every-hour/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.233Z"
+      "url": "https://codehelper.xyz/cron-generator/every-monday-friday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/deploy/zapier/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.216Z"
+      "url": "https://codehelper.xyz/cron-generator/every-monday-9am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/deploy/lastpass/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.199Z"
+      "url": "https://codehelper.xyz/cron-generator/every-monday-8am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/deploy/netflix/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.184Z"
+      "url": "https://codehelper.xyz/cron-generator/every-minute/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/deploy/spotify/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.168Z"
+      "url": "https://codehelper.xyz/cron-generator/every-july/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://codehelper.xyz/deploy/google-drive/",
-      "day": "2026-05-26",
-      "ts": "2026-05-26T03:39:11.151Z"
+      "url": "https://codehelper.xyz/cron-generator/every-january/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
     }
   ],
   "gscMetrics": null
