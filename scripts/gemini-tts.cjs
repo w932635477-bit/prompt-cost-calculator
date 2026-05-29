@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 /**
- * Gemini TTS — generate voiceover MP3 via @google/genai SDK (respects proxy).
+ * Gemini TTS — generate voiceover MP3 via Gemini official API, fallback to Yunwu proxy.
  *
  * Usage:
  *   node scripts/gemini-tts.cjs <input.txt> [output.mp3]
  *
  * Model: gemini-3.1-flash-tts-preview, Voice: Aoede
+ * Strategy: Try Gemini official free tier first, fallback to Yunwu AI proxy on quota error
  */
 
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
 const { execSync } = require('child_process')
-const { GoogleGenAI } = require('@google/genai')
+
+const MODEL = 'gemini-3.1-flash-tts-preview'
+const VOICE = 'Aoede'
+const MAX_RETRIES = 3
+const BASE_DELAY_MS = 10000
 
 // Route Node.js fetch through system proxy (Clash Verge)
 const proxyUrl = process.env.https_proxy || process.env.HTTPS_PROXY || process.env.http_proxy || process.env.HTTP_PROXY
@@ -22,13 +27,8 @@ if (proxyUrl) {
   console.log(`Proxy: ${proxyUrl}`)
 }
 
-const MODEL = 'gemini-3.1-flash-tts-preview'
-const VOICE = 'Aoede'
-
 function loadEnv() {
-  const env = {
-    GEMINI_API_KEY: process.env.GEMINI_API_KEY || '',
-  }
+  const env = {}
   const envFile = path.join(os.homedir(), 'FireSing', 'docs', 'content', '.env')
   if (fs.existsSync(envFile)) {
     const content = fs.readFileSync(envFile, 'utf-8')
@@ -38,6 +38,40 @@ function loadEnv() {
     }
   }
   return env
+}
+
+const OFFICIAL_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`
+
+function buildRequestBody(text) {
+  return {
+    contents: [{ parts: [{ text: `Read aloud the following text in a natural, conversational Chinese tone:\n\n${text}` }] }],
+    generationConfig: {
+      responseModalities: ['AUDIO'],
+      speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: VOICE } } },
+    },
+  }
+}
+
+async function callApi(url, apiKey, body) {
+  const resp = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+    body: JSON.stringify(body),
+  })
+  const data = await resp.json()
+  if (!resp.ok || data.error) {
+    const errMsg = data.error?.message || `HTTP ${resp.status}`
+    const err = new Error(errMsg)
+    err.status = resp.status
+    throw err
+  }
+  return data
+}
+
+function isQuotaError(err) {
+  const msg = (err.message || '').toLowerCase()
+  const status = err.status || 0
+  return status === 429 || msg.includes('quota') || msg.includes('rate limit') || msg.includes('resource exhausted')
 }
 
 function createWav(pcmData, sampleRate, channels, bitsPerSample) {
@@ -61,39 +95,89 @@ function createWav(pcmData, sampleRate, channels, bitsPerSample) {
   return Buffer.concat([header, pcmData])
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+function isRetryableError(err) {
+  const msg = (err.message || '').toLowerCase()
+  const status = err.status || 0
+  return status === 429 || status === 500 || status === 503 ||
+    msg.includes('quota') || msg.includes('rate') || msg.includes('internal error')
+}
+
+function extractRetryDelay(err) {
+  const msg = err.message || ''
+  const match = msg.match(/retry in ([\d.]+)s/i)
+  if (match) return Math.ceil(parseFloat(match[1]) * 1000) + 1000
+  return null
+}
+
 async function synthesize(text, outputPath) {
   const env = loadEnv()
-  if (!env.GEMINI_API_KEY) throw new Error('GEMINI_API_KEY not found')
+  const body = buildRequestBody(text)
 
   console.log(`Model: ${MODEL}`)
   console.log(`Voice: ${VOICE}`)
   console.log(`Text: ${text.length} chars`)
 
-  const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY })
+  // Source 1: Gemini official free tier
+  const geminiKey = env.GEMINI_API_KEY
+  if (geminiKey) {
+    console.log('Trying Gemini official API...')
+    try {
+      const data = await callApi(OFFICIAL_URL, geminiKey, body)
+      await saveAudio(data, outputPath)
+      console.log('Success via Gemini official API')
+      return
+    } catch (err) {
+      if (isQuotaError(err)) {
+        console.log(`Gemini quota exhausted (${err.message.substring(0, 100)}), falling back to Yunwu...`)
+      } else {
+        console.log(`Gemini API error (${err.message.substring(0, 100)}), falling back to Yunwu...`)
+      }
+    }
+  } else {
+    console.log('No GEMINI_API_KEY found, using Yunwu proxy directly')
+  }
 
-  const prompt = `Read aloud the following text in a natural, conversational Chinese tone:\n\n${text}`
+  // Source 2: Yunwu AI proxy
+  const yunwuKey = env.YUNWU_API_KEY
+  const yunwuBase = (env.YUNWU_BASE_URL || 'https://yunwu.ai').replace(/\/$/, '')
+  if (!yunwuKey) throw new Error('Neither GEMINI_API_KEY nor YUNWU_API_KEY found in .env')
 
-  console.log('Calling Gemini API via SDK...')
-  const response = await ai.models.generateContent({
-    model: MODEL,
-    contents: prompt,
-    config: {
-      responseModalities: ['AUDIO'],
-      speechConfig: {
-        voiceConfig: {
-          prebuiltVoiceConfig: { voiceName: VOICE },
-        },
-      },
-    },
-  })
+  const yunwuUrl = `${yunwuBase}/v1beta/models/${MODEL}:generateContent`
+  console.log(`API: ${yunwuBase} (Yunwu)`)
 
-  const audioB64 = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data
+  let lastError = null
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      console.log(`Attempt ${attempt}/${MAX_RETRIES}: Calling Yunwu API...`)
+      const data = await callApi(yunwuUrl, yunwuKey, body)
+      await saveAudio(data, outputPath)
+      console.log('Success via Yunwu proxy')
+      return
+    } catch (err) {
+      lastError = err
+      if (!isRetryableError(err) || attempt === MAX_RETRIES) break
+
+      const delay = extractRetryDelay(err) || (BASE_DELAY_MS * attempt)
+      console.log(`Retryable error (attempt ${attempt}). Retrying in ${Math.round(delay / 1000)}s...`)
+      console.log(`  Error: ${err.message.substring(0, 200)}`)
+      await sleep(delay)
+    }
+  }
+
+  throw lastError
+}
+
+async function saveAudio(data, outputPath) {
+  const audioB64 = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data
   if (!audioB64) {
-    throw new Error(`No audio in response: ${JSON.stringify(response).substring(0, 500)}`)
+    throw new Error(`No audio in response: ${JSON.stringify(data).substring(0, 500)}`)
   }
 
   console.log('API returned audio data')
-
   const pcmBuffer = Buffer.from(audioB64, 'base64')
   const wavPath = outputPath.replace(/\.mp3$/, '.wav')
   const wavBuffer = createWav(pcmBuffer, 24000, 1, 16)
