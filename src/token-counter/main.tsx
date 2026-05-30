@@ -19,6 +19,22 @@ const SAMPLE_TEXT = `You are a helpful assistant. Answer the user's question cle
 User: What is the capital of France?
 Assistant: The capital of France is Paris.`
 
+const PROVIDER_COLORS: Record<string, string> = {
+  'gpt-4o': '#10a37f',
+  'claude-sonnet-4-20250514': '#d97757',
+  'gemini-2.5-pro': '#4285f4',
+  'llama-4-maverick': '#f97316',
+  'deepseek-r1': '#5b6ef7',
+}
+
+const COMPARE_MODELS = [
+  { id: 'gpt-4o', name: 'GPT-4o', provider: 'OpenAI' },
+  { id: 'claude-sonnet-4-20250514', name: 'Claude Sonnet 4', provider: 'Anthropic' },
+  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', provider: 'Google' },
+  { id: 'llama-4-maverick', name: 'Llama 4', provider: 'Groq' },
+  { id: 'deepseek-r1', name: 'DeepSeek R1', provider: 'DeepSeek' },
+]
+
 function TokenCounterApp() {
   const [text, setText] = useState(SAMPLE_TEXT)
   const [modelId, setModelId] = useState('gpt-4o')
@@ -40,189 +56,198 @@ function TokenCounterApp() {
 
   useEffect(() => { count(text, modelId) }, [text, modelId, count])
 
-  const selectedModel = pricing.models.find(m => m.id === modelId)
   const charCount = text.length
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0
-  const selectedGroup = MODEL_GROUPS.find(g => g.models.some(m => m.id === modelId))
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7]">
+    <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f]">
       <GlobalNav current="/token-counter/" />
 
-      <main className="max-w-[780px] mx-auto px-6 py-10">
+      <div className="max-w-[980px] mx-auto px-6">
         {/* Hero */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-semibold text-[#1d1d1f] tracking-tight mb-3">
-            Token Counter Online
-          </h1>
-          <p className="text-[#86868b] text-lg leading-relaxed">
-            Count tokens for GPT-4o, Claude, Gemini, Llama &amp; DeepSeek before your API calls.
-            Free, accurate, no login required.
-          </p>
-        </div>
-
-        {/* Model selector */}
-        <div className="mb-3 flex items-center gap-3">
-          <label htmlFor="model-select" className="text-sm font-medium text-[#1d1d1f]">Model:</label>
-          <select
-            id="model-select"
-            value={modelId}
-            onChange={e => setModelId(e.target.value)}
-            className="bg-white border border-[#e8e8ed] rounded-lg px-3 py-2 text-sm text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-[#0071E3]"
-          >
-            {MODEL_GROUPS.map(g => (
-              <optgroup key={g.label} label={g.label}>
-                {g.models.map(m => (
-                  <option key={m.id} value={m.id}>{m.name}</option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-          {selectedGroup && (
-            <span className="text-xs text-[#86868b]">
-              {selectedGroup.label} {selectedModel ? `· $${selectedModel.inputPricePer1M}/1M tokens` : ''}
+        <header className="pt-20 pb-12 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#1d1d1f] mb-4">
+            Token Counter
+            <br />
+            <span className="bg-gradient-to-r from-[#0071E3] to-[#40A0FF] bg-clip-text text-transparent">
+              Online
             </span>
-          )}
-        </div>
+          </h1>
+          <p className="text-lg md:text-xl text-[#86868b] max-w-xl mx-auto leading-relaxed">
+            Count tokens for GPT-4o, Claude, Gemini, Llama &amp; DeepSeek.
+            Exact counts with tiktoken. Free, no login.
+          </p>
+        </header>
 
-        {/* Text area + stats */}
-        <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
+        {/* Calculator Card */}
+        <div className="bg-white rounded-3xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#e8e8ed] overflow-hidden mb-6">
+          {/* Model Tabs */}
+          <div className="border-b border-[#e8e8ed] px-8 pt-6 flex flex-wrap gap-2">
+            {MODEL_GROUPS.flatMap(g => g.models.map(m => (
+              <button
+                key={m.id}
+                onClick={() => setModelId(m.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                  modelId === m.id
+                    ? 'bg-[#0071E3] text-white shadow-sm'
+                    : 'bg-[#f5f5f7] text-[#86868b] hover:bg-[#e8e8ed]'
+                }`}
+              >
+                {m.name}
+              </button>
+            )))}
+          </div>
+
+          {/* Text area */}
           <textarea
             value={text}
             onChange={e => setText(e.target.value)}
-            placeholder="Paste your prompt or text here to count tokens..."
-            rows={10}
-            className="w-full p-5 text-sm font-mono text-[#1d1d1f] resize-y focus:outline-none border-none"
+            placeholder="Paste your prompt or text here..."
+            rows={8}
+            className="w-full px-8 py-6 text-sm font-mono text-[#1d1d1f] resize-y focus:outline-none border-none min-h-[160px]"
           />
-          <div className="border-t border-[#e8e8ed] px-5 py-3 flex items-center gap-6 text-sm">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[#86868b]">Tokens:</span>
-              <span className="font-semibold text-[#0071E3] text-lg">
-                {counting ? '...' : tokens.toLocaleString()}
-              </span>
+
+          {/* Stats Bar */}
+          <div className="border-t border-[#e8e8ed] px-8 py-5 flex items-center justify-between">
+            <div className="flex items-center gap-8">
+              <div>
+                <div className="text-xs text-[#86868b] uppercase tracking-wide mb-0.5">Tokens</div>
+                <div className="text-3xl font-bold text-[#0071E3] tabular-nums">
+                  {counting ? '...' : tokens.toLocaleString()}
+                </div>
+              </div>
+              <div className="h-10 w-px bg-[#e8e8ed]" />
+              <div className="space-y-1">
+                <div className="text-sm text-[#86868b]">
+                  {charCount.toLocaleString()} <span className="text-xs">characters</span>
+                </div>
+                <div className="text-sm text-[#86868b]">
+                  {wordCount.toLocaleString()} <span className="text-xs">words</span>
+                </div>
+              </div>
             </div>
-            <div className="text-[#86868b]">
-              {charCount.toLocaleString()} chars
-            </div>
-            <div className="text-[#86868b]">
-              {wordCount.toLocaleString()} words
-            </div>
-            <div className="text-[#86868b]">
-              ~{Math.ceil(tokens / 750)} pages
+            <div className="text-right">
+              <div className="text-xs text-[#86868b]">
+                {(() => {
+                  const m = pricing.models.find(x => x.id === modelId)
+                  return m ? `${m.provider} · $${m.inputPricePer1M}/1M tokens` : ''
+                })()}
+              </div>
+              <div className="text-xs text-[#86868b] mt-0.5">
+                ~{tokens > 0 ? (tokens / 750).toFixed(1) : 0} pages
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Quick estimate table */}
-        <div className="bg-white rounded-2xl shadow-sm p-5 mb-10">
-          <h2 className="text-base font-semibold text-[#1d1d1f] mb-3">
-            Token Count Across Models
+        {/* Cross-Model Comparison */}
+        <div className="bg-white rounded-3xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#e8e8ed] p-8 mb-24">
+          <h2 className="text-2xl font-semibold tracking-tight mb-2">
+            Compare Across Models
           </h2>
-          <p className="text-sm text-[#86868b] mb-4">
-            Same text, different tokenizers. OpenAI models use tiktoken (exact), others are estimated.
+          <p className="text-sm text-[#86868b] mb-6">
+            Same text, different tokenizers. OpenAI uses tiktoken for exact counts.
           </p>
           <TokenCompareTable text={text} />
         </div>
 
-        {/* SEO: Token Counter for Claude */}
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] mb-3">
-            Token Counter for Claude
-          </h2>
-          <p className="text-sm text-[#86868b] leading-relaxed">
-            Count tokens for Anthropic Claude Sonnet 4 and Claude Haiku 4.
-            Anthropic does not publish their tokenizer, so we estimate based on character analysis:
-            roughly 4 characters per token for English, 1.5 characters for CJK text.
-            The estimate is typically within 5-10% of actual token usage.
-            Claude models have a 200K context window, so knowing your token count helps
-            you stay within limits and estimate API costs.
-          </p>
-        </section>
-
-        {/* SEO: Token Counter for Gemini */}
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] mb-3">
-            Token Counter for Gemini
-          </h2>
-          <p className="text-sm text-[#86868b] leading-relaxed">
-            Count tokens for Google Gemini 2.5 Pro and Gemini 2.5 Flash.
-            Google uses a different tokenizer than OpenAI, so token counts will differ.
-            Gemini 2.5 Pro supports up to 1M input tokens with a 64K output window,
-            making token counting essential for large document processing.
-            Use this counter before sending prompts to estimate your Gemini API costs.
-          </p>
-        </section>
-
-        {/* SEO: Token Counter for OpenAI */}
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] mb-3">
-            Token Counter for OpenAI
-          </h2>
-          <p className="text-sm text-[#86868b] leading-relaxed">
-            Count tokens for GPT-4o, GPT-4o Mini, o3, and o4-mini using tiktoken.
-            This gives you the exact token count that OpenAI's API will charge you for.
-            OpenAI charges per token for both input and output, so knowing your prompt
-            token count helps you estimate costs before making API calls.
-            GPT-4o has a 128K context window, GPT-4o Mini has 128K, and o3/o4-mini support 200K.
-          </p>
-        </section>
-
-        {/* SEO: Token Counter for Python */}
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] mb-3">
-            Token Counter for Python
-          </h2>
-          <div className="text-sm text-[#86868b] leading-relaxed space-y-2">
-            <p>
-              To count tokens in Python for OpenAI models, use the tiktoken library:
+        {/* Info Sections */}
+        <div className="max-w-[780px] mx-auto pb-16 space-y-12">
+          {/* Claude */}
+          <section>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              Token Counter for Claude
+            </h2>
+            <p className="text-[#86868b] leading-relaxed">
+              Count tokens for Anthropic Claude Sonnet 4 and Claude Haiku 4.
+              Anthropic does not publish their tokenizer, so we estimate based on character analysis:
+              roughly 4 characters per token for English, 1.5 characters for CJK text.
+              The estimate is typically within 5-10% of actual token usage.
+              Claude models have a 200K context window, so knowing your token count helps
+              you stay within limits and estimate API costs.
             </p>
-            <pre className="bg-[#1d1d1f] text-[#f5f5f7] rounded-lg p-4 text-xs overflow-x-auto font-mono">
+          </section>
+
+          {/* Gemini */}
+          <section>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              Token Counter for Gemini
+            </h2>
+            <p className="text-[#86868b] leading-relaxed">
+              Count tokens for Google Gemini 2.5 Pro and Gemini 2.5 Flash.
+              Google uses a different tokenizer than OpenAI, so token counts will differ.
+              Gemini 2.5 Pro supports up to 1M input tokens with a 64K output window,
+              making token counting essential for large document processing.
+            </p>
+          </section>
+
+          {/* OpenAI */}
+          <section>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              Token Counter for OpenAI
+            </h2>
+            <p className="text-[#86868b] leading-relaxed">
+              Count tokens for GPT-4o, GPT-4o Mini, o3, and o4-mini using tiktoken.
+              This gives you the exact token count that OpenAI's API will charge you for.
+              GPT-4o has a 128K context window, GPT-4o Mini has 128K, and o3/o4-mini support 200K.
+            </p>
+          </section>
+
+          {/* Python */}
+          <section>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              Token Counter for Python
+            </h2>
+            <div className="text-[#86868b] leading-relaxed space-y-3">
+              <p>
+                To count tokens in Python for OpenAI models, use the tiktoken library:
+              </p>
+              <pre className="bg-[#1d1d1f] text-[#f5f5f7] rounded-2xl p-6 text-sm overflow-x-auto font-mono leading-relaxed">
 {`pip install tiktoken
 
 import tiktoken
 enc = tiktoken.encoding_for_model("gpt-4o")
 tokens = enc.encode("Your text here")
 print(len(tokens))  # token count`}
-            </pre>
-            <p>
-              For Claude and Gemini, use the token counting endpoints in their respective APIs.
-              This website gives you instant token counts without installing any libraries.
-            </p>
-          </div>
-        </section>
+              </pre>
+              <p>
+                For Claude and Gemini, use the token counting endpoints in their respective APIs.
+                This website gives you instant counts without installing any libraries.
+              </p>
+            </div>
+          </section>
 
-        {/* SEO: How to Count Tokens Online */}
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold text-[#1d1d1f] mb-3">
-            How to Count Tokens Online
-          </h2>
-          <div className="text-sm text-[#86868b] leading-relaxed space-y-2">
-            <p>Three steps to count tokens for your LLM prompts:</p>
-            <ol className="list-decimal list-inside space-y-1 ml-2">
-              <li><strong className="text-[#1d1d1f]">Paste your text</strong> — prompts, documents, or any text you plan to send to an AI API.</li>
-              <li><strong className="text-[#1d1d1f]">Select your model</strong> — different models use different tokenizers, so token counts vary.</li>
-              <li><strong className="text-[#1d1d1f]">Get instant count</strong> — see exact tokens (OpenAI) or estimated tokens (Claude, Gemini).</li>
-            </ol>
-            <p>
-              Why count tokens? AI providers charge by the token. A prompt with 1,000 tokens costs
-              different amounts depending on the model. Knowing your token count before making API calls
-              helps you compare costs and optimize your prompts.
-            </p>
-          </div>
-        </section>
+          {/* How to */}
+          <section>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              How to Count Tokens Online
+            </h2>
+            <div className="text-[#86868b] leading-relaxed space-y-3">
+              <ol className="list-decimal list-inside space-y-1 ml-1">
+                <li><strong className="text-[#1d1d1f]">Paste your text</strong> — prompts, documents, or any text you plan to send to an AI API.</li>
+                <li><strong className="text-[#1d1d1f]">Select your model</strong> — different models use different tokenizers, so counts vary.</li>
+                <li><strong className="text-[#1d1d1f]">Get instant count</strong> — exact tokens (OpenAI) or estimated tokens (Claude, Gemini).</li>
+              </ol>
+              <p>
+                AI providers charge by the token. Knowing your token count before making API calls
+                helps you compare costs and optimize your prompts.
+              </p>
+            </div>
+          </section>
 
-        {/* Footer */}
-        <footer className="border-t border-[#e8e8ed] pt-6 text-center text-sm text-[#86868b]">
-          <p>Free online token counter. No login required. All calculations happen in your browser.</p>
-          <p className="mt-2">
-            <a href="/" className="text-[#0071E3] hover:underline">AI Cost Calculator</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/token-tracker/" className="text-[#0071E3] hover:underline">Token Tracker</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/prompt-cache-calculator/" className="text-[#0071E3] hover:underline">Cache Calculator</a>
-          </p>
-        </footer>
-      </main>
+          {/* Footer */}
+          <footer className="border-t border-[#e8e8ed] pt-8 text-center text-sm text-[#86868b]">
+            <p>Free online token counter. No login required. All calculations in your browser.</p>
+            <p className="mt-2">
+              <a href="/" className="text-[#0071E3] hover:underline">AI Cost Calculator</a>
+              <span className="mx-1.5">&middot;</span>
+              <a href="/token-tracker/" className="text-[#0071E3] hover:underline">Token Tracker</a>
+              <span className="mx-1.5">&middot;</span>
+              <a href="/prompt-cache-calculator/" className="text-[#0071E3] hover:underline">Cache Calculator</a>
+            </p>
+          </footer>
+        </div>
+      </div>
     </div>
   )
 }
@@ -236,15 +261,7 @@ function TokenCompareTable({ text }: { text: string }) {
     async function countAll() {
       setLoading(true)
       const results: Record<string, number> = {}
-      // One model per provider is enough for comparison
-      const repModels = [
-        { id: 'gpt-4o', name: 'GPT-4o' },
-        { id: 'claude-sonnet-4-20250514', name: 'Claude Sonnet 4' },
-        { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro' },
-        { id: 'llama-4-maverick', name: 'Llama 4 Maverick' },
-        { id: 'deepseek-r1', name: 'DeepSeek R1' },
-      ]
-      for (const m of repModels) {
+      for (const m of COMPARE_MODELS) {
         results[m.id] = await countTokens(text, m.id)
       }
       if (!cancelled) { setCounts(results); setLoading(false) }
@@ -253,32 +270,41 @@ function TokenCompareTable({ text }: { text: string }) {
     return () => { cancelled = true }
   }, [text])
 
-  if (loading) return <div className="text-sm text-[#86868b]">Counting across models...</div>
+  if (loading) {
+    return (
+      <div className="flex items-center gap-2 text-sm text-[#86868b]">
+        <div className="w-4 h-4 border-2 border-[#0071E3] border-t-transparent rounded-full animate-spin" />
+        Counting across models...
+      </div>
+    )
+  }
 
   const maxCount = Math.max(...Object.values(counts), 1)
 
   return (
-    <div className="space-y-2">
-      {[
-        { id: 'gpt-4o', name: 'GPT-4o' },
-        { id: 'claude-sonnet-4-20250514', name: 'Claude Sonnet 4' },
-        { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro' },
-        { id: 'llama-4-maverick', name: 'Llama 4 Maverick' },
-        { id: 'deepseek-r1', name: 'DeepSeek R1' },
-      ].map(m => (
-        <div key={m.id} className="flex items-center gap-3">
-          <span className="text-sm text-[#1d1d1f] w-36 shrink-0">{m.name}</span>
-          <div className="flex-1 bg-[#f5f5f7] rounded-full h-6 overflow-hidden">
-            <div
-              className="bg-[#0071E3] h-full rounded-full transition-all duration-300"
-              style={{ width: `${((counts[m.id] || 0) / maxCount) * 100}%` }}
-            />
+    <div className="space-y-3">
+      {COMPARE_MODELS.map(m => {
+        const count = counts[m.id] || 0
+        const pct = (count / maxCount) * 100
+        const color = PROVIDER_COLORS[m.id] || '#0071E3'
+        return (
+          <div key={m.id} className="flex items-center gap-4">
+            <div className="w-32 shrink-0">
+              <div className="text-sm font-medium text-[#1d1d1f]">{m.name}</div>
+              <div className="text-xs text-[#86868b]">{m.provider}</div>
+            </div>
+            <div className="flex-1 bg-[#f5f5f7] rounded-full h-3 overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-500 ease-out"
+                style={{ width: `${pct}%`, backgroundColor: color }}
+              />
+            </div>
+            <span className="text-sm font-semibold tabular-nums text-[#1d1d1f] w-12 text-right">
+              {count}
+            </span>
           </div>
-          <span className="text-sm font-mono text-[#1d1d1f] w-16 text-right">
-            {counts[m.id] || 0}
-          </span>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
