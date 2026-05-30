@@ -15,6 +15,7 @@ const fs = require('fs')
 const path = require('path')
 const net = require('net')
 const { ProxyAgent, setGlobalDispatcher } = require('undici')
+const cheerio = require('cheerio')
 
 const ROOT = path.resolve(__dirname, '..')                       // prompt-cost-calculator/
 const OUT_DIR = path.resolve(ROOT, '../docs/daily-scout')        // part-time job/docs/daily-scout
@@ -31,7 +32,22 @@ const MONEY_RE = /\$\d|\bpricing\b|\bexpensive\b|\bcost(s|ly)?\b|\bMRR\b|\bARR\b
 const COMPLAINT_RE = /\b(hate|annoying|frustrat|broken|sucks|terrible|worst|painful?|struggl|can'?t|doesn'?t work|stop(ped)? using|alternative to|switch(ed|ing)? from)\b/i
 const LAUNCH_RE = /\b(built|launch(ed|ing)?|i made|show hn|introduc|releas(ed|ing)?|just shipped|my (new )?(app|tool|side ?project|saas))\b/i
 
-const MONEY_BOOST = 1.0  // 加在归一化 engagement(0..1) 之上，足以把金钱信号顶到前面
+const MONEY_BOOST = 0.3  // 金钱信号加成，不覆盖 metric 主权重
+const METRIC_WEIGHT = 5.0  // metric log-scale 权重，让高互动信号远超无 metric 信号
+
+// 源重要性权重：讨论型源 > 趋势型源 > 搜索型源
+const SOURCE_WEIGHT = {
+  HackerNews: 1.0, r_SaaS: 1.0, r_SideProject: 1.0, r_indiehackers: 1.0,
+  r_selfhosted: 0.9, r_webdev: 0.9,
+  Lobsters: 0.8, DEV: 0.8, ProductHunt: 0.8, IndieHackers: 0.8,
+  GitHub: 0.5, HuggingFace: 0.5,
+  GoogleTrends: 0.2, GoogleSuggest: 0.15, Browse: 0.3,
+}
+function getSourceWeight(source) {
+  // r/SaaS → r_SaaS for lookup
+  const key = source.replace(/^r\//, 'r_')
+  return SOURCE_WEIGHT[key] ?? 0.5
+}
 
 // 国内 DNS 污染会让 node 直连 huggingface/google/reddit 解析到错误 IP（curl 走 Clash 才通）。
 // 这些是 Clash Verge 常用混合端口，env 代理变量没有时按序探测。
@@ -95,6 +111,8 @@ function decodeEntities(s) {
   return s
     .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&#x27;/gi, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
 }
 
 function categorize(text) {
@@ -103,9 +121,255 @@ function categorize(text) {
   return 'trend'
 }
 
-function signal({ source, category, title, url, metric, metricLabel, snippet = '' }) {
+function signal({ source, category, title, url, metric, metricLabel, snippet = '', sourceId = '' }) {
   const money = MONEY_RE.test(`${title} ${snippet}`)
-  return { source, category, title: title.trim(), url, metric, metricLabel, snippet: snippet.trim(), money }
+  return { source, category, title: title.trim(), url, metric, metricLabel, snippet: snippet.trim(), money, sourceId }
+}
+
+// ---------- 各数据源（免费核心，无需 token） ----------
+
+// ---------- 深度抓取（文章正文 + 评论线程） ----------
+
+const DEEP_FETCH_TOP = 20
+const DEEP_FETCH_DELAY = 500
+const BODY_MAX_CHARS = 3000
+const COMMENT_MAX_CHARS = 500
+const TOP_COMMENTS_COUNT = 5
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)) }
+
+function stripHtml(html) {
+  if (!html) return ''
+  return html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
+}
+
+function truncate(text, max) {
+  if (!text || text.length <= max) return text || ''
+  return text.slice(0, max) + '…'
+}
+
+async function fetchHNDeep(s) {
+  const out = { body: '', topComments: [] }
+  let itemId = null
+
+  // 情况 1: URL 是 HN 讨论页 (news.ycombinator.com/item?id=XXX)
+  const idM = s.url.match(/id=(\d+)/)
+  if (idM) {
+    itemId = idM[1]
+  } else {
+    // 情况 2: URL 是外部链接，通过 Algolia 搜索找 HN item
+    try {
+      const search = await getJSON(`https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(s.title)}&tags=story&hitsPerPage=1`)
+      if (search.hits?.[0]) {
+        itemId = search.hits[0].objectID
+      }
+    } catch (_) { return null }
+  }
+  if (!itemId) return null
+
+  const data = await getJSON(`https://hn.algolia.com/api/v1/items/${itemId}`)
+  if (!data) return null
+
+  // 正文：self post 有 text 字段（HTML），link post 需要抓目标页面
+  if (data.text) {
+    out.body = truncate(stripHtml(data.text), BODY_MAX_CHARS)
+  } else if (data.url && !data.url.includes('news.ycombinator.com')) {
+    try {
+      out.body = await fetchGenericBody(data.url)
+    } catch (_) { /* 目标页面抓取失败不中断 */ }
+  }
+
+  // 评论：取前 N 条顶级评论
+  const kids = data.children || []
+  for (let i = 0; i < Math.min(TOP_COMMENTS_COUNT, kids.length); i++) {
+    const c = kids[i]
+    if (c && c.text) {
+      out.topComments.push({
+        author: c.author || '',
+        text: truncate(stripHtml(c.text), COMMENT_MAX_CHARS),
+      })
+    }
+  }
+  return out.body || out.topComments.length ? out : null
+}
+
+async function fetchRedditDeep(s) {
+  const out = { body: '', topComments: [] }
+  const m = s.url.match(/\/r\/([^/]+)\/comments\/([^/]+)/)
+  if (!m) return null
+  const [, sub, postId] = m
+
+  // Reddit JSON API 封数据中心 IP (403)。用 old.reddit.com + HTML 解析兜底。
+  // 先试 JSON，失败则降级 HTML。
+  let usedJson = false
+  try {
+    const raw = await getText(`https://old.reddit.com/r/${sub}/comments/${postId}/.json`)
+    const json = JSON.parse(raw)
+    if (Array.isArray(json) && json[0]) {
+      usedJson = true
+      const postData = json[0].data?.children?.[0]?.data
+      if (postData?.selftext) {
+        out.body = truncate(stripHtml(postData.selftext), BODY_MAX_CHARS)
+      }
+      const commentChildren = json[1]?.data?.children || []
+      let count = 0
+      for (const c of commentChildren) {
+        if (count >= TOP_COMMENTS_COUNT) break
+        if (c.kind !== 't1' || !c.data?.body) continue
+        out.topComments.push({
+          author: c.data.author || '',
+          text: truncate(stripHtml(c.data.body), COMMENT_MAX_CHARS),
+        })
+        count++
+      }
+    }
+  } catch (_) { /* JSON 失败，降级 HTML */ }
+
+  if (!usedJson) {
+    try {
+      const html = await getText(`https://old.reddit.com/r/${sub}/comments/${postId}/`)
+      const $ = cheerio.load(html)
+      // 正文
+      const selftext = $('.expando .usertext-body').first().text().trim()
+      if (selftext) out.body = truncate(selftext, BODY_MAX_CHARS)
+      // 评论
+      let count = 0
+      $('.comment .usertext-body').each(function () {
+        if (count >= TOP_COMMENTS_COUNT) return false
+        const text = $(this).text().trim()
+        if (text.length > 10) {
+          const author = $(this).closest('.comment').find('.author').first().text() || ''
+          out.topComments.push({ author, text: truncate(text, COMMENT_MAX_CHARS) })
+          count++
+        }
+      })
+    } catch (_) { return null }
+  }
+  return out.body || out.topComments.length ? out : null
+}
+
+async function fetchLobstersDeep(s) {
+  const out = { body: '', topComments: [] }
+  // 优先用 sourceId（采集时存的 short_id），降级从 URL 提取
+  let shortId = s.sourceId || ''
+  if (!shortId) {
+    const m = s.url.match(/\/s\/([a-zA-Z0-9]+)/)
+    if (!m) return null
+    shortId = m[1]
+  }
+
+  let data
+  try {
+    data = await getJSON(`https://lobste.rs/s/${shortId}.json`)
+  } catch (_) { return null }
+  if (!data) return null
+
+  // 正文（Lobsters 故事通常没有正文，评论才有）
+  if (data.description) {
+    out.body = truncate(stripHtml(data.description), BODY_MAX_CHARS)
+  }
+
+  // 评论
+  const comments = data.comments || []
+  for (let i = 0; i < Math.min(TOP_COMMENTS_COUNT, comments.length); i++) {
+    const c = comments[i]
+    if (c?.comment) {
+      out.topComments.push({
+        author: c.user?.username || '',
+        text: truncate(stripHtml(c.comment), COMMENT_MAX_CHARS),
+      })
+    }
+  }
+  return out.body || out.topComments.length ? out : null
+}
+
+async function fetchDEVDeep(s) {
+  const out = { body: '', topComments: [] }
+  // 优先用 sourceId（采集时存的 DEV article id），降级从 URL 提取
+  let articleId = s.sourceId || ''
+  if (!articleId) {
+    const m = s.url.match(/-(\d+)$/)
+    if (!m) return null
+    articleId = m[1]
+  }
+
+  let data
+  try {
+    data = await getJSON(`https://dev.to/api/articles/${articleId}`)
+  } catch (_) { return null }
+  if (!data) return null
+
+  // 正文（Markdown）
+  if (data.body_markdown) {
+    out.body = truncate(data.body_markdown.replace(/\n{2,}/g, '\n').trim(), BODY_MAX_CHARS)
+  }
+
+  // 评论（需要额外请求）
+  try {
+    const comments = await getJSON(`https://dev.to/api/comments?a_id=${articleId}`)
+    for (let i = 0; i < Math.min(TOP_COMMENTS_COUNT, comments.length); i++) {
+      const c = comments[i]
+      if (c?.body_html) {
+        out.topComments.push({
+          author: c.user?.username || '',
+          text: truncate(stripHtml(c.body_html), COMMENT_MAX_CHARS),
+        })
+      }
+    }
+  } catch (_) { /* 评论抓取失败不中断 */ }
+
+  return out.body || out.topComments.length ? out : null
+}
+
+async function fetchGenericBody(url) {
+  if (!url || url.startsWith('data:') || url.startsWith('javascript:')) return ''
+  const html = await getText(url)
+  const $ = cheerio.load(html)
+  const sel = $('article').first()
+  const main = $('main').first()
+  const el = sel.length ? sel : main.length ? main : $('body')
+  const text = el.text().replace(/\s+/g, ' ').trim()
+  return truncate(text, BODY_MAX_CHARS)
+}
+
+async function fetchDeepContent(s) {
+  // 跳过无法/无需深度抓取的源
+  if (s.source === 'GoogleSuggest' || s.source === 'GoogleTrends' ||
+      s.source === 'IndieHackers' || s.source === 'ProductHunt' ||
+      s.source === 'GitHub' || s.category === 'keyword') return null
+
+  if (s.source === 'HackerNews' || s.source.startsWith('Show HN')) return fetchHNDeep(s)
+  if (s.source.startsWith('r/')) return fetchRedditDeep(s)
+  if (s.source === 'Lobsters') return fetchLobstersDeep(s)
+  if (s.source === 'DEV') return fetchDEVDeep(s)
+  // HuggingFace 等有 URL 的源：抓通用正文
+  if (s.url && s.url.startsWith('http')) {
+    try {
+      const body = await fetchGenericBody(s.url)
+      return body ? { body, topComments: [] } : null
+    } catch (_) { return null }
+  }
+  return null
+}
+
+async function deepFetchSignals(topSignals) {
+  let fetched = 0
+  for (let i = 0; i < topSignals.length; i++) {
+    const s = topSignals[i]
+    try {
+      const deep = await fetchDeepContent(s)
+      if (deep) {
+        s.body = deep.body
+        s.topComments = deep.topComments
+        s.contentLength = (deep.body || '').length
+        fetched++
+      }
+    } catch (e) {
+      console.warn(`  ✗ deep ${s.source}: ${s.title.slice(0, 40)}: ${e.message}`)
+    }
+    if (i < topSignals.length - 1) await sleep(DEEP_FETCH_DELAY)
+  }
+  return fetched
 }
 
 // ---------- 各数据源（免费核心，无需 token） ----------
@@ -164,11 +428,77 @@ async function fetchReddit() {
   return out
 }
 
+// Product Hunt — Atom RSS feed（Cloudflare 封了所有 API/页面，只有 /feed 可用）。
+// 返回产品名、tagline、作者、链接。无 upvotes/comments（需要 PH API v2 token）。
+// 采集 all + developer_tools 两个分类，去重后约 60-80 条/天。
+const PH_FEEDS = [
+  'https://www.producthunt.com/feed?category=all',
+  'https://www.producthunt.com/feed?category=developer_tools',
+]
+
+async function fetchProductHunt() {
+  const out = []
+  const seenIds = new Set()
+
+  for (const feedUrl of PH_FEEDS) {
+    let xml
+    try {
+      xml = await getText(feedUrl)
+    } catch (e) {
+      continue // 单个 feed 失败不丢弃其他 feed 的结果
+    }
+    // Atom <entry> 解析（与 fetchReddit 同模式，不引入 XML 依赖）
+    for (const m of xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)) {
+      const entry = m[1]
+      const idM = entry.match(/<id>([^<]+)<\/id>/)
+      const titleM = entry.match(/<title>([\s\S]*?)<\/title>/)
+      const linkM = entry.match(/<link[^>]*href="([^"]+)"/)
+      const contentM = entry.match(/<content[^>]*>([\s\S]*?)<\/content>/)
+      const publishedM = entry.match(/<published>([^<]+)<\/published>/)
+      if (!titleM || !linkM) continue
+
+      // 去重（同一产品出现在多个分类 feed 中）
+      const entryId = idM ? idM[1] : linkM[1]
+      if (seenIds.has(entryId)) continue
+      seenIds.add(entryId)
+
+      // 保留最近 3 天的产品（PH 用太平洋时间，RSS 可能滞后 1 天；周末更新更少）
+      if (publishedM) {
+        const pubMs = new Date(publishedM[1]).getTime()
+        if (!isNaN(pubMs) && Date.now() - pubMs > 3 * DAY_SECONDS * 1000) continue
+      }
+
+      // 从 HTML content 提取 tagline（先解码 HTML entity，再剥 CDATA，再取第一个 <p>）
+      let tagline = ''
+      if (contentM) {
+        let decoded = decodeEntities(contentM[1])
+        decoded = decoded.replace(/^<!\[CDATA\[([\s\S]*?)\]\]>$/, '$1')
+        const tagM = decoded.match(/<p>\s*(.*?)\s*<\/p>/s)
+        if (tagM) {
+          tagline = tagM[1].replace(/<[^>]+>/g, '').trim()
+        } else {
+          tagline = decoded.replace(/<[^>]+>/g, '').trim().slice(0, 200)
+        }
+      }
+
+      out.push(signal({
+        source: 'ProductHunt', category: 'launch',
+        title: decodeEntities(titleM[1].trim()),
+        url: linkM[1], metric: null, metricLabel: 'PH launch',
+        snippet: tagline,
+      }))
+    }
+  }
+  if (out.length === 0) throw new Error('PH RSS returned no entries for today')
+  return out
+}
+
 async function fetchLobsters() {
   const data = await getJSON('https://lobste.rs/hottest.json')
   return (data || []).map(p => signal({
     source: 'Lobsters', category: 'tool', title: p.title,
     url: p.url || p.short_id_url, metric: p.comment_count ?? 0, metricLabel: 'Lobsters comments',
+    sourceId: p.short_id || '',
   }))
 }
 
@@ -187,6 +517,7 @@ async function fetchDevTo() {
     source: 'DEV', category: categorize(`${a.title} ${a.description || ''}`), title: a.title,
     url: a.url, metric: a.positive_reactions_count ?? 0, metricLabel: 'DEV reactions',
     snippet: a.description || '',
+    sourceId: String(a.id || ''),
   }))
 }
 
@@ -252,7 +583,8 @@ function dedupeByUrl(signals) {
 }
 
 function applyScores(signals) {
-  // 每个源内部归一化 metric 到 0..1，再叠加金钱加权；保留原始 metric 供展示。
+  // 每个源内部 log-scale 归一化，再乘以源重要性权重。
+  // null-metric 的源（Reddit RSS 无点赞数）按源权重给 baseline 分。
   const maxBySource = {}
   for (const s of signals) {
     if (typeof s.metric === 'number') {
@@ -261,8 +593,15 @@ function applyScores(signals) {
   }
   for (const s of signals) {
     const max = maxBySource[s.source] || 0
-    const norm = typeof s.metric === 'number' && max > 0 ? s.metric / max : 0
-    s.score = +(norm + (s.money ? MONEY_BOOST : 0)).toFixed(3)
+    const weight = getSourceWeight(s.source)
+    let metricScore
+    if (typeof s.metric === 'number' && max > 0) {
+      metricScore = METRIC_WEIGHT * Math.log(s.metric + 1) / Math.log(max + 1) * weight
+    } else {
+      // null metric：按源重要性给 baseline（Reddit > PH > GoogleSuggest）
+      metricScore = weight * 2.0
+    }
+    s.score = +(metricScore + (s.money ? MONEY_BOOST : 0)).toFixed(3)
   }
   return signals
 }
@@ -270,14 +609,15 @@ function applyScores(signals) {
 function fmtLine(s) {
   const metricStr = typeof s.metric === 'number' ? ` — ${s.metricLabel}: ${s.metric}` : ` — ${s.metricLabel}`
   const money = s.money ? ' 💰' : ''
-  return `- [${s.title}](${s.url})${metricStr}${money}`
+  const snippet = s.snippet ? ` — ${s.snippet.slice(0, 80)}` : ''
+  return `- [${s.title}](${s.url})${metricStr}${money}${snippet}`
 }
 
 function renderMarkdown(signals, meta) {
   const byCat = c => signals.filter(s => s.category === c)
   const top = [...signals].sort((a, b) => b.score - a.score).slice(0, 8)
 
-  const launches = byCat('launch').sort((a, b) => b.score - a.score).slice(0, 12)
+  const launches = byCat('launch').sort((a, b) => b.score - a.score).slice(0, 20)
   const complaints = byCat('complaint').sort((a, b) => b.score - a.score).slice(0, 12)
   const keywords = byCat('keyword')
   const techRadar = signals.filter(s => s.category === 'model' || s.category === 'tool')
@@ -333,6 +673,7 @@ function renderMarkdown(signals, meta) {
 
 const SOURCES = [
   ['HackerNews', fetchHackerNews],
+  ['ProductHunt', fetchProductHunt],
   ['Reddit', fetchReddit],
   ['Lobsters', fetchLobsters],
   ['HuggingFace', fetchHuggingFace],
@@ -388,6 +729,22 @@ async function main() {
     console.warn(`  ✗ GitHub: ${e.message}`)
   }
 
+  // Browse 采集源（IH + Google Trends，由 scrape-browse-sources.sh 产出）
+  const browseFile = path.join(RAW_DIR, `browse-${date}.json`)
+  try {
+    const browseData = JSON.parse(fs.readFileSync(browseFile, 'utf8'))
+    const browseSignals = browseData.signals || []
+    if (browseSignals.length > 0) {
+      signals.push(...browseSignals)
+      perSourceCount.Browse = browseSignals.length
+      sourcesOk.push(`Browse(IH:${browseData.IndieHackers||0},GT:${browseData.GoogleTrends||0})`)
+      console.log(`  ✓ Browse: ${browseSignals.length} signals (IH:${browseData.IndieHackers||0}, GT:${browseData.GoogleTrends||0})`)
+    }
+  } catch (e) {
+    // browse 文件不存在是正常的（browse daemon 可能没运行）
+    console.log(`  - Browse: no browse data for today (run scrape-browse-sources.sh first)`)
+  }
+
   if (signals.length === 0) {
     console.error('所有数据源均失败，无信号产出。')
     process.exit(1)
@@ -395,6 +752,11 @@ async function main() {
 
   signals = dedupeByUrl(signals)
   applyScores(signals)
+
+  // 深度抓取 Top N 信号的文章正文和评论
+  const topForDeep = [...signals].sort((a, b) => b.score - a.score).slice(0, DEEP_FETCH_TOP)
+  const deepCount = await deepFetchSignals(topForDeep)
+  console.log(`  📥 deep fetch: ${deepCount}/${topForDeep.length} enriched with body/comments`)
 
   fs.mkdirSync(RAW_DIR, { recursive: true })
   fs.mkdirSync(SIGNALS_DIR, { recursive: true })
