@@ -7,7 +7,7 @@ const os = require('os')
 const { google } = require('googleapis')
 
 const KEY_FILE = process.env.GSC_KEY_FILE || path.join(os.homedir(), 'Downloads', 'gsc-indexing-497309-c9c682ceec78.json')
-const SITE_URL = 'https://codehelper.xyz/'
+const SITE_URL = 'https://aicalc.cloud/'
 
 async function main() {
   console.log('Testing GSC Search Analytics API...')
@@ -40,7 +40,7 @@ async function main() {
   const endDate = new Date().toISOString().slice(0, 10)
   const startDate = new Date(Date.now() - 7 * 86400 * 1000).toISOString().slice(0, 10)
 
-  const candidates = ['https://codehelper.xyz/', 'sc-domain:codehelper.xyz']
+  const candidates = ['https://aicalc.cloud/', 'sc-domain:codehelper.xyz']
 
   for (const site of candidates) {
     try {

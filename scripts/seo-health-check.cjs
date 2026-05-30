@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
 
-const BASE = 'https://codehelper.xyz'
+const BASE = 'https://aicalc.cloud'
 
 // All 9 project hubs + key sub-pages
 const PAGES = [

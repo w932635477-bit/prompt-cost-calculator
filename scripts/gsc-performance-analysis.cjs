@@ -17,7 +17,7 @@ const startDate = new Date(Date.now() - (DAYS + 2) * 86400 * 1000).toISOString()
 async function resolveSite(webmasters) {
   const sites = await webmasters.sites.list()
   const entries = (sites.data.siteEntry || []).map(s => s.siteUrl)
-  for (const c of ['sc-domain:codehelper.xyz', 'https://codehelper.xyz/']) {
+  for (const c of ['sc-domain:codehelper.xyz', 'https://aicalc.cloud/']) {
     if (entries.includes(c)) return c
   }
   return entries[0]
@@ -67,7 +67,7 @@ async function main() {
   // 落地页 Top 25
   const pages = await q(webmasters, site, ['page'], 25)
   console.log(`\n【落地页 Top ${pages.length}】`)
-  pages.forEach((r, i) => console.log(`  ${String(i + 1).padStart(2)}. ${r.keys[0].replace('https://codehelper.xyz', '')}  ${fmt(r)}`))
+  pages.forEach((r, i) => console.log(`  ${String(i + 1).padStart(2)}. ${r.keys[0].replace('https://aicalc.cloud', '')}  ${fmt(r)}`))
 
   // 国家 Top 15
   const countries = await q(webmasters, site, ['country'], 15)

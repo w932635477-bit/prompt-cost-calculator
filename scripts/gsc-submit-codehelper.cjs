@@ -8,7 +8,7 @@
  *
  * Usage:
  *   node scripts/gsc-submit-codehelper.cjs
- *   node scripts/gsc-submit-codehelper.cjs https://codehelper.xyz/some/page/
+ *   node scripts/gsc-submit-codehelper.cjs https://aicalc.cloud/some/page/
  */
 
 const fs = require('fs')
@@ -18,7 +18,7 @@ const http = require('http')
 const { URL } = require('url')
 
 const TOKEN_CACHE = path.join(__dirname, '_gsc_oauth_token.json')
-const BASE = 'https://codehelper.xyz'
+const BASE = 'https://aicalc.cloud'
 const REDIRECT_PORT = 8089
 const REDIRECT_URI = `http://localhost:${REDIRECT_PORT}`
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T07:29:33.436Z",
+  "generatedAt": "2026-05-30T03:17:36.287Z",
   "summary": {
     "totalIndexable": 294,
     "totalSubmitted": 225,
@@ -12,80 +12,80 @@
     {
       "name": "cron-generator",
       "total": 160,
-      "submitted": 127,
-      "remaining": 33
+      "submitted": 0,
+      "remaining": 160
     },
     {
       "name": "alternatives",
       "total": 42,
-      "submitted": 42,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 42
     },
     {
       "name": "deploy",
       "total": 36,
-      "submitted": 9,
-      "remaining": 27
+      "submitted": 0,
+      "remaining": 36
     },
     {
       "name": "compare",
       "total": 27,
-      "submitted": 27,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 27
     },
     {
       "name": "mcp-servers",
       "total": 11,
-      "submitted": 7,
-      "remaining": 4
+      "submitted": 0,
+      "remaining": 11
     },
     {
       "name": "token-tracker",
       "total": 5,
-      "submitted": 1,
-      "remaining": 4
+      "submitted": 0,
+      "remaining": 5
     },
     {
       "name": "ai-code-review",
       "total": 3,
-      "submitted": 3,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 3
     },
     {
       "name": "finder",
       "total": 2,
-      "submitted": 2,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 2
     },
     {
       "name": "home",
       "total": 1,
-      "submitted": 1,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 1
     },
     {
       "name": "agent-safety",
       "total": 1,
-      "submitted": 1,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 1
     },
     {
       "name": "voice-agent-pricing",
       "total": 1,
-      "submitted": 1,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 1
     },
     {
       "name": "photos",
       "total": 1,
-      "submitted": 1,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 1
     },
     {
       "name": "prompt-cache-calculator",
       "total": 1,
-      "submitted": 1,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 1
     },
     {
       "name": "csp-generator",
@@ -96,14 +96,14 @@
     {
       "name": "pii-redactor",
       "total": 1,
-      "submitted": 1,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 1
     },
     {
       "name": "ai-agent-data-access",
       "total": 1,
-      "submitted": 1,
-      "remaining": 0
+      "submitted": 0,
+      "remaining": 1
     }
   ],
   "dailyBars": [
@@ -129,115 +129,115 @@
     }
   ],
   "suggestedBatch": [
-    "https://aicalc.cloud/csp-generator/",
-    "https://aicalc.cloud/cron-generator/zh/",
-    "https://aicalc.cloud/cron-generator/ja/",
-    "https://aicalc.cloud/cron-generator/pt/",
-    "https://aicalc.cloud/cron-generator/fr/",
-    "https://aicalc.cloud/cron-generator/ko/",
-    "https://aicalc.cloud/cron-generator/weekdays-9am/",
-    "https://aicalc.cloud/cron-generator/weekdays-8am/",
-    "https://aicalc.cloud/cron-generator/weekdays-5pm/",
-    "https://aicalc.cloud/cron-generator/weekdays-6pm/"
+    "https://aicalc.cloud/",
+    "https://aicalc.cloud/cron-generator/",
+    "https://aicalc.cloud/alternatives/",
+    "https://aicalc.cloud/compare/",
+    "https://aicalc.cloud/deploy/",
+    "https://aicalc.cloud/token-tracker/",
+    "https://aicalc.cloud/compare/obsidian-vs-notion/",
+    "https://aicalc.cloud/compare/notion-vs-obsidian/",
+    "https://aicalc.cloud/compare/nextcloud-vs-owncloud/",
+    "https://aicalc.cloud/compare/joplin-vs-obsidian/"
   ],
   "recentSubmissions": [
     {
-      "url": "https://aicalc.cloud/cron-generator/every-tuesday-2pm/",
+      "url": "https://codehelper.xyz/cron-generator/every-tuesday-2pm/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-thursday/",
+      "url": "https://codehelper.xyz/cron-generator/every-thursday/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-thursday-3pm/",
+      "url": "https://codehelper.xyz/cron-generator/every-thursday-3pm/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-sunday/",
+      "url": "https://codehelper.xyz/cron-generator/every-sunday/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-sunday-noon/",
+      "url": "https://codehelper.xyz/cron-generator/every-sunday-noon/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-sunday-6pm/",
+      "url": "https://codehelper.xyz/cron-generator/every-sunday-6pm/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-saturday/",
+      "url": "https://codehelper.xyz/cron-generator/every-saturday/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-saturday-9am/",
+      "url": "https://codehelper.xyz/cron-generator/every-saturday-9am/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-saturday-8am/",
+      "url": "https://codehelper.xyz/cron-generator/every-saturday-8am/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-quarter/",
+      "url": "https://codehelper.xyz/cron-generator/every-quarter/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-october/",
+      "url": "https://codehelper.xyz/cron-generator/every-october/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-month/",
+      "url": "https://codehelper.xyz/cron-generator/every-month/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-monday-wednesday/",
+      "url": "https://codehelper.xyz/cron-generator/every-monday-wednesday/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-monday-wednesday-friday/",
+      "url": "https://codehelper.xyz/cron-generator/every-monday-wednesday-friday/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-monday-friday/",
+      "url": "https://codehelper.xyz/cron-generator/every-monday-friday/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-monday-9am/",
+      "url": "https://codehelper.xyz/cron-generator/every-monday-9am/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-monday-8am/",
+      "url": "https://codehelper.xyz/cron-generator/every-monday-8am/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-minute/",
+      "url": "https://codehelper.xyz/cron-generator/every-minute/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-july/",
+      "url": "https://codehelper.xyz/cron-generator/every-july/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     },
     {
-      "url": "https://aicalc.cloud/cron-generator/every-january/",
+      "url": "https://codehelper.xyz/cron-generator/every-january/",
       "day": "2026-05-28",
       "ts": "2026-05-28T05:24:24.000Z"
     }

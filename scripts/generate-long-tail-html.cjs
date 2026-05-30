@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
 
-const BASE_URL = 'https://codehelper.xyz'
+const BASE_URL = 'https://aicalc.cloud'
 const OUTPUT_DIR = path.join(__dirname, '..', 'cron-generator')
 const TMP_FILE = path.join(__dirname, '_tmp_data.mjs')
 
