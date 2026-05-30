@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-30T03:17:36.287Z",
+  "generatedAt": "2026-05-30T08:29:34.423Z",
   "summary": {
-    "totalIndexable": 294,
+    "totalIndexable": 295,
     "totalSubmitted": 225,
-    "coverage": 76.5,
+    "coverage": 76.3,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -71,6 +71,12 @@
     },
     {
       "name": "voice-agent-pricing",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "token-counter",
       "total": 1,
       "submitted": 0,
       "remaining": 1
