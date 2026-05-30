@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const BASE = 'https://codehelper.xyz'
+const BASE = 'https://aicalc.cloud'
 
 const PAGES = [
   '/compare/logseq-vs-obsidian/',
@@ -37,7 +37,7 @@ test.describe('Production: 3 New SEO Pages', () => {
 
       // Canonical + OG
       const canonical = await page.getAttribute('link[rel="canonical"]', 'href')
-      expect(canonical).toContain('codehelper.xyz')
+      expect(canonical).toContain('aicalc.cloud')
       const ogTitle = await page.getAttribute('meta[property="og:title"]', 'content')
       expect(ogTitle).toBeTruthy()
 

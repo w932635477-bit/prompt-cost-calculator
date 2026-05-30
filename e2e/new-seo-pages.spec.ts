@@ -64,7 +64,7 @@ test.describe('New SEO Pages', () => {
         const ogTitle = await p.getAttribute('meta[property="og:title"]', 'content')
         expect(ogTitle).toBeTruthy()
         const canonical = await p.getAttribute('link[rel="canonical"]', 'href')
-        expect(canonical).toContain('codehelper.xyz')
+        expect(canonical).toContain('aicalc.cloud')
       })
 
       test('no horizontal overflow on mobile', async ({ page: p }) => {

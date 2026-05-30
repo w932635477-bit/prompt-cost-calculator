@@ -77,7 +77,7 @@ export function EmailCapture({ source }: Props) {
         )}
 
         <p className="mt-4 text-xs text-[#86868b]">
-          By subscribing, you agree to receive emails from codehelper.xyz. Unsubscribe anytime.
+          By subscribing, you agree to receive emails from aicalc.cloud. Unsubscribe anytime.
         </p>
       </div>
     </section>

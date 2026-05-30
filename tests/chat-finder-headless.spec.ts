@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const BASE = 'https://codehelper.xyz'
+const BASE = 'https://aicalc.cloud'
 
 test.describe('Chat Finder - Wizard Flow', () => {
   test.beforeEach(async ({ page }) => {

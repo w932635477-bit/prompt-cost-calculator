@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://codehelper.xyz/sitemap.xml
+Sitemap: https://aicalc.cloud/sitemap.xml

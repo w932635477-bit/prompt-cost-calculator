@@ -87,7 +87,7 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
       body: JSON.stringify({
         email_address: email,
         tags: source ? [`tool:${source}`] : [],
-        referrer_url: source ? `https://codehelper.xyz/${source}` : undefined,
+        referrer_url: source ? `https://aicalc.cloud/${source}` : undefined,
       }),
     })
 

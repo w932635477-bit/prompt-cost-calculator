@@ -14,7 +14,7 @@ const GUIDE_DATA: Record<string, {
   '/ai-code-review/how-to-review-ai-generated-code/': {
     title: 'How to Review AI-Generated Code',
     subtitle: 'A 7-step process for catching what AI gets wrong, before it reaches production.',
-    canonicalUrl: 'https://codehelper.xyz/ai-code-review/how-to-review-ai-generated-code/',
+    canonicalUrl: 'https://aicalc.cloud/ai-code-review/how-to-review-ai-generated-code/',
     sections: [
       {
         heading: '1. Verify the diff matches the request',
@@ -104,7 +104,7 @@ const GUIDE_DATA: Record<string, {
   '/ai-code-review/ai-pr-review-checklist/': {
     title: 'AI PR Review Checklist',
     subtitle: '25-item interactive checklist for reviewing AI-generated pull requests. Check items, get a score, copy the report.',
-    canonicalUrl: 'https://codehelper.xyz/ai-code-review/ai-pr-review-checklist/',
+    canonicalUrl: 'https://aicalc.cloud/ai-code-review/ai-pr-review-checklist/',
     sections: [
       {
         heading: 'When to use this checklist',

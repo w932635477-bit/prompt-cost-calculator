@@ -56,7 +56,7 @@ function PasswordGate({ children }: { children: React.ReactNode }) {
         <button type="submit" className="w-full bg-[#0071E3] text-white py-2.5 rounded-xl text-sm font-medium hover:bg-[#0077ED] transition-colors">
           Sign In
         </button>
-        <p className="text-xs text-[#86868b] mt-4 text-center">codehelper.xyz · Private</p>
+        <p className="text-xs text-[#86868b] mt-4 text-center">aicalc.cloud · Private</p>
       </form>
     </div>
   )
@@ -282,7 +282,7 @@ export default function AdminDashboard() {
           <div className="max-w-[1200px] mx-auto px-6 py-5 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-semibold text-[#1d1d1f] tracking-tight">Admin Dashboard</h1>
-              <p className="text-sm text-[#86868b] mt-0.5">codehelper.xyz · SEO & Indexing</p>
+              <p className="text-sm text-[#86868b] mt-0.5">aicalc.cloud · SEO & Indexing</p>
             </div>
             <div className="text-xs text-[#86868b]">
               Generated {fmtAge()}

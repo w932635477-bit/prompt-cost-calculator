@@ -50,7 +50,7 @@ test.describe('CSP Generator — SEO', () => {
     const ogDesc = await page.getAttribute('meta[property="og:description"]', 'content')
     expect(ogDesc).toBeTruthy()
     const canonical = await page.getAttribute('link[rel="canonical"]', 'href')
-    expect(canonical).toBe('https://codehelper.xyz/csp-generator/')
+    expect(canonical).toBe('https://aicalc.cloud/csp-generator/')
   })
 
   test('has trailing slash URL', async ({ page }) => {

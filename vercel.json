@@ -2,10 +2,18 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "destination": "https://codehelper.xyz/$1",
+      "destination": "https://aicalc.cloud/$1",
       "permanent": true,
       "has": [
         { "type": "host", "value": "prompt-cost-calculator-ten.vercel.app" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://aicalc.cloud/$1",
+      "permanent": true,
+      "has": [
+        { "type": "host", "value": "codehelper.xyz" }
       ]
     }
   ],
