@@ -42,3 +42,24 @@ gsc-oauth-credentials.json
 .gsc-oauth-token.json
 gsc-indexing-token.json
 .gsc-indexing-token.json
+
+# Internal scripts (not for public repo)
+capture-competitors.mjs
+reddit-comment*.mjs
+reddit-post.mjs
+promotion-*.md
+scripts/gemini-tts.cjs
+scripts/douyin-script-framework.md
+scripts/tts-ep*.txt
+scripts/tts-ep*.md
+scripts/collect-signals.cjs
+scripts/scrape-browse-sources.sh
+scripts/capture-competitors.mjs
+
+# Internal docs
+docs/daily-scout/
+docs/email-capture-plan.md
+docs/twitter-60day-sop.md
+docs/self-hosted-tool-finder-design.md
+docs/gsc/
+docs/design/
