@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { PromptInput } from './components/PromptInput'
 import { UsageSlider } from './components/UsageSlider'
 import { ComparisonTable } from './components/ComparisonTable'
+import { StaticPricingTable } from './components/StaticPricingTable'
 import { GlobalNav } from './components/GlobalNav'
 import { calculateCosts } from './lib/calculator'
 import type { ModelCostResult, ModelPricing } from './lib/types'
@@ -54,7 +55,7 @@ function App() {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-[#86868b] max-w-xl mx-auto leading-relaxed">
-            Compare API pricing across GPT‑4o, Claude Sonnet 4, Gemini 2.5, Llama 4 &amp; DeepSeek R1.
+            Compare LLM API pricing across {models.length} models: GPT‑5.5, Claude 3.7, Gemini 2.0, DeepSeek V4 &amp; more.
             Know your AI costs before you send.
           </p>
         </header>
@@ -87,6 +88,72 @@ function App() {
             <ComparisonTable results={results} />
           )}
         </div>
+
+        {/* Static Pricing Table */}
+        <section className="mb-16">
+          <StaticPricingTable />
+        </section>
+
+        {/* SEO: LLM API Pricing */}
+        <section className="max-w-[780px] mx-auto mb-16 space-y-12">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              LLM API Pricing Comparison (2026)
+            </h2>
+            <div className="text-[#86868b] leading-relaxed space-y-3">
+              <p>
+                LLM API pricing varies dramatically across providers. As of May 2026, the cheapest text model
+                (Gemini 1.5 Flash-8B) costs $0.0375 per 1M input tokens, while the most expensive
+                (Claude 3 Opus) costs $15.00 — a 400× difference for the same text.
+              </p>
+              <p>
+                OpenAI's GPT-5.5 leads at $5/$30 per 1M tokens for complex reasoning tasks.
+                For budget-conscious developers, DeepSeek V4 Flash offers strong performance at $0.14/$0.28,
+                and Google's Gemini 2.0 Flash provides production-ready quality at $0.10/$0.40.
+                The table above shows current pricing for all major providers.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              LLM Cost per Token Explained
+            </h2>
+            <div className="text-[#86868b] leading-relaxed space-y-3">
+              <p>
+                LLM providers charge per token, not per word or character. One token is roughly 4 characters
+                of English text, or about ¾ of a word. A typical 1,000-word article uses about 1,300 tokens.
+                Most providers charge separately for input tokens (your prompt) and output tokens (the model's response),
+                with output tokens typically costing 3–6× more than input.
+              </p>
+              <p>
+                For example, sending a 500-token prompt to GPT-4o costs $0.00125 in input fees.
+                If the model generates 1,000 tokens in response, that adds $0.01 in output fees.
+                At 1,000 calls per month, this works out to roughly $11.25/month. Use the calculator above
+                to estimate costs for your actual usage patterns.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              How to Choose the Right LLM API
+            </h2>
+            <div className="text-[#86868b] leading-relaxed space-y-3">
+              <p>
+                Pick your model based on task complexity and budget. For simple tasks (classification, extraction,
+                short answers), start with GPT-4o Mini ($0.15/$0.60) or Gemini 2.0 Flash ($0.10/$0.40).
+                These models handle 90% of production workloads at a fraction of the cost.
+              </p>
+              <p>
+                For complex reasoning, coding, or professional work, step up to GPT-5.4 ($2.50/$15) or
+                Claude 3.7 Sonnet ($3/$15). Reserve the most expensive models — GPT-5.5 ($5/$30) and
+                Claude 3 Opus ($15/$75) — for tasks that genuinely need frontier intelligence.
+                A practical approach: prototype with cheap models, then upgrade only where quality demands it.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* How It Works */}
         <section className="mb-24">
@@ -135,7 +202,7 @@ function App() {
               },
               {
                 q: 'Which AI models are supported?',
-                a: 'We support 10 models: GPT-4o, GPT-4o Mini, o3, o4-mini (OpenAI), Claude Sonnet 4, Claude Haiku 4 (Anthropic), Gemini 2.5 Pro, Gemini 2.5 Flash (Google), Llama 4 Maverick (Groq), and DeepSeek R1.',
+                a: `We support ${models.length} models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).`,
               },
               {
                 q: 'How often is pricing updated?',

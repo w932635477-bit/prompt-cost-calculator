@@ -21,18 +21,18 @@ Assistant: The capital of France is Paris.`
 
 const PROVIDER_COLORS: Record<string, string> = {
   'gpt-4o': '#10a37f',
-  'claude-sonnet-4-20250514': '#d97757',
-  'gemini-2.5-pro': '#4285f4',
+  'claude-3-7-sonnet-20250219': '#d97757',
+  'gemini-2.0-flash': '#4285f4',
   'llama-4-maverick': '#f97316',
-  'deepseek-r1': '#5b6ef7',
+  'deepseek-v4-flash': '#5b6ef7',
 }
 
 const COMPARE_MODELS = [
   { id: 'gpt-4o', name: 'GPT-4o', provider: 'OpenAI' },
-  { id: 'claude-sonnet-4-20250514', name: 'Claude Sonnet 4', provider: 'Anthropic' },
-  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', provider: 'Google' },
-  { id: 'llama-4-maverick', name: 'Llama 4', provider: 'Groq' },
-  { id: 'deepseek-r1', name: 'DeepSeek R1', provider: 'DeepSeek' },
+  { id: 'claude-3-7-sonnet-20250219', name: 'Claude 3.7 Sonnet', provider: 'Anthropic' },
+  { id: 'gemini-2.0-flash', name: 'Gemini 2.0 Flash', provider: 'Google' },
+  { id: 'llama-4-maverick', name: 'Llama 4 Maverick', provider: 'Groq' },
+  { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', provider: 'DeepSeek' },
 ]
 
 function TokenCounterApp() {

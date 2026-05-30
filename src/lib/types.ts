@@ -7,6 +7,7 @@ export interface ModelPricing {
   contextWindow: number
   tokenizerType: 'tiktoken' | 'estimate'
   tokenizerModel: string | null
+  bestFor?: string
 }
 
 export interface PricingData {

@@ -1,6 +1,40 @@
 {
-  "lastUpdated": "2026-05-22",
+  "lastUpdated": "2026-05-30",
+  "priceSource": "Official API pricing pages, verified 2026-05-30",
   "models": [
+    {
+      "id": "gpt-5.5",
+      "provider": "OpenAI",
+      "name": "GPT-5.5",
+      "inputPricePer1M": 5.00,
+      "outputPricePer1M": 30.00,
+      "contextWindow": 270000,
+      "tokenizerType": "tiktoken",
+      "tokenizerModel": "gpt-4o",
+      "bestFor": "Complex reasoning, coding, professional work"
+    },
+    {
+      "id": "gpt-5.4",
+      "provider": "OpenAI",
+      "name": "GPT-5.4",
+      "inputPricePer1M": 2.50,
+      "outputPricePer1M": 15.00,
+      "contextWindow": 270000,
+      "tokenizerType": "tiktoken",
+      "tokenizerModel": "gpt-4o",
+      "bestFor": "Balanced performance and cost"
+    },
+    {
+      "id": "gpt-5.4-mini",
+      "provider": "OpenAI",
+      "name": "GPT-5.4 Mini",
+      "inputPricePer1M": 0.75,
+      "outputPricePer1M": 4.50,
+      "contextWindow": 270000,
+      "tokenizerType": "tiktoken",
+      "tokenizerModel": "gpt-4o-mini",
+      "bestFor": "Fast coding, subagents, computer use"
+    },
     {
       "id": "gpt-4o",
       "provider": "OpenAI",
@@ -9,7 +43,8 @@
       "outputPricePer1M": 10.00,
       "contextWindow": 128000,
       "tokenizerType": "tiktoken",
-      "tokenizerModel": "gpt-4o"
+      "tokenizerModel": "gpt-4o",
+      "bestFor": "General-purpose, multimodal tasks"
     },
     {
       "id": "gpt-4o-mini",
@@ -19,7 +54,8 @@
       "outputPricePer1M": 0.60,
       "contextWindow": 128000,
       "tokenizerType": "tiktoken",
-      "tokenizerModel": "gpt-4o-mini"
+      "tokenizerModel": "gpt-4o-mini",
+      "bestFor": "High-volume, low-cost tasks"
     },
     {
       "id": "o3",
@@ -29,7 +65,8 @@
       "outputPricePer1M": 8.00,
       "contextWindow": 200000,
       "tokenizerType": "tiktoken",
-      "tokenizerModel": "o3"
+      "tokenizerModel": "o3",
+      "bestFor": "Deep reasoning, STEM problems"
     },
     {
       "id": "o4-mini",
@@ -39,47 +76,129 @@
       "outputPricePer1M": 4.40,
       "contextWindow": 200000,
       "tokenizerType": "tiktoken",
-      "tokenizerModel": "o4-mini"
+      "tokenizerModel": "o4-mini",
+      "bestFor": "Affordable reasoning tasks"
     },
     {
-      "id": "claude-sonnet-4-20250514",
+      "id": "claude-3-7-sonnet-20250219",
       "provider": "Anthropic",
-      "name": "Claude Sonnet 4",
+      "name": "Claude 3.7 Sonnet",
       "inputPricePer1M": 3.00,
       "outputPricePer1M": 15.00,
       "contextWindow": 200000,
       "tokenizerType": "estimate",
-      "tokenizerModel": null
+      "tokenizerModel": null,
+      "bestFor": "Complex analysis, coding, extended thinking"
     },
     {
-      "id": "claude-haiku-4-20250514",
+      "id": "claude-3-5-haiku-20241022",
       "provider": "Anthropic",
-      "name": "Claude Haiku 4",
+      "name": "Claude 3.5 Haiku",
       "inputPricePer1M": 0.80,
       "outputPricePer1M": 4.00,
       "contextWindow": 200000,
       "tokenizerType": "estimate",
-      "tokenizerModel": null
+      "tokenizerModel": null,
+      "bestFor": "Fast responses, high-throughput tasks"
     },
     {
-      "id": "gemini-2.5-pro",
+      "id": "claude-3-opus-20240229",
+      "provider": "Anthropic",
+      "name": "Claude 3 Opus",
+      "inputPricePer1M": 15.00,
+      "outputPricePer1M": 75.00,
+      "contextWindow": 200000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Most demanding tasks, top-tier intelligence"
+    },
+    {
+      "id": "claude-3-haiku-20240307",
+      "provider": "Anthropic",
+      "name": "Claude 3 Haiku",
+      "inputPricePer1M": 0.25,
+      "outputPricePer1M": 1.25,
+      "contextWindow": 200000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Ultra-fast, cost-sensitive applications"
+    },
+    {
+      "id": "gemini-2.0-flash",
       "provider": "Google",
-      "name": "Gemini 2.5 Pro",
+      "name": "Gemini 2.0 Flash",
+      "inputPricePer1M": 0.10,
+      "outputPricePer1M": 0.40,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Production-ready, high rate limits"
+    },
+    {
+      "id": "gemini-2.0-flash-lite",
+      "provider": "Google",
+      "name": "Gemini 2.0 Flash-Lite",
+      "inputPricePer1M": 0.075,
+      "outputPricePer1M": 0.30,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Large-scale text output, lowest cost"
+    },
+    {
+      "id": "gemini-1.5-pro",
+      "provider": "Google",
+      "name": "Gemini 1.5 Pro",
       "inputPricePer1M": 1.25,
-      "outputPricePer1M": 10.00,
-      "contextWindow": 1000000,
+      "outputPricePer1M": 5.00,
+      "contextWindow": 2000000,
       "tokenizerType": "estimate",
-      "tokenizerModel": null
+      "tokenizerModel": null,
+      "bestFor": "2M context, complex multimodal tasks"
     },
     {
-      "id": "gemini-2.5-flash",
+      "id": "gemini-1.5-flash",
       "provider": "Google",
-      "name": "Gemini 2.5 Flash",
-      "inputPricePer1M": 0.15,
-      "outputPricePer1M": 0.60,
+      "name": "Gemini 1.5 Flash",
+      "inputPricePer1M": 0.075,
+      "outputPricePer1M": 0.30,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
-      "tokenizerModel": null
+      "tokenizerModel": null,
+      "bestFor": "Fast multimodal, diverse repetitive tasks"
+    },
+    {
+      "id": "gemini-1.5-flash-8b",
+      "provider": "Google",
+      "name": "Gemini 1.5 Flash-8B",
+      "inputPricePer1M": 0.0375,
+      "outputPricePer1M": 0.15,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Smallest model, lowest intelligence use cases"
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "provider": "DeepSeek",
+      "name": "DeepSeek V4 Flash",
+      "inputPricePer1M": 0.14,
+      "outputPricePer1M": 0.28,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Best value, strong reasoning at low cost"
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "provider": "DeepSeek",
+      "name": "DeepSeek V4 Pro",
+      "inputPricePer1M": 0.435,
+      "outputPricePer1M": 0.87,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "DeepSeek's most capable model"
     },
     {
       "id": "llama-4-maverick",
@@ -89,17 +208,8 @@
       "outputPricePer1M": 0.60,
       "contextWindow": 128000,
       "tokenizerType": "estimate",
-      "tokenizerModel": null
-    },
-    {
-      "id": "deepseek-r1",
-      "provider": "DeepSeek",
-      "name": "DeepSeek R1",
-      "inputPricePer1M": 0.55,
-      "outputPricePer1M": 2.19,
-      "contextWindow": 128000,
-      "tokenizerType": "estimate",
-      "tokenizerModel": null
+      "tokenizerModel": null,
+      "bestFor": "Ultra-fast inference on Groq LPU"
     }
   ]
 }
