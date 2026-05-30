@@ -37,7 +37,7 @@ Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero 
 ## Self-Host in 2 Minutes
 
 ```bash
-git clone https://github.com/weilei/aicalc.git
+git clone https://github.com/w932635477-bit/aicalc.git
 cd aicalc
 npm install
 
