@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Token Counter Online — Count Tokens for GPT-4o, Claude, Gemini &amp; More</title>
+    <meta name="description" content="Free online token counter. Count tokens for OpenAI GPT-4o, Claude, Gemini, Llama &amp; DeepSeek before API calls. No login required. Accurate tiktoken for OpenAI models." />
+    <meta name="keywords" content="token counter, token counter online, token counter claude, token counter gemini, token counter anthropic, token counter openai, token counter python, token counter llm, token counter website" />
+
+    <link rel="canonical" href="https://aicalc.cloud/token-counter/" />
+
+    <meta property="og:title" content="Token Counter Online — Count Tokens for GPT-4o, Claude &amp; Gemini" />
+    <meta property="og:description" content="Free online token counter. Count tokens for OpenAI, Claude, Gemini &amp; more. Accurate, no login." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/token-counter/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Token Counter Online — Count Tokens for Any LLM" />
+    <meta name="twitter:description" content="Free online token counter. Supports GPT-4o, Claude, Gemini, Llama &amp; DeepSeek." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Token Counter Online",
+      "url": "https://aicalc.cloud/token-counter/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online token counter for LLM APIs. Count tokens for GPT-4o, Claude, Gemini, Llama and DeepSeek. Uses tiktoken for OpenAI models.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I count tokens online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paste your text into the token counter above, select your AI model, and see the token count instantly. For OpenAI models (GPT-4o, o3, o4-mini) we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on character analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a token in LLM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. AI providers like OpenAI, Anthropic, and Google charge based on the number of tokens processed in API calls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is this token counter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For OpenAI models (GPT-4o, GPT-4o Mini, o3, o4-mini), we use tiktoken for exact byte-level tokenization. For Anthropic Claude and Google Gemini, we provide estimates based on approximately 4 characters per token for English text and 1.5 characters for Chinese text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I count tokens for Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Select Claude Sonnet 4 or Claude Haiku 4 from the model dropdown. Since Anthropic does not publish their tokenizer, we estimate token counts based on character analysis. The estimate is typically within 5-10% of the actual count."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I count tokens in Python?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For OpenAI models, install tiktoken: `pip install tiktoken` then use `tiktoken.encoding_for_model(\"gpt-4o\").encode(text)`. For other models, use the token counting APIs provided by each provider. This website gives you instant counts without writing any code."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/token-counter/main.tsx"></script>
+  </body>
+</html>

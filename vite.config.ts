@@ -73,6 +73,7 @@ export default defineConfig({
         'voice-pricing': resolve(__dirname, 'voice-agent-pricing/index.html'),
         compare: resolve(__dirname, 'compare/index.html'),
         'token-tracker': resolve(__dirname, 'token-tracker/index.html'),
+        'token-counter': resolve(__dirname, 'token-counter/index.html'),
         'admin-dashboard': resolve(__dirname, 'admin/dashboard/index.html'),
         'finder-notes': resolve(__dirname, 'finder/notes/index.html'),
         'finder-chat': resolve(__dirname, 'finder/chat/index.html'),
