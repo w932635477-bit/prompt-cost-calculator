@@ -40,3 +40,4 @@ scripts/_gsc_oauth_token.json
 # GSC OAuth credentials
 gsc-oauth-credentials.json
 .gsc-oauth-token.json
+gsc-indexing-token.json
