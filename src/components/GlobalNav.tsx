@@ -1,6 +1,7 @@
 const TOOLS = [
   { name: 'AI Cost Calculator', path: '/' },
   { name: 'Cron Generator', path: '/cron-generator/' },
+  { name: 'Cron Validator', path: '/cron-validator/' },
   { name: 'Self-Hosted Alternatives', path: '/alternatives/' },
   { name: 'Notes Finder', path: '/finder/notes/' },
   { name: 'Chat Finder', path: '/finder/chat/' },

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-31T04:04:43.798Z",
+  "generatedAt": "2026-05-31T08:14:42.494Z",
   "summary": {
-    "totalIndexable": 317,
+    "totalIndexable": 321,
     "totalSubmitted": 225,
-    "coverage": 71,
+    "coverage": 70.1,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -50,6 +50,12 @@
       "total": 5,
       "submitted": 0,
       "remaining": 5
+    },
+    {
+      "name": "cron-validator",
+      "total": 4,
+      "submitted": 0,
+      "remaining": 4
     },
     {
       "name": "ai-code-review",

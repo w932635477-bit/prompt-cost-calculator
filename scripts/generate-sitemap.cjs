@@ -46,6 +46,11 @@ const costSeoDataFile = path.join(__dirname, '..', 'src', 'llm-pricing', 'seo', 
 const costSeoDataContent = fs.readFileSync(costSeoDataFile, 'utf-8')
 const costSeoSlugMatches = [...costSeoDataContent.matchAll(/slug: '([^']+)'/g)]
 
+// Read slugs from cron-validator data
+const validatorDataFile = path.join(__dirname, '..', 'src', 'cron-validator', 'seo', 'validator-data.ts')
+const validatorDataContent = fs.readFileSync(validatorDataFile, 'utf-8')
+const validatorSlugMatches = [...validatorDataContent.matchAll(/slug: '([^']+)'/g)]
+
 const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
@@ -69,6 +74,7 @@ const allUrls = [
   { loc: BASE_URL + '/ai-code-review/ai-pr-review-checklist/', priority: '0.85', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-agent-data-access/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/llm-pricing/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/cron-validator/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {
@@ -105,6 +111,10 @@ for (const m of pricingSeoSlugMatches) {
 
 for (const m of costSeoSlugMatches) {
   allUrls.push({ loc: `${BASE_URL}/llm-pricing/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+for (const m of validatorSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/cron-validator/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

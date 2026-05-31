@@ -74,6 +74,14 @@ const costSeoInputs = Object.fromEntries(
   costSeoSlugMatches.map(m => [`cost-lt-${m[1]}`, resolve(__dirname, `llm-pricing/${m[1]}/index.html`)])
 )
 
+// Load cron-validator sub-page inputs from generated data
+const validatorDataFile = resolve(__dirname, 'src/cron-validator/seo/validator-data.ts')
+const validatorDataContent = fs.readFileSync(validatorDataFile, 'utf-8')
+const validatorSlugMatches = [...validatorDataContent.matchAll(/slug: '([^']+)'/g)]
+const validatorInputs = Object.fromEntries(
+  validatorSlugMatches.map(m => [`validator-lt-${m[1]}`, resolve(__dirname, `cron-validator/${m[1]}/index.html`)])
+)
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -103,6 +111,7 @@ export default defineConfig({
         'ai-pr-checklist': resolve(__dirname, 'ai-code-review/ai-pr-review-checklist/index.html'),
         'agent-data-access': resolve(__dirname, 'agent-data-access/index.html'),
         'llm-pricing': resolve(__dirname, 'llm-pricing/index.html'),
+        'cron-validator': resolve(__dirname, 'cron-validator/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
@@ -112,6 +121,7 @@ export default defineConfig({
         ...mcpInputs,
         ...pricingSeoInputs,
         ...costSeoInputs,
+        ...validatorInputs,
       },
     },
   },

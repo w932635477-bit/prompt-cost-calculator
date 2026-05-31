@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quartz Cron Expression Validator — Test &amp; Check Quartz Cron Online</title>
+    <meta name="description" content="Validate Quartz cron expressions online. Check 6-7 field Quartz syntax with ? L W # tokens. Get human-readable explanations, next run times, and fix suggestions for Quartz Scheduler." />
+    <meta name="keywords" content="quartz cron validator, quartz cron expression validator, validate quartz cron, quartz scheduler cron check, quartz cron syntax" />
+    <link rel="canonical" href="https://aicalc.cloud/cron-validator/quartz/" />
+    <meta property="og:title" content="Quartz Cron Expression Validator — Test &amp; Check Quartz Cron Online" />
+    <meta property="og:description" content="Validate Quartz cron expressions online. Check 6-7 field Quartz syntax with ? L W # tokens. Get human-readable explanations, next run times, and fix suggestions for Quartz Scheduler." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aicalc.cloud/cron-validator/quartz/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Quartz Cron Expression Validator — Test &amp; Check Quartz Cron Online" />
+    <meta name="twitter:description" content="Validate Quartz cron expressions online. Check 6-7 field Quartz syntax with ? L W # tokens. Get human-readable explanations, next run times, and fix suggestions for Quartz Scheduler." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"What is the difference between Unix and Quartz cron?","acceptedAnswer":{"@type":"Answer","text":"Unix cron has 5 fields (minute hour day-of-month month day-of-week). Quartz has 6-7 fields, adding seconds as the first field and optionally year as the last. Quartz also requires one of day-of-month or day-of-week to be \"?\"."}},{"@type":"Question","name":"What does \"?\" mean in Quartz cron?","acceptedAnswer":{"@type":"Answer","text":"The \"?\" token means \"no specific value\". In Quartz, you must use \"?\" for either day-of-month or day-of-week when the other field has a specific value. You cannot have both fields set to specific values."}},{"@type":"Question","name":"What does \"L\" mean in Quartz cron?","acceptedAnswer":{"@type":"Answer","text":"\"L\" stands for \"last\". In the day-of-month field, \"L\" means the last day of the month. In the day-of-week field, \"L\" combined with a day number means \"the last [day] of the month\" (e.g., \"FRIL\" = last Friday)."}},{"@type":"Question","name":"Why does my Quartz cron fail in production but passes the validator?","acceptedAnswer":{"@type":"Answer","text":"Some Quartz implementations have version-specific behavior. This validator checks standard Quartz 2.x syntax. Check your Quartz version and verify any custom cron triggers."}}]
+    }
+    </script>
+  </head>
+  <body>
+    <script type="application/json" id="seo-data">{"slug":"quartz","dialect":"quartz","title":"Quartz Cron Expression Validator — Test & Check Quartz Cron Online","h1":"Quartz Cron Expression Validator","description":"Validate Quartz cron expressions online. Check 6-7 field Quartz syntax with ? L W # tokens. Get human-readable explanations, next run times, and fix suggestions for Quartz Scheduler.","explanation":"Quartz Scheduler uses 6 or 7 field cron expressions. Unlike Unix cron, Quartz starts with a seconds field and supports special tokens: ? (no specific value), L (last), W (weekday), and # (nth day). Day-of-month and day-of-week fields cannot both be specific — one must be \"?\".","faq":[{"q":"What is the difference between Unix and Quartz cron?","a":"Unix cron has 5 fields (minute hour day-of-month month day-of-week). Quartz has 6-7 fields, adding seconds as the first field and optionally year as the last. Quartz also requires one of day-of-month or day-of-week to be \"?\"."},{"q":"What does \"?\" mean in Quartz cron?","a":"The \"?\" token means \"no specific value\". In Quartz, you must use \"?\" for either day-of-month or day-of-week when the other field has a specific value. You cannot have both fields set to specific values."},{"q":"What does \"L\" mean in Quartz cron?","a":"\"L\" stands for \"last\". In the day-of-month field, \"L\" means the last day of the month. In the day-of-week field, \"L\" combined with a day number means \"the last [day] of the month\" (e.g., \"FRIL\" = last Friday)."},{"q":"Why does my Quartz cron fail in production but passes the validator?","a":"Some Quartz implementations have version-specific behavior. This validator checks standard Quartz 2.x syntax. Check your Quartz version and verify any custom cron triggers."}],"keywords":["quartz cron validator","quartz cron expression validator","validate quartz cron","quartz scheduler cron check","quartz cron syntax"],"exampleExpressions":["0 */5 * * * ?","0 0 12 ? * MON-FRI","0 0 12 LW * ?","0 30 10 ? * 6#3"]}</script>
+    <div id="root"></div>
+    <script type="module" src="/src/cron-validator/validator-main.tsx"></script>
+  </body>
+</html>

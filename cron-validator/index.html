@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cron Expression Validator — Check & Test Cron Online Free</title>
+    <meta name="description" content="Validate any cron expression instantly. See if your cron is valid, get human-readable explanation, next run times, and fix common errors. Supports Unix, Quartz, and AWS cron formats." />
+    <meta name="keywords" content="cron expression validator, cron validator, validate cron expression, cron expression checker, cron test, cron syntax check, invalid cron fix" />
+
+    <meta property="og:title" content="Cron Expression Validator — Check & Test Cron Online" />
+    <meta property="og:description" content="Validate any cron expression instantly. Get explanation, next run times, and fix suggestions. Supports Unix, Quartz, AWS, and Kubernetes." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/cron-validator/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cron Expression Validator" />
+    <meta name="twitter:description" content="Validate cron expressions for Unix, Quartz, AWS, and Kubernetes. Instant results with fix suggestions." />
+    <link rel="canonical" href="https://aicalc.cloud/cron-validator/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Cron Expression Validator",
+      "url": "https://aicalc.cloud/cron-validator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Validate cron expressions for Unix, Quartz, AWS EventBridge, and Kubernetes. Get human-readable explanations, next run times, and fix suggestions."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What makes a cron expression invalid?", "acceptedAnswer": { "@type": "Answer", "text": "Common causes: wrong number of fields, out-of-range values (e.g., minute 99), unsupported tokens for the dialect, or both day-of-month and day-of-week specified when one must be '?'." } },
+        { "@type": "Question", "name": "What is the difference between Unix and Quartz cron?", "acceptedAnswer": { "@type": "Answer", "text": "Unix cron has 5 fields. Quartz has 6-7 fields (adds seconds, optionally year) and requires one of day-of-month or day-of-week to be '?'." } },
+        { "@type": "Question", "name": "How to test cron without waiting?", "acceptedAnswer": { "@type": "Answer", "text": "Paste your expression into the validator, select the dialect, and see the next 5 scheduled run times instantly." } },
+        { "@type": "Question", "name": "Why does my cron work locally but fails in Kubernetes?", "acceptedAnswer": { "@type": "Answer", "text": "Kubernetes uses UTC by default. Your local cron may use a different timezone. Also, K8s does not support @shorthand notation." } },
+        { "@type": "Question", "name": "How to fix bad minute or bad hour errors?", "acceptedAnswer": { "@type": "Answer", "text": "Check that each field value is within its valid range: minute 0-59, hour 0-23, day-of-month 1-31, month 1-12, day-of-week 0-6." } }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/cron-validator/validator-hub-main.tsx"></script>
+  </body>
+</html>
