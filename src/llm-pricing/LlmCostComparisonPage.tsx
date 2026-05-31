@@ -57,13 +57,13 @@ export default function LlmCostComparisonPage() {
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f]">
       <GlobalNav current="/llm-pricing/" />
 
-      <header className="max-w-[1200px] mx-auto px-6 pt-16 pb-8">
+      <header className="max-w-[1800px] mx-auto px-6 pt-16 pb-8">
         <a href="/llm-pricing/" className="text-[#0071e3] text-sm hover:underline">← All Models</a>
         <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mt-5">LLM Cost Comparison</h1>
         <p className="text-xl text-[#86868b] mt-3">Side-by-side pricing for 19 models across 5 providers.</p>
       </header>
 
-      <main className="max-w-[1200px] mx-auto px-6 pb-20 space-y-10">
+      <main className="max-w-[1800px] mx-auto px-6 pb-20 space-y-10">
         {/* Key insight */}
         <div className="bg-white rounded-2xl p-8 shadow-sm">
           <h2 className="text-xl font-semibold mb-6">Key Takeaway</h2>
