@@ -105,7 +105,7 @@ export default function LlmCostComparisonPage() {
           </div>
           {/* On wide screens: 2-column grid for the bars */}
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-8 gap-y-2">
-            {scenarioResults.map((r, i) => {
+            {scenarioResults.map((r) => {
               const pct = Math.max((r.cost.monthlyCost / maxCost) * 100, 4)
               const prov = PROVIDERS[r.model.provider]
               return (
