@@ -57,51 +57,79 @@ export default function LlmCostComparisonPage() {
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f]">
       <GlobalNav current="/llm-pricing/" />
 
-      <header className="max-w-[980px] mx-auto px-4 pt-12 pb-6">
+      <header className="max-w-[980px] mx-auto px-6 pt-16 pb-8">
         <a href="/llm-pricing/" className="text-[#0071e3] text-sm hover:underline">← All Models</a>
-        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mt-4">LLM Cost Comparison</h1>
-        <p className="text-lg text-[#86868b] mt-2">Side-by-side pricing for 19 models across 5 providers.</p>
+        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mt-5">LLM Cost Comparison</h1>
+        <p className="text-xl text-[#86868b] mt-3">Side-by-side pricing for 19 models across 5 providers.</p>
       </header>
 
-      <main className="max-w-[980px] mx-auto px-4 pb-16 space-y-8">
+      <main className="max-w-[980px] mx-auto px-6 pb-20 space-y-10">
         {/* Key insight */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 className="text-xl font-semibold mb-4">Key Takeaway</h2>
-          <div className="grid sm:grid-cols-3 gap-4">
-            <Stat label="Cheapest model" value={cheapest.model.name} sub={formatCost(cheapest.cost.monthlyCost) + '/mo'} color="#10a37f" />
-            <Stat label="Most expensive" value={mostExpensive.model.name} sub={formatCost(mostExpensive.cost.monthlyCost) + '/mo'} color="#ef4444" />
-            <Stat label="Price ratio" value={`${(mostExpensive.cost.monthlyCost / cheapest.cost.monthlyCost).toFixed(0)}x`} sub="most expensive vs cheapest" color="#0071e3" />
+        <div className="bg-white rounded-2xl p-8 shadow-sm">
+          <h2 className="text-xl font-semibold mb-6">Key Takeaway</h2>
+          <div className="grid sm:grid-cols-3 gap-5">
+            <Stat
+              icon="💰"
+              label="Cheapest model"
+              value={cheapest.model.name}
+              sub={formatCost(cheapest.cost.monthlyCost) + '/mo'}
+              color="#10a37f"
+            />
+            <Stat
+              icon="🔥"
+              label="Most expensive"
+              value={mostExpensive.model.name}
+              sub={formatCost(mostExpensive.cost.monthlyCost) + '/mo'}
+              color="#ef4444"
+            />
+            <Stat
+              icon="📊"
+              label="Price ratio"
+              value={`${(mostExpensive.cost.monthlyCost / cheapest.cost.monthlyCost).toFixed(0)}x`}
+              sub="most expensive vs cheapest"
+              color="#0071e3"
+            />
           </div>
-          <p className="text-xs text-[#86868b] mt-4">
+          <p className="text-xs text-[#86868b] mt-5 bg-[#f5f5f7] rounded-lg px-4 py-2.5">
             Based on {SCENARIO.inputTokens.toLocaleString()} input + {SCENARIO.outputTokens.toLocaleString()} output tokens, {SCENARIO.callsPerDay.toLocaleString()} calls/day, {Math.round(SCENARIO.cacheHitRate * 100)}% cache hit rate.
           </p>
         </div>
 
         {/* Visual comparison */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 className="text-xl font-semibold mb-4">Monthly Cost Ranking</h2>
-          <div className="space-y-2">
-            {scenarioResults.map((r) => (
-              <div key={r.model.id} className="flex items-center gap-3 p-2 rounded-lg bg-[#f5f5f7]">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: PROVIDER_COLORS[r.model.provider] || '#86868b' }} />
-                    <span className="text-sm font-medium truncate">{r.model.name}</span>
-                    <span className="text-[10px] text-[#86868b] shrink-0">{r.model.provider}</span>
+        <div className="bg-white rounded-2xl p-8 shadow-sm">
+          <h2 className="text-xl font-semibold mb-6">Monthly Cost Ranking</h2>
+          <div className="space-y-3">
+            {scenarioResults.map((r) => {
+              const barWidth = Math.max((r.cost.monthlyCost / maxCost) * 100, 5)
+              return (
+                <div key={r.model.id} className="flex items-center gap-4 p-4 rounded-xl bg-[#fafafa] hover:bg-[#f5f5f7] transition-colors">
+                  {/* Provider badge */}
+                  <div
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-[10px] font-bold shrink-0"
+                    style={{ backgroundColor: PROVIDER_COLORS[r.model.provider] || '#86868b' }}
+                  >
+                    {r.model.provider.slice(0, 2).toUpperCase()}
                   </div>
-                  <div className="mt-1 h-2 bg-[#e8e8ed] rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all"
-                      style={{
-                        width: `${Math.max((r.cost.monthlyCost / maxCost) * 100, 2)}%`,
-                        backgroundColor: PROVIDER_COLORS[r.model.provider] || '#0071e3',
-                      }}
-                    />
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-sm font-medium truncate">{r.model.name}</span>
+                      <span className="text-[11px] text-[#86868b] shrink-0">{r.model.provider}</span>
+                    </div>
+                    <div className="h-3 bg-[#e8e8ed] rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full transition-all duration-300"
+                        style={{
+                          width: `${barWidth}%`,
+                          backgroundColor: PROVIDER_COLORS[r.model.provider] || '#0071e3',
+                        }}
+                      />
+                    </div>
                   </div>
+                  <span className="text-sm font-mono font-semibold shrink-0 min-w-[90px] text-right">{formatCost(r.cost.monthlyCost)}/mo</span>
                 </div>
-                <span className="text-sm font-mono font-medium shrink-0">{formatCost(r.cost.monthlyCost)}/mo</span>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
@@ -110,32 +138,36 @@ export default function LlmCostComparisonPage() {
           const models = byProvider.get(provider) || []
           if (models.length === 0) return null
           return (
-            <div key={provider} className="bg-white rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: PROVIDER_COLORS[provider] }} />
+            <div key={provider} className="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 className="text-xl font-semibold mb-6 flex items-center gap-3">
+                <div
+                  className="w-4 h-4 rounded-md"
+                  style={{ backgroundColor: PROVIDER_COLORS[provider] }}
+                />
                 {provider} Models
+                <span className="text-xs text-[#86868b] font-normal bg-[#f5f5f7] px-2.5 py-1 rounded-full">{models.length} models</span>
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-[#e8e8ed]">
-                      <th className="text-left py-2 pr-4 font-medium text-[#86868b]">Model</th>
-                      <th className="text-right py-2 px-4 font-medium text-[#86868b]">Input $/1M</th>
-                      <th className="text-right py-2 px-4 font-medium text-[#86868b]">Output $/1M</th>
-                      <th className="text-right py-2 px-4 font-medium text-[#86868b]">Cache $/1M</th>
-                      <th className="text-right py-2 pl-4 font-medium text-[#86868b]">Est. Monthly</th>
+                    <tr className="border-b-2 border-[#e8e8ed]">
+                      <th className="text-left py-3 pr-4 font-semibold text-[#1d1d1f]">Model</th>
+                      <th className="text-right py-3 px-4 font-semibold text-[#1d1d1f]">Input $/1M</th>
+                      <th className="text-right py-3 px-4 font-semibold text-[#1d1d1f]">Output $/1M</th>
+                      <th className="text-right py-3 px-4 font-semibold text-[#1d1d1f]">Cache $/1M</th>
+                      <th className="text-right py-3 pl-4 font-semibold text-[#1d1d1f]">Est. Monthly</th>
                     </tr>
                   </thead>
                   <tbody>
                     {models.map(m => {
                       const cost = projectMonthlyCost(m, SCENARIO)
                       return (
-                        <tr key={m.id} className="border-b border-[#e8e8ed] hover:bg-[#fbfbfd] transition-colors">
-                          <td className="py-2.5 pr-4 font-medium">{m.name}</td>
-                          <td className="text-right py-2.5 px-4">${m.inputPricePer1M.toFixed(4)}</td>
-                          <td className="text-right py-2.5 px-4">${m.outputPricePer1M.toFixed(4)}</td>
-                          <td className="text-right py-2.5 px-4">{m.cachedInputPricePer1M != null ? `$${m.cachedInputPricePer1M.toFixed(4)}` : '—'}</td>
-                          <td className="text-right py-2.5 pl-4 font-mono">{formatCost(cost.monthlyCost)}</td>
+                        <tr key={m.id} className="border-b border-[#f0f0f5] hover:bg-[#fafafa] transition-colors">
+                          <td className="py-3.5 pr-4 font-medium">{m.name}</td>
+                          <td className="text-right py-3.5 px-4 font-mono">${m.inputPricePer1M.toFixed(4)}</td>
+                          <td className="text-right py-3.5 px-4 font-mono">${m.outputPricePer1M.toFixed(4)}</td>
+                          <td className="text-right py-3.5 px-4 font-mono text-[#86868b]">{m.cachedInputPricePer1M != null ? `$${m.cachedInputPricePer1M.toFixed(4)}` : '—'}</td>
+                          <td className="text-right py-3.5 pl-4 font-mono font-semibold">{formatCost(cost.monthlyCost)}</td>
                         </tr>
                       )
                     })}
@@ -147,9 +179,9 @@ export default function LlmCostComparisonPage() {
         })}
 
         {/* FAQ */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 className="text-xl font-semibold mb-4">FAQ</h2>
-          <div className="space-y-3">
+        <div className="bg-white rounded-2xl p-8 shadow-sm">
+          <h2 className="text-xl font-semibold mb-6">FAQ</h2>
+          <div className="space-y-4">
             <Faq q="Which LLM provider is cheapest?" a="Google Gemini 2.0 Flash-Lite at $0.075/1M input is the cheapest per-token option. DeepSeek V4 Flash ($0.14/1M input) offers better quality at still-low pricing. For most production workloads, GPT-4o Mini ($0.15/1M input) provides the best price-to-quality ratio." />
             <Faq q="Is Claude cheaper than GPT?" a="It depends on the model tier. Claude 3 Haiku ($0.25/1M input) is cheaper than GPT-4o ($2.50/1M input), but GPT-4o Mini ($0.15/1M input) is cheaper than Claude 3.5 Haiku ($0.80/1M input). At the high end, Claude 3 Opus ($15/1M input) costs 3x more than GPT-4o." />
             <Faq q="How do LLM prices compare across providers?" a="Prices vary up to 200x between cheapest and most expensive models. Budget models (Gemini Flash-Lite, DeepSeek V4 Flash) cost under $0.15/1M input. Premium models (Claude 3 Opus, GPT-5.5) cost $5-15/1M input. Most providers offer 50% discounts on cached input tokens." />
@@ -157,11 +189,11 @@ export default function LlmCostComparisonPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center py-4">
-          <a href="/llm-pricing/llm-cost-calculator/" className="inline-block bg-[#0071e3] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0077ED] transition-colors mr-3">
+        <div className="text-center py-6 flex flex-wrap justify-center gap-4">
+          <a href="/llm-pricing/llm-cost-calculator/" className="inline-block bg-[#0071e3] text-white px-8 py-3.5 rounded-2xl font-medium text-base hover:bg-[#0077ED] transition-colors shadow-sm hover:shadow-md">
             Try the Cost Calculator →
           </a>
-          <a href="/llm-pricing/" className="inline-block border border-[#0071e3] text-[#0071e3] px-6 py-3 rounded-xl font-medium hover:bg-[#0071e3]/5 transition-colors">
+          <a href="/llm-pricing/" className="inline-block border-2 border-[#0071e3] text-[#0071e3] px-8 py-3.5 rounded-2xl font-medium text-base hover:bg-[#0071e3]/5 transition-colors">
             View All Model Prices
           </a>
         </div>
@@ -170,24 +202,25 @@ export default function LlmCostComparisonPage() {
   )
 }
 
-function Stat({ label, value, sub, color }: { label: string; value: string; sub: string; color: string }) {
+function Stat({ icon, label, value, sub, color }: { icon: string; label: string; value: string; sub: string; color: string }) {
   return (
-    <div className="text-center p-4 rounded-xl bg-[#f5f5f7]">
-      <div className="text-xs text-[#86868b] mb-1">{label}</div>
-      <div className="text-lg font-semibold" style={{ color }}>{value}</div>
-      <div className="text-xs text-[#86868b]">{sub}</div>
+    <div className="text-center p-6 rounded-2xl bg-[#f5f5f7] border border-[#e8e8ed]">
+      <div className="text-2xl mb-2">{icon}</div>
+      <div className="text-xs text-[#86868b] mb-1.5 uppercase tracking-wide">{label}</div>
+      <div className="text-lg font-bold" style={{ color }}>{value}</div>
+      <div className="text-sm text-[#86868b] mt-1 font-mono">{sub}</div>
     </div>
   )
 }
 
 function Faq({ q, a }: { q: string; a: string }) {
   return (
-    <details className="group">
-      <summary className="cursor-pointer font-medium py-2 list-none flex items-center gap-2">
-        <span className="text-[#0071e3] group-open:rotate-90 transition-transform text-lg">›</span>
-        {q}
+    <details className="group rounded-xl bg-[#fafafa] hover:bg-[#f5f5f7] transition-colors">
+      <summary className="cursor-pointer font-medium py-4 px-5 list-none flex items-center gap-3">
+        <span className="text-[#0071e3] group-open:rotate-90 transition-transform text-base shrink-0">›</span>
+        <span className="text-[15px]">{q}</span>
       </summary>
-      <p className="text-sm text-[#86868b] pl-6 pb-2">{a}</p>
+      <p className="text-sm text-[#86868b] pl-11 pr-5 pb-4 leading-relaxed">{a}</p>
     </details>
   )
 }

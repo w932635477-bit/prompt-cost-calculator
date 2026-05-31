@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T02:01:51.235Z",
+  "fetchedAt": "2026-05-31T02:22:34.978Z",
   "repoCount": 80,
   "successCount": 80,
   "errorCount": 0,
@@ -25,12 +25,12 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/AppFlowy-IO/AppFlowy": {
-      "githubStars": 71491,
+      "githubStars": 71494,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
     "https://github.com/outline/outline": {
-      "githubStars": 38693,
+      "githubStars": 38694,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -95,7 +95,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/makeplane/plane": {
-      "githubStars": 49960,
+      "githubStars": 49961,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -140,7 +140,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/go-gitea/gitea": {
-      "githubStars": 56027,
+      "githubStars": 56028,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -170,7 +170,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/bram2w/baserow": {
-      "githubStars": 4925,
+      "githubStars": 4926,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -190,7 +190,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/twentyhq/twenty": {
-      "githubStars": 48717,
+      "githubStars": 48718,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -220,7 +220,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/chatwoot/chatwoot": {
-      "githubStars": 29834,
+      "githubStars": 29835,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -240,7 +240,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/TryGhost/Ghost": {
-      "githubStars": 53744,
+      "githubStars": 53745,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -250,7 +250,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/penpot/penpot": {
-      "githubStars": 48647,
+      "githubStars": 48650,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
@@ -295,7 +295,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/meilisearch/meilisearch": {
-      "githubStars": 57857,
+      "githubStars": 57858,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
@@ -330,7 +330,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/immich-app/immich": {
-      "githubStars": 102298,
+      "githubStars": 102302,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -345,7 +345,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/n8n-io/n8n": {
-      "githubStars": 190381,
+      "githubStars": 190385,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -375,7 +375,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/YOURLS/YOURLS": {
-      "githubStars": 12043,
+      "githubStars": 12044,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
