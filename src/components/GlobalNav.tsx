@@ -21,7 +21,7 @@ const TOOLS = [
 export function GlobalNav({ current }: { current: string }) {
   return (
     <nav className="border-b border-[#e8e8ed] bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-[1800px] mx-auto px-4 overflow-x-auto">
+      <div className="w-full px-6 overflow-x-auto">
         <ul className="flex items-center gap-1 py-2 text-sm whitespace-nowrap">
           {TOOLS.map(tool => (
             <li key={tool.path}>
