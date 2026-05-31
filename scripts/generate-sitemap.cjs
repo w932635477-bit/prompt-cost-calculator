@@ -41,6 +41,11 @@ const pricingSeoDataFile = path.join(__dirname, '..', 'src', 'llm-pricing', 'seo
 const pricingSeoDataContent = fs.readFileSync(pricingSeoDataFile, 'utf-8')
 const pricingSeoSlugMatches = [...pricingSeoDataContent.matchAll(/slug: '([^']+)'/g)]
 
+// Read slugs from llm-cost SEO data
+const costSeoDataFile = path.join(__dirname, '..', 'src', 'llm-pricing', 'seo', 'cost-seo-data.ts')
+const costSeoDataContent = fs.readFileSync(costSeoDataFile, 'utf-8')
+const costSeoSlugMatches = [...costSeoDataContent.matchAll(/slug: '([^']+)'/g)]
+
 const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
@@ -95,6 +100,10 @@ for (const m of mcpSlugMatches) {
 }
 
 for (const m of pricingSeoSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/llm-pricing/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+for (const m of costSeoSlugMatches) {
   allUrls.push({ loc: `${BASE_URL}/llm-pricing/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
 }
 

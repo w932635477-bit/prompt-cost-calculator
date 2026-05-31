@@ -66,6 +66,14 @@ const pricingSeoInputs = Object.fromEntries(
   pricingSeoSlugMatches.map(m => [`pricing-lt-${m[1]}`, resolve(__dirname, `llm-pricing/${m[1]}/index.html`)])
 )
 
+// Load llm-cost SEO page inputs from generated data
+const costSeoDataFile = resolve(__dirname, 'src/llm-pricing/seo/cost-seo-data.ts')
+const costSeoDataContent = fs.readFileSync(costSeoDataFile, 'utf-8')
+const costSeoSlugMatches = [...costSeoDataContent.matchAll(/slug: '([^']+)'/g)]
+const costSeoInputs = Object.fromEntries(
+  costSeoSlugMatches.map(m => [`cost-lt-${m[1]}`, resolve(__dirname, `llm-pricing/${m[1]}/index.html`)])
+)
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -103,6 +111,7 @@ export default defineConfig({
         ...trackerInputs,
         ...mcpInputs,
         ...pricingSeoInputs,
+        ...costSeoInputs,
       },
     },
   },

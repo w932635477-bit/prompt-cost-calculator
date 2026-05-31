@@ -65,3 +65,4 @@ docs/gsc/
 docs/design/
 llm-pricing-headed-test.cjs
 .gsc-submit-progress.json
+scripts/vite-llm-cost-inputs.cjs
