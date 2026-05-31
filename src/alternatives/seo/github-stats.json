@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T02:50:00.184Z",
+  "fetchedAt": "2026-05-31T02:56:24.364Z",
   "repoCount": 80,
   "successCount": 80,
   "errorCount": 0,
@@ -25,7 +25,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/AppFlowy-IO/AppFlowy": {
-      "githubStars": 71497,
+      "githubStars": 71498,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
@@ -40,7 +40,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/laurent22/joplin": {
-      "githubStars": 55036,
+      "githubStars": 55037,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -265,7 +265,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/ohmyform/ohmyform": {
-      "githubStars": 2890,
+      "githubStars": 2891,
       "lastCommitDate": "2024-10-31",
       "maintenanceStatus": "archived"
     },
@@ -280,7 +280,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/mautic/mautic": {
-      "githubStars": 9769,
+      "githubStars": 9770,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
@@ -345,7 +345,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/n8n-io/n8n": {
-      "githubStars": 190387,
+      "githubStars": 190389,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -355,7 +355,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/huginn/huginn": {
-      "githubStars": 49373,
+      "githubStars": 49374,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
