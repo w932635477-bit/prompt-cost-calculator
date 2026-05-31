@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T01:21:27.790Z",
+  "fetchedAt": "2026-05-31T01:32:57.042Z",
   "repoCount": 80,
   "successCount": 80,
   "errorCount": 0,
@@ -95,7 +95,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/makeplane/plane": {
-      "githubStars": 49959,
+      "githubStars": 49960,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -111,7 +111,7 @@
     },
     "https://github.com/wekan/wekan": {
       "githubStars": 20947,
-      "lastCommitDate": "2026-05-30",
+      "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/mattermost/focalboard": {
@@ -125,7 +125,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/navidrome/navidrome": {
-      "githubStars": 21358,
+      "githubStars": 21359,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
@@ -136,7 +136,7 @@
     },
     "https://github.com/ampache/ampache": {
       "githubStars": 3796,
-      "lastCommitDate": "2026-05-30",
+      "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/go-gitea/gitea": {
@@ -275,7 +275,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/knadh/listmonk": {
-      "githubStars": 21209,
+      "githubStars": 21210,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -315,7 +315,7 @@
       "maintenanceStatus": "archived"
     },
     "https://github.com/ShareX/ShareX": {
-      "githubStars": 37828,
+      "githubStars": 37829,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -355,7 +355,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/huginn/huginn": {
-      "githubStars": 49370,
+      "githubStars": 49371,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
