@@ -115,9 +115,9 @@ export default function SeoPricingPage() {
                   <td className="text-right py-2.5 pl-4">{(model.contextWindow / 1000).toFixed(0)}K</td>
                 </tr>
                 {competitors.map(c => (
-                  <tr key={c.id} className="border-b border-[#e8e8ed] hover:bg-gray-50">
+                  <tr key={c.id} className="border-b border-[#e8e8ed] hover:bg-[#fbfbfd] transition-colors">
                     <td className="py-2.5 pr-4">
-                      <a href={`/llm-pricing/${(c.provider.toLowerCase().replace(/\s+/g,'-') + '-' + c.name.toLowerCase().replace(/[\s.]+/g,'-').replace(/[^a-z0-9-]/g,''))}/`} className="text-[#0071e3] hover:underline">
+                      <a href={`/llm-pricing/`} className="text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
                         {c.provider} {c.name}
                       </a>
                     </td>
@@ -191,7 +191,7 @@ function ModelCostCalculator({ model }: { model: ModelPricing }) {
           <input
             type="number" value={params.inputTokens}
             onChange={e => update('inputTokens', Number(e.target.value))}
-            className="w-full border border-[#e8e8ed] rounded-lg px-3 py-2 text-sm"
+            className="w-full border border-[#e8e8ed] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/40 focus:border-[#0071e3]"
           />
         </div>
         <div>
@@ -199,7 +199,7 @@ function ModelCostCalculator({ model }: { model: ModelPricing }) {
           <input
             type="number" value={params.outputTokens}
             onChange={e => update('outputTokens', Number(e.target.value))}
-            className="w-full border border-[#e8e8ed] rounded-lg px-3 py-2 text-sm"
+            className="w-full border border-[#e8e8ed] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/40 focus:border-[#0071e3]"
           />
         </div>
         <div>
@@ -207,7 +207,7 @@ function ModelCostCalculator({ model }: { model: ModelPricing }) {
           <input
             type="number" value={params.callsPerDay}
             onChange={e => update('callsPerDay', Number(e.target.value))}
-            className="w-full border border-[#e8e8ed] rounded-lg px-3 py-2 text-sm"
+            className="w-full border border-[#e8e8ed] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/40 focus:border-[#0071e3]"
           />
         </div>
         <div>
@@ -215,7 +215,7 @@ function ModelCostCalculator({ model }: { model: ModelPricing }) {
           <input
             type="range" min={0} max={100} value={params.cacheHitRate * 100}
             onChange={e => update('cacheHitRate', Number(e.target.value) / 100)}
-            className="w-full"
+            className="w-full accent-[#0071e3]"
           />
         </div>
       </div>

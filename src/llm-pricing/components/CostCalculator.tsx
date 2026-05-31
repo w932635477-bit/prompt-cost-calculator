@@ -72,7 +72,7 @@ export default function CostCalculator({ models }: Props) {
           <input
             type="range" min={0} max={100} value={cacheHitRate * 100}
             onChange={e => setCacheHitRate(Number(e.target.value) / 100)}
-            className="w-full"
+            className="w-full accent-[#0071e3]"
           />
         </div>
       </div>

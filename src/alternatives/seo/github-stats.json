@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T01:07:15.228Z",
+  "fetchedAt": "2026-05-31T01:21:27.790Z",
   "repoCount": 80,
   "successCount": 80,
   "errorCount": 0,
@@ -20,12 +20,12 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/syncthing/syncthing": {
-      "githubStars": 84775,
+      "githubStars": 84777,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
     "https://github.com/AppFlowy-IO/AppFlowy": {
-      "githubStars": 71491,
+      "githubStars": 71490,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
@@ -35,7 +35,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/logseq/logseq": {
-      "githubStars": 43139,
+      "githubStars": 43138,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -85,7 +85,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/dani-garcia/vaultwarden": {
-      "githubStars": 61590,
+      "githubStars": 61591,
       "lastCommitDate": "2026-05-17",
       "maintenanceStatus": "active"
     },
@@ -95,7 +95,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/makeplane/plane": {
-      "githubStars": 49958,
+      "githubStars": 49959,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -125,12 +125,12 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/navidrome/navidrome": {
-      "githubStars": 21357,
+      "githubStars": 21358,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
     "https://github.com/jellyfin/jellyfin": {
-      "githubStars": 52723,
+      "githubStars": 52724,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -140,7 +140,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/go-gitea/gitea": {
-      "githubStars": 56026,
+      "githubStars": 56027,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -190,7 +190,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/twentyhq/twenty": {
-      "githubStars": 48713,
+      "githubStars": 48715,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -290,7 +290,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/keycloak/keycloak": {
-      "githubStars": 34653,
+      "githubStars": 34652,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -330,7 +330,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/immich-app/immich": {
-      "githubStars": 102297,
+      "githubStars": 102298,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },

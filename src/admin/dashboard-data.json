@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-31T01:07:18.801Z",
+  "generatedAt": "2026-05-31T01:21:31.297Z",
   "summary": {
-    "totalIndexable": 295,
+    "totalIndexable": 314,
     "totalSubmitted": 225,
-    "coverage": 76.3,
+    "coverage": 71.7,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -32,6 +32,12 @@
       "total": 27,
       "submitted": 0,
       "remaining": 27
+    },
+    {
+      "name": "llm-pricing",
+      "total": 19,
+      "submitted": 0,
+      "remaining": 19
     },
     {
       "name": "mcp-servers",
