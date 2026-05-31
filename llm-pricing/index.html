@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM API Pricing Compare — 19 Models Across 5 Providers</title>
+    <meta name="description" content="Free LLM API pricing comparison tool. Compare input, output, and cached token pricing for OpenAI, Anthropic, Google, DeepSeek, and Groq. Monthly cost calculator included." />
+    <meta name="keywords" content="llm api pricing, llm pricing comparison, llm cost calculator, openai pricing, anthropic pricing, claude pricing, gemini pricing, deepseek pricing, llm pricing per million tokens, cheapest llm api, llm api pricing calculator" />
+    <link rel="canonical" href="https://aicalc.cloud/llm-pricing/" />
+    <meta property="og:title" content="LLM API Pricing Compare — 19 Models, 5 Providers" />
+    <meta property="og:description" content="Side-by-side LLM pricing for OpenAI, Anthropic, Google, DeepSeek, Groq. Monthly cost calculator. Free." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/llm-pricing/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="LLM API Pricing Compare" />
+    <meta name="twitter:description" content="Compare LLM pricing across 19 models. Free cost calculator." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "LLM API Pricing Compare",
+      "url": "https://aicalc.cloud/llm-pricing/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Compare LLM API pricing across OpenAI, Anthropic, Google, DeepSeek, and Groq. Monthly cost calculator included."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How often is the pricing data updated?","acceptedAnswer":{"@type":"Answer","text":"We verify pricing from official provider pages regularly. Each model shows its last-verified date. LLM pricing changes frequently."}},
+        {"@type":"Question","name":"What does cached pricing mean?","acceptedAnswer":{"@type":"Answer","text":"Some providers offer discounted pricing when input tokens are served from a cache. Anthropic charges 10% of base input for cached reads. OpenAI charges 50%. This can dramatically reduce costs for repeated prompts."}},
+        {"@type":"Question","name":"Which LLM is cheapest for production?","acceptedAnswer":{"@type":"Answer","text":"For high-volume tasks, DeepSeek V4 Flash at $0.14/1M input and Gemini 2.0 Flash at $0.10/1M input are the most affordable. For quality-sensitive work, Claude Haiku 4.5 or GPT-5.4 Mini offer a good balance."}},
+        {"@type":"Question","name":"Does this include batch API pricing?","acceptedAnswer":{"@type":"Answer","text":"This tool currently shows standard and cached pricing. Batch API pricing (typically 50% of standard) varies by provider and is not yet included."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/llm-pricing/main.tsx"></script>
+  </body>
+</html>

@@ -15,6 +15,7 @@ const TOOLS = [
   { name: 'PII Redactor', path: '/pii-redactor/' },
   { name: 'Agent Safety', path: '/agent-safety/' },
   { name: 'AI Code Review', path: '/ai-code-review/' },
+  { name: 'LLM Pricing', path: '/llm-pricing/' },
 ]
 
 export function GlobalNav({ current }: { current: string }) {

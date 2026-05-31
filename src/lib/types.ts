@@ -8,6 +8,9 @@ export interface ModelPricing {
   tokenizerType: 'tiktoken' | 'estimate'
   tokenizerModel: string | null
   bestFor?: string
+  cachedInputPricePer1M?: number
+  sourceUrl: string
+  priceUpdatedAt: string
 }
 
 export interface PricingData {
