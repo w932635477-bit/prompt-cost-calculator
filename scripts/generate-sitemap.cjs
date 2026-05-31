@@ -36,6 +36,11 @@ const mcpDataFile = path.join(__dirname, '..', 'src', 'mcp', 'seo', 'mcp-data.ts
 const mcpDataContent = fs.readFileSync(mcpDataFile, 'utf-8')
 const mcpSlugMatches = [...mcpDataContent.matchAll(/slug: '([^']+)'/g)]
 
+// Read slugs from llm-pricing SEO data
+const pricingSeoDataFile = path.join(__dirname, '..', 'src', 'llm-pricing', 'seo', 'pricing-seo-data.ts')
+const pricingSeoDataContent = fs.readFileSync(pricingSeoDataFile, 'utf-8')
+const pricingSeoSlugMatches = [...pricingSeoDataContent.matchAll(/slug: '([^']+)'/g)]
+
 const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
@@ -58,6 +63,7 @@ const allUrls = [
   { loc: BASE_URL + '/ai-code-review/how-to-review-ai-generated-code/', priority: '0.85', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-code-review/ai-pr-review-checklist/', priority: '0.85', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-agent-data-access/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/llm-pricing/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {
@@ -86,6 +92,10 @@ for (const m of trackerSlugMatches) {
 
 for (const m of mcpSlugMatches) {
   allUrls.push({ loc: `${BASE_URL}/mcp-servers/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+for (const m of pricingSeoSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/llm-pricing/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
