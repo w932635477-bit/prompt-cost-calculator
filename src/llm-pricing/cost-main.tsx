@@ -3,6 +3,7 @@
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import '../index.css'
 import type { CostSeoPage } from './seo/cost-seo-data'
 import LlmCostCalculatorPage from './LlmCostCalculatorPage'
 import LlmCostComparisonPage from './LlmCostComparisonPage'

@@ -2,7 +2,7 @@
 // SEO deep page: standalone LLM cost calculator with all 19 models.
 // Full-width responsive layout — no max-width constraint.
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import pricing from '../data/pricing.json'
 import type { ModelPricing } from '../lib/types'
 import { GlobalNav } from '../components/GlobalNav'
@@ -10,6 +10,20 @@ import { projectMonthlyCost, formatCost } from './calc'
 import type { CostParams } from './calc'
 
 const ALL_MODELS = pricing.models as ModelPricing[]
+const XL = 1280
+const LG = 1024
+
+function useBreakpoint(px: number) {
+  const [ok, setOk] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${px}px)`)
+    setOk(mq.matches)
+    const h = (e: MediaQueryListEvent) => setOk(e.matches)
+    mq.addEventListener('change', h)
+    return () => mq.removeEventListener('change', h)
+  }, [px])
+  return ok
+}
 
 const DEFAULT_PARAMS: CostParams = {
   inputTokens: 10_000,
@@ -29,6 +43,8 @@ const PROVIDERS: Record<string, { color: string; abbr: string }> = {
 
 export default function LlmCostCalculatorPage() {
   const [params, setParams] = useState(DEFAULT_PARAMS)
+  const isXl = useBreakpoint(XL)
+  const isLg = useBreakpoint(LG)
 
   const update = <K extends keyof CostParams>(k: K, v: CostParams[K]) =>
     setParams(p => ({ ...p, [k]: v }))
@@ -62,7 +78,7 @@ export default function LlmCostCalculatorPage() {
       </section>
 
       {/* Main grid: form left, results right on wide screens */}
-      <div className="px-6 lg:px-12 py-8 grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-8">
+      <div className="px-6 lg:px-12 py-8" style={{ display: 'grid', gridTemplateColumns: isXl ? '420px 1fr' : '1fr', gap: '2rem' }}>
 
         {/* Form — fixed width column on xl+ */}
         <div className="space-y-6">
@@ -168,7 +184,7 @@ export default function LlmCostCalculatorPage() {
       <section className="px-6 lg:px-12 pb-6">
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h2 className="text-lg font-semibold mb-4">FAQ</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '0.75rem' }}>
             <Faq q="How accurate is this LLM cost calculator?" a="This calculator uses official API pricing from OpenAI, Anthropic, Google, DeepSeek, and Groq. Results reflect per-token billing. Actual costs may vary due to tokenizer differences and network overhead." />
             <Faq q="What is a cache hit rate?" a="Cache hit rate is the percentage of input tokens that match a previously cached prompt. OpenAI, Anthropic, and Google offer 50% discounts on cached input tokens. For apps with repeated system prompts, cache hit rates of 50-90% are common." />
             <Faq q="How do I reduce my LLM API costs?" a="Top strategies: (1) Use prompt caching for repeated contexts, (2) Route simple queries to cheaper models like GPT-4o Mini or Gemini Flash, (3) Reduce output tokens with concise instructions, (4) Batch multiple requests." />

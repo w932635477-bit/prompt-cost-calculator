@@ -2,9 +2,25 @@
 // SEO deep page: 7 strategies to cut LLM API costs.
 // Full-width responsive layout — no max-width constraint.
 
+import { useState, useEffect } from 'react'
 import pricing from '../data/pricing.json'
 import type { ModelPricing } from '../lib/types'
 import { GlobalNav } from '../components/GlobalNav'
+
+const LG = 1024
+const SM = 640
+
+function useBreakpoint(px: number) {
+  const [ok, setOk] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${px}px)`)
+    setOk(mq.matches)
+    const h = (e: MediaQueryListEvent) => setOk(e.matches)
+    mq.addEventListener('change', h)
+    return () => mq.removeEventListener('change', h)
+  }, [px])
+  return ok
+}
 
 const ALL_MODELS = pricing.models as ModelPricing[]
 
@@ -69,6 +85,8 @@ const STRATEGIES = [
 ]
 
 export default function LlmCostOptimizationPage() {
+  const isLg = useBreakpoint(LG)
+  const isSm = useBreakpoint(SM)
   return (
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f]">
       <GlobalNav current="/llm-pricing/" />
@@ -85,7 +103,7 @@ export default function LlmCostOptimizationPage() {
       <div className="px-6 lg:px-12 py-8 space-y-8">
 
         {/* Cheapest by provider — 5 columns on wide screens */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div style={{ display: 'grid', gridTemplateColumns: isLg ? 'repeat(5, 1fr)' : isSm ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)', gap: '1rem' }}>
           {PROVIDER_LIST.map(provider => {
             const models = ALL_MODELS.filter(m => m.provider === provider).sort((a, b) => a.inputPricePer1M - b.inputPricePer1M)
             const cheapest = models[0]
@@ -108,7 +126,7 @@ export default function LlmCostOptimizationPage() {
         </div>
 
         {/* Strategies — 2 columns on wide screens */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '1rem' }}>
           {STRATEGIES.map((s, i) => (
             <details key={i} className="bg-white rounded-2xl shadow-sm group" open={i < 2}>
               <summary className="cursor-pointer p-5 list-none flex items-start gap-4">
@@ -133,7 +151,7 @@ export default function LlmCostOptimizationPage() {
         </div>
 
         {/* Before / After — 2 columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div style={{ display: 'grid', gridTemplateColumns: isSm ? '1fr 1fr' : '1fr', gap: '1.5rem' }}>
           <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-l-red-400">
             <div className="text-xs text-[#ef4444] font-semibold uppercase tracking-wide mb-3">❌ Before</div>
             <ul className="text-sm space-y-2">
@@ -170,7 +188,7 @@ export default function LlmCostOptimizationPage() {
         {/* FAQ — 2 columns */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h2 className="text-lg font-semibold mb-4">FAQ</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '0.75rem' }}>
             <Faq q="How much can I save with prompt caching?" a="50% off input tokens. If 70% of your input tokens are cached, you save ~35% on total input costs. For GPT-4o at 10K input × 1K calls/day, that's $131/month saved." />
             <Faq q="Is it worth switching from OpenAI to DeepSeek?" a="For cost-sensitive workloads, yes. DeepSeek V4 Flash costs $0.14/1M input vs GPT-4o's $2.50/1M — 18x reduction. Test quality first for nuanced tasks." />
             <Faq q="What is OpenAI Batch API?" a="Submit requests processed within 24 hours at 50% discount. Perfect for classification, embedding generation, data extraction. Up to 100K requests per batch file." />
