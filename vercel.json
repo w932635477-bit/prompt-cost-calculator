@@ -19,6 +19,12 @@
   ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
       "source": "/sitemap.xml",
       "headers": [
         { "key": "Content-Type", "value": "application/xml" },
@@ -46,6 +52,20 @@
     { "source": "/ai-code-review/:slug/", "destination": "/ai-code-review/:slug/index.html" },
     { "source": "/ai-code-review/:slug", "destination": "/ai-code-review/:slug/index.html" },
     { "source": "/finder/:slug/", "destination": "/finder/:slug/index.html" },
-    { "source": "/finder/:slug", "destination": "/finder/:slug/index.html" }
+    { "source": "/finder/:slug", "destination": "/finder/:slug/index.html" },
+    { "source": "/llm-pricing/:slug/", "destination": "/llm-pricing/:slug/index.html" },
+    { "source": "/llm-pricing/:slug", "destination": "/llm-pricing/:slug/index.html" },
+    { "source": "/token-tracker/:slug/", "destination": "/token-tracker/:slug/index.html" },
+    { "source": "/token-tracker/:slug", "destination": "/token-tracker/:slug/index.html" },
+    { "source": "/prompt-cache-calculator/:slug/", "destination": "/prompt-cache-calculator/:slug/index.html" },
+    { "source": "/prompt-cache-calculator/:slug", "destination": "/prompt-cache-calculator/:slug/index.html" },
+    { "source": "/voice-agent-pricing/:slug/", "destination": "/voice-agent-pricing/:slug/index.html" },
+    { "source": "/voice-agent-pricing/:slug", "destination": "/voice-agent-pricing/:slug/index.html" },
+    { "source": "/csp-generator/:slug/", "destination": "/csp-generator/:slug/index.html" },
+    { "source": "/csp-generator/:slug", "destination": "/csp-generator/:slug/index.html" },
+    { "source": "/pii-redactor/:slug/", "destination": "/pii-redactor/:slug/index.html" },
+    { "source": "/pii-redactor/:slug", "destination": "/pii-redactor/:slug/index.html" },
+    { "source": "/photos/:slug/", "destination": "/photos/:slug/index.html" },
+    { "source": "/photos/:slug", "destination": "/photos/:slug/index.html" }
   ]
 }
