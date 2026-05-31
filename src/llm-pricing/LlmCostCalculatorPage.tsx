@@ -51,13 +51,13 @@ export default function LlmCostCalculatorPage() {
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f]">
       <GlobalNav current="/llm-pricing/" />
 
-      <header className="max-w-[980px] mx-auto px-6 pt-16 pb-8">
+      <header className="max-w-[1200px] mx-auto px-6 pt-16 pb-8">
         <a href="/llm-pricing/" className="text-[#0071e3] text-sm hover:underline">← All Models</a>
         <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mt-5">LLM Cost Calculator</h1>
         <p className="text-xl text-[#86868b] mt-3">Estimate your monthly API spending across 19 models from 5 providers.</p>
       </header>
 
-      <main className="max-w-[980px] mx-auto px-6 pb-20 space-y-10">
+      <main className="max-w-[1200px] mx-auto px-6 pb-20 space-y-10">
         {/* Calculator inputs */}
         <div className="bg-white rounded-2xl p-8 shadow-sm">
           <h2 className="text-xl font-semibold mb-6">Configure Your Workload</h2>

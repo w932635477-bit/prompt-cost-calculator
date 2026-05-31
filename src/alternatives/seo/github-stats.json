@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T02:22:34.978Z",
+  "fetchedAt": "2026-05-31T02:32:48.793Z",
   "repoCount": 80,
   "successCount": 80,
   "errorCount": 0,
@@ -25,7 +25,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/AppFlowy-IO/AppFlowy": {
-      "githubStars": 71494,
+      "githubStars": 71495,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
@@ -45,7 +45,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/zadam/trilium": {
-      "githubStars": 36266,
+      "githubStars": 36267,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -85,7 +85,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/dani-garcia/vaultwarden": {
-      "githubStars": 61591,
+      "githubStars": 61592,
       "lastCommitDate": "2026-05-17",
       "maintenanceStatus": "active"
     },
@@ -245,7 +245,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/strapi/strapi": {
-      "githubStars": 72279,
+      "githubStars": 72280,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
@@ -330,7 +330,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/immich-app/immich": {
-      "githubStars": 102302,
+      "githubStars": 102303,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -366,7 +366,7 @@
     },
     "https://github.com/skyra-project/haste-server": {
       "githubStars": 40,
-      "lastCommitDate": "2026-05-29",
+      "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/shlinkio/shlink": {
