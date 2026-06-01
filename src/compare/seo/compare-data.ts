@@ -1834,50 +1834,6 @@ volumes:
     keywords: ['revolt vs element', 'element vs revolt', 'discord alternative self hosted', 'revolt chat review', 'matrix chat self hosted', 'best self hosted discord alternative 2026'],
   },
   {
-    slug: 'logseq-vs-obsidian',
-    productA: {
-      name: 'Logseq', tagline: 'Open-source outliner for knowledge management', logo: '🗂️',
-      url: 'https://logseq.com', github: 'https://github.com/logseq/logseq',
-      license: 'AGPL-3.0', selfHosted: false, docker: false,
-      pricing: 'Free / Sync $5/mo / Pro $15/mo', difficulty: 'Easy',
-    },
-    productB: {
-      name: 'Obsidian', tagline: 'Local-first markdown knowledge base', logo: '💎',
-      url: 'https://obsidian.md', github: 'https://github.com/obsidianmd/obsidian-api',
-      license: 'Proprietary (free for personal)', selfHosted: false, docker: false,
-      pricing: 'Free / Sync $4/mo / Publish $8/mo', difficulty: 'Easy',
-    },
-    title: 'Logseq vs Obsidian — Which Open-Source Note-Taking App Wins in 2026?',
-    h1: 'Logseq vs Obsidian: Outliner vs Markdown Note-Taking',
-    description: 'Logseq vs Obsidian comparison. Open-source outliner vs local-first markdown knowledge base. Features, graph view, plugins, pricing, and which note-taking app wins for different use cases.',
-    summary: 'Logseq wins for structured outlining, daily journals, and open-source purists. Obsidian wins for plugin flexibility, markdown editing, and a polished experience. Different paradigms for different workflows.',
-    features: [
-      { name: 'Open Source', a: true, b: 'Proprietary' },
-      { name: 'Editing Model', a: 'Outliner (blocks)', b: 'Markdown (pages)' },
-      { name: 'Graph View', a: true, b: true },
-      { name: 'Backlinks', a: true, b: true },
-      { name: 'Plugin Ecosystem', a: '200+', b: '1,000+' },
-      { name: 'Offline Access', a: true, b: true },
-      { name: 'Sync Cost', a: '$5/mo', b: '$4/mo' },
-      { name: 'PDF Annotation', a: true, b: 'Via plugin' },
-      { name: 'Mobile App', a: true, b: true },
-      { name: 'Free Plan', a: true, b: true },
-    ],
-    prosA: ['Fully open source under AGPL-3.0', 'Block-level outliner is great for structured thinking', 'Built-in daily journals and task management', 'PDF annotation built-in without plugins', 'Works with local folders — no lock-in'],
-    consA: ['Smaller plugin ecosystem (200+ vs 1,000+)', 'Performance can lag with very large graphs', 'Less polished mobile experience', 'Sync requires paid plan ($5/month)'],
-    prosB: ['Massive plugin ecosystem with 1,000+ community plugins', 'Polished UI and smooth editing experience', 'Your data is standard markdown files', 'Canvas for visual thinking and whiteboarding', 'Excellent mobile apps on iOS and Android'],
-    consB: ['Proprietary license — not open source', 'No built-in outliner mode', 'Collaboration requires paid plans', 'Some advanced features need plugins'],
-    winner: 'tie',
-    winnerReason: 'Logseq and Obsidian serve different workflows. Logseq is best for outliner-first thinking, daily journals, and open-source values. Obsidian is best for markdown-native writing, plugin flexibility, and a polished experience. Try both and pick the paradigm that fits your brain.',
-    faq: [
-      { q: 'Is Logseq better than Obsidian?', a: 'It depends on your workflow. Logseq excels at outliner-style thinking with block-level references and daily journals. Obsidian excels at long-form markdown writing with a rich plugin ecosystem.' },
-      { q: 'Can I use Logseq and Obsidian together?', a: 'Yes. Both work with local markdown files. You can point both apps at the same folder. Some formatting differences exist (Logseq uses Org-style properties).' },
-      { q: 'Which is better for PKM (Personal Knowledge Management)?', a: 'Both are excellent. Logseq is better for atomic, block-level notes and Zettelkasten. Obsidian is better for longer articles and visual knowledge graphs with Canvas.' },
-      { q: 'Is Logseq really free?', a: 'Yes. Logseq is open source (AGPL-3.0) and the core app is free forever. Sync and some premium features cost $5/month.' },
-    ],
-    keywords: ['logseq vs obsidian', 'logseq review', 'obsidian alternative open source', 'logseq vs obsidian 2026', 'best note taking app open source', 'logseq outliner'],
-  },
-  {
     slug: 'outline-vs-notion',
     productA: {
       name: 'Outline', tagline: 'Open-source self-hosted knowledge base wiki', logo: '📖',
@@ -2195,5 +2151,98 @@ volumes:
       { q: 'Can I migrate from Slack?', a: 'Mattermost has a Slack import tool that migrates channels, messages, and users. Zulip does not have a direct Slack import, though you can import via API.' },
     ],
     keywords: ['mattermost vs zulip', 'self hosted chat', 'mattermost alternative', 'zulip vs mattermost', 'open source slack alternative', 'best self hosted team chat'],
+  },
+  {
+    slug: 'docmost-vs-wiki-js',
+    productA: {
+      name: 'Docmost', tagline: 'Open-source collaborative wiki with a Notion-like editor', logo: '📄',
+      url: 'https://docmost.com', github: 'https://github.com/docmost/docmost',
+      license: 'AGPL-3.0', selfHosted: true, docker: true,
+      dockerCompose: `version: '3'
+services:
+  docmost:
+    image: docmost/docmost:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - APP_URL=http://localhost:3000
+      - DATABASE_URL=postgresql://docmost:changeme@db:5432/docmost
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=docmost
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=docmost
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+volumes:
+  db_data:`,
+      pricing: 'Free (self-hosted) / Cloud from $12/mo', difficulty: 'Easy',
+    },
+    productB: {
+      name: 'Wiki.js', tagline: 'Powerful wiki engine with Git integration and multiple storage backends', logo: '📚',
+      url: 'https://js.wiki', github: 'https://github.com/requarks/wiki',
+      license: 'AGPL-3.0', selfHosted: true, docker: true,
+      dockerCompose: `version: '3'
+services:
+  wiki:
+    image: requarks/wiki:2
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_TYPE=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=wiki
+      - DB_PASS=changeme
+      - DB_NAME=wiki
+    depends_on:
+      - db
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=wiki
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=wiki
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:`,
+      pricing: 'Free (self-hosted)', difficulty: 'Medium',
+    },
+    title: 'Docmost vs Wiki.js — Best Self-Hosted Wiki 2026',
+    h1: 'Docmost vs Wiki.js: Modern Wiki Comparison',
+    description: 'Docmost vs Wiki.js comparison. Notion-like collaborative editor vs Git-backed multi-engine wiki. Features, self-hosting, and which wiki wins for your team.',
+    summary: 'Docmost wins for teams wanting a Notion-like editing experience with real-time collaboration. Wiki.js wins for teams that need Git-backed content, multiple storage backends, and enterprise-grade authentication.',
+    features: [
+      { name: 'Editor Type', a: 'WYSIWYG (Notion-like)', b: 'WYSIWYG + Markdown' },
+      { name: 'Real-time Collaboration', a: true, b: false },
+      { name: 'Git Integration', a: false, b: true },
+      { name: 'Storage Backends', a: 'PostgreSQL', b: 'Git, DB, Local, S3' },
+      { name: 'Authentication', a: 'Local + OIDC', b: 'Local, OAuth, SAML, LDAP, OIDC' },
+      { name: 'Page Hierarchy', a: 'Nested spaces + pages', b: 'Tree structure' },
+      { name: 'Search', a: 'Full-text', b: 'Full-text + search engines' },
+      { name: 'Docker Deployment', a: true, b: true },
+      { name: 'License', a: 'AGPL-3.0', b: 'AGPL-3.0' },
+      { name: 'Draw Diagrams', a: 'Built-in draw.io', b: 'Via Mermaid' },
+    ],
+    prosA: ['Notion-like block editor is intuitive for non-technical users', 'Real-time collaborative editing (multiple cursors)', 'Clean modern UI that feels like a SaaS product', 'Built-in draw.io diagram support', 'Fast setup with single Docker Compose file'],
+    consA: ['Newer project — smaller community and fewer integrations', 'No Git integration for version control', 'Only PostgreSQL as storage backend', 'Limited theming and customization options'],
+    prosB: ['Git-backed storage keeps your wiki in version control', 'Supports multiple storage backends (Git, PostgreSQL, MySQL, S3)', 'Enterprise authentication: SAML, LDAP, OAuth, Active Directory', 'Localization in 30+ languages', 'Mature project with large community (25k+ GitHub stars)'],
+    consB: ['No real-time collaborative editing', 'UI feels more technical and less modern', 'Setup is more complex with multiple configuration options', 'v3 rewrite has been in progress for a long time'],
+    winner: 'a',
+    winnerReason: 'For most teams in 2026, Docmost is the better choice. Its Notion-like editor with real-time collaboration lowers the adoption barrier. Wiki.js is the right pick only if you need Git-backed content storage or enterprise SAML/LDAP authentication.',
+    faq: [
+      { q: 'Is Docmost a good Notion replacement?', a: 'Yes. Docmost has a very similar block-based editor with real-time collaboration. It is the closest self-hosted alternative to Notion for teams that want wiki-style knowledge management.' },
+      { q: 'Can Wiki.js store pages in a Git repository?', a: 'Yes. Wiki.js can use Git as a storage backend, meaning all your wiki content lives in a Git repo with full version history, branching, and pull request workflows.' },
+      { q: 'Which is easier to set up?', a: 'Docmost. One Docker Compose file with three services (app, PostgreSQL, Redis). Wiki.js requires more configuration, especially if you want Git or SAML integration.' },
+    ],
+    keywords: ['docmost vs wiki.js', 'docmost vs wikijs', 'self hosted wiki comparison', 'best self hosted wiki 2026', 'docmost review', 'wiki.js alternative', 'notion self hosted alternative'],
   },
 ]

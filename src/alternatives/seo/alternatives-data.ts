@@ -899,6 +899,36 @@ const _RAW_PAGES: AlternativePage[] = [
     ],
     keywords: ['obsidian self hosted', 'obsidian alternative open source', 'self-hosted obsidian', 'logseq vs obsidian', 'trilium notes', 'obsidian self hosted alternative', 'best self-hosted knowledge management'],
   },
+
+  // === SEO Tools (Free Alternatives) ===
+  {
+    slug: 'semrush',
+    saasName: 'Semrush',
+    category: 'SEO Tools',
+    icon: '🔍',
+    alternatives: [
+      { name: 'Google Search Console', description: 'Free official tool for monitoring search performance, indexing status, and Core Web Vitals directly from Google.', url: 'https://search.google.com/search-console', github: '', license: 'Free (Google)', difficulty: 'Easy', docker: false, features: ['Search analytics', 'Index coverage', 'URL inspection', 'Sitemaps', 'Core Web Vitals', 'Mobile usability'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring'] },
+      { name: 'Ubersuggest', description: 'Keyword research, competitor analysis, and content ideas with 3 free searches per day.', url: 'https://neilpatel.com/ubersuggest', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Keyword research', 'Competitor analysis', 'Content ideas', 'Rank tracking', 'Site audit', 'Backlink data'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Screaming Frog', description: 'Desktop website crawler for technical SEO audits. Free for up to 500 URLs per crawl.', url: 'https://www.screamingfrog.co.uk/seo-spider', github: '', license: 'Freemium (500 URLs free)', difficulty: 'Medium', docker: false, features: ['Site crawling', 'Broken links', 'Redirect chains', 'Metadata analysis', 'Page speed', 'Structured data'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'desktop_app', 'monitoring'] },
+      { name: 'Ahrefs Webmaster Tools', description: 'Free backlink analysis and site health monitoring from the team behind Ahrefs.', url: 'https://ahrefs.com/webmaster-tools', github: '', license: 'Free (limited)', difficulty: 'Easy', docker: false, features: ['Backlink analysis', 'Site health', 'Keyword rankings', 'Organic traffic', 'Content audit'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring', 'search'] },
+      { name: 'SE Ranking', description: 'Full SEO suite with keyword tracking, site audit, and competitor analysis. 14-day free trial.', url: 'https://seranking.com', github: '', license: 'Freemium trial', difficulty: 'Easy', docker: false, features: ['Keyword tracking', 'Site audit', 'Competitor analysis', 'Backlink checker', 'On-page SEO', 'Marketing plan'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring', 'search'] },
+      { name: 'Serpstat', description: 'All-in-one SEO platform with keyword research, competitor analysis, and site auditing.', url: 'https://serpstat.com', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Keyword research', 'Competitor analysis', 'Site audit', 'Backlink analysis', 'Rank tracking', 'Content marketing'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Moz Free SEO Tools', description: 'Domain Authority checker, keyword explorer, and link explorer from one of the original SEO companies.', url: 'https://moz.com/free-seo-tools', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Domain Authority', 'Keyword Explorer', 'Link Explorer', 'MozBar browser extension', 'Competitor research'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Mangools', description: 'User-friendly SEO toolkit with SERP analysis, keyword research, and backlink tracking. 10-day free trial.', url: 'https://mangools.com', github: '', license: 'Freemium trial', difficulty: 'Easy', docker: false, features: ['SERP analysis', 'Keyword research', 'Backlink tracking', 'SEO browser extension', 'Rank tracking'], scenarioTags: ['solo_dev', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Seobility', description: 'Website audit and continuous SEO monitoring with clear improvement suggestions.', url: 'https://www.seobility.net', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Site audit', 'Keyword monitoring', 'Backlink check', 'SEO comparison', 'Content optimization', 'Crawl errors'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring'] },
+    ],
+    title: 'Free Semrush Alternatives — 9 Free SEO Tools (2026)',
+    h1: 'Free Semrush Alternatives for 2026',
+    description: 'Compare 9 free alternatives to Semrush ($140/mo). Google Search Console, Ubersuggest, Screaming Frog, Ahrefs Webmaster Tools, and more — zero cost.',
+    explanation: 'Semrush starts at $139.95/month — expensive for indie hackers and small teams. These free alternatives cover most of what you need: keyword research, site audits, backlink analysis, and rank tracking. Google Search Console alone handles search analytics and indexing. Combined with Ubersuggest for keywords and Screaming Frog for technical audits, you get 80% of Semrush\'s value at zero cost.',
+    faq: [
+      { q: 'Is there a completely free alternative to Semrush?', a: 'Yes. Google Search Console is 100% free and covers search analytics, indexing status, and Core Web Vitals. Combine it with Ubersuggest (3 free searches/day) and Screaming Frog (500 URLs free) for a complete SEO toolkit at zero cost.' },
+      { q: 'What is the best free keyword research tool?', a: 'Google Search Console shows real keyword data from your site for free. For discovery, Ubersuggest gives 3 free searches per day with keyword volume, difficulty, and related terms.' },
+      { q: 'Can I do a site audit without Semrush?', a: 'Yes. Screaming Frog crawls up to 500 URLs for free and finds broken links, redirect chains, missing meta tags, and duplicate content. Seobility also audits up to 1,000 pages on its free plan.' },
+      { q: 'Which free tool is best for backlink analysis?', a: 'Ahrefs Webmaster Tools provides free backlink data for your own verified websites. For competitor backlink research, Serpstat and Mangools offer limited free access.' },
+    ],
+    keywords: ['free semrush alternative', 'semrush free alternative', 'free seo tools 2026', 'semrush replacement free', 'free keyword research tool', 'free site audit tool', 'ahrefs webmaster tools free', 'open source seo tool', 'free backlink checker'],
+  },
 ]
 
 function mergeGitHubStats(pages: AlternativePage[]): AlternativePage[] {
@@ -948,4 +978,5 @@ export const CATEGORIES = [
   { name: 'Music Streaming', icon: '🎶', tools: ['navidrome'], applicationCategory: 'MultimediaApplication' },
   { name: 'File Sync', icon: '🔄', tools: ['syncthing'], applicationCategory: 'UtilitiesApplication' },
   { name: 'Knowledge Management', icon: '📄', tools: ['docmost', 'obsidian'], applicationCategory: 'ProductivityApplication' },
+  { name: 'SEO Tools', icon: '🔍', tools: ['semrush'], applicationCategory: 'DeveloperApplication' },
 ]

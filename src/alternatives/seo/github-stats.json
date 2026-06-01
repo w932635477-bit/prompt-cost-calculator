@@ -1,71 +1,71 @@
 {
-  "fetchedAt": "2026-06-01T03:42:27.060Z",
+  "fetchedAt": "2026-06-01T08:16:15.670Z",
   "repoCount": 81,
   "successCount": 81,
   "errorCount": 0,
   "stats": {
     "https://github.com/nextcloud/server": {
-      "githubStars": 35599,
+      "githubStars": 35601,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/owncloud/core": {
-      "githubStars": 8788,
+      "githubStars": 8789,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/haiwen/seafile": {
-      "githubStars": 14777,
+      "githubStars": 14779,
       "lastCommitDate": "2026-05-06",
       "maintenanceStatus": "active"
     },
     "https://github.com/syncthing/syncthing": {
-      "githubStars": 84821,
-      "lastCommitDate": "2026-05-27",
+      "githubStars": 84831,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/AppFlowy-IO/AppFlowy": {
-      "githubStars": 71558,
+      "githubStars": 71577,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
     "https://github.com/outline/outline": {
-      "githubStars": 38705,
+      "githubStars": 38706,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/logseq/logseq": {
-      "githubStars": 43165,
+      "githubStars": 43168,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/laurent22/joplin": {
-      "githubStars": 55053,
-      "lastCommitDate": "2026-05-30",
+      "githubStars": 55055,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/zadam/trilium": {
-      "githubStars": 36281,
+      "githubStars": 36286,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/usememos/memos": {
-      "githubStars": 60286,
+      "githubStars": 60293,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/mattermost/mattermost": {
-      "githubStars": 36922,
+      "githubStars": 36929,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/RocketChat/Rocket.Chat": {
-      "githubStars": 45389,
+      "githubStars": 45391,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/element-hq/element-web": {
-      "githubStars": 13158,
+      "githubStars": 13159,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -75,17 +75,17 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/jitsi/jitsi-meet": {
-      "githubStars": 29352,
+      "githubStars": 29355,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
     "https://github.com/bigbluebutton/bigbluebutton": {
-      "githubStars": 9131,
+      "githubStars": 9132,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/dani-garcia/vaultwarden": {
-      "githubStars": 61645,
+      "githubStars": 61657,
       "lastCommitDate": "2026-05-17",
       "maintenanceStatus": "active"
     },
@@ -95,7 +95,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/makeplane/plane": {
-      "githubStars": 50010,
+      "githubStars": 50021,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -105,13 +105,13 @@
       "maintenanceStatus": "archived"
     },
     "https://github.com/redmine/redmine": {
-      "githubStars": 5952,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 5953,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/opf/openproject": {
-      "githubStars": 15196,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 15198,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/wekan/wekan": {
@@ -120,22 +120,22 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/mattermost/focalboard": {
-      "githubStars": 26203,
+      "githubStars": 26204,
       "lastCommitDate": "2026-05-18",
       "maintenanceStatus": "active"
     },
     "https://github.com/kanboard/kanboard": {
-      "githubStars": 9615,
+      "githubStars": 9616,
       "lastCommitDate": "2026-05-28",
       "maintenanceStatus": "active"
     },
     "https://github.com/navidrome/navidrome": {
-      "githubStars": 21380,
+      "githubStars": 21382,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
     "https://github.com/jellyfin/jellyfin": {
-      "githubStars": 52770,
+      "githubStars": 52774,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -145,7 +145,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/go-gitea/gitea": {
-      "githubStars": 56045,
+      "githubStars": 56049,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -160,18 +160,18 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/BookStackApp/BookStack": {
-      "githubStars": 18795,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 18796,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/requarks/wiki": {
-      "githubStars": 28380,
+      "githubStars": 28383,
       "lastCommitDate": "2026-05-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/nocodb/nocodb": {
-      "githubStars": 63182,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 63184,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/bram2w/baserow": {
@@ -180,92 +180,92 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/plausible/analytics": {
-      "githubStars": 26660,
-      "lastCommitDate": "2026-05-28",
+      "githubStars": 26670,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/umami-software/umami": {
-      "githubStars": 36947,
+      "githubStars": 36949,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
     "https://github.com/matomo-org/matomo": {
-      "githubStars": 21557,
+      "githubStars": 21559,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/twentyhq/twenty": {
-      "githubStars": 48838,
+      "githubStars": 48855,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/monicahq/monica": {
-      "githubStars": 24712,
+      "githubStars": 24713,
       "lastCommitDate": "2026-04-24",
       "maintenanceStatus": "active"
     },
     "https://github.com/espocrm/espocrm": {
-      "githubStars": 3007,
-      "lastCommitDate": "2026-05-29",
+      "githubStars": 3008,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/grafana/grafana": {
-      "githubStars": 74067,
+      "githubStars": 74069,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/louislam/uptime-kuma": {
-      "githubStars": 87501,
+      "githubStars": 87506,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/prometheus/prometheus": {
-      "githubStars": 64224,
+      "githubStars": 64226,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
     "https://github.com/chatwoot/chatwoot": {
-      "githubStars": 29853,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 29858,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/freescout-helpdesk/freescout": {
-      "githubStars": 4300,
+      "githubStars": 4301,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/zammad/zammad": {
       "githubStars": 5650,
-      "lastCommitDate": "2026-05-31",
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/WordPress/WordPress": {
-      "githubStars": 21159,
+      "githubStars": 21160,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/TryGhost/Ghost": {
-      "githubStars": 53751,
+      "githubStars": 53757,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/strapi/strapi": {
-      "githubStars": 72291,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 72292,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/penpot/penpot": {
-      "githubStars": 48696,
-      "lastCommitDate": "2026-05-29",
+      "githubStars": 48716,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/excalidraw/excalidraw": {
-      "githubStars": 124362,
+      "githubStars": 124377,
       "lastCommitDate": "2026-05-25",
       "maintenanceStatus": "active"
     },
     "https://github.com/go-vikunja/vikunja": {
-      "githubStars": 4426,
+      "githubStars": 4429,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -280,7 +280,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/knadh/listmonk": {
-      "githubStars": 21231,
+      "githubStars": 21236,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -290,22 +290,22 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/logto-io/logto": {
-      "githubStars": 12098,
+      "githubStars": 12100,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/keycloak/keycloak": {
-      "githubStars": 34670,
+      "githubStars": 34674,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/meilisearch/meilisearch": {
-      "githubStars": 57890,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 57894,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/typesense/typesense": {
-      "githubStars": 25918,
+      "githubStars": 25917,
       "lastCommitDate": "2026-05-25",
       "maintenanceStatus": "active"
     },
@@ -320,27 +320,27 @@
       "maintenanceStatus": "archived"
     },
     "https://github.com/ShareX/ShareX": {
-      "githubStars": 37853,
+      "githubStars": 37856,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
     "https://github.com/harness/drone": {
-      "githubStars": 36266,
-      "lastCommitDate": "2026-05-27",
+      "githubStars": 36276,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/woodpecker-ci/woodpecker": {
-      "githubStars": 7186,
+      "githubStars": 7188,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/immich-app/immich": {
-      "githubStars": 102399,
+      "githubStars": 102415,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/photoprism/photoprism": {
-      "githubStars": 39725,
+      "githubStars": 39727,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -350,13 +350,13 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/n8n-io/n8n": {
-      "githubStars": 190517,
+      "githubStars": 190544,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/activepieces/activepieces": {
-      "githubStars": 22498,
-      "lastCommitDate": "2026-05-31",
+      "githubStars": 22499,
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/huginn/huginn": {
@@ -365,13 +365,13 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/PrivateBin/PrivateBin": {
-      "githubStars": 8339,
+      "githubStars": 8340,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
     "https://github.com/skyra-project/haste-server": {
       "githubStars": 40,
-      "lastCommitDate": "2026-05-31",
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/shlinkio/shlink": {
@@ -380,7 +380,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/YOURLS/YOURLS": {
-      "githubStars": 12046,
+      "githubStars": 12045,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -395,7 +395,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/padloc/padloc": {
-      "githubStars": 2919,
+      "githubStars": 2920,
       "lastCommitDate": "2025-03-29",
       "maintenanceStatus": "declining"
     },
@@ -405,7 +405,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/docmost/docmost": {
-      "githubStars": 20452,
+      "githubStars": 20454,
       "lastCommitDate": "2026-05-28",
       "maintenanceStatus": "active"
     }

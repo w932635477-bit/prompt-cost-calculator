@@ -42,5 +42,6 @@ module.exports = {
   'alt-lt-syncthing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/syncthing/index.html'),
   'alt-lt-vaultwarden': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/vaultwarden/index.html'),
   'alt-lt-docmost': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/docmost/index.html'),
-  'alt-lt-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/obsidian/index.html')
+  'alt-lt-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/obsidian/index.html'),
+  'alt-lt-semrush': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/semrush/index.html')
 }

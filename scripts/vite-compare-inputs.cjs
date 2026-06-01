@@ -26,11 +26,11 @@ module.exports = {
   'cmp-lt-mattermost-vs-rocketchat': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mattermost-vs-rocketchat/index.html'),
   'cmp-lt-element-vs-zulip': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/element-vs-zulip/index.html'),
   'cmp-lt-revolt-vs-element': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/revolt-vs-element/index.html'),
-  'cmp-lt-logseq-vs-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/logseq-vs-obsidian/index.html'),
   'cmp-lt-outline-vs-notion': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/outline-vs-notion/index.html'),
   'cmp-lt-n8n-vs-activepieces': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/n8n-vs-activepieces/index.html'),
   'cmp-lt-openproject-vs-plane': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/openproject-vs-plane/index.html'),
   'cmp-lt-docmost-vs-bookstack': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/docmost-vs-bookstack/index.html'),
   'cmp-lt-openproject-vs-taiga': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/openproject-vs-taiga/index.html'),
-  'cmp-lt-mattermost-vs-zulip': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mattermost-vs-zulip/index.html')
+  'cmp-lt-mattermost-vs-zulip': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mattermost-vs-zulip/index.html'),
+  'cmp-lt-docmost-vs-wiki-js': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/docmost-vs-wiki-js/index.html')
 }
