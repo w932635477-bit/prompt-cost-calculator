@@ -2,28 +2,12 @@
 // SEO deep page: cross-provider cost comparison.
 // Full-width responsive layout — no max-width constraint.
 
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo } from 'react'
 import pricing from '../data/pricing.json'
 import type { ModelPricing } from '../lib/types'
 import { GlobalNav } from '../components/GlobalNav'
 import { projectMonthlyCost, formatCost } from './calc'
 import type { CostParams } from './calc'
-
-const XL = 1280
-const LG = 1024
-const SM = 640
-
-function useBreakpoint(px: number) {
-  const [ok, setOk] = useState(false)
-  useEffect(() => {
-    const mq = window.matchMedia(`(min-width: ${px}px)`)
-    setOk(mq.matches)
-    const h = (e: MediaQueryListEvent) => setOk(e.matches)
-    mq.addEventListener('change', h)
-    return () => mq.removeEventListener('change', h)
-  }, [px])
-  return ok
-}
 
 const ALL_MODELS = pricing.models as ModelPricing[]
 
@@ -46,9 +30,6 @@ const PROVIDERS: Record<string, { color: string; abbr: string }> = {
 const PROVIDER_LIST = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq'] as const
 
 export default function LlmCostComparisonPage() {
-  const isXl = useBreakpoint(XL)
-  const isLg = useBreakpoint(LG)
-  const isSm = useBreakpoint(SM)
   const byProvider = useMemo(() => {
     const map = new Map<string, ModelPricing[]>()
     for (const m of ALL_MODELS) {
@@ -90,7 +71,7 @@ export default function LlmCostComparisonPage() {
       <div className="px-6 lg:px-12 py-8 space-y-8">
 
         {/* Key stats — 3 columns */}
-        <div style={{ display: 'grid', gridTemplateColumns: isSm ? 'repeat(3, 1fr)' : '1fr', gap: '1rem' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <StatCard
             icon="💰"
             label="Cheapest"
@@ -123,7 +104,7 @@ export default function LlmCostComparisonPage() {
             </span>
           </div>
           {/* On wide screens: 2-column grid for the bars */}
-          <div style={{ display: 'grid', gridTemplateColumns: isXl ? '1fr 1fr' : '1fr', columnGap: '2rem', rowGap: '0.5rem' }}>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-8 gap-y-2">
             {scenarioResults.map((r) => {
               const pct = Math.max((r.cost.monthlyCost / maxCost) * 100, 4)
               const prov = PROVIDERS[r.model.provider]
@@ -155,7 +136,7 @@ export default function LlmCostComparisonPage() {
         </div>
 
         {/* Per-provider tables — 2 columns on wide screens */}
-        <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '1.5rem' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {PROVIDER_LIST.map(provider => {
             const models = byProvider.get(provider) || []
             if (models.length === 0) return null
@@ -200,10 +181,10 @@ export default function LlmCostComparisonPage() {
         {/* FAQ — 2 columns */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h2 className="text-lg font-semibold mb-4">FAQ</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '0.75rem' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             <Faq q="Which LLM provider is cheapest?" a="Google Gemini 2.0 Flash-Lite at $0.075/1M input is cheapest per-token. DeepSeek V4 Flash ($0.14/1M) offers better quality. For production, GPT-4o Mini ($0.15/1M) provides the best price-to-quality ratio." />
             <Faq q="Is Claude cheaper than GPT?" a="It depends on the model tier. Claude 3 Haiku ($0.25/1M input) is cheaper than GPT-4o ($2.50/1M), but GPT-4o Mini ($0.15/1M) is cheaper than Claude 3.5 Haiku ($0.80/1M)." />
-            <Faq q="How do LLM prices compare across providers?" a="Prices vary up to 200x between cheapest and most expensive models. Budget models cost under $0.15/1M input. Premium models cost $5-15/1M input. Most providers offer 90% discounts on cached input tokens (10% of base price)." />
+            <Faq q="How do LLM prices compare across providers?" a="Prices vary up to 200x between cheapest and most expensive models. Budget models cost under $0.15/1M input. Premium models cost $5-15/1M input. Most providers offer 50% discounts on cached input tokens." />
           </div>
         </div>
 
