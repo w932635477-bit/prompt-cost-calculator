@@ -76,7 +76,7 @@ function scoreToolForDimension(tool: ProductivityTool, dim: Dimension, opt: Wiza
   return { dimension: dim, score, matchedTags: matched, reason }
 }
 
-const NEED_MULTIPLIER = 3
+const NEED_MULTIPLIER = 5
 
 export function recommend(opt: WizardOption): Recommendation[] {
   const scored = PRODUCTIVITY_TOOLS.map(tool => {

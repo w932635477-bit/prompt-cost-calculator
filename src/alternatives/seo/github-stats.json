@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-01T03:28:15.935Z",
+  "fetchedAt": "2026-06-01T03:32:09.668Z",
   "repoCount": 81,
   "successCount": 81,
   "errorCount": 0,
@@ -11,7 +11,7 @@
     },
     "https://github.com/owncloud/core": {
       "githubStars": 8788,
-      "lastCommitDate": "2026-05-31",
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/haiwen/seafile": {
@@ -25,7 +25,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/AppFlowy-IO/AppFlowy": {
-      "githubStars": 71557,
+      "githubStars": 71558,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
@@ -35,7 +35,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/logseq/logseq": {
-      "githubStars": 43164,
+      "githubStars": 43165,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -85,7 +85,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/dani-garcia/vaultwarden": {
-      "githubStars": 61644,
+      "githubStars": 61645,
       "lastCommitDate": "2026-05-17",
       "maintenanceStatus": "active"
     },
@@ -176,7 +176,7 @@
     },
     "https://github.com/bram2w/baserow": {
       "githubStars": 4932,
-      "lastCommitDate": "2026-05-31",
+      "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
     "https://github.com/plausible/analytics": {
@@ -195,7 +195,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/twentyhq/twenty": {
-      "githubStars": 48836,
+      "githubStars": 48837,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -260,7 +260,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/excalidraw/excalidraw": {
-      "githubStars": 124360,
+      "githubStars": 124361,
       "lastCommitDate": "2026-05-25",
       "maintenanceStatus": "active"
     },
@@ -335,7 +335,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/immich-app/immich": {
-      "githubStars": 102399,
+      "githubStars": 102400,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
