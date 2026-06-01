@@ -64,6 +64,7 @@ const allUrls = [
   { loc: BASE_URL + '/token-counter/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/finder/notes/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/finder/chat/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/finder/productivity/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/photos/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/prompt-cache-calculator/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/mcp-servers/', priority: '0.9', changefreq: 'weekly' },

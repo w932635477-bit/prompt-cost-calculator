@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Hosted Productivity Tool Finder — Wiki, PM, Notes, Chat, Automation</title>
+    <meta name="description" content="Answer 4 questions about your team and needs. Get 3 tailored open-source tool recommendations from 15 self-hosted apps across wiki, project management, notes, chat, and automation categories." />
+    <meta name="keywords" content="self hosted productivity tools, open source project management, self hosted wiki, self hosted chat, n8n vs activepieces, openproject vs plane, docmost, mattermost, zulip, logseq, appflowy" />
+    <link rel="canonical" href="https://aicalc.cloud/finder/productivity/" />
+    <meta property="og:title" content="Self-Hosted Productivity Tool Finder" />
+    <meta property="og:description" content="Find the best open-source wiki, PM, notes, chat, or automation tool for your team in 60 seconds." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/finder/productivity/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Self-Hosted Productivity Tool Finder" />
+    <meta name="twitter:description" content="15 open-source tools across 5 categories. Find the right one in 60 seconds." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Self-Hosted Productivity Tool Finder",
+      "url": "https://aicalc.cloud/finder/productivity/",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How does this finder work?","acceptedAnswer":{"@type":"Answer","text":"It asks 4 questions about your situation (tool type, team size, technical comfort, deployment preference), then scores 15 open-source tools across 4 dimensions and ranks the top 3 for your context."}},
+        {"@type":"Question","name":"Are these tools really free?","acceptedAnswer":{"@type":"Answer","text":"All 15 tools are free to self-host. Most are open-source (AGPL/MIT/Apache). Some offer optional paid cloud hosting or enterprise features."}},
+        {"@type":"Question","name":"What is Pair It With?","acceptedAnswer":{"@type":"Answer","text":"After showing the top 3 tools for your chosen category, the finder suggests the best tool from each other category to build a complete self-hosted productivity stack."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/finder/productivity/main.tsx"></script>
+  </body>
+</html>

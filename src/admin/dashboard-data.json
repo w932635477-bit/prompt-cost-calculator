@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-31T09:22:52.279Z",
+  "generatedAt": "2026-06-01T02:56:21.029Z",
   "summary": {
-    "totalIndexable": 321,
+    "totalIndexable": 327,
     "totalSubmitted": 225,
-    "coverage": 70.1,
+    "coverage": 68.8,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -29,9 +29,9 @@
     },
     {
       "name": "compare",
-      "total": 27,
+      "total": 32,
       "submitted": 0,
-      "remaining": 27
+      "remaining": 32
     },
     {
       "name": "llm-pricing",
@@ -58,16 +58,16 @@
       "remaining": 4
     },
     {
-      "name": "ai-code-review",
+      "name": "finder",
       "total": 3,
       "submitted": 0,
       "remaining": 3
     },
     {
-      "name": "finder",
-      "total": 2,
+      "name": "ai-code-review",
+      "total": 3,
       "submitted": 0,
-      "remaining": 2
+      "remaining": 3
     },
     {
       "name": "home",

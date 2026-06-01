@@ -101,6 +101,7 @@ export default defineConfig({
         'admin-dashboard': resolve(__dirname, 'admin/dashboard/index.html'),
         'finder-notes': resolve(__dirname, 'finder/notes/index.html'),
         'finder-chat': resolve(__dirname, 'finder/chat/index.html'),
+        'finder-productivity': resolve(__dirname, 'finder/productivity/index.html'),
         photos: resolve(__dirname, 'photos/index.html'),
         'prompt-cache-calculator': resolve(__dirname, 'prompt-cache-calculator/index.html'),
         'mcp-servers': resolve(__dirname, 'mcp-servers/index.html'),
