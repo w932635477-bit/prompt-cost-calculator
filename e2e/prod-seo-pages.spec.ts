@@ -5,7 +5,7 @@ const BASE = 'https://aicalc.cloud'
 const PAGES = [
   '/compare/logseq-vs-obsidian/',
   '/compare/outline-vs-notion/',
-  '/agent-data-access/',
+  '/ai-agent-data-access/',
 ]
 
 test.describe('Production: 3 New SEO Pages', () => {
@@ -64,8 +64,8 @@ test.describe('Production: 3 New SEO Pages', () => {
     await expect(page.locator('text=Frequently Asked').first()).toBeVisible()
   })
 
-  test('agent-data-access: table + checklist + timeline + FAQ', async ({ page }) => {
-    await page.goto(`${BASE}/agent-data-access/`, { waitUntil: 'networkidle' })
+  test('ai-agent-data-access: table + checklist + timeline + FAQ', async ({ page }) => {
+    await page.goto(`${BASE}/ai-agent-data-access/`, { waitUntil: 'networkidle' })
 
     // Table with 5 platforms
     const rows = page.locator('table tbody tr')

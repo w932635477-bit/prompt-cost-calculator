@@ -110,7 +110,7 @@ export default defineConfig({
         'ai-code-review': resolve(__dirname, 'ai-code-review/index.html'),
         'ai-review-guide': resolve(__dirname, 'ai-code-review/how-to-review-ai-generated-code/index.html'),
         'ai-pr-checklist': resolve(__dirname, 'ai-code-review/ai-pr-review-checklist/index.html'),
-        'agent-data-access': resolve(__dirname, 'agent-data-access/index.html'),
+        'ai-agent-data-access': resolve(__dirname, 'ai-agent-data-access/index.html'),
         'llm-pricing': resolve(__dirname, 'llm-pricing/index.html'),
         'cron-validator': resolve(__dirname, 'cron-validator/index.html'),
         ...localeInputs,

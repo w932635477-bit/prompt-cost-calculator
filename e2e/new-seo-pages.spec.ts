@@ -15,7 +15,7 @@ const PAGES = [
     h2: 'Outline vs Notion',
   },
   {
-    url: '/agent-data-access/',
+    url: '/ai-agent-data-access/',
     title: 'AI Agent Data Access',
     h1: 'AI Agent Data Access',
     description: 'data access policies',
@@ -99,7 +99,7 @@ test.describe('New SEO Pages', () => {
   })
 
   test.describe('AI Agent Data Access specific', () => {
-    const url = '/agent-data-access/'
+    const url = '/ai-agent-data-access/'
 
     test('data access table renders all 5 platforms', async ({ page: p }) => {
       await p.goto(`${BASE}${url}`, { waitUntil: 'networkidle' })

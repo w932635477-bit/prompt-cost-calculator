@@ -28,7 +28,7 @@ const CLIENT_SECRET = process.env.GSC_CLIENT_SECRET || ''
 const URLS = [
   `${BASE}/compare/logseq-vs-obsidian/`,
   `${BASE}/compare/outline-vs-notion/`,
-  `${BASE}/agent-data-access/`,
+  `${BASE}/ai-agent-data-access/`,
 ]
 
 function curlPost(url, body, headers = {}) {
