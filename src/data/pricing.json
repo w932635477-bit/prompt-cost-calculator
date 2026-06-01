@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-30",
+  "lastUpdated": "2026-06-01",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -13,8 +13,8 @@
       "tokenizerModel": "gpt-4o",
       "bestFor": "Complex reasoning, coding, professional work",
       "sourceUrl": "https://openai.com/api/pricing/",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 2.5
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.50
     },
     {
       "id": "gpt-5.4",
@@ -27,8 +27,8 @@
       "tokenizerModel": "gpt-4o",
       "bestFor": "Balanced performance and cost",
       "sourceUrl": "https://openai.com/api/pricing/",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 1.25
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.25
     },
     {
       "id": "gpt-5.4-mini",
@@ -41,8 +41,8 @@
       "tokenizerModel": "gpt-4o-mini",
       "bestFor": "Fast coding, subagents, computer use",
       "sourceUrl": "https://openai.com/api/pricing/",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.375
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.075
     },
     {
       "id": "gpt-4o",
@@ -55,8 +55,8 @@
       "tokenizerModel": "gpt-4o",
       "bestFor": "General-purpose, multimodal tasks",
       "sourceUrl": "https://openai.com/api/pricing/",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 1.25
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.25
     },
     {
       "id": "gpt-4o-mini",
@@ -69,8 +69,8 @@
       "tokenizerModel": "gpt-4o-mini",
       "bestFor": "High-volume, low-cost tasks",
       "sourceUrl": "https://openai.com/api/pricing/",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.075
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.015
     },
     {
       "id": "o3",
@@ -83,8 +83,8 @@
       "tokenizerModel": "o3",
       "bestFor": "Deep reasoning, STEM problems",
       "sourceUrl": "https://openai.com/api/pricing/",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 1.0
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.20
     },
     {
       "id": "o4-mini",
@@ -97,8 +97,8 @@
       "tokenizerModel": "o4-mini",
       "bestFor": "Affordable reasoning tasks",
       "sourceUrl": "https://openai.com/api/pricing/",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.55
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.11
     },
     {
       "id": "claude-3-7-sonnet-20250219",
@@ -111,7 +111,7 @@
       "tokenizerModel": null,
       "bestFor": "Complex analysis, coding, extended thinking",
       "sourceUrl": "https://docs.anthropic.com/en/docs/about-claude/models",
-      "priceUpdatedAt": "2026-05-30",
+      "priceUpdatedAt": "2026-06-01",
       "cachedInputPricePer1M": 0.3
     },
     {
@@ -125,7 +125,7 @@
       "tokenizerModel": null,
       "bestFor": "Fast responses, high-throughput tasks",
       "sourceUrl": "https://docs.anthropic.com/en/docs/about-claude/models",
-      "priceUpdatedAt": "2026-05-30",
+      "priceUpdatedAt": "2026-06-01",
       "cachedInputPricePer1M": 0.08
     },
     {
@@ -139,7 +139,7 @@
       "tokenizerModel": null,
       "bestFor": "Most demanding tasks, top-tier intelligence",
       "sourceUrl": "https://docs.anthropic.com/en/docs/about-claude/models",
-      "priceUpdatedAt": "2026-05-30",
+      "priceUpdatedAt": "2026-06-01",
       "cachedInputPricePer1M": 1.5
     },
     {
@@ -153,7 +153,7 @@
       "tokenizerModel": null,
       "bestFor": "Ultra-fast, cost-sensitive applications",
       "sourceUrl": "https://docs.anthropic.com/en/docs/about-claude/models",
-      "priceUpdatedAt": "2026-05-30",
+      "priceUpdatedAt": "2026-06-01",
       "cachedInputPricePer1M": 0.025
     },
     {
@@ -167,8 +167,8 @@
       "tokenizerModel": null,
       "bestFor": "Production-ready, high rate limits",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.025
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.01
     },
     {
       "id": "gemini-2.0-flash-lite",
@@ -181,8 +181,8 @@
       "tokenizerModel": null,
       "bestFor": "Large-scale text output, lowest cost",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.0187
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.0075
     },
     {
       "id": "gemini-1.5-pro",
@@ -195,8 +195,8 @@
       "tokenizerModel": null,
       "bestFor": "2M context, complex multimodal tasks",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.3125
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.125
     },
     {
       "id": "gemini-1.5-flash",
@@ -209,8 +209,8 @@
       "tokenizerModel": null,
       "bestFor": "Fast multimodal, diverse repetitive tasks",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.0187
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.0075
     },
     {
       "id": "gemini-1.5-flash-8b",
@@ -223,8 +223,8 @@
       "tokenizerModel": null,
       "bestFor": "Smallest model, lowest intelligence use cases",
       "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.0094
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.00375
     },
     {
       "id": "deepseek-v4-flash",
@@ -237,8 +237,8 @@
       "tokenizerModel": null,
       "bestFor": "Best value, strong reasoning at low cost",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.014
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.0028
     },
     {
       "id": "deepseek-v4-pro",
@@ -251,8 +251,92 @@
       "tokenizerModel": null,
       "bestFor": "DeepSeek's most capable model",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-05-30",
-      "cachedInputPricePer1M": 0.0435
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.003625
+    },
+    {
+      "id": "claude-opus-4-8",
+      "provider": "Anthropic",
+      "name": "Claude Opus 4.8",
+      "inputPricePer1M": 5.0,
+      "outputPricePer1M": 25.0,
+      "contextWindow": 200000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Most capable Claude model, complex reasoning",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.50
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "provider": "Anthropic",
+      "name": "Claude Sonnet 4.6",
+      "inputPricePer1M": 3.0,
+      "outputPricePer1M": 15.0,
+      "contextWindow": 200000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Balanced performance and cost, coding",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.30
+    },
+    {
+      "id": "claude-haiku-4-5",
+      "provider": "Anthropic",
+      "name": "Claude Haiku 4.5",
+      "inputPricePer1M": 1.0,
+      "outputPricePer1M": 5.0,
+      "contextWindow": 200000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Fast responses, cost-effective Claude",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.10
+    },
+    {
+      "id": "gemini-3-5-flash",
+      "provider": "Google",
+      "name": "Gemini 3.5 Flash",
+      "inputPricePer1M": 1.5,
+      "outputPricePer1M": 9.0,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Most capable Gemini, advanced reasoning",
+      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.15
+    },
+    {
+      "id": "gemini-2-5-flash",
+      "provider": "Google",
+      "name": "Gemini 2.5 Flash",
+      "inputPricePer1M": 0.3,
+      "outputPricePer1M": 2.5,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Balanced Gemini model, good value",
+      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.03
+    },
+    {
+      "id": "gemini-2-5-flash-lite",
+      "provider": "Google",
+      "name": "Gemini 2.5 Flash-Lite",
+      "inputPricePer1M": 0.1,
+      "outputPricePer1M": 0.4,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Lowest cost Gemini, high-volume tasks",
+      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+      "priceUpdatedAt": "2026-06-01",
+      "cachedInputPricePer1M": 0.01
     },
     {
       "id": "llama-4-maverick",

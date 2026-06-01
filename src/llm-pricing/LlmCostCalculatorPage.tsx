@@ -186,7 +186,7 @@ export default function LlmCostCalculatorPage() {
           <h2 className="text-lg font-semibold mb-4">FAQ</h2>
           <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '0.75rem' }}>
             <Faq q="How accurate is this LLM cost calculator?" a="This calculator uses official API pricing from OpenAI, Anthropic, Google, DeepSeek, and Groq. Results reflect per-token billing. Actual costs may vary due to tokenizer differences and network overhead." />
-            <Faq q="What is a cache hit rate?" a="Cache hit rate is the percentage of input tokens that match a previously cached prompt. OpenAI, Anthropic, and Google offer 50% discounts on cached input tokens. For apps with repeated system prompts, cache hit rates of 50-90% are common." />
+            <Faq q="What is a cache hit rate?" a="Cache hit rate is the percentage of input tokens that match a previously cached prompt. OpenAI, Anthropic, and Google offer 90% discounts on cached input tokens (10% of base price). DeepSeek offers 98% off (2% of base). For apps with repeated system prompts, cache hit rates of 50-90% are common." />
             <Faq q="How do I reduce my LLM API costs?" a="Top strategies: (1) Use prompt caching for repeated contexts, (2) Route simple queries to cheaper models like GPT-4o Mini or Gemini Flash, (3) Reduce output tokens with concise instructions, (4) Batch multiple requests." />
             <Faq q="Which LLM API is the cheapest?" a="Gemini 2.0 Flash-Lite at $0.075/1M input is cheapest. For production quality at low cost, GPT-4o Mini ($0.15/1M) and DeepSeek V4 Flash ($0.14/1M) offer the best balance." />
           </div>

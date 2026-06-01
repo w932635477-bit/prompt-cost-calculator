@@ -102,14 +102,14 @@ function App() {
             </h2>
             <div className="text-[#86868b] leading-relaxed space-y-3">
               <p>
-                LLM API pricing varies dramatically across providers. As of May 2026, the cheapest text model
-                (Gemini 1.5 Flash-8B) costs $0.0375 per 1M input tokens, while the most expensive
-                (Claude 3 Opus) costs $15.00 — a 400× difference for the same text.
+                LLM API pricing varies dramatically across providers. As of June 2026, the cheapest text model
+                (Gemini 2.5 Flash-Lite) costs $0.10 per 1M input tokens, while the most expensive
+                (Claude 3 Opus) costs $15.00 — a 150× difference for the same text.
               </p>
               <p>
                 OpenAI's GPT-5.5 leads at $5/$30 per 1M tokens for complex reasoning tasks.
                 For budget-conscious developers, DeepSeek V4 Flash offers strong performance at $0.14/$0.28,
-                and Google's Gemini 2.0 Flash provides production-ready quality at $0.10/$0.40.
+                and Google's Gemini 2.5 Flash provides production-ready quality at $0.30/$2.50.
                 The table above shows current pricing for all major providers.
               </p>
             </div>
@@ -127,9 +127,9 @@ function App() {
                 with output tokens typically costing 3–6× more than input.
               </p>
               <p>
-                For example, sending a 500-token prompt to GPT-4o costs $0.00125 in input fees.
-                If the model generates 1,000 tokens in response, that adds $0.01 in output fees.
-                At 1,000 calls per month, this works out to roughly $11.25/month. Use the calculator above
+                For example, sending a 500-token prompt to GPT-5.4 costs $0.00125 in input fees.
+                If the model generates 1,000 tokens in response, that adds $0.015 in output fees.
+                At 1,000 calls per month, this works out to roughly $16.25/month. Use the calculator above
                 to estimate costs for your actual usage patterns.
               </p>
             </div>
@@ -142,13 +142,13 @@ function App() {
             <div className="text-[#86868b] leading-relaxed space-y-3">
               <p>
                 Pick your model based on task complexity and budget. For simple tasks (classification, extraction,
-                short answers), start with GPT-4o Mini ($0.15/$0.60) or Gemini 2.0 Flash ($0.10/$0.40).
+                short answers), start with GPT-5.4 Mini ($0.75/$4.50) or Gemini 2.5 Flash-Lite ($0.10/$0.40).
                 These models handle 90% of production workloads at a fraction of the cost.
               </p>
               <p>
                 For complex reasoning, coding, or professional work, step up to GPT-5.4 ($2.50/$15) or
                 Claude 3.7 Sonnet ($3/$15). Reserve the most expensive models — GPT-5.5 ($5/$30) and
-                Claude 3 Opus ($15/$75) — for tasks that genuinely need frontier intelligence.
+                Claude Opus 4.8 ($5/$25) — for tasks that genuinely need frontier intelligence.
                 A practical approach: prototype with cheap models, then upgrade only where quality demands it.
               </p>
             </div>
@@ -198,11 +198,11 @@ function App() {
             {[
               {
                 q: 'How accurate is the token count?',
-                a: 'For OpenAI models (GPT-4o, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on ~4 characters per token for English text and ~1.5 characters for Chinese text. The cost estimates are accurate enough for budgeting purposes.',
+                a: 'For OpenAI models (GPT-5.5, GPT-5.4, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on ~4 characters per token for English text and ~1.5 characters for Chinese text. The cost estimates are accurate enough for budgeting purposes.',
               },
               {
                 q: 'Which AI models are supported?',
-                a: `We support ${models.length} models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).`,
+                a: `We support ${models.length} models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude Opus 4.8, Sonnet 4.6, Haiku 4.5, 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 3.5 Flash, 2.5 Flash, 2.5 Flash-Lite, 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).`,
               },
               {
                 q: 'How often is pricing updated?',
@@ -218,7 +218,7 @@ function App() {
               },
               {
                 q: 'How do I reduce my AI costs?',
-                a: 'Three strategies: (1) Use cheaper models for simple tasks (e.g., GPT-4o Mini instead of GPT-4o). (2) Shorten your prompts to reduce input tokens. (3) Use models with free tiers for testing (Gemini Flash, Groq).',
+                a: 'Three strategies: (1) Use cheaper models for simple tasks (e.g., GPT-5.4 Mini instead of GPT-5.5). (2) Shorten your prompts to reduce input tokens. (3) Use models with free tiers for testing (Gemini Flash, Groq).',
               },
               {
                 q: 'Can I use this for batch calculations?',

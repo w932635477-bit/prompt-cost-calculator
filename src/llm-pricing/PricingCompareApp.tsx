@@ -139,7 +139,7 @@ export default function PricingCompareApp() {
               },
               {
                 q: 'What does "Cached $/1M" mean?',
-                a: 'Some providers offer discounted pricing when input tokens are served from a cache. Anthropic charges 10% of base input for cached reads. OpenAI charges 50%. This can dramatically reduce costs for repeated prompts.',
+                a: 'Some providers offer discounted pricing when input tokens are served from a cache. Anthropic, OpenAI, and Google all charge 10% of base input for cached reads. DeepSeek charges just 2%. This can dramatically reduce costs for repeated prompts.',
               },
               {
                 q: 'Why is Groq missing cached pricing?',
@@ -147,7 +147,7 @@ export default function PricingCompareApp() {
               },
               {
                 q: 'Which model is cheapest for production use?',
-                a: 'For high-volume tasks, DeepSeek V4 Flash ($0.14/1M input) and Gemini 2.0 Flash ($0.10/1M input) are the most affordable. For quality-sensitive work, Claude Haiku 4.5 ($0.80/1M) or GPT-5.4 Mini ($0.75/1M) offer a good balance.',
+                a: 'For high-volume tasks, DeepSeek V4 Flash ($0.14/1M input) and Gemini 2.5 Flash-Lite ($0.10/1M input) are the most affordable. For quality-sensitive work, Claude 3.5 Haiku ($0.80/1M) or GPT-5.4 Mini ($0.75/1M) offer a good balance.',
               },
             ].map(({ q, a }) => (
               <details key={q} className="group">

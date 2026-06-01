@@ -37,8 +37,8 @@ const STRATEGIES = [
     title: 'Enable Prompt Caching',
     saving: '50%',
     icon: '⚡',
-    desc: 'OpenAI, Anthropic, and Google offer 50% discounts on cached input tokens. If your app repeats system prompts or few-shot examples, enable prompt caching immediately.',
-    example: 'GPT-4o input: $2.50/1M → cached: $1.25/1M. At 70% cache hit rate on 10K input × 1K calls/day, that\'s $131/month saved.',
+    desc: 'OpenAI, Anthropic, and Google offer 90% discounts on cached input tokens (10% of base price). DeepSeek offers 98% off (2% of base). If your app repeats system prompts or few-shot examples, enable prompt caching immediately.',
+    example: 'GPT-5.4 input: $2.50/1M → cached: $0.25/1M. At 70% cache hit rate on 10K input × 1K calls/day, that\'s ~$473/month saved.',
   },
   {
     title: 'Route Simple Queries to Cheap Models',
@@ -189,7 +189,7 @@ export default function LlmCostOptimizationPage() {
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h2 className="text-lg font-semibold mb-4">FAQ</h2>
           <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '0.75rem' }}>
-            <Faq q="How much can I save with prompt caching?" a="50% off input tokens. If 70% of your input tokens are cached, you save ~35% on total input costs. For GPT-4o at 10K input × 1K calls/day, that's $131/month saved." />
+            <Faq q="How much can I save with prompt caching?" a="50% off input tokens. If 70% of your input tokens are cached, you save ~35% on total input costs. For GPT-5.4 at 10K input × 1K calls/day, that's ~$473/month saved." />
             <Faq q="Is it worth switching from OpenAI to DeepSeek?" a="For cost-sensitive workloads, yes. DeepSeek V4 Flash costs $0.14/1M input vs GPT-4o's $2.50/1M — 18x reduction. Test quality first for nuanced tasks." />
             <Faq q="What is OpenAI Batch API?" a="Submit requests processed within 24 hours at 50% discount. Perfect for classification, embedding generation, data extraction. Up to 100K requests per batch file." />
           </div>

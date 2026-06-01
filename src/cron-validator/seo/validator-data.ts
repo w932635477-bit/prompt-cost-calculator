@@ -4,7 +4,7 @@ export const VALIDATOR_SUB_PAGES: ValidatorSubPage[] = [
   {
     slug: 'quartz',
     dialect: 'quartz',
-    title: 'Quartz Cron Expression Validator — Test & Check Quartz Cron Online',
+    title: 'Quartz Cron Validator — Test Quartz Expressions Online',
     h1: 'Quartz Cron Expression Validator',
     description: 'Validate Quartz cron expressions online. Check 6-7 field Quartz syntax with ? L W # tokens. Get human-readable explanations, next run times, and fix suggestions for Quartz Scheduler.',
     explanation: 'Quartz Scheduler uses 6 or 7 field cron expressions. Unlike Unix cron, Quartz starts with a seconds field and supports special tokens: ? (no specific value), L (last), W (weekday), and # (nth day). Day-of-month and day-of-week fields cannot both be specific — one must be "?".',
@@ -32,7 +32,7 @@ export const VALIDATOR_SUB_PAGES: ValidatorSubPage[] = [
   {
     slug: 'kubernetes',
     dialect: 'kubernetes',
-    title: 'Kubernetes CronJob Cron Expression Validator — Test K8s Schedule Online',
+    title: 'Kubernetes CronJob Validator — Test K8s Schedule Online',
     h1: 'Kubernetes CronJob Validator',
     description: 'Validate Kubernetes CronJob schedule expressions online. Check your K8s cron syntax, get next run times in UTC, and see common errors. Supports standard 5-field cron for Kubernetes CronJobs.',
     explanation: 'Kubernetes CronJobs use standard 5-field Unix cron syntax in the spec.schedule field. By default, all times are in UTC. Kubernetes 1.27+ supports a timeZone field. K8s does not support @shorthand notation (@daily, @hourly) — you must use the full 5-field expression.',
@@ -60,7 +60,7 @@ export const VALIDATOR_SUB_PAGES: ValidatorSubPage[] = [
   {
     slug: 'aws-eventbridge',
     dialect: 'aws',
-    title: 'AWS EventBridge Cron Expression Validator — Test AWS Schedule Online',
+    title: 'AWS EventBridge Cron Validator — Test AWS Schedules Online',
     h1: 'AWS EventBridge Cron Validator',
     description: 'Validate AWS EventBridge cron expressions online. Check 6-field AWS cron syntax with year field, get fix suggestions for common errors, and see next run times.',
     explanation: 'AWS EventBridge (formerly CloudWatch Events) uses 6-field cron expressions: minute hour day-of-month month day-of-week year. Unlike Unix cron, AWS requires one of day-of-month or day-of-week to be "?". The year field is required. Expressions are wrapped in cron().',

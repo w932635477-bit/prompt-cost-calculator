@@ -302,7 +302,7 @@ export const DEPLOY_PAGES: DeployPage[] = [
   {
     slug: 'google-analytics',
     saasName: 'Google Analytics',
-    title: 'Deploy Self-Hosted Google Analytics Alternatives with Docker Compose',
+    title: 'Self-Hosted Google Analytics Alternatives — Docker Deploy',
     h1: 'Deploy Self-Hosted Google Analytics Alternatives',
     description: 'Deploy Plausible Analytics and Matomo with Docker Compose. Privacy-friendly, cookie-compliant web analytics you fully control.',
     keywords: ['deploy plausible docker', 'deploy matomo docker', 'self-hosted analytics docker compose', 'plausible docker compose', 'matomo docker'],

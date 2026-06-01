@@ -203,7 +203,7 @@ export default function LlmCostComparisonPage() {
           <div style={{ display: 'grid', gridTemplateColumns: isLg ? '1fr 1fr' : '1fr', gap: '0.75rem' }}>
             <Faq q="Which LLM provider is cheapest?" a="Google Gemini 2.0 Flash-Lite at $0.075/1M input is cheapest per-token. DeepSeek V4 Flash ($0.14/1M) offers better quality. For production, GPT-4o Mini ($0.15/1M) provides the best price-to-quality ratio." />
             <Faq q="Is Claude cheaper than GPT?" a="It depends on the model tier. Claude 3 Haiku ($0.25/1M input) is cheaper than GPT-4o ($2.50/1M), but GPT-4o Mini ($0.15/1M) is cheaper than Claude 3.5 Haiku ($0.80/1M)." />
-            <Faq q="How do LLM prices compare across providers?" a="Prices vary up to 200x between cheapest and most expensive models. Budget models cost under $0.15/1M input. Premium models cost $5-15/1M input. Most providers offer 50% discounts on cached input tokens." />
+            <Faq q="How do LLM prices compare across providers?" a="Prices vary up to 200x between cheapest and most expensive models. Budget models cost under $0.15/1M input. Premium models cost $5-15/1M input. Most providers offer 90% discounts on cached input tokens (10% of base price)." />
           </div>
         </div>
 
