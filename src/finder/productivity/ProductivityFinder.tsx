@@ -107,7 +107,7 @@ export default function ProductivityFinder() {
           </p>
           <div className="grid grid-cols-3 gap-3">
             {HEADER_FACTS.map((f, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm p-3">
+              <div key={i} className="bg-white rounded-2xl p-3.5" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}>
                 <div className="text-sm font-medium text-[#1d1d1f]">{f.label}</div>
                 <div className="text-xs text-[#86868b] mt-0.5">{f.sub}</div>
               </div>
@@ -121,7 +121,7 @@ export default function ProductivityFinder() {
         ) : (
           <section id="results">
             {/* Summary of choices */}
-            <div className="bg-white rounded-2xl shadow-sm p-5 mb-5 flex items-center justify-between gap-4">
+            <div className="bg-white rounded-2xl p-5 mb-5 flex items-center justify-between gap-4" style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.08)' }}>
               <div className="min-w-0 flex-1">
                 <div className="text-xs text-[#86868b] mb-1">Your scenario</div>
                 <div className="text-sm text-[#1d1d1f] flex flex-wrap gap-x-3 gap-y-1">
@@ -162,7 +162,8 @@ export default function ProductivityFinder() {
                       href={cr.tool.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 bg-white rounded-xl shadow-sm p-4 hover:shadow-md transition-shadow"
+                      className="flex items-center gap-3 bg-white rounded-2xl p-4 hover:shadow-md transition-shadow duration-200"
+                      style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}
                     >
                       <span className="text-2xl">{cr.tool.logo}</span>
                       <div className="flex-1 min-w-0">
@@ -179,7 +180,7 @@ export default function ProductivityFinder() {
         )}
 
         {/* Cross-links */}
-        <section className="bg-white rounded-2xl shadow-sm p-5 mb-8">
+        <section className="bg-white rounded-2xl p-5 mb-8" style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.08)' }}>
           <h2 className="text-base font-semibold text-[#1d1d1f] tracking-tight mb-3">
             Explore Further
           </h2>
@@ -222,8 +223,8 @@ export default function ProductivityFinder() {
           </h2>
           <div className="space-y-3">
             {FAQ.map((item, i) => (
-              <details key={i} className="group bg-white rounded-2xl shadow-sm overflow-hidden">
-                <summary className="cursor-pointer p-5 text-base font-medium text-[#1d1d1f] group-open:text-[#0071E3] transition-colors">
+              <details key={i} className="group bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}>
+                <summary className="cursor-pointer p-5 text-base font-medium text-[#1d1d1f] group-open:text-[#0071E3] transition-colors duration-200 hover:bg-[#f5f5f7]/30">
                   {item.q}
                 </summary>
                 <div className="px-5 pb-5 text-sm text-[#86868b] leading-relaxed">

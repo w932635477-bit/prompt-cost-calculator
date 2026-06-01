@@ -52,7 +52,7 @@ function DimensionBar({ score, label, reason }: { score: number; label: string; 
         <span className="font-medium text-[#1d1d1f]">{label}</span>
         <span className="text-[#86868b] tabular-nums">{score}/10</span>
       </div>
-      <div className="w-full bg-[#f5f5f7] rounded-full h-1.5 overflow-hidden mb-1">
+      <div className="w-full bg-[#e8e8ed] rounded-full h-2 overflow-hidden mb-1">
         <div
           className="h-full rounded-full transition-all duration-500"
           style={{ width: `${pct}%`, backgroundColor: color }}
@@ -68,7 +68,7 @@ export default function RecommendationCard({ rec }: { rec: Recommendation }) {
   const t = rec.tool
 
   return (
-    <article className="bg-white rounded-2xl shadow-sm overflow-hidden" data-testid={`rec-card-${rec.rank}`}>
+    <article className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.08)' }} data-testid={`rec-card-${rec.rank}`}>
       {/* Header */}
       <div className="p-5 md:p-6 border-b border-[#e8e8ed]">
         <div className="flex items-start gap-4">

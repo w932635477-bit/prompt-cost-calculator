@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-01T02:56:16.739Z",
+  "fetchedAt": "2026-06-01T03:08:11.344Z",
   "repoCount": 81,
   "successCount": 81,
   "errorCount": 0,
@@ -25,7 +25,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/AppFlowy-IO/AppFlowy": {
-      "githubStars": 71555,
+      "githubStars": 71556,
       "lastCommitDate": "2026-05-27",
       "maintenanceStatus": "active"
     },
@@ -45,7 +45,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/zadam/trilium": {
-      "githubStars": 36280,
+      "githubStars": 36281,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -95,7 +95,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/makeplane/plane": {
-      "githubStars": 50005,
+      "githubStars": 50007,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -170,7 +170,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/nocodb/nocodb": {
-      "githubStars": 63181,
+      "githubStars": 63182,
       "lastCommitDate": "2026-05-31",
       "maintenanceStatus": "active"
     },
@@ -220,7 +220,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/prometheus/prometheus": {
-      "githubStars": 64224,
+      "githubStars": 64223,
       "lastCommitDate": "2026-05-29",
       "maintenanceStatus": "active"
     },
@@ -295,7 +295,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/keycloak/keycloak": {
-      "githubStars": 34669,
+      "githubStars": 34670,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -335,7 +335,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/immich-app/immich": {
-      "githubStars": 102396,
+      "githubStars": 102399,
       "lastCommitDate": "2026-06-01",
       "maintenanceStatus": "active"
     },
@@ -360,7 +360,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/huginn/huginn": {
-      "githubStars": 49381,
+      "githubStars": 49382,
       "lastCommitDate": "2026-05-30",
       "maintenanceStatus": "active"
     },
@@ -405,7 +405,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/docmost/docmost": {
-      "githubStars": 20451,
+      "githubStars": 20452,
       "lastCommitDate": "2026-05-28",
       "maintenanceStatus": "active"
     }

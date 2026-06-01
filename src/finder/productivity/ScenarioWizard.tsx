@@ -83,16 +83,16 @@ export default function ScenarioWizard({ onComplete }: Props) {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+    <div className="bg-white rounded-2xl p-6 md:p-8" style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.08)' }}>
       {/* Progress bar */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between text-xs text-[#86868b] mb-2">
+      <div className="mb-8">
+        <div className="flex items-center justify-between text-xs text-[#86868b] mb-2.5">
           <span>Question {step + 1} of {QUESTIONS.length}</span>
           <span>{Math.round(progress)}%</span>
         </div>
-        <div className="w-full bg-[#f5f5f7] rounded-full h-1.5 overflow-hidden">
+        <div className="w-full bg-[#e8e8ed] rounded-full h-2 overflow-hidden">
           <div
-            className="h-full bg-[#0071E3] rounded-full transition-all duration-300"
+            className="h-full bg-[#0071E3] rounded-full transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -112,14 +112,14 @@ export default function ScenarioWizard({ onComplete }: Props) {
             <button
               key={opt.value}
               onClick={() => select(opt.value)}
-              className={`w-full text-left p-4 rounded-xl border-2 transition-all
+              className={`w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 min-h-[44px]
                 ${isSelected
-                  ? 'border-[#0071E3] bg-[#0071E3]/5'
-                  : 'border-[#e8e8ed] hover:border-[#86868b] bg-white'}`}
+                  ? 'border-[#0071E3] bg-[#0071E3]/5 shadow-sm'
+                  : 'border-[#e8e8ed] bg-white hover:border-[#0071E3]/40 hover:shadow-sm active:scale-[0.99]'}`}
               data-value={opt.value}
             >
               <div className="font-medium text-[#1d1d1f]">{opt.label}</div>
-              <div className="text-sm text-[#86868b] mt-0.5">{opt.sub}</div>
+              <div className="text-sm text-[#86868b] mt-1 leading-relaxed">{opt.sub}</div>
             </button>
           )
         })}
