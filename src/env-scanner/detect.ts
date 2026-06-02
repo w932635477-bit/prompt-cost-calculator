@@ -51,11 +51,10 @@ export function parseEnvFile(text: string): Record<string, string> {
 
 // Cloud API key patterns — prefixed, low false-positive
 const CLOUD_PATTERNS: { name: string; re: RegExp }[] = [
-  { name: 'OpenAI', re: /\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b/g },
+  { name: 'OpenAI', re: /\bsk-(?!ant-)(?:proj-)?[A-Za-z0-9_-]{20,}\b/g },
   { name: 'Anthropic', re: /\bsk-ant-[A-Za-z0-9_-]{20,}\b/g },
   { name: 'AWS Access Key', re: /\b(?:AKIA|ASIA)[A-Z0-9]{16}\b/g },
   { name: 'GCP API Key', re: /\bAIza[A-Za-z0-9_-]{35}\b/g },
-  { name: 'Azure Key', re: /\b[A-Za-z0-9+/:]{40,}={0,2}\b/g }, // Azure uses base64 keys
 ]
 
 // Auth token patterns
@@ -63,8 +62,7 @@ const AUTH_PATTERNS: { name: string; re: RegExp }[] = [
   { name: 'GitHub PAT', re: /\b(?:ghp|gho|ghs|ghu|ghr)_[A-Za-z0-9]{36,}\b/g },
   { name: 'GitLab PAT', re: /\bglpat-[A-Za-z0-9_-]{20,}\b/g },
   { name: 'Slack Token', re: /\bxox[abposr]-[A-Za-z0-9-]{10,}\b/g },
-  { name: 'Stripe Key', re: /\b(?:sk|pk|rk)_(?:test|live)_[A-Za-z0-9]{24,}\b/g },
-  { name: 'Vercel Token', re: /\b[A-Za-z0-9]{24,}\b/g }, // Vercel tokens are long alphanumeric
+  { name: 'Stripe Key', re: /\b(?:sk|pk|rk)_(?:test|live)_[A-Za-z0-9_]{24,}\b/g },
 ]
 
 // Database URL with embedded password
