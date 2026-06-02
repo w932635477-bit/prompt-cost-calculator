@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-01T14:22:11.860Z",
+  "generatedAt": "2026-06-02T02:48:46.902Z",
   "summary": {
-    "totalIndexable": 328,
+    "totalIndexable": 329,
     "totalSubmitted": 225,
-    "coverage": 68.6,
+    "coverage": 68.4,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -113,6 +113,12 @@
     },
     {
       "name": "pii-redactor",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "env-scanner",
       "total": 1,
       "submitted": 0,
       "remaining": 1

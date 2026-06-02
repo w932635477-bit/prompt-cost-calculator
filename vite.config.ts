@@ -107,6 +107,7 @@ export default defineConfig({
         'mcp-servers': resolve(__dirname, 'mcp-servers/index.html'),
         'csp-generator': resolve(__dirname, 'csp-generator/index.html'),
         'pii-redactor': resolve(__dirname, 'pii-redactor/index.html'),
+        'env-scanner': resolve(__dirname, 'env-scanner/index.html'),
         'ai-code-review': resolve(__dirname, 'ai-code-review/index.html'),
         'ai-review-guide': resolve(__dirname, 'ai-code-review/how-to-review-ai-generated-code/index.html'),
         'ai-pr-checklist': resolve(__dirname, 'ai-code-review/ai-pr-review-checklist/index.html'),

@@ -28,6 +28,7 @@ const PAGES = [
   { url: '/voice-agent-pricing/', name: 'Voice Agent Pricing', check: { hasTitle: true, hasNav: true } },
   // 8. Agent Safety
   { url: '/agent-safety/', name: 'Agent Safety', check: { hasTitle: true, hasNav: true } },
+  { url: '/env-scanner/', name: 'Env Scanner', check: { h1: '.env', hasNav: true } },
 ]
 
 // Sitemap check

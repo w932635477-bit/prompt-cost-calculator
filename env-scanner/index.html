@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.env Security Scanner - Check Environment Variables for Leaked Secrets</title>
+    <meta name="description" content="Free browser-based .env file security scanner. Detect leaked API keys, database credentials, and secrets in your environment files. Zero API calls, fully client-side." />
+    <meta name="keywords" content="env file scanner, check env for secrets, detect leaked api keys, env security checker, dotenv leak scanner, environment variable security, gitignore env secrets, browser env scanner" />
+    <link rel="canonical" href="https://aicalc.cloud/env-scanner/" />
+    <meta property="og:title" content=".env Security Scanner — Browser-Only Secret Detector" />
+    <meta property="og:description" content="Scan .env files for leaked API keys, database URLs, and secrets. Zero network requests, runs entirely in your browser." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/env-scanner/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content=".env Security Scanner" />
+    <meta name="twitter:description" content="Browser-only .env secret detector. No network, no storage." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": ".env Security Scanner",
+      "url": "https://aicalc.cloud/env-scanner/",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free browser-based .env file security scanner. Detect leaked API keys, database credentials, and secrets. Zero API calls, fully client-side."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Why scan .env files?","acceptedAnswer":{"@type":"Answer","text":"Leaked API keys in .env files are the most common cause of cloud security incidents. A single committed .env file can expose your entire infrastructure. Scanning before commit catches mistakes early."}},
+        {"@type":"Question","name":"Is my data sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens in your browser. The live network counter on the page tracks outbound requests — it should always stay at 0. No fetch/XHR calls with your text, no localStorage, no analytics."}},
+        {"@type":"Question","name":"What secrets are detected?","acceptedAnswer":{"@type":"Answer","text":"Six categories: Cloud API keys (OpenAI, Anthropic, AWS, GCP, Azure), database connection strings with passwords, auth tokens (GitHub, GitLab, Slack, Stripe), private keys (RSA, EC, OpenSSH), JWT tokens, and generic secrets (variables named password, secret, token, key with non-empty values)."}},
+        {"@type":"Question","name":"How to fix leaked secrets?","acceptedAnswer":{"@type":"Answer","text":"Immediately rotate the compromised credential. Add .env to .gitignore. Use tools like git-filter-repo to remove the file from history. Enable secret scanning on GitHub."}},
+        {"@type":"Question","name":"Can I use it offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once loaded, the page works fully offline — open DevTools Network tab, set Offline, paste your .env, and scanning still works."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/env-scanner/main.tsx"></script>
+  </body>
+</html>

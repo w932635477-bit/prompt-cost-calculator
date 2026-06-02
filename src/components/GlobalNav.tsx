@@ -14,6 +14,7 @@ const TOOLS = [
   { name: 'Cache Calculator', path: '/prompt-cache-calculator/' },
   { name: 'MCP Servers', path: '/mcp-servers/' },
   { name: 'PII Redactor', path: '/pii-redactor/' },
+  { name: 'Env Scanner', path: '/env-scanner/' },
   { name: 'Agent Safety', path: '/agent-safety/' },
   { name: 'AI Code Review', path: '/ai-code-review/' },
   { name: 'LLM Pricing', path: '/llm-pricing/' },
