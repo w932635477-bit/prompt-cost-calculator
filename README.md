@@ -1,6 +1,6 @@
 # aicalc.cloud — Free AI Developer Tools
 
-Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero server-side processing for core features. 17 tools, 19 LLM models tracked.
+Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero server-side processing for core features. 21 tools, 25 LLM models tracked.
 
 **Live at [aicalc.cloud](https://aicalc.cloud)**
 
@@ -8,7 +8,7 @@ Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero 
 
 | Tool | What it does |
 |------|-------------|
-| [LLM Cost Calculator](https://aicalc.cloud/) | Compare API costs across 19 models (OpenAI, Anthropic, Google, DeepSeek, Mistral) |
+| [LLM Cost Calculator](https://aicalc.cloud/) | Compare API costs across 25 models (OpenAI, Anthropic, Google, DeepSeek, Mistral) |
 | [Token Counter](https://aicalc.cloud/token-counter/) | Count tokens using real tiktoken tokenizer — supports GPT, Claude, Gemini |
 | [Prompt Cache Calculator](https://aicalc.cloud/prompt-cache-calculator/) | Calculate savings from prompt caching (up to 90% on repeated inputs) |
 | [Token Cost Tracker](https://aicalc.cloud/token-tracker/) | Estimate monthly API spend for chatbot, RAG, coding, and AI agent use cases |
@@ -24,13 +24,17 @@ Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero 
 | [Photos Finder](https://aicalc.cloud/photos/) | Search free stock photos from Unsplash, Pexels, and Pixabay |
 | [Voice Agent Pricing](https://aicalc.cloud/voice-agent-pricing/) | Compare voice AI pricing across providers |
 | [AI Code Review Checklist](https://aicalc.cloud/ai-code-review/) | Interactive checklist for reviewing AI-generated code |
-| [Agent Data Access](https://aicalc.cloud/agent-data-access/) | Evaluate data access patterns for AI agents |
+| [Productivity Finder](https://aicalc.cloud/finder/productivity/) | Find the best self-hosted productivity tools for your workflow |
+| [LLM Pricing Dashboard](https://aicalc.cloud/llm-pricing/) | Detailed pricing breakdowns for 25 LLM models with cost comparisons |
+| [Env Scanner](https://aicalc.cloud/env-scanner/) | Scan code for leaked environment variables and secrets — runs in your browser |
+| [Dep Shield](https://aicalc.cloud/dep-shield/) | Check npm dependencies for known vulnerabilities using OSV database |
+| [AI Agent Security Checker](https://aicalc.cloud/ai-agent-security/) | Evaluate AI agent security posture against 17 rules with scoring |
 
 ## Tech Stack
 
 - **Vite** + **React 19** + **TypeScript** + **Tailwind CSS 4**
 - Pure static site — no database, no user accounts
-- Deployed on **Vercel** with 294 static pages
+- Deployed on **Vercel** with 333 static pages
 - Client-side tokenization via [js-tiktoken](https://github.com/openai/tiktoken)
 - Cron parsing via [cron-parser](https://github.com/harrisiirak/cron-parser)
 
