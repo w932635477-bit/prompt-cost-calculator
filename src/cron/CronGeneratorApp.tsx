@@ -179,6 +179,45 @@ export default function CronGeneratorApp() {
           </div>
         </div>
 
+        {/* Popular Cron Schedules — internal links for SEO */}
+        <div className="mt-12">
+          <h2 className="text-[17px] font-semibold text-slate-900 mb-4">Popular Cron Schedules</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2">
+            {[
+              { label: 'Every Minute', href: '/cron-generator/every-minute/' },
+              { label: 'Every 5 Minutes', href: '/cron-generator/every-5-minutes/' },
+              { label: 'Every 10 Minutes', href: '/cron-generator/every-10-minutes/' },
+              { label: 'Every 15 Minutes', href: '/cron-generator/every-15-minutes/' },
+              { label: 'Every 30 Minutes', href: '/cron-generator/every-30-minutes/' },
+              { label: 'Every Hour', href: '/cron-generator/every-hour/' },
+              { label: 'Every 6 Hours', href: '/cron-generator/every-6-hours/' },
+              { label: 'Every 12 Hours', href: '/cron-generator/every-12-hours/' },
+              { label: 'Daily at Midnight', href: '/cron-generator/every-day-midnight/' },
+              { label: 'Daily at Noon', href: '/cron-generator/every-day-noon/' },
+              { label: 'Daily at 9 AM', href: '/cron-generator/every-day-9am/' },
+              { label: 'Weekdays 9 AM', href: '/cron-generator/weekdays-9am/' },
+              { label: 'Every Monday', href: '/cron-generator/every-monday/' },
+              { label: 'Every Friday', href: '/cron-generator/every-friday/' },
+              { label: 'Weekends', href: '/cron-generator/weekends/' },
+              { label: 'First of Month', href: '/cron-generator/first-of-month/' },
+            ].map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[13px] text-blue-600 hover:text-blue-800 hover:underline py-1 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <a
+            href="/cron-generator/common-patterns/"
+            className="inline-block mt-3 text-[12px] text-slate-500 hover:text-blue-600 transition-colors"
+          >
+            View all 100+ cron examples →
+          </a>
+        </div>
+
         {/* FAQ */}
         <div className="mt-14">
           <h2 className="text-[17px] font-semibold text-slate-900 mb-5">{t.faq.title}</h2>
