@@ -70,3 +70,4 @@ scripts/vite-llm-cost-inputs.cjs
 # Local session context
 .context/
 
+llm-pricing-test.cjs
