@@ -15,6 +15,7 @@ const TOOLS = [
   { name: 'MCP Servers', path: '/mcp-servers/' },
   { name: 'PII Redactor', path: '/pii-redactor/' },
   { name: 'Env Scanner', path: '/env-scanner/' },
+  { name: 'Dep Shield', path: '/dep-shield/' },
   { name: 'Agent Safety', path: '/agent-safety/' },
   { name: 'AI Code Review', path: '/ai-code-review/' },
   { name: 'LLM Pricing', path: '/llm-pricing/' },

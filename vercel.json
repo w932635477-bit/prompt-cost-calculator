@@ -66,6 +66,8 @@
     { "source": "/pii-redactor/:slug/", "destination": "/pii-redactor/:slug/index.html" },
     { "source": "/pii-redactor/:slug", "destination": "/pii-redactor/:slug/index.html" },
     { "source": "/photos/:slug/", "destination": "/photos/:slug/index.html" },
-    { "source": "/photos/:slug", "destination": "/photos/:slug/index.html" }
+    { "source": "/photos/:slug", "destination": "/photos/:slug/index.html" },
+    { "source": "/dep-shield/:slug/", "destination": "/dep-shield/:slug/index.html" },
+    { "source": "/dep-shield/:slug", "destination": "/dep-shield/:slug/index.html" }
   ]
 }

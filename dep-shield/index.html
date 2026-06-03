@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dep Shield — npm Dependency Vulnerability Scanner</title>
+    <meta name="description" content="Free npm dependency vulnerability scanner. Paste your package.json and instantly see CVEs, severity ratings, and exact fix commands. Powered by Google OSV database." />
+    <meta name="keywords" content="npm vulnerability scanner, dependency checker, package.json security, npm audit alternative, CVE scanner, dependency vulnerability check, npm security audit, check npm dependencies for vulnerabilities" />
+    <link rel="canonical" href="https://aicalc.cloud/dep-shield/" />
+    <meta property="og:title" content="Dep Shield — npm Dependency Vulnerability Scanner" />
+    <meta property="og:description" content="Scan your package.json for known vulnerabilities. Get exact npm install fix commands. Free, no login." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/dep-shield/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dep Shield — npm Dependency Scanner" />
+    <meta name="twitter:description" content="Scan package.json for vulnerabilities. Get fix commands. Free." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Dep Shield — npm Dependency Vulnerability Scanner",
+      "url": "https://aicalc.cloud/dep-shield/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free npm dependency vulnerability scanner. Paste your package.json and instantly see CVEs, severity ratings, and exact fix commands."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How do I check my npm dependencies for vulnerabilities?","acceptedAnswer":{"@type":"Answer","text":"Paste your package.json into Dep Shield. It queries the Google OSV database for every dependency and shows known CVEs with severity, affected versions, and exact npm install commands to fix them."}},
+        {"@type":"Question","name":"What is the OSV database?","acceptedAnswer":{"@type":"Answer","text":"OSV (Open Source Vulnerabilities) is Google's free vulnerability database for open source packages. It aggregates data from npm audit, GitHub Security Advisories, and other sources into a single queryable API."}},
+        {"@type":"Question","name":"Is my package.json sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"Only package names and version ranges are sent to the public OSV API (osv.dev) to look up known vulnerabilities. No code, no scripts, no private data is transmitted. The network counter on the page shows exactly how many API calls are made."}},
+        {"@type":"Question","name":"How is this different from npm audit?","acceptedAnswer":{"@type":"Answer","text":"npm audit requires Node.js installed and runs locally. Dep Shield works in any browser with zero setup. It also shows fix commands and severity in a visual interface without reading lockfiles."}},
+        {"@type":"Question","name":"Does it support Python, Go, or other ecosystems?","acceptedAnswer":{"@type":"Answer","text":"Currently Dep Shield supports npm (Node.js) packages. The OSV database also covers PyPI, Go, Maven, and others. Support for additional ecosystems may be added based on demand."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/dep-shield/main.tsx"></script>
+  </body>
+</html>

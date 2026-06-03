@@ -114,6 +114,7 @@ export default defineConfig({
         'ai-agent-data-access': resolve(__dirname, 'ai-agent-data-access/index.html'),
         'llm-pricing': resolve(__dirname, 'llm-pricing/index.html'),
         'cron-validator': resolve(__dirname, 'cron-validator/index.html'),
+        'dep-shield': resolve(__dirname, 'dep-shield/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
