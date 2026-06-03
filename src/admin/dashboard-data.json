@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-02T03:16:42.606Z",
+  "generatedAt": "2026-06-03T03:17:49.670Z",
   "summary": {
-    "totalIndexable": 329,
+    "totalIndexable": 330,
     "totalSubmitted": 225,
-    "coverage": 68.4,
+    "coverage": 68.2,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -125,6 +125,12 @@
     },
     {
       "name": "ai-agent-data-access",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "dep-shield",
       "total": 1,
       "submitted": 0,
       "remaining": 1
