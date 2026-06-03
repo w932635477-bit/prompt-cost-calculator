@@ -70,5 +70,3 @@ scripts/vite-llm-cost-inputs.cjs
 # Local session context
 .context/
 
-# GitHub Actions workflow (needs PAT with workflow scope to push)
-.github/
