@@ -68,6 +68,8 @@
     { "source": "/photos/:slug/", "destination": "/photos/:slug/index.html" },
     { "source": "/photos/:slug", "destination": "/photos/:slug/index.html" },
     { "source": "/dep-shield/:slug/", "destination": "/dep-shield/:slug/index.html" },
-    { "source": "/dep-shield/:slug", "destination": "/dep-shield/:slug/index.html" }
+    { "source": "/dep-shield/:slug", "destination": "/dep-shield/:slug/index.html" },
+    { "source": "/ai-agent-security/:slug/", "destination": "/ai-agent-security/:slug/index.html" },
+    { "source": "/ai-agent-security/:slug", "destination": "/ai-agent-security/:slug/index.html" }
   ]
 }

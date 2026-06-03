@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Agent Security Checker — Free Online Vulnerability Scanner</title>
+  <meta name="description" content="Scan your AI agent system prompts, code, and tool configs for security vulnerabilities. Detects prompt injection risks, hardcoded secrets, eval/exec usage, SQL injection, and more. Free, client-side analysis." />
+  <meta name="keywords" content="AI agent security checker, prompt injection scanner, AI security audit, agent vulnerability scanner, LLM security, AI code review, system prompt security" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Agent Security Checker — Free Vulnerability Scanner" />
+  <meta property="og:description" content="Scan AI agent prompts, code, and configs for security vulnerabilities. Detects prompt injection, hardcoded secrets, eval/exec, SQL injection, and 17+ rule checks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aicalc.cloud/ai-agent-security/" />
+  <meta property="og:site_name" content="aicalc.cloud" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AI Agent Security Checker" />
+  <meta name="twitter:description" content="Free online scanner for AI agent security vulnerabilities. Check prompts, code, and configs." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://aicalc.cloud/ai-agent-security/" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Agent Security Checker",
+      "url": "https://aicalc.cloud/ai-agent-security/",
+      "description": "Free online tool to scan AI agent system prompts, code, and tool configurations for security vulnerabilities.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What types of input does the AI Agent Security Checker accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The tool auto-detects three input types: system prompts (plain text), agent code (Python, JavaScript, TypeScript), and tool configurations (JSON). Each type runs a different set of security rules optimized for that format."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the AI Agent security score calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The score starts at 100 and is reduced by finding severity: -25 for Critical, -15 for High, -8 for Medium, and -3 for Low. Grades: A (90-100), B (75-89), C (60-74), D (40-59), F (0-39)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is prompt injection in AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompt injection is when malicious instructions hidden in user input trick an AI agent into ignoring its system prompt. For agents with tool access, this can lead to data theft, unauthorized actions, or system compromise."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <script type="module" src="/src/ai-agent-security/main.tsx"></script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>

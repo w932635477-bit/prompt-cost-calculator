@@ -78,6 +78,7 @@ const allUrls = [
   { loc: BASE_URL + '/llm-pricing/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-validator/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/dep-shield/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/ai-agent-security/', priority: '0.9', changefreq: 'weekly' },
 ]
 
 for (const locale of LOCALES) {

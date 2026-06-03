@@ -115,6 +115,7 @@ export default defineConfig({
         'llm-pricing': resolve(__dirname, 'llm-pricing/index.html'),
         'cron-validator': resolve(__dirname, 'cron-validator/index.html'),
         'dep-shield': resolve(__dirname, 'dep-shield/index.html'),
+        'ai-agent-security': resolve(__dirname, 'ai-agent-security/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
