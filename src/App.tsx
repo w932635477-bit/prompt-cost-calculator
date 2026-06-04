@@ -4,6 +4,7 @@ import { UsageSlider } from './components/UsageSlider'
 import { ComparisonTable } from './components/ComparisonTable'
 import { StaticPricingTable } from './components/StaticPricingTable'
 import { GlobalNav } from './components/GlobalNav'
+import { RelatedTools } from './components/RelatedTools'
 import { calculateCosts } from './lib/calculator'
 import type { ModelCostResult, ModelPricing } from './lib/types'
 import pricingData from './data/pricing.json'
@@ -259,6 +260,7 @@ function App() {
             <a href="https://deepseek.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">DeepSeek</a>.
           </p>
         </footer>
+        <RelatedTools currentPath="/" />
       </div>
     </div>
   )
