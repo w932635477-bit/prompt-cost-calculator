@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { VOICE_PROVIDERS, FAQ_DATA } from './voice-data'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 
 export default function VoicePricingApp() {
   const [charsPerMonth, setCharsPerMonth] = useState(1000000)
@@ -161,6 +162,7 @@ export default function VoicePricingApp() {
           </p>
         </footer>
         <RelatedTools currentPath="/voice-agent-pricing/" />
+        <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
     </div>
   )

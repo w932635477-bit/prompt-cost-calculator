@@ -11,6 +11,7 @@ import {
 } from './rules'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 
 const SEVERITY_BG: Record<Severity, string> = {
   critical: 'bg-[#ff3b30]',
@@ -293,6 +294,7 @@ export default function AgentSecurityApp() {
           </p>
         </footer>
         <RelatedTools currentPath="/ai-agent-security/" />
+        <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
     </div>
   )

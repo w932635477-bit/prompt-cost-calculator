@@ -5,11 +5,23 @@ import { ComparisonTable } from './components/ComparisonTable'
 import { StaticPricingTable } from './components/StaticPricingTable'
 import { GlobalNav } from './components/GlobalNav'
 import { RelatedTools } from './components/RelatedTools'
+import { FaqSchema } from './components/FaqSchema'
 import { calculateCosts } from './lib/calculator'
 import type { ModelCostResult, ModelPricing } from './lib/types'
 import pricingData from './data/pricing.json'
 
 const models = pricingData.models as ModelPricing[]
+
+const FAQ_ITEMS = [
+  { q: 'How accurate is the token count?', a: 'For OpenAI models (GPT-5.5, GPT-5.4, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on ~4 characters per token for English text and ~1.5 characters for Chinese text. The cost estimates are accurate enough for budgeting purposes.' },
+  { q: 'Which AI models are supported?', a: 'We support models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude Opus 4.8, Sonnet 4.6, Haiku 4.5, 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 3.5 Flash, 2.5 Flash, 2.5 Flash-Lite, 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).' },
+  { q: 'How often is pricing updated?', a: 'Pricing data is updated weekly from official provider pricing pages. AI providers change their pricing frequently, so we strive to keep the data current.' },
+  { q: 'Is this tool free?', a: 'Yes, completely free. No login required. No API keys needed. All calculations happen in your browser.' },
+  { q: 'What is a token?', a: 'A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. A typical sentence is 10–20 tokens. AI providers charge based on the number of tokens processed.' },
+  { q: 'How do I reduce my AI costs?', a: 'Three strategies: (1) Use cheaper models for simple tasks (e.g., GPT-5.4 Mini instead of GPT-5.5). (2) Shorten your prompts to reduce input tokens. (3) Use models with free tiers for testing (Gemini Flash, Groq).' },
+  { q: 'Can I use this for batch calculations?', a: 'Not yet. Batch calculation (uploading a CSV of prompts) is planned for a future version.' },
+  { q: 'Does this include batch API pricing?', a: 'Currently we show standard API pricing. Batch API pricing (typically 50% cheaper) is not yet included but is coming soon.' },
+]
 
 function App() {
   const [prompt, setPrompt] = useState('')
@@ -196,40 +208,7 @@ function App() {
             Frequently asked questions.
           </h2>
           <div className="max-w-2xl mx-auto">
-            {[
-              {
-                q: 'How accurate is the token count?',
-                a: 'For OpenAI models (GPT-5.5, GPT-5.4, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on ~4 characters per token for English text and ~1.5 characters for Chinese text. The cost estimates are accurate enough for budgeting purposes.',
-              },
-              {
-                q: 'Which AI models are supported?',
-                a: `We support ${models.length} models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude Opus 4.8, Sonnet 4.6, Haiku 4.5, 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 3.5 Flash, 2.5 Flash, 2.5 Flash-Lite, 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).`,
-              },
-              {
-                q: 'How often is pricing updated?',
-                a: 'Pricing data is updated weekly from official provider pricing pages. AI providers change their pricing frequently, so we strive to keep the data current.',
-              },
-              {
-                q: 'Is this tool free?',
-                a: 'Yes, completely free. No login required. No API keys needed. All calculations happen in your browser.',
-              },
-              {
-                q: 'What is a token?',
-                a: 'A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. A typical sentence is 10–20 tokens. AI providers charge based on the number of tokens processed.',
-              },
-              {
-                q: 'How do I reduce my AI costs?',
-                a: 'Three strategies: (1) Use cheaper models for simple tasks (e.g., GPT-5.4 Mini instead of GPT-5.5). (2) Shorten your prompts to reduce input tokens. (3) Use models with free tiers for testing (Gemini Flash, Groq).',
-              },
-              {
-                q: 'Can I use this for batch calculations?',
-                a: 'Not yet. Batch calculation (uploading a CSV of prompts) is planned for a future version.',
-              },
-              {
-                q: 'Does this include batch API pricing?',
-                a: 'Currently we show standard API pricing. Batch API pricing (typically 50% cheaper) is not yet included but is coming soon.',
-              },
-            ].map((item, i) => (
+            {FAQ_ITEMS.map((item, i) => (
               <details
                 key={i}
                 className={`border-t border-[#e8e8ed] ${i === 7 ? 'border-b' : ''}`}
@@ -261,6 +240,7 @@ function App() {
           </p>
         </footer>
         <RelatedTools currentPath="/" />
+        <FaqSchema items={FAQ_ITEMS.map(f => ({ question: f.q, answer: f.a }))} />
       </div>
     </div>
   )

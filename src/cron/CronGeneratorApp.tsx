@@ -10,6 +10,7 @@ import { CopyButton } from './components/CopyButton'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 import { useT, useLocale } from './i18n'
 
 type Tab = 'builder' | 'explainer'
@@ -247,6 +248,7 @@ export default function CronGeneratorApp() {
           </p>
         </footer>
         <RelatedTools currentPath="/cron-generator/" />
+        <FaqSchema items={t.faq.items.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </div>
     </div>
   )

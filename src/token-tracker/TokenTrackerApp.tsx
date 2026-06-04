@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 import { calculateCosts, formatCost, calculateSavings } from '../lib/calculator'
 import { countTokens } from '../lib/tokenizer'
 import type { ModelCostResult, ModelPricing } from '../lib/types'
@@ -292,6 +293,7 @@ export default function TokenTrackerApp() {
           </p>
         </footer>
         <RelatedTools currentPath="/token-tracker/" />
+        <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
     </div>
   )

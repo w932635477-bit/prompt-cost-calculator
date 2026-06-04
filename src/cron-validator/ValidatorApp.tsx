@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 import { CopyButton } from '../cron/components/CopyButton'
 import { validateExpression } from './lib/validate'
 import { VALIDATOR_DIALECTS } from './lib/types'
@@ -155,6 +156,7 @@ export default function ValidatorApp() {
           <a href="/cron-generator/common-patterns/" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">Common patterns →</a>
         </div>
         <RelatedTools currentPath="/cron-validator/" />
+        <FaqSchema items={FAQ_ITEMS.map(f => ({ question: f.q, answer: f.a }))} />
       </div>
     </div>
   )

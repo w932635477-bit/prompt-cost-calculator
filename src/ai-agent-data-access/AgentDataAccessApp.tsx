@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 
 interface PlatformRow {
   name: string
@@ -246,6 +247,7 @@ export default function AgentDataAccessApp() {
           </div>
         </section>
         <RelatedTools currentPath="/ai-agent-data-access/" />
+        <FaqSchema items={FAQ.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
     </div>
   )

@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 import {
   type CSPDirective, type CSPPolicy, type DirectiveConfig,
   CSP_DIRECTIVES, DIRECTIVE_SOURCES, DIRECTIVE_ALLOWS_HOSTS,
@@ -296,6 +297,7 @@ export default function CSPGeneratorApp() {
           </button>
         </div>
         <RelatedTools currentPath="/csp-generator/" />
+        <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
     </div>
   )

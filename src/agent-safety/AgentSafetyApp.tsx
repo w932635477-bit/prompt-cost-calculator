@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { CHECKLIST_ITEMS, CHECKLIST_CATEGORIES, FAQ_DATA, type CheckItem } from './checklist-data'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 
 const SEVERITY_CONFIG = {
   critical: { label: 'Critical', bg: 'bg-red-500/10', text: 'text-red-600' },
@@ -206,6 +207,7 @@ export default function AgentSafetyApp() {
           </p>
         </footer>
         <RelatedTools currentPath="/agent-safety/" />
+        <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
     </div>
   )
