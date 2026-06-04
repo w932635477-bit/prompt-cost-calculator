@@ -48,12 +48,24 @@ export function explainCron(expression: string): string {
   }
 
   // Time
-  if (minute !== '*' && hour !== '*') {
-    const h = parseInt(hour, 10)
+  if (hour.startsWith('*/')) {
+    const n = hour.slice(2)
+    segments.push(minute === '0' ? `every ${n} hours` : `every ${n} hours at minute ${minute}`)
+  } else if (minute !== '*' && hour !== '*') {
     const m = minute.padStart(2, '0')
-    const ampm = h >= 12 ? 'PM' : 'AM'
-    const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h
-    segments.push(`at ${h12}:${m} ${ampm}`)
+    if (hour.includes(',') || hour.includes('-')) {
+      const hours = expandField(hour, Array.from({ length: 24 }, (_, i) => {
+        const ampm = i >= 12 ? 'PM' : 'AM'
+        const h12 = i === 0 ? 12 : i > 12 ? i - 12 : i
+        return `${h12} ${ampm}`
+      }))
+      segments.push(`at ${m} past ${hours.join(', ')}`)
+    } else {
+      const h = parseInt(hour, 10)
+      const ampm = h >= 12 ? 'PM' : 'AM'
+      const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h
+      segments.push(`at ${h12}:${m} ${ampm}`)
+    }
   } else if (hour !== '*') {
     segments.push(`at hour ${hour}`)
   }
