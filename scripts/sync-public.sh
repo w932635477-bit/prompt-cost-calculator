@@ -102,14 +102,23 @@ if [ "${1:-}" = "--push" ]; then
   echo "=== Syncing to GitHub ==="
   git checkout public-release
 
-  # Copy all files from main, preserving .gitignore
+  # Save public-release-only files to temp before wiping working dir
+  PUBLIC_TMP=$(mktemp -d)
+  cp CONTRIBUTING.md "$PUBLIC_TMP/" 2>/dev/null || true
+  mkdir -p "$PUBLIC_TMP/docs"
+  cp docs/screenshot.png "$PUBLIC_TMP/docs/" 2>/dev/null || true
+  cp .gitignore "$PUBLIC_TMP/" 2>/dev/null || true
+
+  # Copy all files from main
   find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} + 2>/dev/null || true
   git checkout main -- .
-  # Restore public-release .gitignore (has extra exclusions)
-  git checkout public-release -- .gitignore 2>/dev/null || true
-  # Restore public-release-only files from the last good commit (before this sync overwrote them)
-  PUBLIC_BASE=$(git log public-release --oneline | tail -1 | awk '{print $1}')
-  git checkout "$PUBLIC_BASE" -- CONTRIBUTING.md docs/screenshot.png 2>/dev/null || true
+
+  # Restore public-release-only files from temp
+  cp "$PUBLIC_TMP/.gitignore" . 2>/dev/null || true
+  cp "$PUBLIC_TMP/CONTRIBUTING.md" . 2>/dev/null || true
+  mkdir -p docs
+  cp "$PUBLIC_TMP/docs/screenshot.png" docs/ 2>/dev/null || true
+  rm -rf "$PUBLIC_TMP"
 
   # Physically remove internal files (git rm --cached alone isn't enough — git add -A re-adds them)
   rm -rf \
