@@ -107,18 +107,28 @@ if [ "${1:-}" = "--push" ]; then
   git checkout main -- .
   # Restore public-release .gitignore (has extra exclusions)
   git checkout public-release -- .gitignore 2>/dev/null || true
+  # Restore public-release-only files (not in main)
+  git checkout public-release -- CONTRIBUTING.md docs/screenshot.png 2>/dev/null || true
 
-  # Remove internal files from tracking
-  git rm --cached -r \
+  # Physically remove internal files (git rm --cached alone isn't enough — git add -A re-adds them)
+  rm -rf \
     qa-*.cjs \
+    llm-pricing-test.cjs \
+    llm-pricing-headed-test.cjs \
     data/gsc-export/ \
     scripts/gsc-*.cjs \
     scripts/fetch-gsc-data.cjs \
     scripts/submit-gsc-index.cjs \
+    scripts/vite-llm-cost-inputs.cjs \
     .vite/ \
     .context/ \
     docs/designs/ \
-    llm-pricing-test.cjs \
+    docs/daily-scout/ \
+    docs/gsc/ \
+    docs/email-capture-plan.md \
+    docs/twitter-60day-sop.md \
+    docs/self-hosted-tool-finder-design.md \
+    docs/design/ \
     2>/dev/null || true
 
   git add -A
