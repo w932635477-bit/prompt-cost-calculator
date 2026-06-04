@@ -102,23 +102,12 @@ if [ "${1:-}" = "--push" ]; then
   echo "=== Syncing to GitHub ==="
   git checkout public-release
 
-  # Save public-release-only files to temp before wiping working dir
-  PUBLIC_TMP=$(mktemp -d)
-  cp CONTRIBUTING.md "$PUBLIC_TMP/" 2>/dev/null || true
-  mkdir -p "$PUBLIC_TMP/docs"
-  cp docs/screenshot.png "$PUBLIC_TMP/docs/" 2>/dev/null || true
-  cp .gitignore "$PUBLIC_TMP/" 2>/dev/null || true
-
-  # Copy all files from main
+  # Copy all files from main (includes CONTRIBUTING.md, screenshot.png, README with screenshot)
   find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} + 2>/dev/null || true
   git checkout main -- .
 
-  # Restore public-release-only files from temp
-  cp "$PUBLIC_TMP/.gitignore" . 2>/dev/null || true
-  cp "$PUBLIC_TMP/CONTRIBUTING.md" . 2>/dev/null || true
-  mkdir -p docs
-  cp "$PUBLIC_TMP/docs/screenshot.png" docs/ 2>/dev/null || true
-  rm -rf "$PUBLIC_TMP"
+  # Restore public-release .gitignore (has extra exclusions not in main)
+  git checkout public-release -- .gitignore 2>/dev/null || true
 
   # Physically remove internal files (git rm --cached alone isn't enough — git add -A re-adds them)
   rm -rf \
