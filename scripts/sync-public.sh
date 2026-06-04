@@ -107,8 +107,9 @@ if [ "${1:-}" = "--push" ]; then
   git checkout main -- .
   # Restore public-release .gitignore (has extra exclusions)
   git checkout public-release -- .gitignore 2>/dev/null || true
-  # Restore public-release-only files (not in main)
-  git checkout public-release -- CONTRIBUTING.md docs/screenshot.png 2>/dev/null || true
+  # Restore public-release-only files from the last good commit (before this sync overwrote them)
+  PUBLIC_BASE=$(git log public-release --oneline | tail -1 | awk '{print $1}')
+  git checkout "$PUBLIC_BASE" -- CONTRIBUTING.md docs/screenshot.png 2>/dev/null || true
 
   # Physically remove internal files (git rm --cached alone isn't enough — git add -A re-adds them)
   rm -rf \
