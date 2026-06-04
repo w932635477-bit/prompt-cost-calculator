@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 import '../index.css'
 import { countTokens } from '../lib/tokenizer'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import { EmailCapture } from '../components/EmailCapture'
 import pricing from '../data/pricing.json'
 
@@ -246,6 +247,7 @@ print(len(tokens))  # token count`}
               <a href="/prompt-cache-calculator/" className="text-[#0071E3] hover:underline">Cache Calculator</a>
             </p>
           </footer>
+          <RelatedTools currentPath="/token-counter/" />
         </div>
       </div>
     </div>

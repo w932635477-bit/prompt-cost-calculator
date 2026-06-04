@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 
 interface PlatformRow {
   name: string
@@ -244,6 +245,7 @@ export default function AgentDataAccessApp() {
             </a>
           </div>
         </section>
+        <RelatedTools currentPath="/ai-agent-data-access/" />
       </main>
     </div>
   )

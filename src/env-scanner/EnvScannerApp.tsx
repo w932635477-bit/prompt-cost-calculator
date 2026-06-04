@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import { detectSecrets, redactSecrets, TYPE_LABELS, SEVERITY_COLORS } from './detect'
 import type { SecretType, Severity } from './detect'
 
@@ -286,6 +287,7 @@ export default function EnvScannerApp() {
             <a href="/cron-validator/" className="text-sm px-4 py-2 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">Cron Validator</a>
           </div>
         </div>
+        <RelatedTools currentPath="/env-scanner/" />
       </main>
     </div>
   )

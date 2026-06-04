@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { VOICE_PROVIDERS, FAQ_DATA } from './voice-data'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 
 export default function VoicePricingApp() {
   const [charsPerMonth, setCharsPerMonth] = useState(1000000)
@@ -159,6 +160,7 @@ export default function VoicePricingApp() {
             <a href="/agent-safety/" className="text-[#0071E3] hover:underline">Agent Safety Checklist</a>
           </p>
         </footer>
+        <RelatedTools currentPath="/voice-agent-pricing/" />
       </main>
     </div>
   )

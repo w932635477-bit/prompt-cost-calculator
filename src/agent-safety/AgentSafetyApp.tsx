@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { CHECKLIST_ITEMS, CHECKLIST_CATEGORIES, FAQ_DATA, type CheckItem } from './checklist-data'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 
 const SEVERITY_CONFIG = {
   critical: { label: 'Critical', bg: 'bg-red-500/10', text: 'text-red-600' },
@@ -204,6 +205,7 @@ export default function AgentSafetyApp() {
             <a href="/deploy/" className="text-[#0071E3] hover:underline">Docker Deploy</a>
           </p>
         </footer>
+        <RelatedTools currentPath="/agent-safety/" />
       </main>
     </div>
   )

@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import { detectPII, redact, PII_LABELS } from './detect'
 import type { PIIType, Confidence } from './detect'
 
@@ -334,6 +335,7 @@ export default function PIIRedactorApp() {
           <p>Free, ad-free, browser-only. Your data never leaves your machine.</p>
         </div>
       </footer>
+      <RelatedTools currentPath="/pii-redactor/" />
     </div>
   )
 }

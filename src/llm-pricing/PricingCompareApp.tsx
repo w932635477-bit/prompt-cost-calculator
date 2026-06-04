@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import pricing from '../data/pricing.json'
 import type { ModelPricing } from '../lib/types'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import SortablePricingTable from './components/SortablePricingTable'
 import CostCalculator from './components/CostCalculator'
 import ProviderFilter from './components/ProviderFilter'
@@ -160,6 +161,7 @@ export default function PricingCompareApp() {
             ))}
           </div>
         </div>
+        <RelatedTools currentPath="/llm-pricing/" />
       </main>
     </div>
   )

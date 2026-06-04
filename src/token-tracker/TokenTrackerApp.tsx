@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import { calculateCosts, formatCost, calculateSavings } from '../lib/calculator'
 import { countTokens } from '../lib/tokenizer'
 import type { ModelCostResult, ModelPricing } from '../lib/types'
@@ -290,6 +291,7 @@ export default function TokenTrackerApp() {
             <a href="/compare/" className="text-[#0071E3] hover:underline">Compare</a>
           </p>
         </footer>
+        <RelatedTools currentPath="/token-tracker/" />
       </main>
     </div>
   )

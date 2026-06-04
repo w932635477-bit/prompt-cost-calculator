@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { DEPLOY_PAGES } from './seo/deploy-data'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 
 const SERVICE_ICONS: Record<string, string> = {
   slack: '💬', notion: '📝', 'google-drive': '📁', github: '🐙', spotify: '🎵',
@@ -126,6 +127,7 @@ export default function DeployApp() {
           <p>One-command Docker deployments for self-hosted tools.</p>
         </div>
       </footer>
+      <RelatedTools currentPath="/deploy/" />
     </div>
   )
 }

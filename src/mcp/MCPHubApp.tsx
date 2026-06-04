@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import { MCP_SERVERS, CATEGORY_LABELS, CATEGORY_DESCRIPTIONS, LAST_UPDATED } from './seo/mcp-data'
 import type { MCPCategory } from './seo/mcp-data'
 
@@ -205,6 +206,7 @@ export default function MCPHubApp() {
           </p>
         </div>
       </footer>
+      <RelatedTools currentPath="/mcp-servers/" />
     </div>
   )
 }

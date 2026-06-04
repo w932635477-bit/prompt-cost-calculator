@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import PhotoCard from './PhotoCard'
 import type { PhotoResult, SearchResponse } from './types'
 
@@ -267,6 +268,7 @@ export default function PhotosApp({ initialQuery = '' }: { initialQuery?: string
         <footer className="border-t border-[#e8e8ed] pt-5 text-center text-sm text-[#86868b]">
           <p>Free stock photos from Unsplash, Pexels, and Pixabay. No login, no tracking.</p>
         </footer>
+        <RelatedTools currentPath="/photos/" />
       </main>
     </div>
   )

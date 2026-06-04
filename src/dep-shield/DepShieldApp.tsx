@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef, useMemo } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import {
   parsePackageJson,
   scanVulnerabilities,
@@ -434,6 +435,7 @@ export default function DepShieldApp() {
             <a href="/agent-safety/" className="text-sm px-4 py-2 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow">Agent Safety</a>
           </div>
         </div>
+        <RelatedTools currentPath="/dep-shield/" />
       </main>
     </div>
   )

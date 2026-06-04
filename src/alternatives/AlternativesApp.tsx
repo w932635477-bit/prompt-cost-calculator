@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { ALTERNATIVE_PAGES, CATEGORIES } from './seo/alternatives-data'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import ToolFinderCard from './finder/ToolFinderCard'
 
 export default function AlternativesApp() {
@@ -153,6 +154,7 @@ export default function AlternativesApp() {
           <p>Open source self-hosted alternatives for popular SaaS tools.</p>
         </div>
       </footer>
+      <RelatedTools currentPath="/alternatives/" />
     </div>
   )
 }

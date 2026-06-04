@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import { compute, rankAll, estimateTokens } from './calc'
 import { MODELS, LAST_UPDATED } from './pricing'
 import type { ModelId } from './pricing'
@@ -360,6 +361,7 @@ export default function CacheCalculatorApp() {
           </p>
         </div>
       </footer>
+      <RelatedTools currentPath="/prompt-cache-calculator/" />
     </div>
   )
 }

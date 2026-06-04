@@ -10,6 +10,7 @@ import {
   type Severity,
 } from './rules'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 
 const SEVERITY_BG: Record<Severity, string> = {
   critical: 'bg-[#ff3b30]',
@@ -291,6 +292,7 @@ export default function AgentSecurityApp() {
             <a href="/agent-safety/" className="text-[#0071E3] hover:underline">Safety Checklist</a>
           </p>
         </footer>
+        <RelatedTools currentPath="/ai-agent-security/" />
       </main>
     </div>
   )

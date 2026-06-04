@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { GlobalNav } from '../../components/GlobalNav'
+import { RelatedTools } from '../../components/RelatedTools'
 import ScenarioWizard from './ScenarioWizard'
 import RecommendationCard from './RecommendationCard'
 import { recommend, crossCategoryRecommendations } from './finder-engine'
@@ -246,6 +247,7 @@ export default function ProductivityFinder() {
             <a href="/compare/" className="text-[#0071E3] hover:underline">Compare Tools</a>
           </p>
         </footer>
+        <RelatedTools currentPath="/finder/productivity/" />
       </main>
     </div>
   )

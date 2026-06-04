@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 
 type Severity = 'critical' | 'warning' | 'info'
 
@@ -366,6 +367,7 @@ export default function AICodeReviewApp() {
           <p>Free, browser-only, no tracking. Based on real AI coding failure patterns.</p>
         </div>
       </footer>
+      <RelatedTools currentPath="/ai-code-review/" />
     </div>
   )
 }

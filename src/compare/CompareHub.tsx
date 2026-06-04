@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { COMPARE_PAGES } from './seo/compare-data'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 
 export default function CompareHub() {
   const [search, setSearch] = useState('')
@@ -98,6 +99,7 @@ export default function CompareHub() {
             <a href="/cron-generator/" className="text-[#0071E3] hover:underline">Cron Generator</a>
           </p>
         </footer>
+        <RelatedTools currentPath="/compare/" />
       </main>
     </div>
   )

@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import {
   type CSPDirective, type CSPPolicy, type DirectiveConfig,
   CSP_DIRECTIVES, DIRECTIVE_SOURCES, DIRECTIVE_ALLOWS_HOSTS,
@@ -294,6 +295,7 @@ export default function CSPGeneratorApp() {
             {copied ? 'Copied!' : 'Copy CSP Header'}
           </button>
         </div>
+        <RelatedTools currentPath="/csp-generator/" />
       </main>
     </div>
   )
