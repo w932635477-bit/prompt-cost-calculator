@@ -66,7 +66,7 @@ export function CommonPatternsPage({ pages }: { pages: LongTailPageData[] }) {
   }, [grouped, search])
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-[#f5f5f7]">
       <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         <nav className="text-sm text-gray-500 mb-6">
           <a href="/cron-generator/" className="hover:text-blue-600">Cron Generator</a>

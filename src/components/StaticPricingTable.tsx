@@ -35,7 +35,7 @@ export function StaticPricingTable() {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-t border-b border-[#e8e8ed] bg-[#fbfbfd]">
+            <tr className="border-t border-b border-[#e8e8ed] bg-[#f5f5f7]">
               <th className="text-left px-8 py-3 font-medium text-[#86868b]">Model</th>
               <th className="text-right px-4 py-3 font-medium text-[#86868b]">Input $/1M</th>
               <th className="text-right px-4 py-3 font-medium text-[#86868b]">Output $/1M</th>
@@ -49,7 +49,7 @@ export function StaticPricingTable() {
               return models.map((m, i) => (
                 <tr
                   key={m.id}
-                  className={`border-b border-[#f0f0f5] hover:bg-[#fbfbfd] transition-colors ${
+                  className={`border-b border-[#f0f0f5] hover:bg-[#f5f5f7] transition-colors ${
                     i === 0 ? 'border-t-2 border-t-[#e8e8ed]' : ''
                   }`}
                 >

@@ -61,7 +61,7 @@ function TokenCounterApp() {
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f]">
+    <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f]">
       <GlobalNav current="/token-counter/" />
 
       <div className="max-w-[980px] mx-auto px-6">

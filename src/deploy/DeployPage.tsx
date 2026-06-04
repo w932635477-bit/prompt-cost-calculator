@@ -151,9 +151,8 @@ export default function DeployPage() {
           <div className="space-y-4">
             {data.faq.map((item, i) => (
               <details key={i} className="bg-white rounded-xl border border-gray-200 group">
-                <summary className="px-6 py-4 cursor-pointer font-medium text-gray-900 flex items-center justify-between">
+                <summary className="px-6 py-4 cursor-pointer font-medium text-gray-900">
                   <h3>{item.q}</h3>
-                  <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="px-6 pb-4 text-gray-600">{item.a}</div>
               </details>

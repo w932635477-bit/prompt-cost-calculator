@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
 import { FaqSchema } from '../components/FaqSchema'
+import { SiteFooter } from '../components/SiteFooter'
 import { calculateCosts, formatCost, calculateSavings } from '../lib/calculator'
 import { countTokens } from '../lib/tokenizer'
 import type { ModelCostResult, ModelPricing } from '../lib/types'
@@ -279,22 +280,10 @@ export default function TokenTrackerApp() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="border-t border-[#e8e8ed] pt-6 text-center text-sm text-[#86868b]">
-          <p>Free AI Token Cost Tracker. No login required.</p>
-          <p className="mt-2">
-            <a href="/" className="text-[#0071E3] hover:underline">AI Cost Calculator</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/cron-generator/" className="text-[#0071E3] hover:underline">Cron Generator</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/alternatives/" className="text-[#0071E3] hover:underline">Self-Hosted Alternatives</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/compare/" className="text-[#0071E3] hover:underline">Compare</a>
-          </p>
-        </footer>
         <RelatedTools currentPath="/token-tracker/" />
         <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
+      <SiteFooter />
     </div>
   )
 }

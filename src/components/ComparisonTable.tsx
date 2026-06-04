@@ -81,7 +81,7 @@ export function ComparisonTable({ results }: Props) {
       <div className="overflow-x-auto rounded-2xl border border-[#e8e8ed]">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-[#fbfbfd]">
+            <tr className="bg-[#f5f5f7]">
               <SortableHeader field="name" label="Model" align="left" />
               <SortableHeader field="tokenCount" label="Tokens" />
               <SortableHeader field="inputCost" label="Input" />
@@ -97,7 +97,7 @@ export function ComparisonTable({ results }: Props) {
                 className={`border-t border-[#e8e8ed] transition-colors ${
                   result.isBestValue
                     ? 'bg-emerald-50/40'
-                    : 'hover:bg-[#fbfbfd]'
+                    : 'hover:bg-[#f5f5f7]'
                 }`}
               >
                 <td className="px-5 py-4">

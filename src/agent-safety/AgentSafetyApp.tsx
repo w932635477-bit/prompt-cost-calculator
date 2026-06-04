@@ -3,6 +3,7 @@ import { CHECKLIST_ITEMS, CHECKLIST_CATEGORIES, FAQ_DATA, type CheckItem } from 
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
 import { FaqSchema } from '../components/FaqSchema'
+import { SiteFooter } from '../components/SiteFooter'
 
 const SEVERITY_CONFIG = {
   critical: { label: 'Critical', bg: 'bg-red-500/10', text: 'text-red-600' },
@@ -193,22 +194,10 @@ export default function AgentSafetyApp() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="mt-12 border-t border-[#e8e8ed] pt-6 text-center text-sm text-[#86868b]">
-          <p>Free AI Agent Safety Checklist. No login required.</p>
-          <p className="mt-2">
-            <a href="/" className="text-[#0071E3] hover:underline">AI Cost Calculator</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/cron-generator/" className="text-[#0071E3] hover:underline">Cron Generator</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/alternatives/" className="text-[#0071E3] hover:underline">Self-Hosted Alternatives</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/deploy/" className="text-[#0071E3] hover:underline">Docker Deploy</a>
-          </p>
-        </footer>
         <RelatedTools currentPath="/agent-safety/" />
         <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
+      <SiteFooter />
     </div>
   )
 }

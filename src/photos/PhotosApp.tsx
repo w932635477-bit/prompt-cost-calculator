@@ -146,7 +146,7 @@ export default function PhotosApp({ initialQuery = '' }: { initialQuery?: string
               type="submit"
               disabled={!query.trim() || loading}
               data-testid="search-button"
-              className="px-5 py-2.5 bg-[#0071E3] text-white rounded-xl font-medium text-sm hover:bg-[#0077ED] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-5 py-2.5 bg-[#0071E3] text-white rounded-full font-medium text-sm hover:bg-[#0077ED] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {loading ? 'Searching…' : 'Search'}
             </button>

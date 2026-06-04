@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #fbfbfd;
+  background-color: #f5f5f7;
   font-family: var(--font-sans);
 }
 
@@ -64,8 +64,36 @@ details summary::-webkit-details-marker {
   display: none;
 }
 
+/* Apple-style animated chevron for FAQ accordions */
+details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+details summary::after {
+  content: '';
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M3.5 5.25L7 8.75L10.5 5.25' stroke='%2386868b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+details[open] > summary::after {
+  transform: rotate(180deg);
+}
+
 ::selection {
   background: rgba(0, 113, 227, 0.15);
+}
+
+/* Hide scrollbar for nav (keep scroll) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* Touch target minimum for inline links */

@@ -3,6 +3,7 @@ import { VOICE_PROVIDERS, FAQ_DATA } from './voice-data'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
 import { FaqSchema } from '../components/FaqSchema'
+import { SiteFooter } from '../components/SiteFooter'
 
 export default function VoicePricingApp() {
   const [charsPerMonth, setCharsPerMonth] = useState(1000000)
@@ -149,21 +150,10 @@ export default function VoicePricingApp() {
           </div>
         </div>
 
-        <footer className="border-t border-[#e8e8ed] pt-6 text-center text-sm text-[#86868b]">
-          <p>Free Voice AI Pricing Comparison. No login required.</p>
-          <p className="mt-2">
-            <a href="/" className="text-[#0071E3] hover:underline">AI Cost Calculator</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/cron-generator/" className="text-[#0071E3] hover:underline">Cron Generator</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/alternatives/" className="text-[#0071E3] hover:underline">Self-Hosted Alternatives</a>
-            <span className="mx-1.5">&middot;</span>
-            <a href="/agent-safety/" className="text-[#0071E3] hover:underline">Agent Safety Checklist</a>
-          </p>
-        </footer>
         <RelatedTools currentPath="/voice-agent-pricing/" />
         <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
+      <SiteFooter />
     </div>
   )
 }

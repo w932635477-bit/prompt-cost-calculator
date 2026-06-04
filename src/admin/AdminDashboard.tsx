@@ -53,7 +53,7 @@ function PasswordGate({ children }: { children: React.ReactNode }) {
           className="w-full px-4 py-2.5 bg-[#f5f5f7] rounded-xl text-sm text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071E3]/30 mb-3"
         />
         {error && <p className="text-sm text-red-500 mb-3">{error}</p>}
-        <button type="submit" className="w-full bg-[#0071E3] text-white py-2.5 rounded-xl text-sm font-medium hover:bg-[#0077ED] transition-colors">
+        <button type="submit" className="w-full bg-[#0071E3] text-white py-2.5 rounded-full text-sm font-medium hover:bg-[#0077ED] transition-colors">
           Sign In
         </button>
         <p className="text-xs text-[#86868b] mt-4 text-center">aicalc.cloud · Private</p>

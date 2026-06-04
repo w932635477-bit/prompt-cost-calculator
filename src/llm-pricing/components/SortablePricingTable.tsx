@@ -89,7 +89,7 @@ export default function SortablePricingTable({ models }: Props) {
     <div className="overflow-x-auto">
       <table className="w-full text-sm" data-testid="pricing-table">
         <thead>
-          <tr className="border-b border-[#e8e8ed] bg-[#fbfbfd]">
+          <tr className="border-b border-[#e8e8ed] bg-[#f5f5f7]">
             {(Object.keys(HEADER_LABELS) as SortField[]).map(field => (
               <th
                 key={field}
@@ -115,7 +115,7 @@ export default function SortablePricingTable({ models }: Props) {
           {sorted.map(m => (
             <tr
               key={m.id}
-              className="border-b border-[#f0f0f5] hover:bg-[#fbfbfd] transition-colors"
+              className="border-b border-[#f0f0f5] hover:bg-[#f5f5f7] transition-colors"
             >
               <td className="px-4 py-3">
                 <div className="flex items-center gap-2">

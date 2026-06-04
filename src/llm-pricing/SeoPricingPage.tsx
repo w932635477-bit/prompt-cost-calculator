@@ -115,7 +115,7 @@ export default function SeoPricingPage() {
                   <td className="text-right py-2.5 pl-4">{(model.contextWindow / 1000).toFixed(0)}K</td>
                 </tr>
                 {competitors.map(c => (
-                  <tr key={c.id} className="border-b border-[#e8e8ed] hover:bg-[#fbfbfd] transition-colors">
+                  <tr key={c.id} className="border-b border-[#e8e8ed] hover:bg-[#f5f5f7] transition-colors">
                     <td className="py-2.5 pr-4">
                       <a href={`/llm-pricing/`} className="text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
                         {c.provider} {c.name}

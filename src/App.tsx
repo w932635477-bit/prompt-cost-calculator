@@ -6,6 +6,7 @@ import { StaticPricingTable } from './components/StaticPricingTable'
 import { GlobalNav } from './components/GlobalNav'
 import { RelatedTools } from './components/RelatedTools'
 import { FaqSchema } from './components/FaqSchema'
+import { SiteFooter } from './components/SiteFooter'
 import { calculateCosts } from './lib/calculator'
 import type { ModelCostResult, ModelPricing } from './lib/types'
 import pricingData from './data/pricing.json'
@@ -55,7 +56,7 @@ function App() {
   }, [handleCalculate])
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f]" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f]" onKeyDown={handleKeyDown}>
       <GlobalNav current="/" />
       <div className="max-w-[980px] mx-auto px-6">
         {/* Hero */}
@@ -91,7 +92,7 @@ function App() {
           <button
             onClick={handleCalculate}
             disabled={!prompt.trim() || isLoading}
-            className="w-full py-3.5 px-6 bg-[#0071E3] hover:bg-[#0077ED] disabled:bg-[#d2d2d7] disabled:cursor-not-allowed text-white font-medium rounded-xl transition-all duration-200 cursor-pointer active:scale-[0.98]"
+            className="w-full py-3.5 px-6 bg-[#0071E3] hover:bg-[#0077ED] disabled:bg-[#d2d2d7] disabled:cursor-not-allowed text-white font-medium rounded-full transition-all duration-200 cursor-pointer active:scale-[0.98]"
           >
             Calculate Costs
             <span className="text-white/60 ml-2 text-sm">⌘↵</span>
@@ -213,9 +214,8 @@ function App() {
                 key={i}
                 className={`border-t border-[#e8e8ed] ${i === 7 ? 'border-b' : ''}`}
               >
-                <summary className="py-5 text-[15px] font-medium text-[#1d1d1f] cursor-pointer hover:text-[#0071E3] transition-colors flex items-center justify-between">
+                <summary className="py-5 text-[15px] font-medium text-[#1d1d1f] cursor-pointer hover:text-[#0071E3] transition-colors">
                   {item.q}
-                  <span className="text-[#86868b] text-xs group-open:rotate-180 transition-transform duration-200">▼</span>
                 </summary>
                 <div className="pb-5 text-[15px] text-[#86868b] leading-relaxed pr-8">
                   {item.a}
@@ -225,23 +225,10 @@ function App() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-8 border-t border-[#e8e8ed] text-center">
-          <p className="text-sm text-[#86868b]">
-            AI Prompt Cost Calculator · Free &amp; open source
-          </p>
-          <p className="mt-2 text-xs text-[#86868b]">
-            Pricing data sourced from{' '}
-            <a href="https://openai.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">OpenAI</a>,{' '}
-            <a href="https://www.anthropic.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">Anthropic</a>,{' '}
-            <a href="https://ai.google/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">Google</a>,{' '}
-            <a href="https://groq.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">Groq</a>, and{' '}
-            <a href="https://deepseek.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">DeepSeek</a>.
-          </p>
-        </footer>
         <RelatedTools currentPath="/" />
         <FaqSchema items={FAQ_ITEMS.map(f => ({ question: f.q, answer: f.a }))} />
       </div>
+      <SiteFooter />
     </div>
   )
 }
