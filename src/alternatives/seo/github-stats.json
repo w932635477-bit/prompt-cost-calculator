@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-04T05:26:28.970Z",
+  "fetchedAt": "2026-06-04T05:30:27.053Z",
   "repoCount": 82,
   "successCount": 82,
   "errorCount": 0,
@@ -30,7 +30,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/outline/outline": {
-      "githubStars": 38750,
+      "githubStars": 38751,
       "lastCommitDate": "2026-06-04",
       "maintenanceStatus": "active"
     },
@@ -50,7 +50,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/usememos/memos": {
-      "githubStars": 60369,
+      "githubStars": 60370,
       "lastCommitDate": "2026-06-02",
       "maintenanceStatus": "active"
     },
@@ -210,7 +210,7 @@
       "maintenanceStatus": "active"
     },
     "https://github.com/grafana/grafana": {
-      "githubStars": 74139,
+      "githubStars": 74140,
       "lastCommitDate": "2026-06-04",
       "maintenanceStatus": "active"
     },

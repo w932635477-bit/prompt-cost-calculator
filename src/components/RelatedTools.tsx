@@ -4,6 +4,37 @@ interface RelatedTool {
   description: string
 }
 
+const TOOL_STACKS = [
+  {
+    title: 'Cost Control Stack',
+    tools: [
+      { name: 'Cost Calculator', path: '/' },
+      { name: 'Token Counter', path: '/token-counter/' },
+      { name: 'Cache Calculator', path: '/prompt-cache-calculator/' },
+      { name: 'Token Tracker', path: '/token-tracker/' },
+    ],
+  },
+  {
+    title: 'AI Security Toolkit',
+    tools: [
+      { name: 'PII Redactor', path: '/pii-redactor/' },
+      { name: 'CSP Generator', path: '/csp-generator/' },
+      { name: 'Env Scanner', path: '/env-scanner/' },
+      { name: 'Dep Shield', path: '/dep-shield/' },
+      { name: 'Agent Security', path: '/ai-agent-security/' },
+    ],
+  },
+  {
+    title: 'DevOps Essentials',
+    tools: [
+      { name: 'Cron Generator', path: '/cron-generator/' },
+      { name: 'Cron Validator', path: '/cron-validator/' },
+      { name: 'MCP Servers', path: '/mcp-servers/' },
+      { name: 'Self-Hosted Alt.', path: '/alternatives/' },
+    ],
+  },
+]
+
 const RELATED_MAP: Record<string, RelatedTool[]> = {
   '/': [
     { name: 'Cache Calculator', path: '/prompt-cache-calculator/', description: 'See how prompt caching cuts your API bill by 60%+' },
@@ -126,23 +157,52 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
 
 export function RelatedTools({ currentPath }: { currentPath: string }) {
   const tools = RELATED_MAP[currentPath]
-  if (!tools || tools.length === 0) return null
 
   return (
     <section className="py-12 border-t border-[#e8e8ed] mt-16">
-      <h2 className="text-xl font-semibold text-[#1d1d1f] mb-6">Related Tools</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {tools.map(tool => (
-          <a
-            key={tool.path}
-            href={tool.path}
-            className="block p-4 rounded-xl border border-[#e8e8ed] hover:border-[#0071E3]/30 hover:bg-[#0071E3]/5 transition-colors"
-          >
-            <div className="font-medium text-[#0071E3] mb-1">{tool.name}</div>
-            <div className="text-sm text-[#86868b]">{tool.description}</div>
-          </a>
-        ))}
-      </div>
+      {/* Scenario-based tool stacks — shown on homepage */}
+      {currentPath === '/' && (
+        <div className="mb-10">
+          <h2 className="text-xl font-semibold text-[#1d1d1f] mb-6">Tool Stacks</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {TOOL_STACKS.map(stack => (
+              <div key={stack.title} className="p-5 rounded-xl bg-[#f5f5f7] border border-[#e8e8ed]">
+                <h3 className="font-semibold text-[#1d1d1f] mb-3 text-[15px]">{stack.title}</h3>
+                <div className="space-y-1.5">
+                  {stack.tools.map(tool => (
+                    <a
+                      key={tool.path}
+                      href={tool.path}
+                      className="block text-[14px] text-[#0071E3] hover:text-[#0077ED] transition-colors"
+                    >
+                      {tool.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Per-page related tools */}
+      {tools && tools.length > 0 && (
+        <>
+          <h2 className="text-xl font-semibold text-[#1d1d1f] mb-6">Related Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {tools.map(tool => (
+              <a
+                key={tool.path}
+                href={tool.path}
+                className="block p-4 rounded-xl border border-[#e8e8ed] hover:border-[#0071E3]/30 hover:bg-[#0071E3]/5 transition-colors"
+              >
+                <div className="font-medium text-[#0071E3] mb-1">{tool.name}</div>
+                <div className="text-sm text-[#86868b]">{tool.description}</div>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
     </section>
   )
 }
