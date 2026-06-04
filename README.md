@@ -4,6 +4,8 @@ Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero 
 
 **Live at [aicalc.cloud](https://aicalc.cloud)**
 
+![aicalc.cloud homepage](docs/screenshot.png)
+
 ## Tools
 
 | Tool | What it does |
