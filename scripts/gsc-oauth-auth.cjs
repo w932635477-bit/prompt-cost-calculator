@@ -12,7 +12,7 @@ const PROXY = new ProxyAgent('http://127.0.0.1:7890');
 const PROJECT_ROOT = path.join(__dirname, '..');
 
 const SCOPES = ['https://www.googleapis.com/auth/indexing'];
-const REDIRECT_PORT = 9876;
+const REDIRECT_PORT = 8089;
 const REDIRECT_URI = `http://localhost:${REDIRECT_PORT}`;
 
 async function main() {
@@ -29,8 +29,9 @@ async function main() {
   }
 
   const creds = JSON.parse(fs.readFileSync(credsFile, 'utf-8'));
-  const clientId = creds.installed.client_id;
-  const clientSecret = creds.installed.client_secret;
+  const installed = creds.installed || creds.web;
+  const clientId = installed.client_id;
+  const clientSecret = installed.client_secret;
 
   // Derive token output path from creds file name
   const credsBasename = path.basename(credsFile);

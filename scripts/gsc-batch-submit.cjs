@@ -49,8 +49,8 @@ async function refreshToken(credsPath, tokenPath) {
   const token = JSON.parse(fs.readFileSync(tokenPath, 'utf-8'));
 
   const postData = new URLSearchParams({
-    client_id: creds.installed.client_id,
-    client_secret: creds.installed.client_secret,
+    client_id: (creds.installed || creds.web).client_id,
+    client_secret: (creds.installed || creds.web).client_secret,
     refresh_token: token.refresh_token,
     grant_type: 'refresh_token'
   }).toString();

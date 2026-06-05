@@ -12,31 +12,23 @@ function curlPost(url, body, headers = {}) {
 }
 
 const KEY_FILE = path.join(process.env.HOME, 'Downloads', 'gsc-indexing-497309-c9c682ceec78.json')
-const BASE = 'https://codehelper.xyz'
+const BASE = 'https://aicalc.cloud'
 
-const NEW_URLS = [
-  // Compare hub
-  `${BASE}/compare/`,
-  // 12 new compare pages
-  `${BASE}/compare/jellyfin-vs-plex/`,
-  `${BASE}/compare/wordpress-vs-ghost/`,
-  `${BASE}/compare/pi-hole-vs-adguard-home/`,
-  `${BASE}/compare/home-assistant-vs-openhab/`,
-  `${BASE}/compare/traefik-vs-nginx-proxy-manager/`,
-  `${BASE}/compare/portainer-vs-yacht/`,
-  `${BASE}/compare/prometheus-vs-grafana/`,
-  `${BASE}/compare/authentik-vs-authelia/`,
-  `${BASE}/compare/minio-vs-ceph/`,
-  `${BASE}/compare/pleroma-vs-mastodon/`,
-  `${BASE}/compare/mealie-vs-tandoor/`,
-  `${BASE}/compare/stirling-pdf-vs-pdfding/`,
-  // Token tracker
-  `${BASE}/token-tracker/`,
-  `${BASE}/token-tracker/chatbot-cost/`,
-  `${BASE}/token-tracker/rag-cost/`,
-  `${BASE}/token-tracker/ai-agent-cost/`,
-  `${BASE}/token-tracker/coding-assistant-cost/`,
-]
+// Read unindexed URLs from file (generated from sitemap minus GSC indexed)
+const URL_FILE = process.argv[2] || '/tmp/unindexed-urls.txt'
+const MAX_URLS = parseInt(process.argv[3] || '200', 10)
+
+let NEW_URLS
+if (fs.existsSync(URL_FILE)) {
+  NEW_URLS = fs.readFileSync(URL_FILE, 'utf-8')
+    .split('\n')
+    .filter(u => u.trim().startsWith('https://'))
+    .slice(0, MAX_URLS)
+  console.log(`Loaded ${NEW_URLS.length} URLs from ${URL_FILE}`)
+} else {
+  console.error(`URL file not found: ${URL_FILE}`)
+  process.exit(1)
+}
 
 function base64url(buf) {
   return buf.toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_')
