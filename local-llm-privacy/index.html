@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local LLM Privacy Probe — Scan Ollama, LM Studio, Jan Configs</title>
+    <meta name="description" content="Free browser-based privacy scanner for local LLM configs. Check Ollama Modelfiles, LM Studio, and Jan settings for telemetry endpoints, hardcoded API keys, and data leakage risks. Zero network requests." />
+    <meta name="keywords" content="local LLM privacy, ollama config scanner, LM Studio security, local model telemetry, AI model privacy check, ollama modelfile scanner, local LLM config audit" />
+    <link rel="canonical" href="https://aicalc.cloud/local-llm-privacy/" />
+    <meta property="og:title" content="Local LLM Privacy Probe — Scan Configs for Privacy Risks" />
+    <meta property="og:description" content="Check your Ollama, LM Studio, and Jan AI configs for telemetry endpoints, hardcoded keys, and data leakage. Runs entirely in your browser." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/local-llm-privacy/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Local LLM Privacy Probe" />
+    <meta name="twitter:description" content="Scan local LLM configs for telemetry, API keys, and privacy risks." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Local LLM Privacy Probe",
+      "url": "https://aicalc.cloud/local-llm-privacy/",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free browser-based privacy scanner for local LLM configs. Detect telemetry, hardcoded API keys, and data leakage in Ollama, LM Studio, and Jan AI settings."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Why scan local LLM configs for privacy?","acceptedAnswer":{"@type":"Answer","text":"Local LLM tools like Ollama, LM Studio, and Jan may phone home with telemetry, embed API keys in config files, or expose local paths. Scanning before sharing configs prevents accidental data leakage."}},
+        {"@type":"Question","name":"What configs are supported?","acceptedAnswer":{"@type":"Answer","text":"Ollama Modelfiles (FROM, PARAMETER, SYSTEM), LM Studio JSON configs (model paths, server settings), Jan AI settings.json, and generic JSON/YAML config files."}},
+        {"@type":"Question","name":"Is my data sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All scanning runs in your browser with zero network requests. The live network counter on the page proves it stays at 0. No cookies, no localStorage, no analytics."}},
+        {"@type":"Question","name":"What risks are detected?","acceptedAnswer":{"@type":"Answer","text":"Six categories: Outbound endpoints (URLs that phone home), telemetry flags, hardcoded API keys (OpenAI, Anthropic, AWS, HuggingFace), auto-update/callback URLs, data leakage (local paths, log files), and insecure settings (CORS *, disabled SSL, 0.0.0.0 binding)."}},
+        {"@type":"Question","name":"How to fix detected issues?","acceptedAnswer":{"@type":"Answer","text":"Disable telemetry flags, move API keys to environment variables, restrict CORS and host binding to localhost, and remove callback URLs you don't recognize."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/local-llm-privacy/main.tsx"></script>
+  </body>
+</html>

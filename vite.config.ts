@@ -116,6 +116,7 @@ export default defineConfig({
         'cron-validator': resolve(__dirname, 'cron-validator/index.html'),
         'dep-shield': resolve(__dirname, 'dep-shield/index.html'),
         'ai-agent-security': resolve(__dirname, 'ai-agent-security/index.html'),
+        'local-llm-privacy': resolve(__dirname, 'local-llm-privacy/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
