@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-06T06:51:07.534Z",
+  "generatedAt": "2026-06-06T12:33:13.055Z",
   "summary": {
-    "totalIndexable": 333,
+    "totalIndexable": 334,
     "totalSubmitted": 225,
-    "coverage": 67.6,
+    "coverage": 67.4,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -11,9 +11,9 @@
   "sections": [
     {
       "name": "cron-generator",
-      "total": 160,
+      "total": 161,
       "submitted": 0,
-      "remaining": 160
+      "remaining": 161
     },
     {
       "name": "alternatives",
