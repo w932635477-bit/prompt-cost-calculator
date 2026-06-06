@@ -43,9 +43,9 @@ for (const page of LONG_TAIL_PAGES) {
     "name": "How to set up " + page.h1,
     "description": page.description,
     "step": [
-      { "@type": "HowToStep", "text": "Open your crontab editor: run crontab -e in your terminal." },
-      { "@type": "HowToStep", "text": "Add the line: " + page.cron + " /path/to/your/script.sh" },
-      { "@type": "HowToStep", "text": "Save and exit. Verify with crontab -l." }
+      { "@type": "HowToStep", "position": 1, "name": "Open crontab editor", "text": "Open your crontab editor: run crontab -e in your terminal." },
+      { "@type": "HowToStep", "position": 2, "name": "Add the cron line", "text": "Add the line: " + page.cron + " /path/to/your/script.sh" },
+      { "@type": "HowToStep", "position": 3, "name": "Save and verify", "text": "Save and exit. Verify with crontab -l." }
     ]
   };
 
