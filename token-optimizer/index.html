@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Token Optimizer Online — Reduce Token Usage for Claude Code, Cursor &amp; Copilot</title>
+    <meta name="description" content="Free browser-based token optimizer. Reduce token usage in Claude Code, Cursor, GitHub Copilot &amp; more. Detect prompt bloat, compress verbose instructions, save 20-40% on API costs. No login, no CLI." />
+    <meta name="keywords" content="token optimizer, reduce token usage claude code, token optimizer online, token optimizer mcp, token optimizer claude, reduce token usage, token optimizer github, token optimizer ai, reduce token usage cursor, token optimizer claude skill" />
+
+    <link rel="canonical" href="https://aicalc.cloud/token-optimizer/" />
+
+    <meta property="og:title" content="Token Optimizer Online — Reduce Token Usage for Claude Code &amp; LLMs" />
+    <meta property="og:description" content="Free browser-based token optimizer. Detect bloat, compress prompts, save 20-40% on API costs. Works with Claude Code, Cursor, Copilot." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/token-optimizer/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Token Optimizer Online — Cut Prompt Costs" />
+    <meta name="twitter:description" content="Browser-based token optimizer. Reduce token usage for Claude Code, Cursor, and Copilot. Free, no login." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Token Optimizer Online",
+      "url": "https://aicalc.cloud/token-optimizer/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free browser-based token optimizer that detects prompt bloat and compresses verbose instructions for Claude Code, Cursor, GitHub Copilot, and other AI tools. Save 20-40% on API costs.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I reduce token usage in Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three strategies: (1) Keep CLAUDE.md under 200 words with only essential instructions. (2) Use imperative commands instead of polite requests — 'fix the bug' not 'I would appreciate it if you could fix the bug'. (3) Remove AI identity boilerplate like 'you are a helpful AI assistant'. Use our Token Optimizer to scan your prompts and get specific savings estimates per model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a token optimizer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A token optimizer analyzes your AI prompts for bloat — verbose phrases, filler words, duplicate content, and unnecessary politeness — then suggests a compressed version that uses fewer tokens while preserving meaning. This reduces API costs by 20-40% on average. Our optimizer is browser-based, requiring no CLI installation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much can I save by optimizing tokens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most developers save 20-40% on input token costs by trimming verbose prompts. For someone making 1,000 Claude Code requests per month with a 500-token system prompt, a 30% reduction saves about $0.45/month on Claude Sonnet. At enterprise scale (100K+ requests/month), savings reach $45+/month. The optimizer shows exact savings per model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this work with Cursor and GitHub Copilot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Use the Cursor Rules and GitHub Copilot presets to test your .cursorrules and Copilot instructions. These are sent with every request, so trimming them saves tokens on every single AI call. A 500-word .cursorrules file can typically be compressed to 200 words without losing functionality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this better than CLI token optimizers like headroom or Lowfat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CLI tools like headroom and Lowfat require installation and terminal use. Our browser-based optimizer is instant — paste, analyze, copy. No npm install, no GitHub clone. It also shows savings across multiple AI models (GPT-4o, Claude, Gemini, DeepSeek) so you can compare. For automated CI/CD pipelines, CLI tools are better; for quick prompt optimization, use our web tool."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/token-optimizer/main.tsx"></script>
+  </body>
+</html>

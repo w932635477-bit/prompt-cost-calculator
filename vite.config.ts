@@ -117,6 +117,7 @@ export default defineConfig({
         'dep-shield': resolve(__dirname, 'dep-shield/index.html'),
         'ai-agent-security': resolve(__dirname, 'ai-agent-security/index.html'),
         'local-llm-privacy': resolve(__dirname, 'local-llm-privacy/index.html'),
+        'token-optimizer': resolve(__dirname, 'token-optimizer/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,

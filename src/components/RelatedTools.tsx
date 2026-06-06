@@ -9,6 +9,7 @@ const TOOL_STACKS = [
     title: 'Cost Control Stack',
     tools: [
       { name: 'Cost Calculator', path: '/' },
+      { name: 'Token Optimizer', path: '/token-optimizer/' },
       { name: 'Token Counter', path: '/token-counter/' },
       { name: 'Cache Calculator', path: '/prompt-cache-calculator/' },
       { name: 'Token Tracker', path: '/token-tracker/' },
@@ -37,6 +38,7 @@ const TOOL_STACKS = [
 
 const RELATED_MAP: Record<string, RelatedTool[]> = {
   '/': [
+    { name: 'Token Optimizer', path: '/token-optimizer/', description: 'Reduce token usage 20-40% by detecting prompt bloat' },
     { name: 'Cache Calculator', path: '/prompt-cache-calculator/', description: 'See how prompt caching cuts your API bill by 60%+' },
     { name: 'Token Counter', path: '/token-counter/', description: 'Count tokens before sending requests to avoid surprises' },
     { name: 'LLM Pricing', path: '/llm-pricing/', description: 'Side-by-side pricing for 19 models across 5 providers' },
@@ -96,8 +98,14 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
     { name: 'Token Counter', path: '/token-counter/', description: 'Count tokens before sending requests' },
     { name: 'LLM Pricing', path: '/llm-pricing/', description: '19 models across 5 providers' },
   ],
+  '/token-optimizer/': [
+    { name: 'AI Cost Calculator', path: '/', description: 'Compare API costs across all models' },
+    { name: 'Token Counter', path: '/token-counter/', description: 'Count tokens before sending requests' },
+    { name: 'Cache Calculator', path: '/prompt-cache-calculator/', description: 'Save with prompt caching' },
+  ],
   '/token-counter/': [
     { name: 'AI Cost Calculator', path: '/', description: 'Calculate full API costs per model' },
+    { name: 'Token Optimizer', path: '/token-optimizer/', description: 'Reduce token usage by 20-40%' },
     { name: 'Cache Calculator', path: '/prompt-cache-calculator/', description: 'See how caching reduces costs' },
   ],
   '/csp-generator/': [
