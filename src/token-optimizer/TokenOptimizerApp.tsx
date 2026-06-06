@@ -6,6 +6,8 @@ import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
 import { analyzePrompt, PLATFORM_PRESETS, getPlatformSavingsEstimate } from './optimizer'
 import type { CompressionResult } from './optimizer'
+import { BENCHMARK_DATA, formatMonthlyCost, formatTokens } from './benchmarks'
+import type { BenchmarkEntry } from './benchmarks'
 import pricingData from '../data/pricing.json'
 import type { ModelPricing } from '../lib/types'
 
@@ -356,6 +358,9 @@ export default function TokenOptimizerApp() {
           </div>
         )}
 
+        {/* Real-World Benchmarks */}
+        <BenchmarkSection />
+
         {/* SEO Content Sections */}
         <div className="max-w-[780px] mx-auto pb-16 space-y-12">
           {/* Reduce Token Usage Claude Code */}
@@ -433,6 +438,121 @@ export default function TokenOptimizerApp() {
 
           <RelatedTools currentPath="/token-optimizer/" />
         </div>
+      </div>
+    </div>
+  )
+}
+
+// Real-World Benchmarks Section
+function BenchmarkSection() {
+  const mediumTier = BENCHMARK_DATA[0]?.tiers.medium
+  const callsPerDay = mediumTier?.callsPerDay || 200
+
+  return (
+    <div className="bg-white rounded-3xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#e8e8ed] p-8 mb-6">
+      <h2 className="text-2xl font-semibold tracking-tight mb-1">Real-World Benchmarks</h2>
+      <p className="text-sm text-[#86868b] mb-6">
+        Measured compression rates across popular AI coding tools.
+        Based on typical system prompts, configuration files, and usage patterns at {callsPerDay} calls/day.
+      </p>
+
+      {/* Platform Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+        {BENCHMARK_DATA.map((b: BenchmarkEntry) => (
+          <div
+            key={b.platform}
+            className="p-5 rounded-2xl border border-[#e8e8ed] bg-[#f5f5f7]/50 hover:shadow-sm transition-shadow"
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-xl">{b.icon}</span>
+              <span className="text-sm font-semibold text-[#1d1d1f]">{b.platform}</span>
+            </div>
+
+            <div className="flex items-baseline gap-2 mb-2">
+              <span className="text-3xl font-bold text-[#34c759] tabular-nums">{b.compressionRate}%</span>
+              <span className="text-xs text-[#86868b]">compression</span>
+            </div>
+
+            <div className="text-xs text-[#86868b] leading-relaxed mb-3">
+              {b.typicalPromptTokens} → {b.avgCompressedTokens} tokens per call
+              · saves {b.tokensSavedPerCall} tokens/call
+            </div>
+
+            <div className="space-y-1 text-xs">
+              <div className="flex justify-between">
+                <span className="text-[#86868b]">Monthly savings ({callsPerDay}/day):</span>
+                <span className="font-medium tabular-nums text-[#1d1d1f]">
+                  {formatTokens(b.tiers.medium.tokensSavedPerMonth)} tokens
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-[#86868b]">Cost saved (GPT-4o):</span>
+                <span className="font-medium tabular-nums text-[#34c759]">
+                  {formatMonthlyCost(b.tiers.medium.costSavedGPT4o)}/mo
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-[#86868b]">Cost saved (Claude Sonnet):</span>
+                <span className="font-medium tabular-nums text-[#34c759]">
+                  {formatMonthlyCost(b.tiers.medium.costSavedClaude)}/mo
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Usage Tier Comparison Table */}
+      <div className="border-t border-[#e8e8ed] pt-6">
+        <h3 className="text-sm font-semibold text-[#1d1d1f] mb-4">
+          Savings at Different Usage Levels
+        </h3>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="border-b border-[#e8e8ed]">
+                <th className="text-left px-3 py-2 font-medium text-[#86868b]">Platform</th>
+                <th className="text-right px-3 py-2 font-medium text-[#86868b]">Rate</th>
+                <th className="text-right px-3 py-2 font-medium text-[#86868b]">
+                  50 calls/day
+                </th>
+                <th className="text-right px-3 py-2 font-medium text-[#86868b]">
+                  200 calls/day
+                </th>
+                <th className="text-right px-3 py-2 font-medium text-[#86868b]">
+                  500 calls/day
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {BENCHMARK_DATA.map((b: BenchmarkEntry) => (
+                <tr key={b.platform} className="border-b border-[#f0f0f5] hover:bg-[#f5f5f7] transition-colors">
+                  <td className="px-3 py-3">
+                    <span className="font-medium text-[#1d1d1f]">{b.platform}</span>
+                  </td>
+                  <td className="px-3 py-3 text-right">
+                    <span className="text-[#34c759] font-semibold">{b.compressionRate}%</span>
+                  </td>
+                  <td className="px-3 py-3 text-right tabular-nums text-[#86868b]">
+                    {formatMonthlyCost(b.tiers.low.costSavedGPT4o)}
+                  </td>
+                  <td className="px-3 py-3 text-right tabular-nums">
+                    <span className="text-[#34c759] font-semibold">
+                      {formatMonthlyCost(b.tiers.medium.costSavedGPT4o)}
+                    </span>
+                  </td>
+                  <td className="px-3 py-3 text-right tabular-nums text-[#86868b]">
+                    {formatMonthlyCost(b.tiers.high.costSavedGPT4o)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-[11px] text-[#86868b] mt-3">
+          Cost savings shown for GPT-4o input pricing ($2.50/1M tokens).
+          Claude Sonnet savings are ~20% higher due to its $3/1M input rate.
+        </p>
       </div>
     </div>
   )

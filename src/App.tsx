@@ -7,6 +7,7 @@ import { GlobalNav } from './components/GlobalNav'
 import { RelatedTools } from './components/RelatedTools'
 import { FaqSchema } from './components/FaqSchema'
 import { SiteFooter } from './components/SiteFooter'
+import { PriceChurn } from './components/PriceChurn'
 import { calculateCosts } from './lib/calculator'
 import type { ModelCostResult, ModelPricing } from './lib/types'
 import pricingData from './data/pricing.json'
@@ -107,6 +108,9 @@ function App() {
         <section className="mb-16">
           <StaticPricingTable />
         </section>
+
+        {/* Provider Price Churn */}
+        <PriceChurn />
 
         {/* SEO: LLM API Pricing */}
         <section className="max-w-[780px] mx-auto mb-16 space-y-12">

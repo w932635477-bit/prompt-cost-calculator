@@ -1,0 +1,73 @@
+{
+  "description": "Historical price snapshots for major AI models. Tracks input/output price per 1M tokens over time.",
+  "lastUpdated": "2026-06-06",
+  "entries": [
+    {
+      "modelId": "gpt-4o",
+      "modelName": "GPT-4o",
+      "provider": "OpenAI",
+      "history": [
+        { "date": "2024-05-13", "inputPricePer1M": 5, "outputPricePer1M": 15, "note": "Launch pricing" },
+        { "date": "2024-08-06", "inputPricePer1M": 2.5, "outputPricePer1M": 10, "note": "50% price cut — GPT-4o mini launch" },
+        { "date": "2025-01-15", "inputPricePer1M": 2.5, "outputPricePer1M": 10, "note": "Price stable through early 2025" },
+        { "date": "2026-06-01", "inputPricePer1M": 2.5, "outputPricePer1M": 10, "note": "Unchanged — GPT-5.X family now primary" }
+      ]
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "modelName": "GPT-4o Mini",
+      "provider": "OpenAI",
+      "history": [
+        { "date": "2024-07-18", "inputPricePer1M": 0.15, "outputPricePer1M": 0.6, "note": "Launch — cheapest OpenAI model" },
+        { "date": "2026-06-01", "inputPricePer1M": 0.15, "outputPricePer1M": 0.6, "note": "Price stable since launch" }
+      ]
+    },
+    {
+      "modelId": "claude-3-7-sonnet-20250219",
+      "modelName": "Claude 3.7 Sonnet",
+      "provider": "Anthropic",
+      "history": [
+        { "date": "2025-02-24", "inputPricePer1M": 3, "outputPricePer1M": 15, "note": "Launch — Claude 3.7 with extended thinking" },
+        { "date": "2026-06-01", "inputPricePer1M": 3, "outputPricePer1M": 15, "note": "Price stable. Opus 4.8 + Sonnet 4.6 now available" }
+      ]
+    },
+    {
+      "modelId": "claude-3-opus-20240229",
+      "modelName": "Claude 3 Opus",
+      "provider": "Anthropic",
+      "history": [
+        { "date": "2024-03-04", "inputPricePer1M": 15, "outputPricePer1M": 75, "note": "Launch — most expensive frontier model" },
+        { "date": "2026-06-01", "inputPricePer1M": 15, "outputPricePer1M": 75, "note": "Superseded by Opus 4.8 at $5/$25 (67% cheaper)" }
+      ]
+    },
+    {
+      "modelId": "claude-opus-4-8",
+      "modelName": "Claude Opus 4.8",
+      "provider": "Anthropic",
+      "history": [
+        { "date": "2025-10-15", "inputPricePer1M": 5, "outputPricePer1M": 25, "note": "Launch — 67% cheaper than Claude 3 Opus" },
+        { "date": "2026-06-01", "inputPricePer1M": 5, "outputPricePer1M": 25, "note": "Price stable since launch" }
+      ]
+    },
+    {
+      "modelId": "gemini-2.0-flash",
+      "modelName": "Gemini 2.0 Flash",
+      "provider": "Google",
+      "history": [
+        { "date": "2024-12-11", "inputPricePer1M": 0.15, "outputPricePer1M": 0.6, "note": "Launch — production-ready Flash" },
+        { "date": "2025-06-01", "inputPricePer1M": 0.1, "outputPricePer1M": 0.4, "note": "33% price cut" },
+        { "date": "2026-06-01", "inputPricePer1M": 0.1, "outputPricePer1M": 0.4, "note": "Stable. 2.5 Flash-Lite now cheaper option" }
+      ]
+    },
+    {
+      "modelId": "deepseek-v4-flash",
+      "modelName": "DeepSeek V4 Flash",
+      "provider": "DeepSeek",
+      "history": [
+        { "date": "2025-12-01", "inputPricePer1M": 0.2, "outputPricePer1M": 0.4, "note": "Launch — ultra-low pricing disrupts market" },
+        { "date": "2026-03-01", "inputPricePer1M": 0.14, "outputPricePer1M": 0.28, "note": "30% price cut — aggressive competition" },
+        { "date": "2026-06-01", "inputPricePer1M": 0.14, "outputPricePer1M": 0.28, "note": "Still the cheapest frontier-grade model" }
+      ]
+    }
+  ]
+}

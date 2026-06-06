@@ -302,4 +302,32 @@ test.describe('Token Optimizer Page', () => {
       expect(pct).toBeGreaterThan(0)
     }
   })
+
+  // === Real-World Benchmarks ===
+
+  test('shows real-world benchmarks section', async ({ page }) => {
+    // Scroll down to benchmarks
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await page.waitForTimeout(500)
+
+    const section = page.locator('text=Real-World Benchmarks')
+    await expect(section).toBeVisible()
+  })
+
+  test('benchmark data shows valid compression rates', async ({ page }) => {
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await page.waitForTimeout(500)
+
+    const bodyText = await page.textContent('body')
+    expect(bodyText).toContain('Claude Code')
+    expect(bodyText).toContain('Cursor Rules')
+    expect(bodyText).toContain('GitHub Copilot')
+    expect(bodyText).toContain('Custom Prompt')
+
+    // Should have compression rates (any 2-digit percentage)
+    expect(bodyText).toMatch(/3[0-5]%/)
+
+    // Should show cost savings
+    expect(bodyText).toMatch(/\$\d+\.\d+\/mo/)
+  })
 })
