@@ -117,7 +117,6 @@ if [ "${1:-}" = "--push" ]; then
     data/gsc-export/ \
     scripts/gsc-*.cjs \
     scripts/fetch-gsc-data.cjs \
-    scripts/submit-gsc-index.cjs \
     scripts/vite-llm-cost-inputs.cjs \
     .vite/ \
     .context/ \

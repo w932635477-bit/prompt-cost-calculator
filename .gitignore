@@ -65,6 +65,7 @@ docs/gsc/
 docs/design/
 llm-pricing-headed-test.cjs
 .gsc-submit-progress.json
+.gsc-aicalc-progress.json
 scripts/vite-llm-cost-inputs.cjs
 
 # Local session context

@@ -9,7 +9,10 @@
     "fetch:github": "node scripts/fetch-github-stats.cjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "dashboard": "node scripts/build-dashboard-data.cjs"
+    "dashboard": "node scripts/build-dashboard-data.cjs",
+    "gsc:submit": "node scripts/gsc-submit-all.cjs",
+    "gsc:submit:dry": "node scripts/gsc-submit-all.cjs --dry-run",
+    "gsc:submit:force": "node scripts/gsc-submit-all.cjs --force"
   },
   "dependencies": {
     "@playwright/test": "^1.60.0",
@@ -18,6 +21,7 @@
     "cron-parser": "^5.5.0",
     "googleapis": "^172.0.0",
     "js-tiktoken": "^1.0.21",
+    "jsonwebtoken": "^9.0.3",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

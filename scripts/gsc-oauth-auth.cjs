@@ -129,7 +129,7 @@ async function main() {
   console.log(`Token saved to: ${tokenPath}`);
   console.log('Refresh token:', token.refresh_token.slice(0, 20) + '...');
   console.log('');
-  console.log('Done! You can now run gsc-batch-submit.cjs');
+  console.log('Done! You can now run: npm run gsc:submit  (scripts/gsc-submit-all.cjs)');
 }
 
 main().catch(e => { console.error('Fatal:', e.message); process.exit(1); });
