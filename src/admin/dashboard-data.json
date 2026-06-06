@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-05T05:17:39.610Z",
+  "generatedAt": "2026-06-05T13:47:00.129Z",
   "summary": {
-    "totalIndexable": 331,
+    "totalIndexable": 332,
     "totalSubmitted": 225,
-    "coverage": 68,
+    "coverage": 67.8,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -137,6 +137,12 @@
     },
     {
       "name": "ai-agent-security",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "local-llm-privacy",
       "total": 1,
       "submitted": 0,
       "remaining": 1
