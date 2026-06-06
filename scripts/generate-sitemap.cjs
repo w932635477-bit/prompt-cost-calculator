@@ -55,6 +55,7 @@ const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/common-patterns/', priority: '0.85', changefreq: 'weekly' },
+  { loc: BASE_URL + '/cron-generator/vercel-cron/', priority: '0.85', changefreq: 'weekly' },
   { loc: BASE_URL + '/alternatives/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/agent-safety/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/voice-agent-pricing/', priority: '0.9', changefreq: 'weekly' },
