@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cron 표현식 생성기 | 무료 온라인 도구</title>
-    <meta name="description" content="무료 Cron 표현식 생성기 및 해설 도구. 시각적으로 Cron 일정을 작성하고, 자연어를 Cron으로 변환하며, 다음 실행 시간을 미리 확인하세요. Unix, Quartz, AWS EventBridge 지원." />
+    <title>Cron 표현식 생성기 (2026) — 스케줄 작업 도구 | Unix/Quartz/AWS 지원</title>
+    <meta name="description" content="무료 Cron 표현식 생성기 (한국어 지원). 시각적으로 일정을 구축: 매분(* * * * *), 매시간(0 * * * *), 매일(0 0 * * *), 매주. 자연어를 Cron 표현식으로 변환, 다음 5회 실행 시간 미리보기. Linux/Unix crontab, Quartz(Java/Spring), AWS EventBridge 세 가지 구문 지원. 회원가입 불필요, 100% 무료." />
+    <meta name="keywords" content="cron 표현식 생성기, cron 표현식, 스케줄 작업, crontab 생성기, cron 온라인 도구, 리눅스 cron, cron 사용법, cron 튜토리얼, crontab 문법, 리눅스 자동화, cron 정기 실행, cron 표현식 설명" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Cron 표현식 생성기" />
-    <meta property="og:description" content="시각적으로 Cron 일정을 작성하세요. Unix, Quartz, AWS 지원. 무료, 로그인 불필요." />
+    <meta property="og:title" content="Cron 표현식 생성기 (2026) — 스케줄 작업 도구" />
+    <meta property="og:description" content="무료 한국어 Cron 생성기. 시각적 빌더, 자연어 → Cron 변환, 실행 시간 미리보기. Unix/Quartz/AWS 지원. 회원가입 불필요." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aicalc.cloud/cron-generator/ko/" />
     <meta property="og:site_name" content="Cron Generator" />
@@ -17,8 +18,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Cron 표현식 생성기" />
-    <meta name="twitter:description" content="시각적으로 Cron 일정을 작성하세요. Unix, Quartz, AWS 지원. 무료, 로그인 불필요." />
+    <meta name="twitter:title" content="Cron 표현식 생성기 (2026) — 무료 온라인 도구" />
+    <meta name="twitter:description" content="한국어 Cron 작업 생성기. * * * * * 매분, 0 * * * * 매시간, 0 0 * * * 매일. Unix/Quartz/AWS 전환. 회원가입 불필요." />
 
     <link rel="canonical" href="https://aicalc.cloud/cron-generator/ko/" />
 
@@ -37,6 +38,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Cron 표현식이란 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"Cron 표현식은 공백으로 구분된 5개의 필드로 구성된 문자열로, 예약된 작업의 실행 시점을 정의합니다: 분(0-59), 시(0-23), 일(1-31), 월(1-12), 요일(0-6, 0=일요일). 예를 들어 0 9 * * 1-5는 '월요일부터 금요일까지 오전 9시에 실행'을 의미합니다."}},
+        {"@type":"Question","name":"Cron 표현식 생성기는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"자연어로 일정을 입력하거나(예: '5분마다', '매주 월요일 오전 9시') 사전 정의된 템플릿을 선택하세요. 생성기가 해당 Cron 표현식, 한국어 설명, 다음 5회 실행 시간을 표시합니다. Unix/Linux, Quartz(Java/Spring), AWS EventBridge 세 가지 구문 간 전환도 가능합니다."}},
+        {"@type":"Question","name":"* * * * * 는 Cron에서 무엇을 의미하나요?","acceptedAnswer":{"@type":"Answer","text":"* * * * * 는 '매 분마다 실행'을 의미합니다. 각 별표는 와일드카드로, 첫 번째는 모든 분(0-59), 두 번째는 모든 시(0-23), 세 번째는 모든 일, 네 번째는 모든 월, 다섯 번째는 모든 요일을 포함합니다. 즉 60초마다 스크립트가 실행됩니다."}},
+        {"@type":"Question","name":"매시간 Cron 작업을 실행하려면 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"0 * * * * 를 사용하여 매시간 0분(00:00, 01:00, 02:00...)에 실행합니다. 30분에 실행하려면 30 * * * * 를 사용하세요. Quartz에서는 0 0 * * * ?, AWS EventBridge에서는 cron(0 * * * ? *) 를 사용합니다."}},
+        {"@type":"Question","name":"Unix Crontab, Quartz, AWS EventBridge의 Cron 차이점은 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"Unix/Linux는 표준 5필드 형식을 사용합니다. Quartz(Java/Spring)는 앞에 초 필드를 추가하고(총 7필드), 일과 요일 충돌 시 * 대신 ?를 사용합니다. AWS EventBridge는 6필드(연도 추가)를 사용하며 cron(...) 형식으로 감싸고, 지정되지 않은 필드는 ?를 사용합니다. 이 도구는 클릭 한 번으로 세 가지 구문을 전환할 수 있습니다."}}
+      ]
+    }
+    </script>
 
     <!-- Structured Data: WebApplication -->
     <script type="application/ld+json">
