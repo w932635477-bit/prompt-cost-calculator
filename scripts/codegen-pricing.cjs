@@ -112,24 +112,43 @@ const SEO_SLUG_MAP = {
 };
 
 const SEO_KEYWORDS = {
-  'gpt-5.5': ['gpt-5.5 pricing', 'gpt-5.5 cost', 'gpt-5.5 api price', 'gpt-5.5 per million tokens'],
-  'gpt-5.4': ['gpt-5.4 pricing', 'gpt-5.4 cost', 'gpt-5.4 api price', 'gpt-5.4 per million tokens'],
-  'gpt-5.4-mini': ['gpt-5.4 mini pricing', 'gpt-5.4 mini cost', 'gpt-5.4 mini api price'],
-  'gpt-4o': ['gpt-4o pricing', 'gpt-4o cost', 'gpt-4o api price', 'gpt-4o per million tokens'],
-  'gpt-4o-mini': ['gpt-4o mini pricing', 'gpt-4o mini cost', 'gpt-4o mini api price'],
-  'o3': ['o3 pricing', 'openai o3 cost', 'o3 api price', 'openai reasoning model pricing'],
-  'o4-mini': ['o4-mini pricing', 'openai o4-mini cost', 'o4-mini api price'],
-  'claude-3-7-sonnet-20250219': ['claude 3.7 sonnet pricing', 'claude 3.7 sonnet cost', 'anthropic claude pricing'],
-  'claude-3-5-haiku-20241022': ['claude 3.5 haiku pricing', 'claude haiku cost', 'claude cheap model pricing'],
-  'claude-3-opus-20240229': ['claude 3 opus pricing', 'claude opus cost', 'claude expensive model pricing'],
-  'claude-3-haiku-20240307': ['claude 3 haiku pricing', 'claude haiku cost', 'claude cheapest model'],
-  'gemini-2.0-flash': ['gemini 2.0 flash pricing', 'gemini flash cost', 'google gemini pricing'],
-  'gemini-2.0-flash-lite': ['gemini flash lite pricing', 'gemini 2.0 flash lite cost', 'google ai pricing'],
-  'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing'],
-  'gemini-1.5-flash': ['gemini 1.5 flash pricing', 'gemini flash cost', 'google gemini flash pricing'],
-  'deepseek-v4-flash': ['deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token'],
-  'deepseek-v4-pro': ['deepseek v4 pro pricing', 'deepseek pro cost', 'deepseek api pricing'],
-  'llama-4-maverick': ['llama 4 maverick pricing', 'groq pricing', 'groq api cost', 'llama 4 groq pricing'],
+  'gpt-5.5': ['gpt-5.5 pricing', 'gpt-5.5 cost', 'gpt-5.5 api price', 'gpt-5.5 per million tokens', 'gpt-5.5 vs gpt-5.4 pricing', 'gpt-5.5 api cost comparison'],
+  'gpt-5.4': ['gpt-5.4 pricing', 'gpt-5.4 cost', 'gpt-5.4 api price', 'gpt-5.4 per million tokens', 'gpt-5.4 vs gpt-5.5 cost', 'gpt-5.4 token price'],
+  'gpt-5.4-mini': ['gpt-5.4 mini pricing', 'gpt-5.4 mini cost', 'gpt-5.4 mini api price', 'gpt-5.4 mini cheapest', 'gpt-5.4 mini vs gpt-4o-mini'],
+  'gpt-4o': ['gpt-4o pricing', 'gpt-4o cost', 'gpt-4o api price', 'gpt-4o per million tokens', 'gpt-4o vs gpt-4o-mini', 'gpt-4o token cost'],
+  'gpt-4o-mini': ['gpt-4o mini pricing', 'gpt-4o mini cost', 'gpt-4o mini api price', 'gpt-4o mini cheapest openai', 'gpt-4o mini vs deepseek cost'],
+  'o3': ['o3 pricing', 'openai o3 cost', 'o3 api price', 'openai reasoning model pricing', 'o3 vs o4-mini cost', 'openai o3 token price'],
+  'o4-mini': ['o4-mini pricing', 'openai o4-mini cost', 'o4-mini api price', 'o4-mini reasoning pricing', 'o4-mini vs o3', 'o4-mini token cost'],
+  'claude-3-7-sonnet-20250219': ['claude 3.7 sonnet pricing', 'claude 3.7 sonnet cost', 'anthropic claude pricing', 'claude sonnet api price', 'claude vs gpt pricing 2026'],
+  'claude-3-5-haiku-20241022': ['claude 3.5 haiku pricing', 'claude haiku cost', 'claude cheap model pricing', 'claude 3.5 haiku api price', 'cheapest claude api'],
+  'claude-3-opus-20240229': ['claude 3 opus pricing', 'claude opus cost', 'claude expensive model pricing', 'claude opus api price', 'claude opus per million tokens'],
+  'claude-3-haiku-20240307': ['claude 3 haiku pricing', 'claude haiku cost', 'claude cheapest model', 'claude haiku api price', 'claude haiku per token'],
+  'gemini-2.0-flash': ['gemini 2.0 flash pricing', 'gemini flash cost', 'google gemini pricing', 'gemini 2.0 flash api price', 'gemini flash cheapest google'],
+  'gemini-2.0-flash-lite': ['gemini flash lite pricing', 'gemini 2.0 flash lite cost', 'google ai pricing', 'gemini flash lite api', 'cheapest google llm'],
+  'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing', 'gemini 1.5 pro api price', 'gemini pro vs flash'],
+  'gemini-1.5-flash': ['gemini 1.5 flash pricing', 'gemini flash cost', 'google gemini flash pricing', 'gemini 1.5 flash api', 'gemini flash api cost'],
+  'deepseek-v4-flash': [
+    'deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token',
+    'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek flash cheapest model',
+    'deepseek v4 flash vs gpt pricing', 'deepseek flash token price',
+    'deepseek api pricing 2026', 'deepseek v4 flash per million tokens',
+  ],
+  'deepseek-v4-pro': ['deepseek v4 pro pricing', 'deepseek pro cost', 'deepseek api pricing', 'deepseek v4 pro vs flash', 'deepseek pro api price', 'deepseek pro per million tokens'],
+  'llama-4-maverick': ['llama 4 maverick pricing', 'groq pricing', 'groq api cost', 'llama 4 groq pricing', 'llama 4 maverick api price', 'groq llama cost'],
+};
+
+// Per-model SEO overrides for richer titles and descriptions.
+// Use these when the auto-generated formula doesn't capture the model's
+// unique selling point well enough. Keyed by pricing.json model id.
+const SEO_OVERRIDES = {
+  'deepseek-v4-flash': {
+    title: 'DeepSeek V4 Flash Pricing (2026) — Cheapest LLM API at $0.14/1M Input',
+    description: 'DeepSeek V4 Flash costs $0.14/1M input and $0.28/1M output — one of the cheapest LLM APIs in 2026. Cached input is just $0.0197/1M (86% discount). Full pricing breakdown, cost calculator, and comparison vs GPT-4o, Claude, and Gemini.',
+  },
+  'deepseek-v4-pro': {
+    title: 'DeepSeek V4 Pro Pricing (2026) — $0.435/1M Input, Premium Reasoning',
+    description: 'DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output with 1M context window. Compare DeepSeek V4 Pro vs Flash pricing, use the cost calculator, and see how it stacks up against GPT-5.5 and Claude.',
+  },
 };
 
 // ── Formatters ────────────────────────────────────────────────────────
@@ -223,33 +242,38 @@ function generateSeoPricing(models) {
     const slug = SEO_SLUG_MAP[model.id];
     if (!slug) continue; // model has no SEO page
 
+    const override = SEO_OVERRIDES[model.id] || {};
     const keywords = SEO_KEYWORDS[model.id] || [];
     const cachePrice = model.cachedInputPricePer1M;
     const name = model.name;
     const h1Name = `${name} API Pricing`;
-    const title = `${name} API Pricing (2026) — Cost Per 1M Tokens`;
+    const title = override.title || `${name} API Pricing (2026) — Cost Per 1M Tokens`;
 
-    const descParts = [
-      `${name} pricing:`,
-      `${fmtPrice(model.inputPricePer1M)}/1M input tokens,`,
-      `${fmtPrice(model.outputPricePer1M)}/1M output tokens,`,
-    ];
-    if (cachePrice !== undefined) {
-      descParts.push(`${fmtPrice(cachePrice)}/1M cached tokens.`);
+    let description;
+    if (override.description) {
+      description = override.description;
     } else {
-      descParts.push('no cached token discount.');
+      const descParts = [
+        `${name} pricing:`,
+        `${fmtPrice(model.inputPricePer1M)}/1M input tokens,`,
+        `${fmtPrice(model.outputPricePer1M)}/1M output tokens,`,
+      ];
+      if (cachePrice !== undefined) {
+        descParts.push(`${fmtPrice(cachePrice)}/1M cached tokens.`);
+      } else {
+        descParts.push('no cached token discount.');
+      }
+
+      const suffixParts = [];
+      if (model.provider === 'OpenAI') suffixParts.push(model.id.includes('mini') ? 'Budget-friendly' : 'Compare costs for your workload');
+      if (model.provider === 'Anthropic') suffixParts.push(model.id.includes('haiku') ? 'Cheapest Claude' : 'Anthropic model cost analysis');
+      if (model.provider === 'Google') suffixParts.push('Google model cost breakdown');
+      if (model.provider === 'DeepSeek') suffixParts.push(model.id.includes('flash') ? 'One of the cheapest LLM APIs' : 'Premium DeepSeek model');
+      if (model.provider === 'Groq') suffixParts.push('Fastest inference with no cached token discount');
+
+      const suffix = suffixParts[0] ? ` ${suffixParts[0]}.` : '';
+      description = descParts.join(' ') + suffix;
     }
-
-    // Add a human-readable suffix
-    const suffixParts = [];
-    if (model.provider === 'OpenAI') suffixParts.push(model.id.includes('mini') ? 'Budget-friendly' : 'Compare costs for your workload');
-    if (model.provider === 'Anthropic') suffixParts.push(model.id.includes('haiku') ? 'Cheapest Claude' : 'Anthropic model cost analysis');
-    if (model.provider === 'Google') suffixParts.push('Google model cost breakdown');
-    if (model.provider === 'DeepSeek') suffixParts.push(model.id.includes('flash') ? 'One of the cheapest LLM APIs' : 'Premium DeepSeek model');
-    if (model.provider === 'Groq') suffixParts.push('Fastest inference with no cached token discount');
-
-    const suffix = suffixParts[0] ? ` ${suffixParts[0]}.` : '';
-    const description = descParts.join(' ') + suffix;
 
     seoPages.push(`  {
     slug: '${slug}',

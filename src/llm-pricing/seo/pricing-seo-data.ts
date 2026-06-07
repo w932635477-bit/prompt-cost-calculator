@@ -20,7 +20,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'GPT-5.5 API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'GPT-5.5 API Pricing',
     description: 'GPT-5.5 pricing: $5/1M input tokens, $30/1M output tokens, $0.5/1M cached tokens. Compare costs for your workload.',
-    keywords: ["gpt-5.5 pricing","gpt-5.5 cost","gpt-5.5 api price","gpt-5.5 per million tokens"],
+    keywords: ["gpt-5.5 pricing","gpt-5.5 cost","gpt-5.5 api price","gpt-5.5 per million tokens","gpt-5.5 vs gpt-5.4 pricing","gpt-5.5 api cost comparison"],
   },
   {
     slug: 'gpt-5-4-pricing',
@@ -28,7 +28,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'GPT-5.4 API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'GPT-5.4 API Pricing',
     description: 'GPT-5.4 pricing: $2.5/1M input tokens, $15/1M output tokens, $0.25/1M cached tokens. Compare costs for your workload.',
-    keywords: ["gpt-5.4 pricing","gpt-5.4 cost","gpt-5.4 api price","gpt-5.4 per million tokens"],
+    keywords: ["gpt-5.4 pricing","gpt-5.4 cost","gpt-5.4 api price","gpt-5.4 per million tokens","gpt-5.4 vs gpt-5.5 cost","gpt-5.4 token price"],
   },
   {
     slug: 'gpt-5-4-mini-pricing',
@@ -36,7 +36,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'GPT-5.4 Mini API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'GPT-5.4 Mini API Pricing',
     description: 'GPT-5.4 Mini pricing: $0.75/1M input tokens, $4.5/1M output tokens, $0.075/1M cached tokens. Budget-friendly.',
-    keywords: ["gpt-5.4 mini pricing","gpt-5.4 mini cost","gpt-5.4 mini api price"],
+    keywords: ["gpt-5.4 mini pricing","gpt-5.4 mini cost","gpt-5.4 mini api price","gpt-5.4 mini cheapest","gpt-5.4 mini vs gpt-4o-mini"],
   },
   {
     slug: 'gpt-4o-pricing',
@@ -44,7 +44,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'GPT-4o API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'GPT-4o API Pricing',
     description: 'GPT-4o pricing: $2.5/1M input tokens, $10/1M output tokens, $1.25/1M cached tokens. Compare costs for your workload.',
-    keywords: ["gpt-4o pricing","gpt-4o cost","gpt-4o api price","gpt-4o per million tokens"],
+    keywords: ["gpt-4o pricing","gpt-4o cost","gpt-4o api price","gpt-4o per million tokens","gpt-4o vs gpt-4o-mini","gpt-4o token cost"],
   },
   {
     slug: 'gpt-4o-mini-pricing',
@@ -52,7 +52,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'GPT-4o Mini API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'GPT-4o Mini API Pricing',
     description: 'GPT-4o Mini pricing: $0.15/1M input tokens, $0.6/1M output tokens, $0.075/1M cached tokens. Budget-friendly.',
-    keywords: ["gpt-4o mini pricing","gpt-4o mini cost","gpt-4o mini api price"],
+    keywords: ["gpt-4o mini pricing","gpt-4o mini cost","gpt-4o mini api price","gpt-4o mini cheapest openai","gpt-4o mini vs deepseek cost"],
   },
   {
     slug: 'o3-pricing',
@@ -60,7 +60,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'o3 API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'o3 API Pricing',
     description: 'o3 pricing: $2/1M input tokens, $8/1M output tokens, $0.5/1M cached tokens. Compare costs for your workload.',
-    keywords: ["o3 pricing","openai o3 cost","o3 api price","openai reasoning model pricing"],
+    keywords: ["o3 pricing","openai o3 cost","o3 api price","openai reasoning model pricing","o3 vs o4-mini cost","openai o3 token price"],
   },
   {
     slug: 'o4-mini-pricing',
@@ -68,7 +68,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'o4-mini API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'o4-mini API Pricing',
     description: 'o4-mini pricing: $1.1/1M input tokens, $4.4/1M output tokens, $0.275/1M cached tokens. Budget-friendly.',
-    keywords: ["o4-mini pricing","openai o4-mini cost","o4-mini api price"],
+    keywords: ["o4-mini pricing","openai o4-mini cost","o4-mini api price","o4-mini reasoning pricing","o4-mini vs o3","o4-mini token cost"],
   },
   {
     slug: 'claude-3-7-sonnet-pricing',
@@ -76,7 +76,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Claude 3.7 Sonnet API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Claude 3.7 Sonnet API Pricing',
     description: 'Claude 3.7 Sonnet pricing: $3/1M input tokens, $15/1M output tokens, $0.3/1M cached tokens. Anthropic model cost analysis.',
-    keywords: ["claude 3.7 sonnet pricing","claude 3.7 sonnet cost","anthropic claude pricing"],
+    keywords: ["claude 3.7 sonnet pricing","claude 3.7 sonnet cost","anthropic claude pricing","claude sonnet api price","claude vs gpt pricing 2026"],
   },
   {
     slug: 'claude-3-5-haiku-pricing',
@@ -84,7 +84,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Claude 3.5 Haiku API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Claude 3.5 Haiku API Pricing',
     description: 'Claude 3.5 Haiku pricing: $0.8/1M input tokens, $4/1M output tokens, $0.08/1M cached tokens. Cheapest Claude.',
-    keywords: ["claude 3.5 haiku pricing","claude haiku cost","claude cheap model pricing"],
+    keywords: ["claude 3.5 haiku pricing","claude haiku cost","claude cheap model pricing","claude 3.5 haiku api price","cheapest claude api"],
   },
   {
     slug: 'claude-3-opus-pricing',
@@ -92,7 +92,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Claude 3 Opus API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Claude 3 Opus API Pricing',
     description: 'Claude 3 Opus pricing: $15/1M input tokens, $75/1M output tokens, $1.5/1M cached tokens. Anthropic model cost analysis.',
-    keywords: ["claude 3 opus pricing","claude opus cost","claude expensive model pricing"],
+    keywords: ["claude 3 opus pricing","claude opus cost","claude expensive model pricing","claude opus api price","claude opus per million tokens"],
   },
   {
     slug: 'claude-3-haiku-pricing',
@@ -100,7 +100,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Claude 3 Haiku API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Claude 3 Haiku API Pricing',
     description: 'Claude 3 Haiku pricing: $0.25/1M input tokens, $1.25/1M output tokens, $0.03/1M cached tokens. Cheapest Claude.',
-    keywords: ["claude 3 haiku pricing","claude haiku cost","claude cheapest model"],
+    keywords: ["claude 3 haiku pricing","claude haiku cost","claude cheapest model","claude haiku api price","claude haiku per token"],
   },
   {
     slug: 'gemini-2-0-flash-pricing',
@@ -108,7 +108,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Gemini 2.0 Flash API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Gemini 2.0 Flash API Pricing',
     description: 'Gemini 2.0 Flash pricing: $0.1/1M input tokens, $0.4/1M output tokens, $0.025/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini 2.0 flash pricing","gemini flash cost","google gemini pricing"],
+    keywords: ["gemini 2.0 flash pricing","gemini flash cost","google gemini pricing","gemini 2.0 flash api price","gemini flash cheapest google"],
   },
   {
     slug: 'gemini-2-0-flash-lite-pricing',
@@ -116,7 +116,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Gemini 2.0 Flash-Lite API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Gemini 2.0 Flash-Lite API Pricing',
     description: 'Gemini 2.0 Flash-Lite pricing: $0.075/1M input tokens, $0.3/1M output tokens, $0.0075/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini flash lite pricing","gemini 2.0 flash lite cost","google ai pricing"],
+    keywords: ["gemini flash lite pricing","gemini 2.0 flash lite cost","google ai pricing","gemini flash lite api","cheapest google llm"],
   },
   {
     slug: 'gemini-1-5-pro-pricing',
@@ -124,7 +124,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Gemini 1.5 Pro API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Gemini 1.5 Pro API Pricing',
     description: 'Gemini 1.5 Pro pricing: $1.25/1M input tokens, $5/1M output tokens, $0.125/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini 1.5 pro pricing","gemini pro cost","google gemini 1.5 pricing"],
+    keywords: ["gemini 1.5 pro pricing","gemini pro cost","google gemini 1.5 pricing","gemini 1.5 pro api price","gemini pro vs flash"],
   },
   {
     slug: 'gemini-1-5-flash-pricing',
@@ -132,23 +132,23 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Gemini 1.5 Flash API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Gemini 1.5 Flash API Pricing',
     description: 'Gemini 1.5 Flash pricing: $0.075/1M input tokens, $0.3/1M output tokens, $0.0075/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini 1.5 flash pricing","gemini flash cost","google gemini flash pricing"],
+    keywords: ["gemini 1.5 flash pricing","gemini flash cost","google gemini flash pricing","gemini 1.5 flash api","gemini flash api cost"],
   },
   {
     slug: 'deepseek-v4-flash-pricing',
     modelId: 'deepseek-v4-flash',
-    title: 'DeepSeek V4 Flash API Pricing (2026) — Cost Per 1M Tokens',
+    title: 'DeepSeek V4 Flash Pricing (2026) — Cheapest LLM API at $0.14/1M Input',
     h1: 'DeepSeek V4 Flash API Pricing',
-    description: 'DeepSeek V4 Flash pricing: $0.14/1M input tokens, $0.28/1M output tokens, $0.0197/1M cached tokens. One of the cheapest LLM APIs.',
-    keywords: ["deepseek v4 flash pricing","deepseek pricing","deepseek cost per token"],
+    description: 'DeepSeek V4 Flash costs $0.14/1M input and $0.28/1M output — one of the cheapest LLM APIs in 2026. Cached input is just $0.0197/1M (86% discount). Full pricing breakdown, cost calculator, and comparison vs GPT-4o, Claude, and Gemini.',
+    keywords: ["deepseek v4 flash pricing","deepseek pricing","deepseek cost per token","deepseek flash api cost","cheapest llm api 2026","deepseek flash cheapest model","deepseek v4 flash vs gpt pricing","deepseek flash token price","deepseek api pricing 2026","deepseek v4 flash per million tokens"],
   },
   {
     slug: 'deepseek-v4-pro-pricing',
     modelId: 'deepseek-v4-pro',
-    title: 'DeepSeek V4 Pro API Pricing (2026) — Cost Per 1M Tokens',
+    title: 'DeepSeek V4 Pro Pricing (2026) — $0.435/1M Input, Premium Reasoning',
     h1: 'DeepSeek V4 Pro API Pricing',
-    description: 'DeepSeek V4 Pro pricing: $0.435/1M input tokens, $0.87/1M output tokens, $0.0036/1M cached tokens. Premium DeepSeek model.',
-    keywords: ["deepseek v4 pro pricing","deepseek pro cost","deepseek api pricing"],
+    description: 'DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output with 1M context window. Compare DeepSeek V4 Pro vs Flash pricing, use the cost calculator, and see how it stacks up against GPT-5.5 and Claude.',
+    keywords: ["deepseek v4 pro pricing","deepseek pro cost","deepseek api pricing","deepseek v4 pro vs flash","deepseek pro api price","deepseek pro per million tokens"],
   },
   {
     slug: 'llama-4-maverick-pricing',
@@ -156,6 +156,6 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Llama 4 Maverick API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Llama 4 Maverick API Pricing',
     description: 'Llama 4 Maverick pricing: $0.2/1M input tokens, $0.6/1M output tokens, no cached token discount. Fastest inference with no cached token discount.',
-    keywords: ["llama 4 maverick pricing","groq pricing","groq api cost","llama 4 groq pricing"],
+    keywords: ["llama 4 maverick pricing","groq pricing","groq api cost","llama 4 groq pricing","llama 4 maverick api price","groq llama cost"],
   },
 ]

@@ -28,15 +28,32 @@ for (const page of PRICING_SEO_PAGES) {
   const dir = join(OUTPUT_DIR, page.slug);
   mkdirSync(dir, { recursive: true });
 
+  const modelName = page.h1.replace(' API Pricing', '');
   const faqSchema = [
     {
       "@type": "Question",
-      "name": \`How much does \${page.h1.replace(' API Pricing', '')} cost?\`,
+      "name": \`How much does \${modelName} cost per 1M tokens?\`,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": \`See the full pricing breakdown at \${BASE_URL}/llm-pricing/\${page.slug}/\`
+        "text": \`See the full pricing breakdown at \${BASE_URL}/llm-pricing/\${page.slug}/ — includes input, output, and cached token pricing with a cost calculator.\`
       }
-    }
+    },
+    {
+      "@type": "Question",
+      "name": \`What is the context window of \${modelName}?\`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": \`The context window varies by model. Visit \${BASE_URL}/llm-pricing/\${page.slug}/ for the latest specifications and a side-by-side pricing table.\`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": \`Does \${modelName} support prompt caching?\`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": \`Most LLM providers offer prompt caching at a discount. Check \${BASE_URL}/llm-pricing/\${page.slug}/ for the latest cached token pricing and savings calculator.\`
+      }
+    },
   ];
 
   const html = \`<!doctype html>
@@ -53,7 +70,7 @@ for (const page of PRICING_SEO_PAGES) {
     <meta property="og:description" content="\${escapeHtml(page.description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="\${BASE_URL}/llm-pricing/\${page.slug}/" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="\${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="\${escapeHtml(page.description)}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
