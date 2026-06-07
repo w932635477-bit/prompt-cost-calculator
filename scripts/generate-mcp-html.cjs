@@ -76,7 +76,9 @@ for (const s of MCP_SERVERS) {
     <meta property="og:description" content="\${escapeHtml(desc)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="\${BASE_URL}/mcp-servers/\${s.slug}/" />
+    <meta property="og:image" content="\${BASE_URL}/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="\${BASE_URL}/og-image.png" />
     <meta name="twitter:title" content="\${escapeHtml(title)}" />
     <meta name="twitter:description" content="\${escapeHtml(desc)}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -61,7 +61,9 @@ for (const page of DEPLOY_PAGES) {
     <meta property="og:description" content="\${escapeHtml(page.description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="\${BASE_URL}/deploy/\${page.slug}/" />
+    <meta property="og:image" content="\${BASE_URL}/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="\${BASE_URL}/og-image.png" />
     <meta name="twitter:title" content="\${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="\${escapeHtml(page.description)}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
