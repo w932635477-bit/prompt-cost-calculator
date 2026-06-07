@@ -125,8 +125,8 @@ const SEO_KEYWORDS = {
   'claude-3-haiku-20240307': ['claude 3 haiku pricing', 'claude haiku cost', 'claude cheapest model', 'claude haiku api price', 'claude haiku per token'],
   'gemini-2.0-flash': ['gemini 2.0 flash pricing', 'gemini flash cost', 'google gemini pricing', 'gemini 2.0 flash api price', 'gemini flash cheapest google'],
   'gemini-2.0-flash-lite': ['gemini flash lite pricing', 'gemini 2.0 flash lite cost', 'google ai pricing', 'gemini flash lite api', 'cheapest google llm'],
-  'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing', 'gemini 1.5 pro api price', 'gemini pro vs flash'],
-  'gemini-1.5-flash': ['gemini 1.5 flash pricing', 'gemini flash cost', 'google gemini flash pricing', 'gemini 1.5 flash api', 'gemini flash api cost'],
+  'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing', 'gemini 1.5 pro api price', 'gemini pro vs flash', 'gemini pro 2m context pricing', 'google gemini pro api cost', 'gemini 1.5 pro per million tokens'],
+  'gemini-1.5-flash': ['gemini 1.5 flash pricing', 'gemini flash cost', 'google gemini flash pricing', 'gemini 1.5 flash api', 'gemini flash api cost', 'gemini 1.5 flash per million tokens'],
   'deepseek-v4-flash': [
     'deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token',
     'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek flash cheapest model',
@@ -148,6 +148,10 @@ const SEO_OVERRIDES = {
   'deepseek-v4-pro': {
     title: 'DeepSeek V4 Pro Pricing (2026) — $0.435/1M Input, Premium Reasoning',
     description: 'DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output with 1M context window. Compare DeepSeek V4 Pro vs Flash pricing, use the cost calculator, and see how it stacks up against GPT-5.5 and Claude.',
+  },
+  'gemini-1.5-pro': {
+    title: 'Gemini 1.5 Pro Pricing (2026) — 2M Context Window at $1.25/1M Input',
+    description: 'Gemini 1.5 Pro costs $1.25/1M input and $5/1M output with a 2 million token context window. Cached input is $0.125/1M (90% discount). Best for complex multimodal tasks, long document analysis, and code generation. Compare vs Gemini 1.5 Flash, GPT-4o, and Claude pricing with our cost calculator.',
   },
 };
 

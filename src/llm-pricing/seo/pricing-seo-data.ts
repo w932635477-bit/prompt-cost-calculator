@@ -121,10 +121,10 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
   {
     slug: 'gemini-1-5-pro-pricing',
     modelId: 'gemini-1.5-pro',
-    title: 'Gemini 1.5 Pro API Pricing (2026) — Cost Per 1M Tokens',
+    title: 'Gemini 1.5 Pro Pricing (2026) — 2M Context Window at $1.25/1M Input',
     h1: 'Gemini 1.5 Pro API Pricing',
-    description: 'Gemini 1.5 Pro pricing: $1.25/1M input tokens, $5/1M output tokens, $0.125/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini 1.5 pro pricing","gemini pro cost","google gemini 1.5 pricing","gemini 1.5 pro api price","gemini pro vs flash"],
+    description: 'Gemini 1.5 Pro costs $1.25/1M input and $5/1M output with a 2 million token context window. Cached input is $0.125/1M (90% discount). Best for complex multimodal tasks, long document analysis, and code generation. Compare vs Gemini 1.5 Flash, GPT-4o, and Claude pricing with our cost calculator.',
+    keywords: ["gemini 1.5 pro pricing","gemini pro cost","google gemini 1.5 pricing","gemini 1.5 pro api price","gemini pro vs flash","gemini pro 2m context pricing","google gemini pro api cost","gemini 1.5 pro per million tokens"],
   },
   {
     slug: 'gemini-1-5-flash-pricing',
@@ -132,7 +132,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     title: 'Gemini 1.5 Flash API Pricing (2026) — Cost Per 1M Tokens',
     h1: 'Gemini 1.5 Flash API Pricing',
     description: 'Gemini 1.5 Flash pricing: $0.075/1M input tokens, $0.3/1M output tokens, $0.0075/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini 1.5 flash pricing","gemini flash cost","google gemini flash pricing","gemini 1.5 flash api","gemini flash api cost"],
+    keywords: ["gemini 1.5 flash pricing","gemini flash cost","google gemini flash pricing","gemini 1.5 flash api","gemini flash api cost","gemini 1.5 flash per million tokens"],
   },
   {
     slug: 'deepseek-v4-flash-pricing',
