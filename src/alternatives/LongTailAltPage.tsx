@@ -33,6 +33,7 @@ const RELATED: Record<string, string[]> = {
   'github': ['circleci'],
   'gmail': ['mailchimp'],
   'confluence': ['notion', 'wordpress-com'],
+  'docmost': ['notion', 'confluence', 'obsidian'],
   'airtable': ['notion'],
   'google-analytics': ['datadog'],
   'salesforce': ['zendesk', 'mailchimp'],
