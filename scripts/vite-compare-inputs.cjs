@@ -32,5 +32,7 @@ module.exports = {
   'cmp-lt-docmost-vs-bookstack': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/docmost-vs-bookstack/index.html'),
   'cmp-lt-openproject-vs-taiga': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/openproject-vs-taiga/index.html'),
   'cmp-lt-mattermost-vs-zulip': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/mattermost-vs-zulip/index.html'),
-  'cmp-lt-docmost-vs-wiki-js': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/docmost-vs-wiki-js/index.html')
+  'cmp-lt-docmost-vs-wiki-js': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/docmost-vs-wiki-js/index.html'),
+  'cmp-lt-glitchtip-vs-sentry': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/glitchtip-vs-sentry/index.html'),
+  'cmp-lt-rustdesk-vs-teamviewer': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'compare/rustdesk-vs-teamviewer/index.html')
 }

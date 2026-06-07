@@ -2245,4 +2245,149 @@ volumes:
     ],
     keywords: ['docmost vs wiki.js', 'docmost vs wikijs', 'self hosted wiki comparison', 'best self hosted wiki 2026', 'docmost review', 'wiki.js alternative', 'notion self hosted alternative'],
   },
+  {
+    slug: 'glitchtip-vs-sentry',
+    productA: {
+      name: 'GlitchTip', tagline: 'Open source error tracking that speaks Sentry SDK', logo: '🐛',
+      url: 'https://glitchtip.com', github: 'https://github.com/glitchtip/glitchtip',
+      license: 'MIT', selfHosted: true, docker: true,
+      dockerCompose: `version: "3.9"
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: glitchtip
+      POSTGRES_USER: glitchtip
+      POSTGRES_PASSWORD: change_me
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+  web:
+    image: glitchtip/glitchtip:latest
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://glitchtip:change_me@postgres:5432/glitchtip
+      SECRET_KEY: generate_a_random_secret_key
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+volumes:
+  pgdata:`,
+      pricing: 'Free (self-hosted) / Cloud $15/mo', difficulty: 'Medium',
+    },
+    productB: {
+      name: 'Sentry', tagline: 'Application monitoring with full stack traces', logo: '🔍',
+      url: 'https://sentry.io', github: 'https://github.com/getsentry/sentry',
+      license: 'BSL (source available)', selfHosted: true, docker: true,
+      pricing: 'Free / Team $26/mo / Business $80/mo / Enterprise custom', difficulty: 'Hard',
+    },
+    title: 'GlitchTip vs Sentry — Open Source Error Monitoring Compared [2026]',
+    h1: 'GlitchTip vs Sentry: Which Error Tracker Should You Choose?',
+    description: 'GlitchTip vs Sentry comprehensive comparison. Features, pricing, self-hosting difficulty, SDK compatibility, and which error monitoring tool fits your team in 2026.',
+    summary: 'GlitchTip wins for teams that want a lightweight, MIT-licensed Sentry-compatible alternative at zero cost. Sentry wins for large teams that need advanced features like Performance Monitoring, Session Replay, and Cron Monitoring.',
+    features: [
+      { name: 'Open Source License', a: 'MIT', b: 'BSL (restrictive)' },
+      { name: 'Sentry SDK Compatible', a: true, b: true },
+      { name: 'Error Tracking', a: true, b: true },
+      { name: 'Performance Monitoring', a: false, b: true },
+      { name: 'Session Replay', a: false, b: true },
+      { name: 'Cron Monitoring', a: false, b: true },
+      { name: 'Release Tracking', a: true, b: true },
+      { name: 'Source Maps', a: true, b: true },
+      { name: 'Docker Self-Hosted', a: true, b: true },
+      { name: 'SSO/SAML', a: false, b: 'Business plan' },
+      { name: 'Slack/Discord Alerts', a: true, b: true },
+      { name: 'Unlimited Projects', a: true, b: 'Team plan+' },
+      { name: 'Community Support', a: 'GitHub + Discord', b: 'Forum + Discord' },
+      { name: 'Cloud Free Tier', a: 'Coming soon', b: '5K errors/month' },
+    ],
+    prosA: ['MIT license — truly free and open source', 'Lightweight Docker setup with only 3 containers', 'Speaks Sentry SDK natively — drop-in replacement', 'No per-seat pricing, no event limits on self-hosted', 'Simple, clean UI without overwhelming features', 'Active community with fast Discord support'],
+    consA: ['No performance monitoring or tracing yet', 'No session replay or cron monitoring', 'Smaller team — slower feature development than Sentry', 'Cloud offering still in early stages'],
+    prosB: ['Full observability suite: errors + performance + replay', 'Massive SDK ecosystem covering 100+ platforms', 'Enterprise features: SSO, audit logs, role-based access', 'Very mature with 70K+ GitHub stars', 'Generous cloud free tier for small projects', 'Cron monitoring and uptime tracking built-in'],
+    consB: ['BSL license — not truly open source anymore', 'Self-hosting is complex (Kafka, ClickHouse, etc.)', 'Can feel bloated for simple error tracking needs', 'Pricing scales aggressively with event volume', 'Docker self-hosted is for evaluation only (10K events limit)'],
+    winner: 'a',
+    winnerReason: 'For self-hosted error tracking with MIT license, GlitchTip is the clear winner. It is a drop-in replacement for Sentry SDKs, costs nothing to self-host, and uses 3 containers instead of Sentry\'s 20+. Choose Sentry only if you need performance monitoring, session replay, or enterprise compliance.',
+    faq: [
+      { q: 'Is GlitchTip a drop-in replacement for Sentry?', a: 'Yes. GlitchTip speaks the Sentry SDK protocol, so you can point your existing Sentry SDKs at a GlitchTip instance without changing any code. Just update the DSN URL.' },
+      { q: 'Is GlitchTip really free?', a: 'Yes. GlitchTip is MIT licensed and 100% free when self-hosted. There are no per-seat limits, no event quotas, and no enterprise-only features. Their managed cloud service starts at $15/month.' },
+      { q: 'Why is Sentry no longer open source?', a: 'Sentry switched from BSD to the Business Source License (BSL) in 2019. The BSL allows source code access but restricts production use for competing services. It converts to Apache 2.0 after 4 years.' },
+      { q: 'Can GlitchTip handle the same volume as Sentry?', a: 'For error tracking, yes. GlitchTip uses PostgreSQL and Redis — the same stack millions of Django apps run on. For very high volume (100K+ events/hour), Sentry\'s ClickHouse backend may scale better, but most teams will never hit that ceiling.' },
+      { q: 'Does GlitchTip support React Native / Flutter / Electron?', a: 'GlitchTip is compatible with any Sentry SDK. If Sentry has an SDK for your platform, it works with GlitchTip. Currently tested platforms include JavaScript, Python, Django, Go, PHP, Ruby, Rust, React Native, and .NET.' },
+      { q: 'How do I migrate from Sentry to GlitchTip?', a: 'Change your DSN (Data Source Name) URL from sentry.io to your GlitchTip instance URL. No code changes required. If you need to migrate historical data, use GlitchTip\'s import tools or Sentry\'s data export API.' },
+      { q: 'What are Sentry alternatives?', a: 'GlitchTip is the best open-source alternative. Others include: Highlight.io (session replay focused), OpenReplay (self-hosted session replay), and SigNoz (OpenTelemetry native). Each has different strengths.' },
+    ],
+    keywords: ['glitchtip vs sentry', 'glitchtip sentry comparison', 'sentry alternative open source', 'open source error monitoring', 'glitchtip review 2026', 'migrate sentry to glitchtip', 'free sentry alternative self hosted', 'glitchtip docker setup'],
+  },
+  {
+    slug: 'rustdesk-vs-teamviewer',
+    productA: {
+      name: 'RustDesk', tagline: 'Open source remote desktop, self-hosted', logo: '🦀',
+      url: 'https://rustdesk.com', github: 'https://github.com/rustdesk/rustdesk',
+      license: 'AGPL-3.0', selfHosted: true, docker: true,
+      dockerCompose: `version: "3.9"
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs -r rustdesk.example.com:21117
+    volumes:
+      - ./data:/root
+    ports:
+      - "21115:21115"
+      - "21116:21116"
+      - "21116:21116/udp"
+      - "21118:21118"
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    volumes:
+      - ./data:/root
+    ports:
+      - "21117:21117"
+      - "21119:21119"`,
+      pricing: 'Free (self-hosted) / Pro $9.99/mo (managed)', difficulty: 'Easy',
+    },
+    productB: {
+      name: 'TeamViewer', tagline: 'Remote desktop and support platform', logo: '🔵',
+      url: 'https://www.teamviewer.com', github: '',
+      license: 'Proprietary', selfHosted: false, docker: false,
+      pricing: 'Free (personal) / Remote Access $24.90/mo / Business $59.90/mo', difficulty: 'Easy',
+    },
+    title: 'RustDesk vs TeamViewer — Free Self-Hosted Remote Desktop [2026]',
+    h1: 'RustDesk vs TeamViewer: Complete Remote Desktop Comparison',
+    description: 'RustDesk vs TeamViewer comparison. Features, pricing, self-hosting guide, security comparison, and which remote desktop tool is right for you in 2026.',
+    summary: 'RustDesk wins for teams that want self-hosted, zero-cost remote desktop with end-to-end encryption you control. TeamViewer wins for non-technical users who need instant setup and don\'t mind the recurring cost.',
+    features: [
+      { name: 'Open Source', a: true, b: false },
+      { name: 'Self-Hosted Server', a: true, b: false },
+      { name: 'End-to-End Encryption', a: true, b: true },
+      { name: 'File Transfer', a: true, b: true },
+      { name: 'Multi-Monitor', a: true, b: true },
+      { name: 'Mobile Access', a: true, b: true },
+      { name: 'Clipboard Sync', a: true, b: true },
+      { name: 'Remote Printing', a: false, b: true },
+      { name: 'Wake-on-LAN', a: true, b: true },
+      { name: 'Session Recording', a: false, b: 'Premium plan' },
+      { name: 'Address Book', a: true, b: true },
+      { name: 'TCP Tunneling', a: true, b: false },
+      { name: 'Unlimited Devices', a: true, b: 'Business plan' },
+      { name: 'Free for Commercial Use', a: true, b: false },
+    ],
+    prosA: ['Completely free and open source (AGPL-3.0)', 'Self-host your own relay server — data never leaves your network', 'Unlimited devices and sessions, no commercial restrictions', 'Native Rust performance — lightweight and fast', 'Built-in TCP tunneling for advanced use cases', 'Active community with translations in 30+ languages'],
+    consA: ['Requires port forwarding or public IP for server', 'No built-in remote printing', 'Session recording not available', 'Smaller user base than TeamViewer — less battle-tested', 'Managed cloud option is newer and less mature'],
+    prosB: ['One-click setup — install and connect instantly', 'Massive global infrastructure with 99.9% uptime SLA', 'Enterprise features: SSO, audit logs, device management', 'Built-in remote printing and session recording', '3D rendering and low-latency for CAD/CAM use', 'Well-established vendor with 600K+ business customers'],
+    consB: ['Expensive — $24.90/month even for personal remote access', 'Proprietary — you cannot inspect the code or control the server', 'Free tier limited to personal use only — detects commercial use aggressively', 'Heavy client — 100MB+ installer vs RustDesk\'s 20MB', 'Historical security breaches and slow disclosure (2020, 2024)'],
+    winner: 'a',
+    winnerReason: 'For self-hosting and cost savings, RustDesk is the clear winner. You control your own relay server, pay nothing, and get unlimited devices. TeamViewer is easier but costs $300+/year for the same functionality.',
+    faq: [
+      { q: 'Is RustDesk safe to use?', a: 'Yes. RustDesk uses end-to-end encryption with a keypair generated on your device. When you self-host the relay server, your data never touches RustDesk infrastructure. The protocol is open source and auditable.' },
+      { q: 'Can RustDesk replace TeamViewer completely?', a: 'For most remote desktop use cases, yes. RustDesk lacks remote printing and session recording — if those are critical, TeamViewer still wins. But for file transfer, multi-monitor, clipboard sync, and remote control, RustDesk is feature-complete.' },
+      { q: 'How do I set up a RustDesk server?', a: 'Run two Docker containers (hbbs for ID server, hbbr for relay). Open ports 21115-21119 on your firewall. Configure clients with your server\'s IP or domain. The Docker Compose setup above gets you running in 5 minutes.' },
+      { q: 'Is TeamViewer free for personal use?', a: 'TeamViewer claims it is free for personal use, but many users report being flagged as commercial after a few sessions. The detection is aggressive and there is no appeal process for false positives.' },
+      { q: 'What is the difference between AnyDesk and RustDesk?', a: 'AnyDesk is proprietary (closed source), costs $14.90/month for commercial use, and you cannot self-host the relay server. RustDesk is open source, free, and you can run your own server. Performance is comparable for most use cases.' },
+    ],
+    keywords: ['rustdesk vs teamviewer', 'rustdesk teamviewer comparison', 'free remote desktop self hosted', 'teamviewer alternative open source', 'rustdesk review 2026', 'self hosted remote desktop', 'anydesk alternative free', 'rustdesk docker setup'],
+  },
 ]

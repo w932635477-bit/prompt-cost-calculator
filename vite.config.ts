@@ -118,6 +118,8 @@ export default defineConfig({
         'ai-agent-security': resolve(__dirname, 'ai-agent-security/index.html'),
         'local-llm-privacy': resolve(__dirname, 'local-llm-privacy/index.html'),
         'token-optimizer': resolve(__dirname, 'token-optimizer/index.html'),
+        'aider-tutorial': resolve(__dirname, 'aider-tutorial/index.html'),
+        'microsoft-scout': resolve(__dirname, 'microsoft-scout-agent/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
