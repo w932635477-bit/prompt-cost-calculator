@@ -22,10 +22,10 @@ export const COST_SEO_PAGES: CostSeoPage[] = [
   {
     slug: 'llm-cost-comparison',
     pageType: 'comparison',
-    title: 'LLM Cost Comparison — GPT vs Claude vs Gemini vs DeepSeek',
+    title: 'LLM API Price Comparison (2026) — GPT-5.5 vs Claude 3.7 vs Gemini 2.0 vs DeepSeek V4 | Side-by-Side Costs',
     h1: 'LLM Cost Comparison',
-    description: 'Compare LLM API costs across 5 providers and 19 models. Side-by-side pricing for GPT-5.5, Claude 3.7 Sonnet, Gemini 2.0 Flash, DeepSeek V4, and more.',
-    keywords: ['llm cost comparison', 'gpt vs claude pricing', 'gpt vs gemini cost', 'llm pricing comparison', 'cheapest llm api', 'best value llm'],
+    description: 'Compare LLM API pricing side by side across 19 models in 2026. GPT-5.5 costs $5/1M input, Claude 3.7 Sonnet is $3/1M, Gemini 2.0 Flash is $0.10/1M, and DeepSeek V4 Flash is the cheapest at $0.14/1M. See full output pricing, context window limits, cached input discounts, and provider comparison table.',
+    keywords: ['llm price comparison', 'llm api pricing comparison', 'gpt vs claude vs gemini pricing', 'llm cost comparison 2026', 'cheapest llm api', 'best value llm 2026', 'compare llm pricing', 'gpt vs deepseek pricing', 'claude vs gemini cost', 'openai vs anthropic pricing', 'llm api cost comparison', 'side by side llm pricing'],
   },
   {
     slug: 'llm-cost-optimization',
