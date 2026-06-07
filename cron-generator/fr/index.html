@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Générateur d'Expressions Cron | Outil Gratuit en Ligne</title>
-    <meta name="description" content="Générateur et explicateur gratuit d'expressions cron. Construisez des planifications cron visuellement, convertissez le langage naturel en cron, prévisualisez les prochaines exécutions. Supporte Unix, Quartz et AWS EventBridge." />
+    <title>Générateur d'Expressions Cron (2026) — Planificateur de Tâches | Unix/Quartz/AWS</title>
+    <meta name="description" content="Générateur gratuit d'expressions cron en français. Construisez visuellement vos planifications : chaque minute (* * * * *), chaque heure (0 * * * *), quotidien (0 0 * * *), hebdomadaire. Conversion langage naturel → cron, prévisualisation des 5 prochaines exécutions. Compatible Linux/Unix crontab, Quartz (Java/Spring) et AWS EventBridge. Sans inscription, 100% gratuit." />
+    <meta name="keywords" content="générateur expression cron, expression cron, planificateur de tâches, crontab générateur, cron outil en ligne, cron linux, tutoriel cron français, générateur crontab, automatisation linux, syntaxe cron, planification tâches, expression cron explication" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Générateur d'Expressions Cron" />
-    <meta property="og:description" content="Construisez des planifications cron visuellement. Supporte Unix, Quartz et AWS. Gratuit, sans inscription." />
+    <meta property="og:title" content="Générateur d'Expressions Cron (2026) — Planificateur de Tâches" />
+    <meta property="og:description" content="Générateur cron gratuit en français. Construction visuelle, langage naturel → cron, prévisualisation des exécutions. Unix/Quartz/AWS. Sans inscription." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aicalc.cloud/cron-generator/fr/" />
     <meta property="og:site_name" content="Cron Generator" />
@@ -17,8 +18,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Générateur d'Expressions Cron" />
-    <meta name="twitter:description" content="Construisez des planifications cron visuellement. Supporte Unix, Quartz et AWS. Gratuit, sans inscription." />
+    <meta name="twitter:title" content="Générateur d'Expressions Cron (2026) — Outil Gratuit" />
+    <meta name="twitter:description" content="Créez vos tâches cron en français. * * * * * chaque minute, 0 * * * * chaque heure, 0 0 * * * quotidien. Unix/Quartz/AWS. Sans inscription." />
 
     <link rel="canonical" href="https://aicalc.cloud/cron-generator/fr/" />
 
@@ -37,6 +38,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Qu'est-ce qu'une expression cron ?","acceptedAnswer":{"@type":"Answer","text":"Une expression cron est une chaîne de 5 champs séparés par des espaces qui définit quand une tâche planifiée s'exécute : minute (0-59), heure (0-23), jour du mois (1-31), mois (1-12), jour de la semaine (0-6, 0=Dimanche). Par exemple, 0 9 * * 1-5 signifie « à 9h00 du lundi au vendredi »."}},
+        {"@type":"Question","name":"Comment utiliser le générateur d'expressions cron ?","acceptedAnswer":{"@type":"Answer","text":"Saisissez votre planning en langage naturel (ex. « toutes les 5 minutes », « tous les lundis à 9h ») ou choisissez un modèle prédéfini. Le générateur affiche l'expression cron correspondante, une explication en français et les 5 prochaines exécutions. Vous pouvez également basculer entre les dialectes : Unix/Linux, Quartz (Java/Spring) et AWS EventBridge."}},
+        {"@type":"Question","name":"Que signifie * * * * * dans cron ?","acceptedAnswer":{"@type":"Answer","text":"* * * * * signifie « chaque minute ». Chaque astérisque est un joker : le premier couvre toutes les minutes (0-59), le deuxième toutes les heures (0-23), le troisième tous les jours du mois, le quatrième tous les mois, et le cinquième tous les jours de la semaine. Votre script s'exécute toutes les 60 secondes."}},
+        {"@type":"Question","name":"Comment exécuter une tâche cron chaque heure ?","acceptedAnswer":{"@type":"Answer","text":"Utilisez 0 * * * * pour exécuter au début de chaque heure (00:00, 01:00, 02:00...). Pour exécuter à la 30e minute, utilisez 30 * * * *. Dans Quartz : 0 0 * * * ? et dans AWS EventBridge : cron(0 * * * ? *)."}},
+        {"@type":"Question","name":"Quelle différence entre cron Unix, Quartz et AWS EventBridge ?","acceptedAnswer":{"@type":"Answer","text":"Unix/Linux utilise le format standard à 5 champs. Quartz (Java/Spring) ajoute un champ de secondes au début (7 champs au total) et utilise ? au lieu de * en cas de conflit jour du mois/jour de la semaine. AWS EventBridge utilise 6 champs (ajoute l'année), exige le format cron(...) et utilise ? pour les champs sans valeur spécifique. Cet outil permet de basculer entre les trois syntaxes en un clic."}}
+      ]
+    }
+    </script>
 
     <!-- Structured Data: WebApplication -->
     <script type="application/ld+json">
