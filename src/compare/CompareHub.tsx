@@ -1,10 +1,16 @@
 import { useState, useMemo } from 'react'
-import { COMPARE_PAGES } from './seo/compare-data'
+import { COMPARE_PAGES, type ComparePage } from './seo/compare-data'
 import { GlobalNav } from '../components/GlobalNav'
 import { RelatedTools } from '../components/RelatedTools'
 
 export default function CompareHub() {
   const [search, setSearch] = useState('')
+
+  const POPULAR_SLUGS = ['jellyfin-vs-plex', 'nextcloud-vs-owncloud', 'vaultwarden-vs-bitwarden', 'obsidian-vs-notion', 'gitea-vs-github', 'docmost-vs-bookstack']
+
+  const popularComparisons = useMemo(() =>
+    POPULAR_SLUGS.map(s => COMPARE_PAGES.find(p => p.slug === s)).filter(Boolean) as ComparePage[]
+  , [])
 
   const filtered = useMemo(() => {
     if (!search.trim()) return COMPARE_PAGES
@@ -25,11 +31,20 @@ export default function CompareHub() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-semibold text-[#1d1d1f] tracking-tight mb-3">
-            Self-Hosted Tool Comparisons
+            Self-Hosted Tool vs Comparisons
           </h1>
-          <p className="text-[#86868b] text-lg leading-relaxed">
-            Side-by-side comparisons of popular SaaS tools vs self-hosted alternatives.
-            Features, pricing, Docker deployment, and honest recommendations.
+          <p className="text-[#86868b] text-lg leading-relaxed mb-3">
+            {COMPARE_PAGES.length} in-depth tool comparisons — Jellyfin vs Plex, Nextcloud vs ownCloud, Obsidian vs Notion, and more.
+            Every comparison includes Docker quick-start commands, side-by-side feature tables, pros/cons, and a clear winner recommendation.
+          </p>
+          <p className="text-sm text-[#86868b]/70">
+            Popular comparisons:{' '}
+            {popularComparisons.map((p, i) => (
+              <span key={p.slug}>
+                <a href={`/compare/${p.slug}/`} className="text-[#0071E3] hover:underline">{p.productA.name} vs {p.productB.name}</a>
+                {i < popularComparisons.length - 1 && ' · '}
+              </span>
+            ))}
           </p>
         </div>
 
