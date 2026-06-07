@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cron-Ausdruck-Generator | Kostenloses Online-Tool</title>
-    <meta name="description" content="Kostenloser Cron-Ausdruck-Generator und Erklärer. Erstellen Sie Cron-Zeitpläne visuell, konvertieren Sie natürliche Sprache in Cron, zeigen Sie die nächsten Ausführungen an. Unterstützt Unix, Quartz und AWS EventBridge." />
+    <title>Cron-Ausdruck-Generator (2026) — Aufgabenplaner | Unix/Quartz/AWS</title>
+    <meta name="description" content="Kostenloser Cron-Ausdruck-Generator auf Deutsch. Visuelle Erstellung von Zeitplänen: jede Minute (* * * * *), stündlich (0 * * * *), täglich (0 0 * * *), wöchentlich. Natürliche Sprache → Cron, Vorschau der nächsten 5 Ausführungen. Kompatibel mit Linux/Unix crontab, Quartz (Java/Spring) und AWS EventBridge. Ohne Anmeldung, 100% kostenlos." />
+    <meta name="keywords" content="cron ausdruck generator, cron ausdruck, aufgabenplaner cron, crontab generator, cron online tool, linux cron deutsch, cron tutorial deutsch, crontab syntax, linux automatisierung, cron job planer, cron expression erklärung, zeitplaner linux" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Cron-Ausdruck-Generator" />
-    <meta property="og:description" content="Erstellen Sie Cron-Zeitpläne visuell. Unterstützt Unix, Quartz und AWS. Kostenlos, ohne Anmeldung." />
+    <meta property="og:title" content="Cron-Ausdruck-Generator (2026) — Aufgabenplaner" />
+    <meta property="og:description" content="Kostenloser Cron-Generator auf Deutsch. Visuelle Erstellung, natürliche Sprache → Cron, Vorschau der Ausführungen. Unix/Quartz/AWS. Ohne Anmeldung." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aicalc.cloud/cron-generator/de/" />
     <meta property="og:site_name" content="Cron Generator" />
@@ -17,8 +18,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Cron-Ausdruck-Generator" />
-    <meta name="twitter:description" content="Erstellen Sie Cron-Zeitpläne visuell. Unterstützt Unix, Quartz und AWS. Kostenlos, ohne Anmeldung." />
+    <meta name="twitter:title" content="Cron-Ausdruck-Generator (2026) — Kostenloses Tool" />
+    <meta name="twitter:description" content="Cron-Zeitpläne auf Deutsch erstellen. * * * * * jede Minute, 0 * * * * stündlich, 0 0 * * * täglich. Unix/Quartz/AWS. Ohne Anmeldung." />
 
     <link rel="canonical" href="https://aicalc.cloud/cron-generator/de/" />
 
@@ -37,6 +38,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Was ist ein Cron-Ausdruck?","acceptedAnswer":{"@type":"Answer","text":"Ein Cron-Ausdruck ist eine Zeichenkette aus 5 durch Leerzeichen getrennten Feldern, die definiert, wann eine geplante Aufgabe ausgeführt wird: Minute (0-59), Stunde (0-23), Tag des Monats (1-31), Monat (1-12), Wochentag (0-6, 0=Sonntag). Zum Beispiel bedeutet 0 9 * * 1-5 „um 9:00 Uhr von Montag bis Freitag\"."}},
+        {"@type":"Question","name":"Wie benutzt man den Cron-Ausdruck-Generator?","acceptedAnswer":{"@type":"Answer","text":"Geben Sie Ihren Zeitplan in natürlicher Sprache ein (z.B. „alle 5 Minuten\", „jeden Montag um 9 Uhr\") oder wählen Sie eine Vorlage. Der Generator zeigt den entsprechenden Cron-Ausdruck, eine deutsche Erklärung und die nächsten 5 Ausführungszeiten an. Sie können auch zwischen den Dialekten wechseln: Unix/Linux, Quartz (Java/Spring) und AWS EventBridge."}},
+        {"@type":"Question","name":"Was bedeutet * * * * * in Cron?","acceptedAnswer":{"@type":"Answer","text":"* * * * * bedeutet „jede Minute\". Jeder Stern ist ein Platzhalter: der erste deckt alle Minuten (0-59) ab, der zweite alle Stunden (0-23), der dritte alle Tage des Monats, der vierte alle Monate und der fünfte alle Wochentage. Ihr Skript wird alle 60 Sekunden ausgeführt."}},
+        {"@type":"Question","name":"Wie führe ich einen Cron-Job stündlich aus?","acceptedAnswer":{"@type":"Answer","text":"Verwenden Sie 0 * * * * für die Ausführung zu Beginn jeder Stunde (00:00, 01:00, 02:00...). Für die Ausführung zur 30. Minute verwenden Sie 30 * * * *. In Quartz: 0 0 * * * ? und in AWS EventBridge: cron(0 * * * ? *)."}},
+        {"@type":"Question","name":"Was ist der Unterschied zwischen Unix Cron, Quartz und AWS EventBridge?","acceptedAnswer":{"@type":"Answer","text":"Unix/Linux verwendet das Standard-5-Felder-Format. Quartz (Java/Spring) fügt ein Sekundenfeld am Anfang hinzu (insgesamt 7 Felder) und verwendet ? statt * bei Konflikten zwischen Tag des Monats und Wochentag. AWS EventBridge verwendet 6 Felder (fügt Jahr hinzu), erfordert das Format cron(...) und verwendet ? für nicht angegebene Felder. Dieses Tool ermöglicht den Wechsel zwischen allen drei Syntaxen mit einem Klick."}}
+      ]
+    }
+    </script>
 
     <!-- Structured Data: WebApplication -->
     <script type="application/ld+json">
