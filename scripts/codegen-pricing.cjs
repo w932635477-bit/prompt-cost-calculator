@@ -140,7 +140,12 @@ const SEO_KEYWORDS = {
   ],
   'gemini-2.0-flash-lite': ['gemini flash lite pricing', 'gemini 2.0 flash lite cost', 'google ai pricing', 'gemini flash lite api', 'cheapest google llm'],
   'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing', 'gemini 1.5 pro api price', 'gemini pro vs flash', 'gemini pro 2m context pricing', 'google gemini pro api cost', 'gemini 1.5 pro per million tokens'],
-  'gemini-1.5-flash': ['gemini 1.5 flash pricing', 'gemini flash cost', 'google gemini flash pricing', 'gemini 1.5 flash api', 'gemini flash api cost', 'gemini 1.5 flash per million tokens'],
+  'gemini-1.5-flash': [
+    'gemini 1.5 flash pricing', 'gemini 1.5 flash api pricing', 'google gemini 1.5 flash pricing',
+    'gemini flash cost', 'gemini flash api cost', 'gemini 1.5 flash api',
+    'gemini 1.5 flash per million tokens', 'gemini 1.5 flash price per token',
+    'gemini flash api price', 'gemini flash cheapest',
+  ],
   'deepseek-v4-flash': [
     'deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token',
     'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek flash cheapest model',
@@ -170,6 +175,10 @@ const SEO_OVERRIDES = {
   'gemini-1.5-pro': {
     title: 'Gemini 1.5 Pro Pricing (2026) — 2M Context Window at $1.25/1M Input',
     description: 'Gemini 1.5 Pro costs $1.25/1M input and $5/1M output with a 2 million token context window. Cached input is $0.125/1M (90% discount). Best for complex multimodal tasks, long document analysis, and code generation. Compare vs Gemini 1.5 Flash, GPT-4o, and Claude pricing with our cost calculator.',
+  },
+  'gemini-1.5-flash': {
+    title: 'Gemini 1.5 Flash Pricing (2026) — $0.075/1M Input, Google Cheapest Model',
+    description: 'Gemini 1.5 Flash costs $0.075/1M input and $0.30/1M output with a 1 million token context window. Cached input is just $0.0075/1M (90% discount). The cheapest Google Gemini model for fast multimodal tasks, repetitive operations, and high-throughput workloads. Compare Gemini 1.5 Flash vs Pro, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
   },
   'gemini-2.0-flash': {
     title: 'Gemini 2.0 Flash Pricing (2026) — $0.10/1M Input, Google Fastest API',

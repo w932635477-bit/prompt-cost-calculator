@@ -129,10 +129,10 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
   {
     slug: 'gemini-1-5-flash-pricing',
     modelId: 'gemini-1.5-flash',
-    title: 'Gemini 1.5 Flash API Pricing (2026) — Cost Per 1M Tokens',
+    title: 'Gemini 1.5 Flash Pricing (2026) — $0.075/1M Input, Google Cheapest Model',
     h1: 'Gemini 1.5 Flash API Pricing',
-    description: 'Gemini 1.5 Flash pricing: $0.075/1M input tokens, $0.3/1M output tokens, $0.0075/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini 1.5 flash pricing","gemini flash cost","google gemini flash pricing","gemini 1.5 flash api","gemini flash api cost","gemini 1.5 flash per million tokens"],
+    description: 'Gemini 1.5 Flash costs $0.075/1M input and $0.30/1M output with a 1 million token context window. Cached input is just $0.0075/1M (90% discount). The cheapest Google Gemini model for fast multimodal tasks, repetitive operations, and high-throughput workloads. Compare Gemini 1.5 Flash vs Pro, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+    keywords: ["gemini 1.5 flash pricing","gemini 1.5 flash api pricing","google gemini 1.5 flash pricing","gemini flash cost","gemini flash api cost","gemini 1.5 flash api","gemini 1.5 flash per million tokens","gemini 1.5 flash price per token","gemini flash api price","gemini flash cheapest"],
   },
   {
     slug: 'deepseek-v4-flash-pricing',
