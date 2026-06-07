@@ -1,0 +1,841 @@
+{
+  "date": "2026-06-07",
+  "siteUrl": "https://aicalc.cloud/",
+  "dateRange": "2026-05-08 ~ 2026-06-05",
+  "summary": {
+    "totalQueries": 92,
+    "totalClicks": 0,
+    "totalImpressions": 139,
+    "totalPages": 26
+  },
+  "byQuery": [
+    {
+      "query": "api price",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 90.7
+    },
+    {
+      "query": "api pricing",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 89.3
+    },
+    {
+      "query": "api cost",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 89.3
+    },
+    {
+      "query": "api pricing.",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 87.3
+    },
+    {
+      "query": "api costs",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 85.3
+    },
+    {
+      "query": "gemini api pricing",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 69.3
+    },
+    {
+      "query": "open api pricing",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 81.7
+    },
+    {
+      "query": "\"deepgram\"",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "query": "ai api pricing comparison",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "query": "amazon eventbridge cron",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "query": "cron every friday",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9.5
+    },
+    {
+      "query": "deepseek api pricing v4 flash pro 2026",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "query": "docmost alternative",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "gemini 2.0 flash api price",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "query": "gemini api price",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 69.5
+    },
+    {
+      "query": "gemini live pricing",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 70.5
+    },
+    {
+      "query": "google gemini 1.5 flash api pricing",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "query": "gpt o3 api",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "query": "how much does a llm cost?",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "query": "llm api cost comparison",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 69
+    },
+    {
+      "query": "llm api pricing",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 75
+    },
+    {
+      "query": "openapi pricing",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 65.5
+    },
+    {
+      "query": "pricing claude sonnet",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "query": "voice api pricing",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 70.5
+    },
+    {
+      "query": "ai api costs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 85
+    },
+    {
+      "query": "ai api price comparison",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "query": "anthropic llm pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "query": "api pricing calculator",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "query": "aws eventbridge cron",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 65
+    },
+    {
+      "query": "chatgpt api calculator",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 44
+    },
+    {
+      "query": "chatgpt api o3",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "query": "claude 3.7 api",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 58
+    },
+    {
+      "query": "claude 3.7 sonnet api price",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "query": "claude 3.7 sonnet pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "query": "claude sonnet pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "query": "cost of building a custom llm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 99
+    },
+    {
+      "query": "cron calculator",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "query": "cron every hour",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "query": "cron expression evaluator",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "query": "cron job for every hour",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "query": "cron online",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "query": "cron reader online",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "query": "crontab hourly",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "query": "custom speech service pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 75
+    },
+    {
+      "query": "deepseek api pricing may 2026 v4",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "deepseek v4 flash api pricing 2026",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "deepseek v4 flash pricing may 2026",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "deepseek v4 flash subscription",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "query": "elevenlabs text to speech flash or turbo model api price per 1000 characters usd",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "enterprise voice ai pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "query": "expression cron",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "query": "gemini 1.5 pro api",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "query": "gemini 1.5 pro pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "query": "gemini 2 flash pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "gemini 2.0 flash lite pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 60
+    },
+    {
+      "query": "gemini 2.0 flash price",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "gemini 2.0 flash-lite pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "query": "gemini 3.1 flash-lite pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "query": "gemini api key pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 65
+    },
+    {
+      "query": "gemini api prices",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "query": "gemini flash 2.0 pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "query": "gemini pricing api",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 68
+    },
+    {
+      "query": "gemini token",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "query": "gemini-2.5-flash price",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "query": "github alternative free private repository",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "query": "gitlab alternative self hosted",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "query": "google gemini 1.5 pro pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "query": "hourly cron job",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "query": "jellyfin ldap plugin",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "llm api cost calculator",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 61
+    },
+    {
+      "query": "llm api price comparison",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "query": "llm cost",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "query": "llm cost calculator",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "query": "llm price comparison",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "query": "llm pricing comparison",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "query": "logseq",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "query": "o3 chatgpt api",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "query": "o3 mini cost",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 66
+    },
+    {
+      "query": "o3 pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "query": "open ai api key price",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "query": "open ai cost per token",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 68
+    },
+    {
+      "query": "openai token cost",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 75
+    },
+    {
+      "query": "openapi price",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 66
+    },
+    {
+      "query": "owncloud vs nextcloud",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 58
+    },
+    {
+      "query": "self hosted slack",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "query": "self hosted slack alternative",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 48
+    },
+    {
+      "query": "site:vercel.app \"notion\"",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "slack alternative self hosted",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "query": "slack self hosted",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "query": "sonnet 3.7 pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "query": "voice ai pricing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 82
+    },
+    {
+      "query": "voice.ai cost",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    }
+  ],
+  "byPage": [
+    {
+      "page": "https://aicalc.cloud/",
+      "clicks": 0,
+      "impressions": 45,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "page": "https://aicalc.cloud/llm-pricing/gemini-2-0-flash-pricing/",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "page": "https://aicalc.cloud/llm-pricing/o3-pricing/",
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 56.3
+    },
+    {
+      "page": "https://aicalc.cloud/voice-agent-pricing/",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "page": "https://aicalc.cloud/alternatives/docmost/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "page": "https://aicalc.cloud/llm-pricing/claude-3-7-sonnet-pricing/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 46.3
+    },
+    {
+      "page": "https://aicalc.cloud/llm-pricing/gemini-1-5-pro-pricing/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 19.7
+    },
+    {
+      "page": "https://aicalc.cloud/llm-pricing/llm-cost-calculator/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "page": "https://aicalc.cloud/compare/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 11.1
+    },
+    {
+      "page": "https://aicalc.cloud/llm-pricing/deepseek-v4-flash-pricing/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 11.7
+    },
+    {
+      "page": "https://aicalc.cloud/cron-generator/every-hour/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 18.7
+    },
+    {
+      "page": "https://aicalc.cloud/alternatives/slack/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 37.3
+    },
+    {
+      "page": "https://aicalc.cloud/alternatives/github/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 41.5
+    },
+    {
+      "page": "https://aicalc.cloud/cron-generator/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 45.8
+    },
+    {
+      "page": "https://aicalc.cloud/cron-validator/aws-eventbridge/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 51.8
+    },
+    {
+      "page": "https://aicalc.cloud/cron-generator/every-friday-5pm/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 12.3
+    },
+    {
+      "page": "https://aicalc.cloud/llm-pricing/llm-cost-comparison/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 78.3
+    },
+    {
+      "page": "https://aicalc.cloud/compare/nextcloud-vs-owncloud/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "page": "https://aicalc.cloud/cron-generator/es/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 66
+    },
+    {
+      "page": "https://aicalc.cloud/ai-agent-security/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "page": "https://aicalc.cloud/compare/revolt-vs-element/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "page": "https://aicalc.cloud/cron-generator/every-10-minutes/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "page": "https://aicalc.cloud/cron-generator/every-4-hours-at-30/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "page": "https://aicalc.cloud/cron-validator/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "page": "https://aicalc.cloud/dep-shield/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "page": "https://aicalc.cloud/deploy/datadog/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    }
+  ]
+}

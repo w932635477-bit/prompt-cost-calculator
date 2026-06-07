@@ -1,93 +1,93 @@
 Query,Clicks,Impressions,CTR,Position
-api price,0,9,0.0%,90.7
-api pricing,0,7,0.0%,89.3
-api cost,0,6,0.0%,89.3
-api pricing.,0,6,0.0%,87.3
-api costs,0,3,0.0%,85.3
-gemini api pricing,0,3,0.0%,69.3
-open api pricing,0,3,0.0%,81.7
-"deepgram",0,2,0.0%,30.0
-ai api pricing comparison,0,2,0.0%,73.0
-amazon eventbridge cron,0,2,0.0%,63.0
-cron every friday,0,2,0.0%,9.5
-deepseek api pricing v4 flash pro 2026,0,2,0.0%,19.0
-docmost alternative,0,2,0.0%,7.0
-gemini 2.0 flash api price,0,2,0.0%,39.0
-gemini api price,0,2,0.0%,69.5
-gemini live pricing,0,2,0.0%,70.5
-google gemini 1.5 flash api pricing,0,2,0.0%,22.0
-gpt o3 api,0,2,0.0%,37.0
-how much does a llm cost?,0,2,0.0%,81.0
-llm api cost comparison,0,2,0.0%,69.0
-llm api pricing,0,2,0.0%,75.0
-openapi pricing,0,2,0.0%,65.5
-pricing claude sonnet,0,2,0.0%,70.0
-voice api pricing,0,2,0.0%,70.5
-ai api costs,0,1,0.0%,85.0
-ai api price comparison,0,1,0.0%,70.0
-anthropic llm pricing,0,1,0.0%,77.0
-api pricing calculator,0,1,0.0%,62.0
-aws eventbridge cron,0,1,0.0%,65.0
-chatgpt api calculator,0,1,0.0%,44.0
-chatgpt api o3,0,1,0.0%,31.0
-claude 3.7 api,0,1,0.0%,58.0
-claude 3.7 sonnet api price,0,1,0.0%,11.0
-claude 3.7 sonnet pricing,0,1,0.0%,55.0
-claude sonnet pricing,0,1,0.0%,63.0
-cost of building a custom llm,0,1,0.0%,99.0
-cron calculator,0,1,0.0%,62.0
-cron every hour,0,1,0.0%,12.0
-cron expression evaluator,0,1,0.0%,56.0
-cron job for every hour,0,1,0.0%,24.0
-cron online,0,1,0.0%,53.0
-cron reader online,0,1,0.0%,62.0
-crontab hourly,0,1,0.0%,19.0
-custom speech service pricing,0,1,0.0%,75.0
-deepseek api pricing may 2026 v4,0,1,0.0%,1.0
-deepseek v4 flash api pricing 2026,0,1,0.0%,9.0
-deepseek v4 flash pricing may 2026,0,1,0.0%,3.0
-deepseek v4 flash subscription,0,1,0.0%,20.0
-elevenlabs text to speech flash or turbo model api price per 1000 characters usd,0,1,0.0%,9.0
-enterprise voice ai pricing,0,1,0.0%,91.0
-expression cron,0,1,0.0%,79.0
-gemini 1.5 pro api,0,1,0.0%,43.0
-gemini 1.5 pro pricing,0,1,0.0%,55.0
-gemini 2 flash pricing,0,1,0.0%,10.0
-gemini 2.0 flash lite pricing,0,1,0.0%,60.0
-gemini 2.0 flash price,0,1,0.0%,9.0
-gemini 2.0 flash-lite pricing,0,1,0.0%,53.0
-gemini 3.1 flash-lite pricing,0,1,0.0%,77.0
-gemini api key pricing,0,1,0.0%,65.0
-gemini api prices,0,1,0.0%,72.0
-gemini flash 2.0 pricing,0,1,0.0%,53.0
-gemini pricing api,0,1,0.0%,68.0
-gemini token,0,1,0.0%,71.0
-gemini-2.5-flash price,0,1,0.0%,71.0
-github alternative free private repository,0,1,0.0%,50.0
-gitlab alternative self hosted,0,1,0.0%,62.0
-google gemini 1.5 pro pricing,0,1,0.0%,8.0
-hourly cron job,0,1,0.0%,28.0
-jellyfin ldap plugin,0,1,0.0%,7.0
-llm api cost calculator,0,1,0.0%,61.0
-llm api price comparison,0,1,0.0%,71.0
-llm cost,0,1,0.0%,83.0
-llm cost calculator,0,1,0.0%,64.0
-llm price comparison,0,1,0.0%,79.0
-llm pricing comparison,0,1,0.0%,79.0
-logseq,0,1,0.0%,27.0
-o3 chatgpt api,0,1,0.0%,30.0
-o3 mini cost,0,1,0.0%,66.0
-o3 pricing,0,1,0.0%,62.0
-open ai api key price,0,1,0.0%,71.0
-open ai cost per token,0,1,0.0%,68.0
-openai token cost,0,1,0.0%,75.0
-openapi price,0,1,0.0%,66.0
-owncloud vs nextcloud,0,1,0.0%,58.0
-self hosted slack,0,1,0.0%,53.0
-self hosted slack alternative,0,1,0.0%,48.0
-site:vercel.app "notion",0,1,0.0%,2.0
-slack alternative self hosted,0,1,0.0%,51.0
-slack self hosted,0,1,0.0%,56.0
-sonnet 3.7 pricing,0,1,0.0%,55.0
-voice ai pricing,0,1,0.0%,82.0
-voice.ai cost,0,1,0.0%,71.0
+"api price",0,9,0.0%,90.7
+"api pricing",0,7,0.0%,89.3
+"api cost",0,6,0.0%,89.3
+"api pricing.",0,6,0.0%,87.3
+"api costs",0,3,0.0%,85.3
+"gemini api pricing",0,3,0.0%,69.3
+"open api pricing",0,3,0.0%,81.7
+"""deepgram""",0,2,0.0%,30.0
+"ai api pricing comparison",0,2,0.0%,73.0
+"amazon eventbridge cron",0,2,0.0%,63.0
+"cron every friday",0,2,0.0%,9.5
+"deepseek api pricing v4 flash pro 2026",0,2,0.0%,19.0
+"docmost alternative",0,2,0.0%,7.0
+"gemini 2.0 flash api price",0,2,0.0%,39.0
+"gemini api price",0,2,0.0%,69.5
+"gemini live pricing",0,2,0.0%,70.5
+"google gemini 1.5 flash api pricing",0,2,0.0%,22.0
+"gpt o3 api",0,2,0.0%,37.0
+"how much does a llm cost?",0,2,0.0%,81.0
+"llm api cost comparison",0,2,0.0%,69.0
+"llm api pricing",0,2,0.0%,75.0
+"openapi pricing",0,2,0.0%,65.5
+"pricing claude sonnet",0,2,0.0%,70.0
+"voice api pricing",0,2,0.0%,70.5
+"ai api costs",0,1,0.0%,85.0
+"ai api price comparison",0,1,0.0%,70.0
+"anthropic llm pricing",0,1,0.0%,77.0
+"api pricing calculator",0,1,0.0%,62.0
+"aws eventbridge cron",0,1,0.0%,65.0
+"chatgpt api calculator",0,1,0.0%,44.0
+"chatgpt api o3",0,1,0.0%,31.0
+"claude 3.7 api",0,1,0.0%,58.0
+"claude 3.7 sonnet api price",0,1,0.0%,11.0
+"claude 3.7 sonnet pricing",0,1,0.0%,55.0
+"claude sonnet pricing",0,1,0.0%,63.0
+"cost of building a custom llm",0,1,0.0%,99.0
+"cron calculator",0,1,0.0%,62.0
+"cron every hour",0,1,0.0%,12.0
+"cron expression evaluator",0,1,0.0%,56.0
+"cron job for every hour",0,1,0.0%,24.0
+"cron online",0,1,0.0%,53.0
+"cron reader online",0,1,0.0%,62.0
+"crontab hourly",0,1,0.0%,19.0
+"custom speech service pricing",0,1,0.0%,75.0
+"deepseek api pricing may 2026 v4",0,1,0.0%,1.0
+"deepseek v4 flash api pricing 2026",0,1,0.0%,9.0
+"deepseek v4 flash pricing may 2026",0,1,0.0%,3.0
+"deepseek v4 flash subscription",0,1,0.0%,20.0
+"elevenlabs text to speech flash or turbo model api price per 1000 characters usd",0,1,0.0%,9.0
+"enterprise voice ai pricing",0,1,0.0%,91.0
+"expression cron",0,1,0.0%,79.0
+"gemini 1.5 pro api",0,1,0.0%,43.0
+"gemini 1.5 pro pricing",0,1,0.0%,55.0
+"gemini 2 flash pricing",0,1,0.0%,10.0
+"gemini 2.0 flash lite pricing",0,1,0.0%,60.0
+"gemini 2.0 flash price",0,1,0.0%,9.0
+"gemini 2.0 flash-lite pricing",0,1,0.0%,53.0
+"gemini 3.1 flash-lite pricing",0,1,0.0%,77.0
+"gemini api key pricing",0,1,0.0%,65.0
+"gemini api prices",0,1,0.0%,72.0
+"gemini flash 2.0 pricing",0,1,0.0%,53.0
+"gemini pricing api",0,1,0.0%,68.0
+"gemini token",0,1,0.0%,71.0
+"gemini-2.5-flash price",0,1,0.0%,71.0
+"github alternative free private repository",0,1,0.0%,50.0
+"gitlab alternative self hosted",0,1,0.0%,62.0
+"google gemini 1.5 pro pricing",0,1,0.0%,8.0
+"hourly cron job",0,1,0.0%,28.0
+"jellyfin ldap plugin",0,1,0.0%,7.0
+"llm api cost calculator",0,1,0.0%,61.0
+"llm api price comparison",0,1,0.0%,71.0
+"llm cost",0,1,0.0%,83.0
+"llm cost calculator",0,1,0.0%,64.0
+"llm price comparison",0,1,0.0%,79.0
+"llm pricing comparison",0,1,0.0%,79.0
+"logseq",0,1,0.0%,27.0
+"o3 chatgpt api",0,1,0.0%,30.0
+"o3 mini cost",0,1,0.0%,66.0
+"o3 pricing",0,1,0.0%,62.0
+"open ai api key price",0,1,0.0%,71.0
+"open ai cost per token",0,1,0.0%,68.0
+"openai token cost",0,1,0.0%,75.0
+"openapi price",0,1,0.0%,66.0
+"owncloud vs nextcloud",0,1,0.0%,58.0
+"self hosted slack",0,1,0.0%,53.0
+"self hosted slack alternative",0,1,0.0%,48.0
+"site:vercel.app ""notion""",0,1,0.0%,2.0
+"slack alternative self hosted",0,1,0.0%,51.0
+"slack self hosted",0,1,0.0%,56.0
+"sonnet 3.7 pricing",0,1,0.0%,55.0
+"voice ai pricing",0,1,0.0%,82.0
+"voice.ai cost",0,1,0.0%,71.0
