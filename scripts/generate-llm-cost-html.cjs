@@ -28,16 +28,13 @@ for (const page of COST_SEO_PAGES) {
   const dir = join(OUTPUT_DIR, page.slug);
   mkdirSync(dir, { recursive: true });
 
-  const faqSchema = [
-    {
-      "@type": "Question",
-      "name": "How to reduce LLM API costs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enable prompt caching, route simple queries to cheap models, reduce output tokens, and use batch APIs. See full strategies at " + BASE_URL + "/llm-pricing/" + page.slug + "/"
-      }
-    }
-  ];
+  const faqByPageType = {
+    calculator: { q: 'How do I calculate my monthly LLM API costs?', a: 'Enter your token volume, calls per day, and cache hit rate into the cost calculator at ' + BASE_URL + '/llm-pricing/' + page.slug + '/. It estimates monthly spending across 20+ models and shows a side-by-side cost breakdown.' },
+    comparison: { q: 'Which LLM API is the cheapest in 2026?', a: 'DeepSeek V4 Flash is the cheapest at $0.14/1M input, followed by Gemini 2.0 Flash Lite. See the full comparison table at ' + BASE_URL + '/llm-pricing/' + page.slug + '/ — pricing and value vary by use case.' },
+    optimization: { q: 'How to reduce LLM API costs by 60%?', a: 'Enable prompt caching, route simple queries to cheap models, reduce output tokens, and use batch APIs. See all 7 strategies with real cost numbers at ' + BASE_URL + '/llm-pricing/' + page.slug + '/' },
+  };
+  const defaultFaq = faqByPageType.optimization;
+  const faqItem = faqByPageType[page.pageType] || defaultFaq;
 
   const html = \`<!doctype html>
 <html lang="en">
@@ -53,7 +50,7 @@ for (const page of COST_SEO_PAGES) {
     <meta property="og:description" content="\${escapeHtml(page.description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="\${BASE_URL}/llm-pricing/\${page.slug}/" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="\${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="\${escapeHtml(page.description)}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,7 +60,7 @@ for (const page of COST_SEO_PAGES) {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": \${JSON.stringify(faqSchema)}
+      	"mainEntity": [{"@type":"Question","name":"\${faqItem.q}","acceptedAnswer":{"@type":"Answer","text":"\${faqItem.a}"}}]
     }
     </script>
   </head>

@@ -14,10 +14,10 @@ export const COST_SEO_PAGES: CostSeoPage[] = [
   {
     slug: 'llm-cost-calculator',
     pageType: 'calculator',
-    title: 'LLM API Cost Calculator — GPT, Claude & Gemini Pricing (2026)',
+    title: 'LLM API Cost Calculator (2026) — Estimate GPT, Claude & Gemini Spending',
     h1: 'LLM Cost Calculator',
-    description: 'Free LLM cost calculator. Estimate monthly API spending for GPT-4o, Claude 3.7, Gemini 2.0, and 15+ models. Input tokens, output tokens, calls per day, cache hit rate.',
-    keywords: ['llm cost calculator', 'ai cost calculator', 'llm api cost estimator', 'gpt cost calculator', 'claude cost calculator', 'monthly llm cost'],
+    description: 'Free LLM API cost calculator for 2026. Estimate monthly spending across 20+ models including GPT-5.5, Claude Opus 4.8, Gemini 2.0 Flash, and DeepSeek V4. Input your token volume, calls per day, and cache hit rate to get an instant monthly cost breakdown. Compare costs across models side by side.',
+    keywords: ['llm cost calculator', 'ai api cost calculator', 'chatgpt api calculator', 'openai cost calculator', 'llm api cost estimator', 'gpt cost calculator', 'claude cost calculator', 'monthly llm cost', 'llm pricing calculator', 'token cost estimator', 'ai cost per month', 'llm api pricing calculator'],
   },
   {
     slug: 'llm-cost-comparison',
