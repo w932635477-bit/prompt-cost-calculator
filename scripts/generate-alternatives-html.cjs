@@ -67,7 +67,7 @@ for (const page of ALTERNATIVE_PAGES) {
     <meta property="og:description" content="\${escapeHtml(page.description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="\${BASE_URL}/alternatives/\${page.slug}/" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="\${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="\${escapeHtml(page.description)}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
