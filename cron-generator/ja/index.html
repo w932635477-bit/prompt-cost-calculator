@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cron式ジェネレーター & 解説 | 無料オンラインツール</title>
-    <meta name="description" content="無料のCron式ジェネレーター、解説、変換ツール。Unix、Quartz、AWS EventBridge対応。自然言語入力、ビジュアルビルダー、次回実行時刻表示。" />
+    <title>Cron式ジェネレーター (2026) — スケジュール実行ツール | Unix/Quartz/AWS対応</title>
+    <meta name="description" content="無料のCron式ジェネレーター（日本語対応）。毎分(* * * * *)、毎時(0 * * * *)、毎日(0 0 * * *)、毎週のスケジュールをビジュアル構築。自然言語からCron式に変換、次回5回の実行時刻をプレビュー。Linux/Unix crontab、Quartz(Java/Spring)、AWS EventBridgeの3種類のシンタックスに対応。登録不要、完全無料。" />
+    <meta name="keywords" content="cron式 ジェネレーター, cron 式, スケジュール実行, crontab ジェネレーター, cron オンラインツール, linux 定期実行, cron 式 解説, ジョブスケジューラ, cron チュートリアル, crontab 構文, 定期実行 スクリプト, cron 生成 日本語" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Cron式ジェネレーター & 解説" />
-    <meta property="og:description" content="Cron式の作成、解説、変換。Unix、Quartz、AWS EventBridgeに対応。無料、ログイン不要。" />
+    <meta property="og:title" content="Cron式ジェネレーター (2026) — スケジュール実行ツール" />
+    <meta property="og:description" content="無料の日本語Cron式ジェネレーター。ビジュアル構築、自然言語→Cron式変換、次回実行時刻プレビュー。Unix/Quartz/AWS対応、登録不要。" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aicalc.cloud/cron-generator/ja/" />
     <meta property="og:site_name" content="Cron Generator" />
@@ -17,8 +18,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Cron式ジェネレーター & 解説" />
-    <meta name="twitter:description" content="Cron式の作成、解説、変換。Unix、Quartz、AWS EventBridgeに対応。無料、ログイン不要。" />
+    <meta name="twitter:title" content="Cron式ジェネレーター (2026) — 無料オンラインツール" />
+    <meta name="twitter:description" content="日本語Cron式ジェネレーター。* * * * * 毎分, 0 * * * * 毎時, 0 0 * * * 毎日。Unix/Quartz/AWS対応。登録不要。" />
 
     <link rel="canonical" href="https://aicalc.cloud/cron-generator/ja/" />
 
@@ -37,6 +38,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Cron式とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"Cron式は、5つのスペース区切りフィールドで構成される文字列で、ジョブの実行タイミングを定義します：分(0-59)、時(0-23)、日(1-31)、月(1-12)、曜日(0-6, 0=日曜)。例えば 0 9 * * 1-5 は「平日の午前9時に実行」を意味します。"}},
+        {"@type":"Question","name":"Cron式ジェネレーターの使い方は？","acceptedAnswer":{"@type":"Answer","text":"自然言語で「5分ごと」「毎週月曜の午前9時」のように入力するか、プリセットテンプレートを選択します。ジェネレーターが対応するCron式、日本語での説明、次回5回の実行時刻を表示します。Unix/Linux、Quartz(Java/Spring)、AWS EventBridgeの3つのシンタックス方言を切り替えることもできます。"}},
+        {"@type":"Question","name":"* * * * * はCronで何を意味しますか？","acceptedAnswer":{"@type":"Answer","text":"* * * * * は「毎分実行」を意味します。各アスタリスクはワイルドカードで、1番目はすべての分(0-59)、2番目はすべての時(0-23)、3番目はすべての日、4番目はすべての月、5番目はすべての曜日をカバーします。つまり60秒ごとにスクリプトが実行されます。"}},
+        {"@type":"Question","name":"毎時ジョブをCronで実行するには？","acceptedAnswer":{"@type":"Answer","text":"0 * * * * を使用すると、毎時0分（00:00, 01:00, 02:00...）に実行されます。30分に実行する場合は 30 * * * * を使用します。Quartzでは 0 0 * * * ?、AWS EventBridgeでは cron(0 * * * ? *) となります。"}},
+        {"@type":"Question","name":"Unix Crontab、Quartz、AWS EventBridgeのCronの違いは？","acceptedAnswer":{"@type":"Answer","text":"Unix/Linuxは標準5フィールド形式を使用。Quartz(Java/Spring)は先頭に秒フィールドを追加し（合計7フィールド）、日と曜日の競合時には * の代わりに ? を使用します。AWS EventBridgeは6フィールド（年を追加）を使用し、式を cron(...) でラップし、未指定フィールドには ? を使用します。本ツールはワンクリックで3つのシンタックスを切り替えられます。"}}
+      ]
+    }
+    </script>
 
     <!-- Structured Data: WebApplication -->
     <script type="application/ld+json">
