@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cron Every Friday at 5 PM - Week End Report</title>
-    <meta name="description" content="Run a cron job every Friday at 5 PM with 0 17 * * 5." />
-    <meta name="keywords" content="cron friday 5pm, 0 17 * * 5" />
+    <title>Cron Every Friday at 5 PM `0 17 * * 5` — Weekly Report Automation (2026)</title>
+    <meta name="description" content="Learn how to schedule a cron job every Friday at 5 PM using 0 17 * * 5. Covers crontab setup, end-of-week report automation, Friday EOD tasks, and platform-specific examples for AWS EventBridge, Quartz, and Kubernetes CronJob. Ideal for weekly reports, data exports, and cleanup jobs." />
+    <meta name="keywords" content="cron friday 5pm, 0 17 * * 5, cron every friday 5pm, friday 5pm cron job, end of week cron, weekly report cron, friday eod cron, cron friday afternoon, crontab friday 5pm, cron friday evening" />
     <link rel="canonical" href="https://aicalc.cloud/cron-generator/every-friday-5pm/" />
-    <meta property="og:title" content="Cron Every Friday at 5 PM - Week End Report" />
-    <meta property="og:description" content="Run a cron job every Friday at 5 PM with 0 17 * * 5." />
+    <meta property="og:title" content="Cron Every Friday at 5 PM `0 17 * * 5` — Weekly Report Automation (2026)" />
+    <meta property="og:description" content="Learn how to schedule a cron job every Friday at 5 PM using 0 17 * * 5. Covers crontab setup, end-of-week report automation, Friday EOD tasks, and platform-specific examples for AWS EventBridge, Quartz, and Kubernetes CronJob. Ideal for weekly reports, data exports, and cleanup jobs." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://aicalc.cloud/cron-generator/every-friday-5pm/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Cron Every Friday at 5 PM - Week End Report" />
-    <meta name="twitter:description" content="Run a cron job every Friday at 5 PM with 0 17 * * 5." />
+    <meta name="twitter:title" content="Cron Every Friday at 5 PM `0 17 * * 5` — Weekly Report Automation (2026)" />
+    <meta name="twitter:description" content="Learn how to schedule a cron job every Friday at 5 PM using 0 17 * * 5. Covers crontab setup, end-of-week report automation, Friday EOD tasks, and platform-specific examples for AWS EventBridge, Quartz, and Kubernetes CronJob. Ideal for weekly reports, data exports, and cleanup jobs." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -22,15 +22,15 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{"@type":"Question","name":"How do I run a cron every Friday at 5 PM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 17 * * 5 in your crontab."}}]
+      "mainEntity": [{"@type":"Question","name":"How do I run a cron every Friday at 5 PM?","acceptedAnswer":{"@type":"Answer","text":"Use 0 17 * * 5 in your crontab. The 0 is minutes, 17 is 5 PM (24-hour time), and 5 is Friday."}},{"@type":"Question","name":"What are common use cases for a Friday 5 PM cron?","acceptedAnswer":{"@type":"Answer","text":"End-of-week reports, automated invoice generation, data exports, database cleanup, weekly backups, and sending summary emails to stakeholders. Running at 5 PM ensures all of Friday's business activity is included."}},{"@type":"Question","name":"How does 24-hour time work in cron?","acceptedAnswer":{"@type":"Answer","text":"Cron uses 24-hour format: 0=midnight, 6=6 AM, 12=noon, 17=5 PM, 23=11 PM. So 0 17 * * 5 means \"at minute 0 of hour 17 (5 PM) on Friday\"."}}]
     }
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Friday at 5 PM","description":"Run a cron job every Friday at 5 PM with 0 17 * * 5.","step":[{"@type":"HowToStep","position":1,"name":"Open crontab editor","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","position":2,"name":"Add the cron line","text":"Add the line: 0 17 * * 5 /path/to/your/script.sh"},{"@type":"HowToStep","position":3,"name":"Save and verify","text":"Save and exit. Verify with crontab -l."}]}
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to set up Cron Every Friday at 5 PM","description":"Learn how to schedule a cron job every Friday at 5 PM using 0 17 * * 5. Covers crontab setup, end-of-week report automation, Friday EOD tasks, and platform-specific examples for AWS EventBridge, Quartz, and Kubernetes CronJob. Ideal for weekly reports, data exports, and cleanup jobs.","step":[{"@type":"HowToStep","position":1,"name":"Open crontab editor","text":"Open your crontab editor: run crontab -e in your terminal."},{"@type":"HowToStep","position":2,"name":"Add the cron line","text":"Add the line: 0 17 * * 5 /path/to/your/script.sh"},{"@type":"HowToStep","position":3,"name":"Save and verify","text":"Save and exit. Verify with crontab -l."}]}
     </script>
   </head>
   <body>
-    <script type="application/json" id="seo-data">{"slug":"every-friday-5pm","cron":"0 17 * * 5","title":"Cron Every Friday at 5 PM - Week End Report","h1":"Cron Every Friday at 5 PM","description":"Run a cron job every Friday at 5 PM with 0 17 * * 5.","explanation":"The expression 0 17 * * 5 runs at 5:00 PM every Friday.","faq":[{"q":"How do I run a cron every Friday at 5 PM?","a":"Use 0 17 * * 5 in your crontab."}],"keywords":["cron friday 5pm","0 17 * * 5"]}</script>
+    <script type="application/json" id="seo-data">{"slug":"every-friday-5pm","cron":"0 17 * * 5","title":"Cron Every Friday at 5 PM `0 17 * * 5` — Weekly Report Automation (2026)","h1":"Cron Every Friday at 5 PM","description":"Learn how to schedule a cron job every Friday at 5 PM using 0 17 * * 5. Covers crontab setup, end-of-week report automation, Friday EOD tasks, and platform-specific examples for AWS EventBridge, Quartz, and Kubernetes CronJob. Ideal for weekly reports, data exports, and cleanup jobs.","explanation":"The cron expression 0 17 * * 5 runs at 5:00 PM (17:00) every Friday. The first 0 means \"minute 0\" (top of the hour), 17 means \"5 PM\" in 24-hour format, the first asterisk means every day of month, the second asterisk means every month, and 5 means Friday. This is the classic \"Friday EOD\" schedule — perfect for automated weekly reports, data backups, invoice generation, or any task you want to fire right before the weekend.","faq":[{"q":"How do I run a cron every Friday at 5 PM?","a":"Use 0 17 * * 5 in your crontab. The 0 is minutes, 17 is 5 PM (24-hour time), and 5 is Friday."},{"q":"What are common use cases for a Friday 5 PM cron?","a":"End-of-week reports, automated invoice generation, data exports, database cleanup, weekly backups, and sending summary emails to stakeholders. Running at 5 PM ensures all of Friday's business activity is included."},{"q":"How does 24-hour time work in cron?","a":"Cron uses 24-hour format: 0=midnight, 6=6 AM, 12=noon, 17=5 PM, 23=11 PM. So 0 17 * * 5 means \"at minute 0 of hour 17 (5 PM) on Friday\"."}],"keywords":["cron friday 5pm","0 17 * * 5","cron every friday 5pm","friday 5pm cron job","end of week cron","weekly report cron","friday eod cron","cron friday afternoon","crontab friday 5pm","cron friday evening"]}</script>
     <div id="root"></div>
     <script type="module" src="/src/cron/long-tail-main.tsx"></script>
   </body>
