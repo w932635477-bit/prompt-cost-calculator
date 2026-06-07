@@ -225,9 +225,13 @@ function main() {
       continue
     }
 
+    // Inject static content with visibility:hidden to prevent FOUC.
+    // Inline script removes visibility:hidden after React hydrates
+    // (module scripts are deferred; DOMContentLoaded fires after them).
+    const revealScript = `<script>(function(){var r=document.getElementById('root');r&&(document.addEventListener('DOMContentLoaded',function(){r.style.visibility='visible'}),setTimeout(function(){r.style.visibility='visible'},3000))})()</script>`
     const newHtml = html.replace(
       '<div id="root"></div>',
-      `<div id="root" style="visibility:hidden">\n${content}\n</div>`
+      `<div id="root" style="visibility:hidden">\n${content}\n</div>\n${revealScript}`
     )
 
     fs.writeFileSync(filePath, newHtml)
