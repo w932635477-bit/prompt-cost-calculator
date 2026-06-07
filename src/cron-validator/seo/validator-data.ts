@@ -90,6 +90,7 @@ export const VALIDATOR_SUB_PAGES: ValidatorSubPage[] = [
         a: 'Most common: (1) missing ? in day-of-month or day-of-week field, (2) using 5 fields instead of 6, (3) forgetting to wrap in cron(), (4) specifying both day-of-month and day-of-week as specific values, (5) using Unix day-of-week range without quotes (AWS supports MON-FRI but in some regions needs numeric 2-6).',
       },
     ],
+    twitterDescription: 'Test AWS cron expressions instantly. Supports cron(0/5 * * * ? *), rate(5 min). Fix missing ?, wrong field count errors. Free, no login.',
     keywords: ['aws eventbridge cron validator', 'aws cron expression validator', 'eventbridge schedule validator', 'aws eventbridge cron check', 'aws cloudwatch events cron', 'aws schedule expression tester', 'eventbridge cron syntax', 'aws lambda scheduled event validator', 'validate aws cron expression', 'aws eventbridge scheduler cron', 'eventbridge rate vs cron', 'aws cron to unix converter'],
     exampleExpressions: ['cron(0/5 * * * ? *)', 'cron(0 12 ? * MON-FRI *)', 'cron(0 0 1 * ? *)', 'cron(30 10 * * ? 2026)'],
   },

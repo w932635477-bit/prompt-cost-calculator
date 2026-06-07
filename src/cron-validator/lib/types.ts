@@ -46,6 +46,7 @@ export interface ValidatorSubPage {
   title: string
   h1: string
   description: string
+  twitterDescription?: string
   explanation: string
   faq: { q: string; a: string }[]
   keywords: string[]

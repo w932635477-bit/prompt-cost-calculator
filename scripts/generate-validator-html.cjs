@@ -48,9 +48,9 @@ for (const page of VALIDATOR_SUB_PAGES) {
     <meta property="og:description" content="\${escapeHtml(page.description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="\${BASE_URL}/cron-validator/\${page.slug}/" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="\${escapeHtml(page.title)}" />
-    <meta name="twitter:description" content="\${escapeHtml(page.description)}" />
+    <meta name="twitter:description" content="\${escapeHtml(page.twitterDescription || page.description)}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
