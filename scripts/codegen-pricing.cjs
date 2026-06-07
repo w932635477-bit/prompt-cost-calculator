@@ -119,7 +119,12 @@ const SEO_KEYWORDS = {
   'gpt-4o-mini': ['gpt-4o mini pricing', 'gpt-4o mini cost', 'gpt-4o mini api price', 'gpt-4o mini cheapest openai', 'gpt-4o mini vs deepseek cost'],
   'o3': ['o3 pricing', 'openai o3 cost', 'o3 api price', 'openai reasoning model pricing', 'o3 vs o4-mini cost', 'openai o3 token price'],
   'o4-mini': ['o4-mini pricing', 'openai o4-mini cost', 'o4-mini api price', 'o4-mini reasoning pricing', 'o4-mini vs o3', 'o4-mini token cost'],
-  'claude-3-7-sonnet-20250219': ['claude 3.7 sonnet pricing', 'claude 3.7 sonnet cost', 'anthropic claude pricing', 'claude sonnet api price', 'claude vs gpt pricing 2026'],
+  'claude-3-7-sonnet-20250219': [
+    'claude 3.7 sonnet pricing', 'claude 3.7 sonnet cost', 'anthropic claude pricing',
+    'claude sonnet api price', 'sonnet 3.7 pricing', 'claude 3.7 sonnet api cost',
+    'claude sonnet 3.7 price', 'anthropic sonnet pricing', 'claude extended thinking pricing',
+    'claude 3.7 sonnet per million tokens',
+  ],
   'claude-3-5-haiku-20241022': ['claude 3.5 haiku pricing', 'claude haiku cost', 'claude cheap model pricing', 'claude 3.5 haiku api price', 'cheapest claude api'],
   'claude-3-opus-20240229': ['claude 3 opus pricing', 'claude opus cost', 'claude expensive model pricing', 'claude opus api price', 'claude opus per million tokens'],
   'claude-3-haiku-20240307': ['claude 3 haiku pricing', 'claude haiku cost', 'claude cheapest model', 'claude haiku api price', 'claude haiku per token'],
@@ -153,6 +158,10 @@ const SEO_OVERRIDES = {
   'deepseek-v4-pro': {
     title: 'DeepSeek V4 Pro Pricing (2026) — $0.435/1M Input, Premium Reasoning',
     description: 'DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output with 1M context window. Compare DeepSeek V4 Pro vs Flash pricing, use the cost calculator, and see how it stacks up against GPT-5.5 and Claude.',
+  },
+  'claude-3-7-sonnet-20250219': {
+    title: 'Claude 3.7 Sonnet Pricing (2026) — $3/1M Input, Extended Thinking at $15/1M Output',
+    description: 'Claude 3.7 Sonnet costs $3/1M input and $15/1M output with a 200K context window. Cached input is $0.30/1M (90% discount). Features extended thinking for complex analysis and coding. Compare vs Claude Sonnet 4.6, GPT-4o, and DeepSeek pricing with our cost calculator.',
   },
   'gemini-1.5-pro': {
     title: 'Gemini 1.5 Pro Pricing (2026) — 2M Context Window at $1.25/1M Input',

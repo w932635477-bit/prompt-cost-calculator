@@ -73,10 +73,10 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
   {
     slug: 'claude-3-7-sonnet-pricing',
     modelId: 'claude-3-7-sonnet-20250219',
-    title: 'Claude 3.7 Sonnet API Pricing (2026) — Cost Per 1M Tokens',
+    title: 'Claude 3.7 Sonnet Pricing (2026) — $3/1M Input, Extended Thinking at $15/1M Output',
     h1: 'Claude 3.7 Sonnet API Pricing',
-    description: 'Claude 3.7 Sonnet pricing: $3/1M input tokens, $15/1M output tokens, $0.3/1M cached tokens. Anthropic model cost analysis.',
-    keywords: ["claude 3.7 sonnet pricing","claude 3.7 sonnet cost","anthropic claude pricing","claude sonnet api price","claude vs gpt pricing 2026"],
+    description: 'Claude 3.7 Sonnet costs $3/1M input and $15/1M output with a 200K context window. Cached input is $0.30/1M (90% discount). Features extended thinking for complex analysis and coding. Compare vs Claude Sonnet 4.6, GPT-4o, and DeepSeek pricing with our cost calculator.',
+    keywords: ["claude 3.7 sonnet pricing","claude 3.7 sonnet cost","anthropic claude pricing","claude sonnet api price","sonnet 3.7 pricing","claude 3.7 sonnet api cost","claude sonnet 3.7 price","anthropic sonnet pricing","claude extended thinking pricing","claude 3.7 sonnet per million tokens"],
   },
   {
     slug: 'claude-3-5-haiku-pricing',
