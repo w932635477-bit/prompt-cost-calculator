@@ -123,7 +123,12 @@ const SEO_KEYWORDS = {
   'claude-3-5-haiku-20241022': ['claude 3.5 haiku pricing', 'claude haiku cost', 'claude cheap model pricing', 'claude 3.5 haiku api price', 'cheapest claude api'],
   'claude-3-opus-20240229': ['claude 3 opus pricing', 'claude opus cost', 'claude expensive model pricing', 'claude opus api price', 'claude opus per million tokens'],
   'claude-3-haiku-20240307': ['claude 3 haiku pricing', 'claude haiku cost', 'claude cheapest model', 'claude haiku api price', 'claude haiku per token'],
-  'gemini-2.0-flash': ['gemini 2.0 flash pricing', 'gemini flash cost', 'google gemini pricing', 'gemini 2.0 flash api price', 'gemini flash cheapest google'],
+  'gemini-2.0-flash': [
+    'gemini 2.0 flash pricing', 'gemini 2.0 flash price', 'gemini 2.0 flash api price',
+    'gemini 2 flash pricing', 'gemini flash cost', 'google gemini 2.0 pricing',
+    'gemini 2.0 flash api cost', 'gemini 2.0 flash cheapest', 'gemini flash 2.0 price',
+    'google gemini flash api pricing',
+  ],
   'gemini-2.0-flash-lite': ['gemini flash lite pricing', 'gemini 2.0 flash lite cost', 'google ai pricing', 'gemini flash lite api', 'cheapest google llm'],
   'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing', 'gemini 1.5 pro api price', 'gemini pro vs flash', 'gemini pro 2m context pricing', 'google gemini pro api cost', 'gemini 1.5 pro per million tokens'],
   'gemini-1.5-flash': ['gemini 1.5 flash pricing', 'gemini flash cost', 'google gemini flash pricing', 'gemini 1.5 flash api', 'gemini flash api cost', 'gemini 1.5 flash per million tokens'],
@@ -152,6 +157,10 @@ const SEO_OVERRIDES = {
   'gemini-1.5-pro': {
     title: 'Gemini 1.5 Pro Pricing (2026) — 2M Context Window at $1.25/1M Input',
     description: 'Gemini 1.5 Pro costs $1.25/1M input and $5/1M output with a 2 million token context window. Cached input is $0.125/1M (90% discount). Best for complex multimodal tasks, long document analysis, and code generation. Compare vs Gemini 1.5 Flash, GPT-4o, and Claude pricing with our cost calculator.',
+  },
+  'gemini-2.0-flash': {
+    title: 'Gemini 2.0 Flash Pricing (2026) — $0.10/1M Input, Google Fastest API',
+    description: 'Gemini 2.0 Flash costs $0.10/1M input and $0.40/1M output with a 1 million token context window. Cached input is $0.025/1M (75% discount). The latest Google Flash model with production-grade rate limits. Compare vs Gemini 1.5 Flash, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
   },
 };
 

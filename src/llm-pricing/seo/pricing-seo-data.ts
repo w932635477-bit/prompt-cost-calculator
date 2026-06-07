@@ -105,10 +105,10 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
   {
     slug: 'gemini-2-0-flash-pricing',
     modelId: 'gemini-2.0-flash',
-    title: 'Gemini 2.0 Flash API Pricing (2026) — Cost Per 1M Tokens',
+    title: 'Gemini 2.0 Flash Pricing (2026) — $0.10/1M Input, Google Fastest API',
     h1: 'Gemini 2.0 Flash API Pricing',
-    description: 'Gemini 2.0 Flash pricing: $0.1/1M input tokens, $0.4/1M output tokens, $0.025/1M cached tokens. Google model cost breakdown.',
-    keywords: ["gemini 2.0 flash pricing","gemini flash cost","google gemini pricing","gemini 2.0 flash api price","gemini flash cheapest google"],
+    description: 'Gemini 2.0 Flash costs $0.10/1M input and $0.40/1M output with a 1 million token context window. Cached input is $0.025/1M (75% discount). The latest Google Flash model with production-grade rate limits. Compare vs Gemini 1.5 Flash, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+    keywords: ["gemini 2.0 flash pricing","gemini 2.0 flash price","gemini 2.0 flash api price","gemini 2 flash pricing","gemini flash cost","google gemini 2.0 pricing","gemini 2.0 flash api cost","gemini 2.0 flash cheapest","gemini flash 2.0 price","google gemini flash api pricing"],
   },
   {
     slug: 'gemini-2-0-flash-lite-pricing',
