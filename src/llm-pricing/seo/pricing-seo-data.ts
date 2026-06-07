@@ -129,9 +129,9 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
   {
     slug: 'gemini-1-5-flash-pricing',
     modelId: 'gemini-1.5-flash',
-    title: 'Gemini 1.5 Flash Pricing (2026) — $0.075/1M Input, Google Cheapest Model',
+    title: 'Gemini 1.5 Flash API Pricing (2026) — $0.075/1M Input, 1M Context, 90% Cache Discount',
     h1: 'Gemini 1.5 Flash API Pricing',
-    description: 'Gemini 1.5 Flash costs $0.075/1M input and $0.30/1M output with a 1 million token context window. Cached input is just $0.0075/1M (90% discount). The cheapest Google Gemini model for fast multimodal tasks, repetitive operations, and high-throughput workloads. Compare Gemini 1.5 Flash vs Pro, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+    description: 'Gemini 1.5 Flash costs $0.075/1M input and $0.30/1M output with a 1 million token context window — 17x cheaper than Gemini 1.5 Pro for input. Cached input is just $0.0075/1M (90% discount). The cheapest and fastest Google Gemini model for multimodal tasks, repetitive operations, and high-throughput workloads. Compare Gemini 1.5 Flash vs Gemini 1.5 Pro, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
     keywords: ["gemini 1.5 flash pricing","gemini 1.5 flash api pricing","google gemini 1.5 flash pricing","gemini flash cost","gemini flash api cost","gemini 1.5 flash api","gemini 1.5 flash per million tokens","gemini 1.5 flash price per token","gemini flash api price","gemini flash cheapest"],
   },
   {
@@ -139,7 +139,7 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
     modelId: 'deepseek-v4-flash',
     title: 'DeepSeek V4 Flash Pricing (2026) — Cheapest LLM API at $0.14/1M Input',
     h1: 'DeepSeek V4 Flash API Pricing',
-    description: 'DeepSeek V4 Flash costs $0.14/1M input and $0.28/1M output — one of the cheapest LLM APIs in 2026. Cached input is just $0.0197/1M (86% discount). Full pricing breakdown, cost calculator, and comparison vs GPT-4o, Claude, and Gemini.',
+    description: 'DeepSeek V4 Flash costs $0.14/1M input and $0.28/1M output, while DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output. Compare both models: Flash is the cheapest LLM API in 2026, Pro offers premium reasoning. Cached input is just $0.0197/1M (86% discount). Full pricing breakdown, cost calculator, and comparison vs GPT-4o, Claude, and Gemini.',
     keywords: ["deepseek v4 flash pricing","deepseek pricing","deepseek cost per token","deepseek flash api cost","cheapest llm api 2026","deepseek flash cheapest model","deepseek v4 flash vs gpt pricing","deepseek flash token price","deepseek api pricing 2026","deepseek v4 flash per million tokens"],
   },
   {
