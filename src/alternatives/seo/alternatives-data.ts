@@ -348,15 +348,16 @@ const _RAW_PAGES: AlternativePage[] = [
       { name: 'GitLab CE', description: 'Full DevOps platform with CI/CD, container registry, and monitoring.', url: 'https://about.gitlab.com', github: 'https://gitlab.com/gitlab-org/gitlab', license: 'MIT', difficulty: 'Hard', docker: true, dockerCommand: 'docker run -d -p 8080:8080 gitlab/gitlab-ce', features: ['Git hosting', 'CI/CD', 'Container registry', 'Monitoring', 'Security scanning', 'Wiki'], scenarioTags: ['small_team', 'enterprise', 'advanced_setup', 'docker_ready', 'cicd', 'collaboration', 'ldap', 'sso', 'api_access', 'monitoring', 'scalable', 'audit_log'] },
       { name: 'Forgejo', description: 'Community-driven Gitea fork focused on sustainability and community governance.', url: 'https://forgejo.org', github: 'https://codeberg.org/forgejo/forgejo', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 3000:3000 codeberg.org/forgejo/forgejo', features: ['Git hosting', 'Pull requests', 'Issues', 'Actions (CI/CD)', 'Packages'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'cicd', 'api_access', 'raspberry_pi'] },
     ],
-    title: 'Self-Hosted GitHub Alternative - Open Source Git Hosting',
+    title: '5 Best Self-Hosted GitHub Alternatives (2026) — Free Open Source Git Servers | No User Limits',
     h1: 'Self-Hosted GitHub Alternatives',
-    description: 'Replace GitHub with self-hosted Git hosting. Compare Gitea, GitLab CE, and Forgejo — no private repo limits, full code ownership.',
-    explanation: 'GitHub charges $4-$21/user/month for teams and your code lives on Microsoft servers. Gitea runs on a $5 VPS or Raspberry Pi with full GitHub-like features. GitLab CE adds enterprise DevOps but requires more resources (4GB+ RAM).',
+    description: 'Replace GitHub with free self-hosted Git hosting in 2026. Compare Gitea (51K+ GitHub stars, runs on Raspberry Pi), GitLab CE (full DevOps with CI/CD), and Forgejo (community-driven fork). No per-user fees, unlimited private repos, full data ownership. Save $4-$21/user/month vs GitHub Teams.',
+    explanation: 'GitHub charges $4-$21/user/month for teams and your code lives on Microsoft servers. Gitea runs on a $5 VPS or Raspberry Pi with full GitHub-like features — 51K+ GitHub stars, MIT licensed, and used by 500K+ self-hosted instances. GitLab CE adds enterprise DevOps (CI/CD, container registry, monitoring) but requires 4GB+ RAM. Forgejo is the community-driven Gitea fork focused on sustainable open governance.',
     faq: [
-      { q: 'Gitea vs GitLab — which should I choose?', a: 'Gitea if you want lightweight and fast (runs on 512MB RAM). GitLab CE if you need built-in CI/CD, container registry, and enterprise features (needs 4GB+ RAM).' },
-      { q: 'Can I migrate GitHub repositories?', a: 'Yes. All three support importing from GitHub including issues, pull requests, and wiki pages.' },
+      { q: 'Gitea vs GitLab vs Forgejo — which should I choose?', a: 'Gitea if you want lightweight and fast (runs on 512MB RAM, perfect for solo devs and small teams). GitLab CE if you need built-in CI/CD, container registry, and enterprise features (needs 4GB+ RAM). Forgejo if you prefer community governance over corporate-controlled open source.' },
+      { q: 'Can I migrate GitHub repositories to a self-hosted alternative?', a: 'Yes. All three (Gitea, GitLab CE, Forgejo) support importing from GitHub including issues, pull requests, wiki pages, and releases. Gitea and Forgejo also support mirroring — automatically syncing with upstream GitHub repos.' },
+      { q: 'How much can I save by self-hosting Git vs GitHub?', a: 'GitHub Teams costs $4/user/month ($48/user/year) and Enterprise is $21/user/month ($252/user/year). A 10-person team pays $480-$2,520/year. Gitea on a $5/month VPS costs $60/year total — saving 88-98% while gaining full data ownership and unlimited private repos.' },
     ],
-    keywords: ['self-hosted github', 'github alternative open source', 'gitea vs gitlab', 'self-hosted git server', 'self-hosted GitHub alternative', 'best open source GitHub alternative', 'free GitHub replacement'],
+    keywords: ['self hosted github alternative', 'github alternative open source', 'gitea vs gitlab', 'self-hosted git server', 'free github replacement', 'best open source github alternative', 'gitea self hosted', 'gitlab ce self hosted', 'forgejo vs gitea', 'self hosted git hosting', 'github alternative no user limit', 'open source code hosting', 'private git server'],
   },
 
   // === Email ===
