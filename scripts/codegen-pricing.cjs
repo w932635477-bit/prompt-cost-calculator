@@ -117,7 +117,11 @@ const SEO_KEYWORDS = {
   'gpt-5.4-mini': ['gpt-5.4 mini pricing', 'gpt-5.4 mini cost', 'gpt-5.4 mini api price', 'gpt-5.4 mini cheapest', 'gpt-5.4 mini vs gpt-4o-mini'],
   'gpt-4o': ['gpt-4o pricing', 'gpt-4o cost', 'gpt-4o api price', 'gpt-4o per million tokens', 'gpt-4o vs gpt-4o-mini', 'gpt-4o token cost'],
   'gpt-4o-mini': ['gpt-4o mini pricing', 'gpt-4o mini cost', 'gpt-4o mini api price', 'gpt-4o mini cheapest openai', 'gpt-4o mini vs deepseek cost'],
-  'o3': ['o3 pricing', 'openai o3 cost', 'o3 api price', 'openai reasoning model pricing', 'o3 vs o4-mini cost', 'openai o3 token price'],
+  'o3': [
+    'o3 pricing', 'openai o3 pricing', 'openai o3 cost', 'o3 api price',
+    'openai reasoning model pricing', 'o3 vs o4-mini cost', 'openai o3 token price',
+    'o3 model pricing 2026', 'openai o3 api cost', 'o3 per million tokens',
+  ],
   'o4-mini': ['o4-mini pricing', 'openai o4-mini cost', 'o4-mini api price', 'o4-mini reasoning pricing', 'o4-mini vs o3', 'o4-mini token cost'],
   'claude-3-7-sonnet-20250219': [
     'claude 3.7 sonnet pricing', 'claude 3.7 sonnet cost', 'anthropic claude pricing',
@@ -170,6 +174,10 @@ const SEO_OVERRIDES = {
   'gemini-2.0-flash': {
     title: 'Gemini 2.0 Flash Pricing (2026) — $0.10/1M Input, Google Fastest API',
     description: 'Gemini 2.0 Flash costs $0.10/1M input and $0.40/1M output with a 1 million token context window. Cached input is $0.025/1M (75% discount). The latest Google Flash model with production-grade rate limits. Compare vs Gemini 1.5 Flash, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+  },
+  'o3': {
+    title: 'OpenAI o3 Pricing (2026) — $2/1M Input, Deep Reasoning Model for STEM',
+    description: 'OpenAI o3 costs $2/1M input and $8/1M output with a 200K context window. Cached input is $0.50/1M (75% discount). Deep reasoning model optimized for STEM problems, math, and complex analysis. Compare o3 vs o4-mini, GPT-5.5, and Claude pricing with our cost calculator.',
   },
 };
 

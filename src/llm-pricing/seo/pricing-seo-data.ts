@@ -57,10 +57,10 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
   {
     slug: 'o3-pricing',
     modelId: 'o3',
-    title: 'o3 API Pricing (2026) — Cost Per 1M Tokens',
+    title: 'OpenAI o3 Pricing (2026) — $2/1M Input, Deep Reasoning Model for STEM',
     h1: 'o3 API Pricing',
-    description: 'o3 pricing: $2/1M input tokens, $8/1M output tokens, $0.5/1M cached tokens. Compare costs for your workload.',
-    keywords: ["o3 pricing","openai o3 cost","o3 api price","openai reasoning model pricing","o3 vs o4-mini cost","openai o3 token price"],
+    description: 'OpenAI o3 costs $2/1M input and $8/1M output with a 200K context window. Cached input is $0.50/1M (75% discount). Deep reasoning model optimized for STEM problems, math, and complex analysis. Compare o3 vs o4-mini, GPT-5.5, and Claude pricing with our cost calculator.',
+    keywords: ["o3 pricing","openai o3 pricing","openai o3 cost","o3 api price","openai reasoning model pricing","o3 vs o4-mini cost","openai o3 token price","o3 model pricing 2026","openai o3 api cost","o3 per million tokens"],
   },
   {
     slug: 'o4-mini-pricing',
