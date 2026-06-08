@@ -73,9 +73,14 @@ export function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="border-t border-[#e8e8ed] py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-[#86868b]">
-            AI Cost Calculator · Free &amp; open source
-          </p>
+          <div className="flex items-center gap-3 text-xs text-[#86868b]">
+            <span>AI Cost Calculator · Free &amp; open source</span>
+            <span className="hidden sm:inline">·</span>
+            <a href="/about/" className="hover:text-[#1d1d1f] transition-colors">About</a>
+            <a href="/privacy-policy/" className="hover:text-[#1d1d1f] transition-colors">Privacy</a>
+            <a href="/terms/" className="hover:text-[#1d1d1f] transition-colors">Terms</a>
+            <a href="/contact/" className="hover:text-[#1d1d1f] transition-colors">Contact</a>
+          </div>
           <p className="text-xs text-[#86868b]">
             Pricing from{' '}
             <a href="https://openai.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">OpenAI</a>,{' '}
