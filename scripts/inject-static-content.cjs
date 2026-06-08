@@ -26,6 +26,109 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;')
 }
 
+/**
+ * Build a "Platform Equivalents" section for cron pages.
+ * Uses the cron expression from seo-data to generate
+ * Quartz, AWS EventBridge, and Kubernetes equivalents.
+ * Adds ~120 words of unique, useful content per page.
+ */
+function buildCronPlatformSection(data) {
+  const expr = data.cron
+  if (!expr) return null
+
+  // Handle @ shortcuts
+  const shortcutMap = {
+    '@yearly':   { unix: '@yearly',   quartz: '0 0 1 1 ?',   aws: 'cron(0 0 1 1 ? *)', k8s: '0 0 1 1 *', vercel: '0 0 1 1 *', gh: '0 0 1 1 *' },
+    '@annually': { unix: '@annually', quartz: '0 0 1 1 ?',   aws: 'cron(0 0 1 1 ? *)', k8s: '0 0 1 1 *', vercel: '0 0 1 1 *', gh: '0 0 1 1 *' },
+    '@monthly':  { unix: '@monthly',  quartz: '0 0 1 * ?',   aws: 'cron(0 0 1 * ? *)', k8s: '0 0 1 * *', vercel: '0 0 1 * *', gh: '0 0 1 * *' },
+    '@weekly':   { unix: '@weekly',   quartz: '0 0 ? * SUN', aws: 'cron(0 0 ? * SUN *)', k8s: '0 0 * * 0', vercel: '0 0 * * 0', gh: '0 0 * * 0' },
+    '@daily':    { unix: '@daily',    quartz: '0 0 * * ?',   aws: 'cron(0 0 * * ? *)', k8s: '0 0 * * *', vercel: '0 0 * * *', gh: '0 0 * * *' },
+    '@midnight': { unix: '@midnight', quartz: '0 0 * * ?',   aws: 'cron(0 0 * * ? *)', k8s: '0 0 * * *', vercel: '0 0 * * *', gh: '0 0 * * *' },
+    '@hourly':   { unix: '@hourly',   quartz: '0 * * * ?',   aws: 'cron(0 * * * ? *)', k8s: '0 * * * *', vercel: '0 * * * *', gh: '0 * * * *' },
+  }
+
+  if (expr.startsWith('@')) {
+    const map = shortcutMap[expr]
+    if (!map) return null
+    const rows = [
+      `<tr><td>Unix / Linux crontab</td><td><code>${escapeHtml(map.unix)}</code></td></tr>`,
+      `<tr><td>Quartz Scheduler (Java)</td><td><code>${escapeHtml(map.quartz)}</code></td></tr>`,
+      `<tr><td>AWS EventBridge</td><td><code>${escapeHtml(map.aws)}</code></td></tr>`,
+      `<tr><td>Kubernetes CronJob</td><td><code>${escapeHtml(map.k8s)}</code></td></tr>`,
+      `<tr><td>Vercel Cron</td><td><code>${escapeHtml(map.vercel)}</code></td></tr>`,
+      `<tr><td>GitHub Actions</td><td><code>${escapeHtml(map.gh)}</code> (UTC)</td></tr>`,
+    ].join('')
+    const tips = `The @ shortcuts are a convenience feature of Vixie Cron (the default cron daemon on most Linux distributions). They translate to standard 5-field expressions internally. Not all platforms support these shortcuts — Quartz, AWS, and Kubernetes require the full expression form. Vercel Cron and GitHub Actions do support some @ shortcuts, but using the explicit 5-field form is more portable across platforms.`
+    return `<section><h2>Platform Equivalents for ${escapeHtml(expr)}</h2><p>The cron shortcut ${escapeHtml(expr)} expands to different expressions on various scheduling platforms:</p><table><thead><tr><th>Platform</th><th>Expression</th></tr></thead><tbody>${rows}</tbody></table><p>${escapeHtml(tips)}</p></section>`
+  }
+
+  const fields = expr.replace(/^cron\(/, '').replace(/\)$/, '').split(/\s+/)
+  if (fields.length < 5) return null
+
+  const [minute, hour, dom, month, dow] = fields
+
+  // Quartz: 7-field, seconds first, ? for conflicting day fields
+  const quartzSec = minute === '*' ? '0' : minute
+  let quartzDow = dow
+  let quartzDom = dom
+  if (dom !== '*' && dow !== '*') {
+    quartzDow = '?'
+  } else if (dom === '*' && dow === '*') {
+    quartzDow = '?'
+  } else if (dow !== '*') {
+    quartzDom = '?'
+  }
+  const quartzExpr = `${quartzSec} ${hour} ${quartzDom} ${month} ${quartzDow}`
+
+  // AWS EventBridge: 6-field, ? for day fields
+  let awsDom = dom
+  let awsDow = dow
+  if (dom !== '*' && dow !== '*') {
+    awsDow = '?'
+  } else if (dom === '*' && dow === '*') {
+    awsDom = '?'
+    awsDow = '*'
+  } else if (dow !== '*') {
+    awsDom = '?'
+  } else {
+    awsDow = '?'
+  }
+  const awsExpr = `cron(${minute} ${hour} ${awsDom} ${month} ${awsDow} *)`
+
+  const k8sExpr = expr
+  const vercelExpr = expr
+  const ghExpr = expr
+
+  const rows = [
+    `<tr><td>Unix / Linux crontab</td><td><code>${escapeHtml(expr)}</code></td></tr>`,
+    `<tr><td>Quartz Scheduler (Java)</td><td><code>${escapeHtml(quartzExpr)}</code></td></tr>`,
+    `<tr><td>AWS EventBridge</td><td><code>${escapeHtml(awsExpr)}</code></td></tr>`,
+    `<tr><td>Kubernetes CronJob</td><td><code>${escapeHtml(k8sExpr)}</code></td></tr>`,
+    `<tr><td>Vercel Cron</td><td><code>${escapeHtml(vercelExpr)}</code></td></tr>`,
+    `<tr><td>GitHub Actions</td><td><code>${escapeHtml(ghExpr)}</code> (UTC)</td></tr>`,
+  ].join('')
+
+  const tips = `Key differences across platforms: Quartz uses 7 fields starting with seconds and supports L (last) and W (weekday) modifiers. AWS EventBridge requires a 6th year field and uses ? instead of * in day fields when the other day field is specified. Kubernetes uses standard 5-field Unix cron. Vercel Cron uses the same format but schedules are defined in vercel.json. GitHub Actions uses standard cron but runs in UTC timezone only, so adjust the hour field for your local timezone offset.`
+
+  return `<section><h2>Platform Equivalents for ${escapeHtml(expr)}</h2><p>The cron expression ${escapeHtml(expr)} has different syntax on various scheduling platforms. Here is the equivalent expression for each:</p><table><thead><tr><th>Platform</th><th>Expression</th></tr></thead><tbody>${rows}</tbody></table><p>${escapeHtml(tips)}</p></section>`
+}
+
+/**
+ * Build a "Getting Started" tips section for cron pages.
+ * Adds ~60 words of practical setup advice.
+ */
+function buildCronTipsSection(data) {
+  const tips = [
+    'Always use full paths to commands and scripts in your crontab, since cron runs with a minimal PATH environment (often just /usr/bin:/bin).',
+    'Redirect output to log files: command >> /var/log/myjob.log 2>&1 to capture errors and prevent cron from emailing you every execution.',
+    'Test your cron expression before deploying — use our validator above or crontab.guru to verify the schedule fires when you expect.',
+    'Set MAILTO="" at the top of your crontab to disable email notifications, or set MAILTO=your@email.com to receive error alerts.',
+    'Use flock or a PID file to prevent overlapping executions for jobs that may take longer than their scheduled interval.',
+  ]
+  const items = tips.map(t => `<li>${escapeHtml(t)}</li>`).join('')
+  return `<section><h2>Getting Started with Cron</h2><p>Follow these tips when setting up cron jobs in production:</p><ul>${items}</ul></section>`
+}
+
 function buildContent(data) {
   const parts = []
 
@@ -145,6 +248,20 @@ function buildContent(data) {
       return `<li><strong>${escapeHtml(q)}</strong><p>${escapeHtml(a)}</p></li>`
     }).join('')
     parts.push(`<section><h2>FAQ</h2><ul>${items}</ul></section>`)
+  }
+
+  // Platform equivalents table for cron pages (including @ shortcuts)
+  if (data.cron && !data.modelId && !data.productA) {
+    const platformSection = buildCronPlatformSection(data)
+    if (platformSection) {
+      parts.push(platformSection)
+    }
+
+    // Cron tips section — adds ~60 words of useful, unique content
+    const tipsSection = buildCronTipsSection(data)
+    if (tipsSection) {
+      parts.push(tipsSection)
+    }
   }
 
   return parts.join('\n')

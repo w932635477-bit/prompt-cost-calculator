@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-07T08:31:42.771Z",
+  "generatedAt": "2026-06-08T02:49:45.712Z",
   "summary": {
-    "totalIndexable": 338,
+    "totalIndexable": 342,
     "totalSubmitted": 225,
-    "coverage": 66.6,
+    "coverage": 65.8,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -161,6 +161,30 @@
     },
     {
       "name": "microsoft-scout-agent",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "about",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "privacy-policy",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "contact",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "terms",
       "total": 1,
       "submitted": 0,
       "remaining": 1
