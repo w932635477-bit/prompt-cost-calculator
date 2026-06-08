@@ -382,6 +382,17 @@ function generateExplanation(model, allModels) {
     `The cost calculator on this page lets you estimate monthly spending based on your actual token usage and call volume.`
   );
 
+  // Paragraph 7: Rate limits and getting started
+  const rateLimitNote = model.rateLimitRpm
+    ? `${name} has a default rate limit of ${model.rateLimitRpm} requests per minute on standard API keys. Higher limits are available on request for production workloads. `
+    : `${provider} applies standard rate limits to ${name} API keys. Check the provider dashboard for your current tier and request higher limits if needed. `;
+  parts.push(
+    rateLimitNote +
+    `To get started, create an API key from the ${provider} developer console, install the provider's SDK (${provider === 'OpenAI' ? 'openai npm package' : provider === 'Anthropic' ? 'anthropic npm package' : provider === 'Google' ? 'google-generativeai npm package' : provider === 'DeepSeek' ? 'openai npm package with base URL override' : 'groq npm package'}), ` +
+    `and make your first API call with a small prompt to verify connectivity and measure actual latency. ` +
+    `Most providers offer a free tier or credits for new accounts — use these to benchmark ${name} against your specific workload before committing to a paid plan.`
+  );
+
   return parts.join(' ');
 }
 
