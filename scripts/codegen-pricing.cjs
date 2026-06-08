@@ -274,6 +274,165 @@ ${modelEntries.join(',\n\n')},
 
 // ── Generate SEO pricing data ─────────────────────────────────────────
 
+function generateDescription(model) {
+  const override = SEO_OVERRIDES[model.id] || {};
+  if (override.description) return override.description;
+
+  const cachePrice = model.cachedInputPricePer1M;
+  const name = model.name;
+  const descParts = [
+    `${name} pricing:`,
+    `${fmtPrice(model.inputPricePer1M)}/1M input tokens,`,
+    `${fmtPrice(model.outputPricePer1M)}/1M output tokens,`,
+  ];
+  if (cachePrice !== undefined) {
+    descParts.push(`${fmtPrice(cachePrice)}/1M cached tokens.`);
+  } else {
+    descParts.push('no cached token discount.');
+  }
+
+  const suffixParts = [];
+  if (model.provider === 'OpenAI') suffixParts.push(model.id.includes('mini') ? 'Budget-friendly' : 'Compare costs for your workload');
+  if (model.provider === 'Anthropic') suffixParts.push(model.id.includes('haiku') ? 'Cheapest Claude' : 'Anthropic model cost analysis');
+  if (model.provider === 'Google') suffixParts.push('Google model cost breakdown');
+  if (model.provider === 'DeepSeek') suffixParts.push(model.id.includes('flash') ? 'One of the cheapest LLM APIs' : 'Premium DeepSeek model');
+  if (model.provider === 'Groq') suffixParts.push('Fastest inference with no cached token discount');
+
+  const suffix = suffixParts[0] ? ` ${suffixParts[0]}.` : '';
+  return descParts.join(' ') + suffix;
+}
+
+function generateExplanation(model, allModels) {
+  const name = model.name;
+  const provider = model.provider;
+  const bestFor = model.bestFor || 'general-purpose tasks';
+  const ctxK = (model.contextWindow / 1000).toFixed(0);
+  const ctxLabel = model.contextWindow >= 1_000_000 ? `${(model.contextWindow / 1_000_000).toFixed(0)}M` : `${ctxK}K`;
+  const cachePrice = model.cachedInputPricePer1M;
+
+  // Find a cheaper competitor from same provider or different provider
+  const cheaper = allModels
+    .filter(m => m.id !== model.id && m.inputPricePer1M < model.inputPricePer1M)
+    .sort((a, b) => b.inputPricePer1M - a.inputPricePer1M)[0];
+  const moreExpensive = allModels
+    .filter(m => m.id !== model.id && m.inputPricePer1M > model.inputPricePer1M)
+    .sort((a, b) => a.inputPricePer1M - b.inputPricePer1M)[0];
+
+  // Monthly cost example: 10K input, 2K output, 1000 calls/day
+  const dailyInput = 10000 * 1000; // tokens
+  const dailyOutput = 2000 * 1000;
+  const monthlyInput = dailyInput * 30;
+  const monthlyOutput = dailyOutput * 30;
+  const monthlyCost = (monthlyInput / 1_000_000) * model.inputPricePer1M + (monthlyOutput / 1_000_000) * model.outputPricePer1M;
+  const monthlyFormatted = monthlyCost < 1 ? `$${monthlyCost.toFixed(2)}` : `$${fmt(monthlyCost)}`;
+
+  const parts = [];
+
+  // Paragraph 1: What this model is and what it costs
+  parts.push(
+    `${name} is ${provider}'s ${model.inputPricePer1M <= 0.5 ? 'budget-friendly' : model.inputPricePer1M <= 3 ? 'mid-range' : 'premium'} model, best suited for ${bestFor.toLowerCase()}. ` +
+    `It costs ${fmtPrice(model.inputPricePer1M)} per 1M input tokens and ${fmtPrice(model.outputPricePer1M)} per 1M output tokens, with a ${ctxLabel} token context window.`
+  );
+
+  // Paragraph 2: Cost example
+  parts.push(
+    `At typical usage (10K input tokens, 2K output tokens per call, 1,000 calls per day), ` +
+    `${name} costs approximately ${monthlyFormatted} per month. ` +
+    (cachePrice !== undefined
+      ? `With prompt caching enabled at a ${Math.round((1 - cachePrice / model.inputPricePer1M) * 100)}% discount, cached input drops to ${fmtPrice(cachePrice)}/1M tokens — significant for applications with repeated system prompts.`
+      : `This model does not offer cached input pricing.`)
+  );
+
+  // Paragraph 3: Comparison context
+  let comparison = '';
+  if (cheaper) {
+    comparison += `For lower costs, ${cheaper.name} (${cheaper.provider}) offers input at ${fmtPrice(cheaper.inputPricePer1M)}/1M`;
+  }
+  if (moreExpensive) {
+    if (comparison) comparison += '. ';
+    comparison += `For higher capability, ${moreExpensive.name} (${moreExpensive.provider}) costs ${fmtPrice(moreExpensive.inputPricePer1M)}/1M input`;
+  }
+  if (comparison) {
+    parts.push(comparison + '.');
+  }
+
+  // Paragraph 4: Use case guidance
+  parts.push(
+    `${model.inputPricePer1M <= 0.5
+      ? `At this price point, ${name} is ideal for high-volume production workloads: classification, extraction, summarization, and chatbots where cost per query matters more than peak intelligence.`
+      : model.inputPricePer1M <= 3
+      ? `${name} sits in the sweet spot between cost and capability. Use it for production features that need reliable quality — coding assistance, content generation, data analysis, and multi-step reasoning — without paying premium model rates.`
+      : `${name} is designed for tasks where quality justifies the cost: complex reasoning, nuanced analysis, professional-grade writing, and challenging coding problems. For routine tasks, consider cheaper alternatives in the same provider lineup.`
+    }`
+  );
+
+  // Paragraph 5: Per-request cost breakdown
+  const costPer1kInput = (model.inputPricePer1M / 1000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+  const costPer1kOutput = (model.outputPricePer1M / 1000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+  parts.push(
+    `On a per-request basis, sending 1,000 input tokens to ${name} costs $${costPer1kInput}, and generating 1,000 output tokens costs $${costPer1kOutput}. ` +
+    `A typical chatbot exchange (500 tokens in, 300 tokens out) runs about $${((model.inputPricePer1M * 500 + model.outputPricePer1M * 300) / 1_000_000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '')} per message. ` +
+    `At scale, small per-request cost differences compound quickly — a model that costs 2x more per token costs 2x more at any volume.`
+  );
+
+  // Paragraph 6: Pricing transparency note
+  parts.push(
+    `All pricing shown here is sourced from ${provider}'s official pricing page and verified regularly. ` +
+    `LLM providers may change pricing without notice. Always confirm current rates on the provider's website before making purchasing decisions. ` +
+    `The cost calculator on this page lets you estimate monthly spending based on your actual token usage and call volume.`
+  );
+
+  return parts.join(' ');
+}
+
+function generateFaq(model) {
+  const name = model.name;
+  const cachePrice = model.cachedInputPricePer1M;
+  const ctxK = (model.contextWindow / 1000).toFixed(0);
+  const ctxLabel = model.contextWindow >= 1_000_000 ? `${(model.contextWindow / 1_000_000).toFixed(0)}M` : `${ctxK}K`;
+
+  const faq = [
+    {
+      q: `How much does ${name} cost per 1M tokens?`,
+      a: `${name} costs ${fmtPrice(model.inputPricePer1M)} per 1M input tokens and ${fmtPrice(model.outputPricePer1M)} per 1M output tokens.` +
+        (cachePrice !== undefined ? ` Cached input tokens are available at ${fmtPrice(cachePrice)} per 1M, a ${Math.round((1 - cachePrice / model.inputPricePer1M) * 100)}% discount.` : ''),
+    },
+    {
+      q: `Is ${name} cheap or expensive?`,
+      a: model.inputPricePer1M <= 0.5
+        ? `${name} is one of the more affordable LLM APIs at ${fmtPrice(model.inputPricePer1M)}/1M input tokens. It competes with other budget models for high-volume workloads.`
+        : model.inputPricePer1M <= 3
+        ? `${name} is mid-range at ${fmtPrice(model.inputPricePer1M)}/1M input tokens. It balances cost and capability for production use.`
+        : `${name} is a premium model at ${fmtPrice(model.inputPricePer1M)}/1M input tokens. Use it for tasks where quality justifies the cost.`,
+    },
+    {
+      q: `What is the context window of ${name}?`,
+      a: `${name} supports a context window of ${ctxLabel} tokens. This determines how much text you can send in a single API call — including system prompts, conversation history, and the actual query.`,
+    },
+  ];
+
+  if (cachePrice !== undefined) {
+    const savings = Math.round((1 - cachePrice / model.inputPricePer1M) * 100);
+    faq.push({
+      q: `Does ${name} support prompt caching?`,
+      a: `Yes. ${model.provider} offers cached input at ${fmtPrice(cachePrice)}/1M tokens — a ${savings}% discount over the base input price. This helps with repeated system prompts and few-shot examples.`,
+    });
+  }
+
+  faq.push({
+    q: `How to reduce ${name} API costs?`,
+    a: `Three strategies: (1) Enable prompt caching if your provider supports it — savings of up to 90% on repeated input. (2) Route simple queries to cheaper models. (3) Reduce output tokens with concise instructions.`,
+  });
+
+  const perReqCost = ((model.inputPricePer1M * 500 + model.outputPricePer1M * 300) / 1_000_000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+  faq.push({
+    q: `How much does one ${name} API call cost?`,
+    a: `A typical request with 500 input tokens and 300 output tokens costs approximately $${perReqCost}. The exact cost depends on your prompt length and desired response length. Use the cost calculator above to estimate for your specific usage pattern.`,
+  });
+
+  return faq;
+}
+
 function generateSeoPricing(models) {
   const seoPages = [];
 
@@ -283,43 +442,21 @@ function generateSeoPricing(models) {
 
     const override = SEO_OVERRIDES[model.id] || {};
     const keywords = SEO_KEYWORDS[model.id] || [];
-    const cachePrice = model.cachedInputPricePer1M;
     const name = model.name;
     const h1Name = `${name} API Pricing`;
     const title = override.title || `${name} API Pricing (2026) — Cost Per 1M Tokens`;
-
-    let description;
-    if (override.description) {
-      description = override.description;
-    } else {
-      const descParts = [
-        `${name} pricing:`,
-        `${fmtPrice(model.inputPricePer1M)}/1M input tokens,`,
-        `${fmtPrice(model.outputPricePer1M)}/1M output tokens,`,
-      ];
-      if (cachePrice !== undefined) {
-        descParts.push(`${fmtPrice(cachePrice)}/1M cached tokens.`);
-      } else {
-        descParts.push('no cached token discount.');
-      }
-
-      const suffixParts = [];
-      if (model.provider === 'OpenAI') suffixParts.push(model.id.includes('mini') ? 'Budget-friendly' : 'Compare costs for your workload');
-      if (model.provider === 'Anthropic') suffixParts.push(model.id.includes('haiku') ? 'Cheapest Claude' : 'Anthropic model cost analysis');
-      if (model.provider === 'Google') suffixParts.push('Google model cost breakdown');
-      if (model.provider === 'DeepSeek') suffixParts.push(model.id.includes('flash') ? 'One of the cheapest LLM APIs' : 'Premium DeepSeek model');
-      if (model.provider === 'Groq') suffixParts.push('Fastest inference with no cached token discount');
-
-      const suffix = suffixParts[0] ? ` ${suffixParts[0]}.` : '';
-      description = descParts.join(' ') + suffix;
-    }
+    const description = generateDescription(model);
+    const explanation = generateExplanation(model, models);
+    const faq = generateFaq(model);
 
     seoPages.push(`  {
     slug: '${slug}',
     modelId: '${model.id}',
     title: '${title}',
     h1: '${h1Name}',
-    description: '${description}',
+    description: '${escapeStr(description)}',
+    explanation: '${escapeStr(explanation)}',
+    faq: ${JSON.stringify(faq)},
     keywords: ${JSON.stringify(keywords)},
   }`);
   }
@@ -336,6 +473,8 @@ export interface PricingSeoPage {
   title: string
   h1: string
   description: string
+  explanation: string
+  faq: { q: string; a: string }[]
   keywords: string[]
 }
 
@@ -343,6 +482,10 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
 ${seoPages.join(',\n')},
 ]
 `;
+}
+
+function escapeStr(s) {
+  return s.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 }
 
 // ── Main ──────────────────────────────────────────────────────────────
