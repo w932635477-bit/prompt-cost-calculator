@@ -1,32 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 
-const TOOLS = [
-  { name: 'AI Cost Calculator', path: '/' },
-  { name: 'Cron Generator', path: '/cron-generator/' },
-  { name: 'Cron Patterns', path: '/cron-generator/common-patterns/' },
-  { name: 'Cron Validator', path: '/cron-validator/' },
-  { name: 'Self-Hosted Alternatives', path: '/alternatives/' },
-  { name: 'Notes Finder', path: '/finder/notes/' },
-  { name: 'Chat Finder', path: '/finder/chat/' },
-  { name: 'Productivity Finder', path: '/finder/productivity/' },
-  { name: 'Free Photos', path: '/photos/' },
-  { name: 'Compare', path: '/compare/' },
-  { name: 'Docker Deploy', path: '/deploy/' },
-  { name: 'Voice Pricing', path: '/voice-agent-pricing/' },
-  { name: 'Token Tracker', path: '/token-tracker/' },
-  { name: 'Token Counter', path: '/token-counter/' },
-  { name: 'Token Optimizer', path: '/token-optimizer/' },
-  { name: 'CSP Generator', path: '/csp-generator/' },
-  { name: 'Cache Calculator', path: '/prompt-cache-calculator/' },
-  { name: 'MCP Servers', path: '/mcp-servers/' },
-  { name: 'PII Redactor', path: '/pii-redactor/' },
-  { name: 'Env Scanner', path: '/env-scanner/' },
-  { name: 'Dep Shield', path: '/dep-shield/' },
-  { name: 'Agent Security', path: '/ai-agent-security/' },
-  { name: 'Agent Data Access', path: '/ai-agent-data-access/' },
-  { name: 'Agent Safety', path: '/agent-safety/' },
-  { name: 'AI Code Review', path: '/ai-code-review/' },
+const TOP_TOOLS = [
+  { name: 'Cost Calculator', path: '/' },
   { name: 'LLM Pricing', path: '/llm-pricing/' },
+  { name: 'Cron Generator', path: '/cron-generator/' },
 ]
 
 const NAV_CATEGORIES = [
@@ -73,6 +50,7 @@ const NAV_CATEGORIES = [
       { name: 'Agent Security', path: '/ai-agent-security/' },
       { name: 'Agent Data Access', path: '/ai-agent-data-access/' },
       { name: 'Agent Safety', path: '/agent-safety/' },
+      { name: 'Local LLM Privacy', path: '/local-llm-privacy/' },
       { name: 'AI Code Review', path: '/ai-code-review/' },
     ],
   },
@@ -115,41 +93,71 @@ function ChevronIcon({ open }: { open: boolean }) {
   )
 }
 
+function NavDropdown({ category, current, onClose }: { category: typeof NAV_CATEGORIES[0]; current: string; onClose: () => void }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined)
+
+  const handleEnter = () => {
+    clearTimeout(timeoutRef.current)
+    setOpen(true)
+  }
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150)
+  }
+
+  // Close on click outside
+  useEffect(() => {
+    if (!open) return
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [open])
+
+  return (
+    <div ref={ref} className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+      <button
+        onClick={() => setOpen(!open)}
+        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors flex items-center gap-1 ${
+          open ? 'text-[#1d1d1f] bg-[#f5f5f7]' : 'text-[#86868b] hover:text-[#1d1d1f]'
+        }`}
+      >
+        {category.title}
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>
+          <polyline points="1.5,3 4,5.5 6.5,3" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.12)] border border-[#e8e8ed] py-1.5 z-50">
+          {category.tools.map(tool => (
+            <a
+              key={tool.path}
+              href={tool.path}
+              className={`block px-3 py-2 text-sm transition-colors ${
+                tool.path === current
+                  ? 'text-[#0071E3] font-medium bg-[#0071E3]/5'
+                  : 'text-[#1d1d1f] hover:bg-[#f5f5f7]'
+              }`}
+              onClick={onClose}
+            >
+              {tool.name}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export function GlobalNav({ current }: { current: string }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openCategory, setOpenCategory] = useState<string | null>(null)
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(false)
-
-  const checkScroll = () => {
-    const el = scrollRef.current
-    if (!el) return
-    setCanScrollLeft(el.scrollLeft > 4)
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4)
-  }
-
-  useEffect(() => {
-    checkScroll()
-    const el = scrollRef.current
-    if (!el) return
-    el.addEventListener('scroll', checkScroll, { passive: true })
-    window.addEventListener('resize', checkScroll)
-    return () => {
-      el.removeEventListener('scroll', checkScroll)
-      window.removeEventListener('resize', checkScroll)
-    }
-  }, [])
-
-  // Scroll active item into view on mount
-  useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
-    const activeLink = el.querySelector<HTMLAnchorElement>('a[data-active="true"]')
-    if (activeLink) {
-      activeLink.scrollIntoView({ inline: 'center', behavior: 'instant' })
-    }
-  }, [])
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -178,41 +186,39 @@ export function GlobalNav({ current }: { current: string }) {
             <HamburgerIcon open={mobileOpen} />
           </button>
 
-          {/* Desktop nav with scroll fade */}
-          <div className="hidden md:flex items-center flex-1 min-w-0 relative">
-            {/* Left fade */}
-            {canScrollLeft && (
-              <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white/80 to-transparent z-10 pointer-events-none" />
-            )}
-            <div
-              ref={scrollRef}
-              className="flex items-center gap-0.5 overflow-x-auto scrollbar-hide"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {TOOLS.map(tool => (
-                <a
-                  key={tool.path}
-                  href={tool.path}
-                  data-active={tool.path === current}
-                  className={`px-2.5 py-1.5 rounded-md text-xs whitespace-nowrap transition-colors ${
-                    tool.path === current
-                      ? 'text-[#1d1d1f] font-semibold'
-                      : 'text-[#86868b] hover:text-[#1d1d1f]'
-                  }`}
-                >
-                  {tool.name}
-                </a>
-              ))}
-            </div>
-            {/* Right fade */}
-            {canScrollRight && (
-              <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white/80 to-transparent z-10 pointer-events-none" />
-            )}
+          {/* Desktop nav: top tools + category dropdowns */}
+          <div className="hidden md:flex items-center gap-1 flex-1 min-w-0">
+            {/* Brand */}
+            <a href="/" className="text-xs font-semibold text-[#1d1d1f] mr-3 shrink-0 tracking-tight">
+              aicalc
+            </a>
+
+            {/* Top tools (always visible) */}
+            {TOP_TOOLS.map(tool => (
+              <a
+                key={tool.path}
+                href={tool.path}
+                className={`px-2.5 py-1.5 rounded-md text-xs whitespace-nowrap transition-colors ${
+                  tool.path === current
+                    ? 'text-[#1d1d1f] font-semibold'
+                    : 'text-[#86868b] hover:text-[#1d1d1f]'
+                }`}
+              >
+                {tool.name}
+              </a>
+            ))}
+
+            <span className="w-px h-4 bg-[#e8e8ed] mx-1" />
+
+            {/* Category dropdowns */}
+            {NAV_CATEGORIES.map(cat => (
+              <NavDropdown key={cat.title} category={cat} current={current} onClose={() => {}} />
+            ))}
           </div>
 
           {/* Mobile: current page label */}
           <span className="md:hidden text-sm font-medium text-[#1d1d1f] truncate flex-1 text-center">
-            {TOOLS.find(t => t.path === current)?.name || 'AI Cost Calculator'}
+            {NAV_CATEGORIES.flatMap(c => c.tools).find(t => t.path === current)?.name || 'AI Cost Calculator'}
           </span>
 
           {/* Spacer for mobile to balance hamburger */}
