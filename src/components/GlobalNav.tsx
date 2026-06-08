@@ -41,6 +41,13 @@ const NAV_CATEGORIES = [
     ],
   },
   {
+    title: 'Testing',
+    tools: [
+      { name: 'Strategy Picker', path: '/testing-strategy-picker/' },
+      { name: 'AI Code Review', path: '/ai-code-review/' },
+    ],
+  },
+  {
     title: 'Security',
     tools: [
       { name: 'PII Redactor', path: '/pii-redactor/' },

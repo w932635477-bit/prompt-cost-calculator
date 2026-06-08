@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-08T06:55:18.240Z",
+  "generatedAt": "2026-06-08T13:17:58.513Z",
   "summary": {
-    "totalIndexable": 343,
+    "totalIndexable": 347,
     "totalSubmitted": 225,
-    "coverage": 65.6,
+    "coverage": 64.8,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -53,6 +53,12 @@
     },
     {
       "name": "cron-validator",
+      "total": 4,
+      "submitted": 0,
+      "remaining": 4
+    },
+    {
+      "name": "testing-strategy-picker",
       "total": 4,
       "submitted": 0,
       "remaining": 4

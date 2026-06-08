@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing Strategy Picker — Find the Right Testing Approach for Your Project</title>
+    <meta name="description" content="Answer 5 questions about your project type, team size, stage, risk priority, and budget. Get a personalized testing pyramid with prioritized test layers and tool recommendations in 30 seconds." />
+    <meta name="keywords" content="testing strategy picker, software testing strategy, testing pyramid, unit test, integration test, e2e test, performance test, security test, testing tools recommender, which testing framework" />
+    <link rel="canonical" href="https://aicalc.cloud/testing-strategy-picker/" />
+    <meta property="og:title" content="Testing Strategy Picker — Find the Right Testing Approach" />
+    <meta property="og:description" content="Answer 5 questions, get a personalized testing pyramid with tool recommendations. Free, no login required." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/testing-strategy-picker/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="https://aicalc.cloud/og-image.png" />
+    <meta name="twitter:image" content="https://aicalc.cloud/og-image.png" />
+    <meta name="twitter:title" content="Testing Strategy Picker" />
+    <meta name="twitter:description" content="Answer 5 questions, get a personalized testing pyramid. Free, no login." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Testing Strategy Picker",
+      "url": "https://aicalc.cloud/testing-strategy-picker/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How does this picker work?","acceptedAnswer":{"@type":"Answer","text":"It asks 5 questions about your project (type, team size, stage, risk priority, budget), then generates a personalized testing strategy with prioritized test layers and recommended tools."}},
+        {"@type":"Question","name":"Are the recommended tools free?","acceptedAnswer":{"@type":"Answer","text":"Most are free and open-source (MIT, Apache-2.0). A few like Snyk and Chromatic have freemium models. Select Zero budget to filter for completely free tools."}},
+        {"@type":"Question","name":"What is a testing pyramid?","acceptedAnswer":{"@type":"Answer","text":"A testing strategy organizes tests in layers: unit tests (many, fast) at the base, integration tests in the middle, and E2E tests (fewer, slower) at the top. Additional layers like performance, security, and accessibility tests are added based on your project needs."}},
+        {"@type":"Question","name":"Should I implement all layers at once?","acceptedAnswer":{"@type":"Answer","text":"No. Start with critical layers for your stage. For an MVP, unit tests are often enough. Add layers as your project grows and your risk profile changes."}},
+        {"@type":"Question","name":"How are priorities determined?","acceptedAnswer":{"@type":"Answer","text":"Priorities come from three factors: your project stage (MVP needs fewer layers), your risk priority (what scares you most gets boosted), and your project type (APIs need different tests than mobile apps)."}},
+        {"@type":"Question","name":"Can I use this for a team project?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select your team size and the recommendations adjust. Larger teams get more emphasis on integration tests, E2E tests, and CI/CD integration."}}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/testing-strategy/main.tsx"></script>
+  </body>
+</html>
