@@ -1,0 +1,40 @@
+# aicalc.cloud
+> Free developer tools for AI cost calculation, cron scheduling, security scanning, and self-hosted software discovery. 25 tools, all free, no login, no API keys. All tools run client-side in your browser.
+
+## Core Tools
+- / — AI Prompt Cost Calculator: Compare LLM API pricing across 25 models (GPT-5.5, Claude 3.7 Sonnet, Gemini 2.0 Flash, DeepSeek V4). Calculate costs per 1M tokens for any prompt.
+- /cron-generator/ — Cron Expression Generator: Visual cron builder with natural language input. Supports Unix crontab, Quartz (Java/Spring), AWS EventBridge. Preview next 10 execution times.
+- /cron-validator/ — Cron Expression Validator: Parse and validate cron syntax across Unix, Quartz, Kubernetes, and AWS EventBridge formats.
+- /llm-pricing/ — LLM Pricing Comparison: Side-by-side pricing for all major AI model providers.
+- /token-counter/ — Token Counter: Count tokens for any text across OpenAI (tiktoken), Claude, Gemini models.
+- /token-tracker/ — AI Token Cost Tracker: Estimate monthly costs for chatbots, RAG pipelines, AI agents, and coding assistants.
+- /prompt-cache-calculator/ — Prompt Cache Calculator: Calculate savings from OpenAI and Anthropic prompt caching.
+- /voice-agent-pricing/ — Voice Agent Pricing: Compare voice AI providers (Twilio, Deepgram, ElevenLabs) costs per minute.
+
+## Security Tools
+- /env-scanner/ — .env Security Scanner: Detect leaked API keys, database URLs, auth tokens, SSH keys, JWT tokens. 6 detection categories. Zero network requests — fully client-side.
+- /pii-redactor/ — PII Redactor: Remove personally identifiable information from text. Runs in browser, no data sent anywhere.
+- /csp-generator/ — CSP Header Generator: Visual Content-Security-Policy builder with presets and report-only mode.
+- /dep-shield/ — Dependency Vulnerability Scanner: Check npm packages against OSV database. Shows CVEs and fix commands.
+- /ai-agent-security/ — AI Agent Security Scanner: 17-rule security checklist for AI agents with scoring system.
+- /ai-agent-data-access/ — AI Agent Data Access Guide: Security best practices for agent data handling.
+- /agent-safety/ — AI Agent Safety Checker: Safety evaluation framework for AI agents.
+- /ai-code-review/ — AI Code Review Checklist: Security-focused code review checklist for AI-generated code.
+- /local-llm-privacy/ — Local LLM Privacy Probe: Check local model configurations for privacy risks.
+- /token-optimizer/ — Token Optimizer: Reduce token usage with benchmark comparisons.
+
+## Directories
+- /alternatives/ — Self-Hosted Alternatives: 42 open-source replacements for SaaS tools (Slack, Notion, Google Drive, Jira, etc.)
+- /compare/ — Tool Comparisons: Head-to-head comparisons of open-source software (Obsidian vs Notion, Jellyfin vs Plex, etc.)
+- /deploy/ — Docker Deploy Guides: Step-by-step self-hosting instructions with docker-compose examples.
+- /mcp-servers/ — MCP Server Directory: Curated Model Context Protocol servers for Claude Desktop and Cursor (10 servers with install configs).
+- /finder/notes/ — Notes App Finder: Find the best note-taking app for your needs.
+- /finder/chat/ — Chat App Finder: Find the best self-hosted chat platform.
+- /finder/productivity/ — Productivity Tool Finder: 15-tool recommendation engine.
+- /photos/ — Free Stock Photos: Search Unsplash for free stock photos.
+
+## Data
+LLM pricing updated weekly from official provider pages (OpenAI, Anthropic, Google, DeepSeek, Groq). All calculations run client-side. No data sent to any server.
+
+## About
+Built by an indie developer. MIT licensed. Pricing data sourced from official provider pages.
