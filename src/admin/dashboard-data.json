@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-08T02:49:45.712Z",
+  "generatedAt": "2026-06-08T02:55:26.526Z",
   "summary": {
-    "totalIndexable": 342,
+    "totalIndexable": 343,
     "totalSubmitted": 225,
-    "coverage": 65.8,
+    "coverage": 65.6,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -161,6 +161,12 @@
     },
     {
       "name": "microsoft-scout-agent",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "sitemap",
       "total": 1,
       "submitted": 0,
       "remaining": 1

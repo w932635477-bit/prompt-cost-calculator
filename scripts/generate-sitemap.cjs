@@ -84,6 +84,7 @@ const allUrls = [
   { loc: BASE_URL + '/token-optimizer/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/aider-tutorial/', priority: '0.85', changefreq: 'monthly' },
   { loc: BASE_URL + '/microsoft-scout-agent/', priority: '0.85', changefreq: 'monthly' },
+  { loc: BASE_URL + '/sitemap/', priority: '0.6', changefreq: 'weekly' },
   { loc: BASE_URL + '/about/', priority: '0.5', changefreq: 'monthly' },
   { loc: BASE_URL + '/privacy-policy/', priority: '0.5', changefreq: 'monthly' },
   { loc: BASE_URL + '/contact/', priority: '0.5', changefreq: 'monthly' },
