@@ -42,6 +42,7 @@ gsc-oauth-credentials*.json
 .gsc-oauth-token*.json
 gsc-indexing-token*.json
 .gsc-indexing-token*.json
+gsc-indexing-*-c*.json
 
 # Internal scripts (not for public repo)
 capture-competitors.mjs
