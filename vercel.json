@@ -87,6 +87,10 @@
     { "source": "/dep-shield/:slug/", "destination": "/dep-shield/:slug/index.html" },
     { "source": "/dep-shield/:slug", "destination": "/dep-shield/:slug/index.html" },
     { "source": "/ai-agent-security/:slug/", "destination": "/ai-agent-security/:slug/index.html" },
-    { "source": "/ai-agent-security/:slug", "destination": "/ai-agent-security/:slug/index.html" }
+    { "source": "/ai-agent-security/:slug", "destination": "/ai-agent-security/:slug/index.html" },
+    { "source": "/sitemap", "destination": "/sitemap/index.html" },
+    { "source": "/sitemap/", "destination": "/sitemap/index.html" },
+    { "source": "/cron-validator/:slug/", "destination": "/cron-validator/:slug/index.html" },
+    { "source": "/cron-validator/:slug", "destination": "/cron-validator/:slug/index.html" }
   ]
 }
