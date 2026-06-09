@@ -9,6 +9,28 @@ import { projectMonthlyCost, formatCost } from './calc'
 import type { CostParams } from './calc'
 
 const ALL_MODELS = pricing.models as ModelPricing[]
+
+// Map model IDs to their SEO page slugs for internal linking
+const MODEL_SLUGS: Record<string, string> = {
+  'gpt-5.5': 'gpt-5-5-pricing',
+  'gpt-5.4': 'gpt-5-4-pricing',
+  'gpt-5.4-mini': 'gpt-5-4-mini-pricing',
+  'gpt-4o': 'gpt-4o-pricing',
+  'gpt-4o-mini': 'gpt-4o-mini-pricing',
+  'o3': 'o3-pricing',
+  'o4-mini': 'o4-mini-pricing',
+  'claude-3.7-sonnet-20250219': 'claude-3-7-sonnet-pricing',
+  'claude-3-5-haiku-20241022': 'claude-3-5-haiku-pricing',
+  'claude-3-opus-20240229': 'claude-3-opus-pricing',
+  'claude-3-haiku-20240307': 'claude-3-haiku-pricing',
+  'gemini-2.0-flash': 'gemini-2-0-flash-pricing',
+  'gemini-2.0-flash-lite': 'gemini-2-0-flash-lite-pricing',
+  'gemini-1.5-pro': 'gemini-1-5-pro-pricing',
+  'gemini-1.5-flash': 'gemini-1-5-flash-pricing',
+  'deepseek-v4-flash': 'deepseek-v4-flash-pricing',
+  'deepseek-v4-pro': 'deepseek-v4-pro-pricing',
+  'llama-4-maverick': 'llama-4-maverick-pricing',
+}
 import { useState } from 'react'
 
 interface SeoPageData {
@@ -89,6 +111,11 @@ export default function SeoPricingPage() {
           </div>
         </div>
 
+        {/* DeepSeek API Quick Start — only for deepseek models */}
+        {model.id.startsWith('deepseek') && (
+          <DeepSeekQuickStart modelId={model.id} />
+        )}
+
         {/* Cost calculator */}
         <ModelCostCalculator model={model} />
 
@@ -114,10 +141,13 @@ export default function SeoPricingPage() {
                   <td className="text-right py-2.5 px-4">{model.cachedInputPricePer1M != null ? `$${model.cachedInputPricePer1M.toFixed(4)}` : '—'}</td>
                   <td className="text-right py-2.5 pl-4">{(model.contextWindow / 1000).toFixed(0)}K</td>
                 </tr>
-                {competitors.map(c => (
+                {competitors.map(c => {
+                  const slug = MODEL_SLUGS[c.id]
+                  const href = slug ? `/llm-pricing/${slug}/` : '/llm-pricing/'
+                  return (
                   <tr key={c.id} className="border-b border-[#e8e8ed] hover:bg-[#f5f5f7] transition-colors">
                     <td className="py-2.5 pr-4">
-                      <a href={`/llm-pricing/`} className="text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
+                      <a href={href} className="text-[#1d1d1f] hover:text-[#0071e3] transition-colors">
                         {c.provider} {c.name}
                       </a>
                     </td>
@@ -126,7 +156,8 @@ export default function SeoPricingPage() {
                     <td className="text-right py-2.5 px-4">{c.cachedInputPricePer1M != null ? `$${c.cachedInputPricePer1M.toFixed(4)}` : '—'}</td>
                     <td className="text-right py-2.5 pl-4">{(c.contextWindow / 1000).toFixed(0)}K</td>
                   </tr>
-                ))}
+                  )
+                })}
               </tbody>
             </table>
           </div>
@@ -265,4 +296,65 @@ function generateFAQ(m: ModelPricing) {
     })
   }
   return faq
+}
+
+function DeepSeekQuickStart({ modelId }: { modelId: string }) {
+  const isFlash = modelId === 'deepseek-v4-flash'
+  const modelName = isFlash ? 'DeepSeek V4 Flash' : 'DeepSeek V4 Pro'
+
+  return (
+    <div className="bg-white rounded-2xl p-6 shadow-sm">
+      <h2 className="text-xl font-semibold mb-4">DeepSeek API Quick Start</h2>
+
+      <p className="text-sm text-[#86868b] mb-4">
+        {modelName} uses the OpenAI-compatible API format. Switch your base URL and keep your existing SDK code.
+      </p>
+
+      <div className="bg-gray-900 rounded-lg p-4 mb-6 overflow-x-auto">
+        <pre className="text-sm text-green-400 font-mono whitespace-pre"><code>{`import OpenAI from 'openai'
+
+const client = new OpenAI({
+  baseURL: 'https://api.deepseek.com',
+  apiKey: process.env.DEEPSEEK_API_KEY,
+})
+
+const response = await client.chat.completions.create({
+  model: '${isFlash ? 'deepseek-chat' : 'deepseek-reasoner'}',
+  messages: [{ role: 'user', content: 'Hello' }],
+})`}</code></pre>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div className="bg-[#f5f5f7] rounded-xl p-4">
+          <h3 className="font-semibold text-sm mb-2">When to use V4 Flash</h3>
+          <ul className="text-sm text-[#86868b] space-y-1">
+            <li>• Chatbots and Q&A at scale</li>
+            <li>• Document classification</li>
+            <li>• Summarization pipelines</li>
+            <li>• Translation and extraction</li>
+            <li>• Budget-conscious production apps</li>
+          </ul>
+        </div>
+        <div className="bg-[#f5f5f7] rounded-xl p-4">
+          <h3 className="font-semibold text-sm mb-2">When to use V4 Pro</h3>
+          <ul className="text-sm text-[#86868b] space-y-1">
+            <li>• Complex reasoning tasks</li>
+            <li>• Code generation and debugging</li>
+            <li>• Multi-step analysis</li>
+            <li>• Math and science problems</li>
+            <li>• When quality matters more than cost</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="text-xs text-[#86868b] border-t border-[#e8e8ed] pt-3">
+        DeepSeek API is compatible with the <code className="bg-[#f5f5f7] px-1 rounded">openai</code> npm package.
+        Set <code className="bg-[#f5f5f7] px-1 rounded">baseURL: &apos;https://api.deepseek.com&apos;</code> and use your DeepSeek API key.
+        Get a key at{' '}
+        <a href="https://platform.deepseek.com" target="_blank" rel="noopener noreferrer" className="text-[#0071e3] underline">
+          platform.deepseek.com
+        </a>.
+      </div>
+    </div>
+  )
 }
