@@ -8,6 +8,34 @@ import { CopyButton } from './components/CopyButton'
 import { useState } from 'react'
 import type { Dialect } from './lib/types'
 
+const FIELD_LABELS: Record<string, string> = {
+  '0': 'At minute 0 (top of the hour)',
+  '5': 'Friday',
+  '6': 'Saturday',
+  '0,6': 'Sunday and Saturday',
+  '1-5': 'Monday through Friday',
+}
+
+function getFieldMeaning(fieldName: string, value: string): string {
+  if (value === '*') {
+    const labels: Record<string, string> = { 'Minute': 'Every minute', 'Hour': 'Every hour', 'Day of Month': 'Every day', 'Month': 'Every month', 'Day of Week': 'Every day' }
+    return labels[fieldName] || 'Every'
+  }
+  if (fieldName === 'Minute') return `At minute ${value}`
+  if (fieldName === 'Hour') {
+    const h = parseInt(value, 10)
+    if (isNaN(h)) return value
+    if (h === 0) return 'At midnight (00:00)'
+    if (h === 12) return 'At noon (12:00)'
+    if (h < 12) return `At ${h}:00 AM`
+    return `At ${h - 12}:00 PM`
+  }
+  if (fieldName === 'Day of Week') return FIELD_LABELS[value] || `Day ${value}`
+  if (fieldName === 'Day of Month') return `On day ${value}`
+  if (fieldName === 'Month') return `In month ${value}`
+  return value
+}
+
 export function LongTailPage({ page }: { page: LongTailPageData }) {
   const [dialect, setDialect] = useState<Dialect>('unix')
   const fields = page.cron.split(/\s+/)
@@ -74,13 +102,93 @@ export function LongTailPage({ page }: { page: LongTailPageData }) {
           )}
         </div>
 
+        {/* Field Breakdown Table */}
+        {isValid && fields.length === 5 && (
+          <section className="mb-8">
+            <h2 className="text-[17px] font-semibold text-slate-900 mb-4">Field Breakdown</h2>
+            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden">
+              <table className="w-full text-[13px]">
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50/60">
+                    <th className="text-left py-2.5 px-5 font-medium text-slate-500">Field</th>
+                    <th className="text-center py-2.5 px-4 font-medium text-slate-500">Value</th>
+                    <th className="text-left py-2.5 px-5 font-medium text-slate-500">Meaning</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {['Minute', 'Hour', 'Day of Month', 'Month', 'Day of Week'].map((name, i) => (
+                    <tr key={name} className={i < 4 ? 'border-b border-slate-100' : ''}>
+                      <td className="py-2.5 px-5 text-slate-700">{name}</td>
+                      <td className="py-2.5 px-4 text-center"><code className="text-[13px] font-semibold text-slate-900 bg-slate-100 px-2 py-0.5 rounded" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{fields[i]}</code></td>
+                      <td className="py-2.5 px-5 text-slate-600">{getFieldMeaning(name, fields[i])}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* Code Examples */}
+        {page.codeExamples && page.codeExamples.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-[17px] font-semibold text-slate-900 mb-4">Copy-Paste Examples</h2>
+            <div className="space-y-2.5">
+              {page.codeExamples.map(ex => (
+                <div key={ex.label} className="bg-slate-900 rounded-xl p-4 flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <div className="text-[11px] text-slate-400 mb-1.5 font-medium">{ex.label}</div>
+                    <code className="text-[13px] text-green-400 font-mono break-all" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{ex.code}</code>
+                  </div>
+                  <CopyButton text={ex.code} />
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Common Use Cases */}
+        {page.useCases && page.useCases.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-[17px] font-semibold text-slate-900 mb-4">Common Use Cases</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {page.useCases.map(uc => (
+                <div key={uc.title} className="bg-white rounded-xl border border-slate-200/80 p-4">
+                  <div className="text-[14px] font-medium text-slate-800 mb-1">{uc.title}</div>
+                  <div className="text-[13px] text-slate-500">{uc.description}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* SEO Explanation */}
-        <section className="mb-10">
+        <section className="mb-8">
           <h2 className="text-[17px] font-semibold text-slate-900 mb-4">Explanation</h2>
           <div className="text-[14px] text-slate-600 leading-relaxed bg-white rounded-xl border border-slate-200/80 p-5 sm:p-6">
             {page.explanation}
           </div>
         </section>
+
+        {/* Related Schedules */}
+        {page.relatedPages && page.relatedPages.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-[17px] font-semibold text-slate-900 mb-4">Related Schedules</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {page.relatedPages.map(rp => (
+                <a
+                  key={rp.url}
+                  href={rp.url}
+                  className="flex items-center gap-3 bg-white rounded-xl border border-slate-200/80 p-4 hover:border-blue-300 hover:shadow-sm transition-[border-color,box-shadow] group"
+                >
+                  <code className="text-[12px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded shrink-0" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{rp.cron}</code>
+                  <span className="text-[13px] font-medium text-slate-700 group-hover:text-blue-600 transition-colors">{rp.label}</span>
+                  <span className="ml-auto text-slate-300 group-hover:text-blue-400 shrink-0" aria-hidden="true">→</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* SEO FAQ */}
         {page.faq.length > 0 && (
