@@ -218,7 +218,10 @@ export default function ComparePageComponent() {
 
         {/* FAQ */}
         <div className="mb-10">
-          <h2 className="text-2xl font-semibold text-[#1d1d1f] tracking-tight mb-6">Frequently Asked Questions</h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-semibold text-[#1d1d1f] tracking-tight">Frequently Asked Questions</h2>
+            <span className="text-xs text-[#86868b]">Last updated: June 2026</span>
+          </div>
           <div className="space-y-3">
             {data.faq.map((item, i) => (
               <details key={i} className="group bg-white rounded-2xl shadow-sm overflow-hidden">

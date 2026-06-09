@@ -67,6 +67,16 @@ for (const page of COMPARE_PAGES) {
     ]
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Compare", "item": BASE_URL + "/compare/" },
+      { "@type": "ListItem", "position": 3, "name": page.productA.name + " vs " + page.productB.name, "item": BASE_URL + "/compare/" + page.slug + "/" },
+    ]
+  };
+
   const html = \`<!doctype html>
 <html lang="en">
   <head>
@@ -98,6 +108,9 @@ for (const page of COMPARE_PAGES) {
     </script>
     <script type="application/ld+json">
     \${JSON.stringify(compareSchema)}
+    </script>
+    <script type="application/ld+json">
+    \${JSON.stringify(breadcrumbSchema)}
     </script>
   </head>
   <body>
