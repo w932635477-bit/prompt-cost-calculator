@@ -98,6 +98,20 @@ export default function LongTailAltPage() {
           <p className="text-gray-700 leading-relaxed">{data.explanation}</p>
         </section>
 
+        {data.quickDecision && data.quickDecision.length > 0 && (
+          <section className="bg-blue-50 rounded-xl border border-blue-200 p-6 mb-6">
+            <h2 className="text-lg font-semibold text-blue-900 mb-3">Quick Decision Guide</h2>
+            <div className="space-y-2">
+              {data.quickDecision.map(item => (
+                <div key={item.choose} className="flex items-start gap-2 text-sm">
+                  <span className="font-semibold text-blue-800 shrink-0">Choose {item.choose} if</span>
+                  <span className="text-blue-700">{item.reason}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="space-y-4 mb-8">
           <h2 className="text-2xl font-bold text-gray-900">Top {data.saasName} Alternatives</h2>
           {data.alternatives.map(alt => {
