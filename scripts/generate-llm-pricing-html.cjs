@@ -29,32 +29,42 @@ for (const page of PRICING_SEO_PAGES) {
   mkdirSync(dir, { recursive: true });
 
   const modelName = page.h1.replace(' API Pricing', '');
-  const faqSchema = [
-    {
-      "@type": "Question",
-      "name": \`How much does \${modelName} cost per 1M tokens?\`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": \`See the full pricing breakdown at \${BASE_URL}/llm-pricing/\${page.slug}/ — includes input, output, and cached token pricing with a cost calculator.\`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": \`What is the context window of \${modelName}?\`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": \`The context window varies by model. Visit \${BASE_URL}/llm-pricing/\${page.slug}/ for the latest specifications and a side-by-side pricing table.\`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": \`Does \${modelName} support prompt caching?\`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": \`Most LLM providers offer prompt caching at a discount. Check \${BASE_URL}/llm-pricing/\${page.slug}/ for the latest cached token pricing and savings calculator.\`
-      }
-    },
-  ];
+
+  // Use actual FAQ data from pricing-seo-data.ts for rich JSON-LD answers
+  const faqSchema = (page.faq || []).map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }));
+
+  // BreadcrumbList schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+      { "@type": "ListItem", "position": 2, "name": "LLM Pricing", "item": BASE_URL + "/llm-pricing/" },
+      { "@type": "ListItem", "position": 3, "name": page.h1, "item": BASE_URL + "/llm-pricing/" + page.slug + "/" },
+    ]
+  };
+
+  // SoftwareApplication schema
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": modelName,
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Cloud API",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": page.description
+    }
+  };
 
   const html = \`<!doctype html>
 <html lang="en">
@@ -84,6 +94,12 @@ for (const page of PRICING_SEO_PAGES) {
       "@type": "FAQPage",
       "mainEntity": \${JSON.stringify(faqSchema)}
     }
+    </script>
+    <script type="application/ld+json">
+    \${JSON.stringify(breadcrumbSchema)}
+    </script>
+    <script type="application/ld+json">
+    \${JSON.stringify(softwareSchema)}
     </script>
   </head>
   <body>

@@ -85,7 +85,14 @@ export default function SeoPricingPage() {
       <GlobalNav current="/llm-pricing/" />
 
       <header className="max-w-[980px] mx-auto px-4 pt-12 pb-6">
-        <a href="/llm-pricing/" className="text-[#0071e3] text-sm hover:underline">← All Models</a>
+        {/* Breadcrumb */}
+        <nav className="text-[12px] text-[#86868b] mb-2" aria-label="Breadcrumb">
+          <a href="/" className="hover:text-[#0071E3]">Home</a>
+          <span className="mx-1.5">/</span>
+          <a href="/llm-pricing/" className="hover:text-[#0071E3]">LLM Pricing</a>
+          <span className="mx-1.5">/</span>
+          <span className="text-[#1d1d1f]">{pageData.h1.replace(' API Pricing', '')}</span>
+        </nav>
         <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mt-4">{pageData.h1}</h1>
         <p className="text-lg text-[#86868b] mt-2">{model.provider} · {model.name}</p>
         {model.bestFor && (
@@ -163,6 +170,9 @@ export default function SeoPricingPage() {
           </div>
         </div>
 
+        {/* DeepSeek V4 Flash vs Pro comparison — only for deepseek models */}
+        {model.id === 'deepseek-v4-flash' && <DeepSeekVsSection />}
+
         {/* FAQ */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h2 className="text-xl font-semibold mb-4">{model.name} FAQ</h2>
@@ -177,7 +187,11 @@ export default function SeoPricingPage() {
               </details>
             ))}
           </div>
+          <p className="text-xs text-[#86868b]/60 mt-4">Last updated: June 2026</p>
         </div>
+
+        {/* Related Model Pricing Pages */}
+        <RelatedModelLinks currentModelId={model.id} />
 
         {/* CTA */}
         <div className="text-center py-4">
@@ -296,6 +310,85 @@ function generateFAQ(m: ModelPricing) {
     })
   }
   return faq
+}
+
+const DEEPSEEK_VS_DATA = [
+  { metric: 'Input Price', flash: '$0.14/1M', pro: '$0.435/1M', note: 'Flash is 3.1× cheaper' },
+  { metric: 'Output Price', flash: '$0.28/1M', pro: '$0.87/1M', note: 'Flash is 3.1× cheaper' },
+  { metric: 'Cached Input', flash: '$0.0197/1M', pro: '$0.0036/1M', note: 'Pro cache is 82% cheaper' },
+  { metric: 'Context Window', flash: '1M tokens', pro: '1M tokens', note: 'Same' },
+  { metric: 'Best For', flash: 'Chatbots, classification, summarization', pro: 'Complex reasoning, coding, analysis' },
+  { metric: 'Use When', flash: 'Cost matters more than peak quality', pro: 'Quality matters more than cost' },
+]
+
+function DeepSeekVsSection() {
+  return (
+    <div className="bg-white rounded-2xl p-6 shadow-sm">
+      <h2 className="text-xl font-semibold mb-4">DeepSeek V4 Flash vs V4 Pro — Which to Choose?</h2>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-[#e8e8ed]">
+              <th className="text-left py-2 pr-4 font-medium text-[#86868b]">Metric</th>
+              <th className="text-center py-2 px-4 font-medium text-[#30d158]">V4 Flash</th>
+              <th className="text-center py-2 px-4 font-medium text-[#0071e3]">V4 Pro</th>
+              <th className="text-left py-2 pl-4 font-medium text-[#86868b]">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {DEEPSEEK_VS_DATA.map(row => (
+              <tr key={row.metric} className="border-b border-[#e8e8ed]">
+                <td className="py-2.5 pr-4 font-medium">{row.metric}</td>
+                <td className="text-center py-2.5 px-4">{row.flash}</td>
+                <td className="text-center py-2.5 px-4">{row.pro}</td>
+                <td className="text-xs text-[#86868b] py-2.5 pl-4">{row.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="text-xs text-[#86868b] mt-3">
+        V4 Flash is 97% cheaper than GPT-5.5 on input tokens. For most production workloads, Flash delivers the best price-performance ratio.
+        Compare <a href="/llm-pricing/deepseek-v4-pro-pricing/" className="text-[#0071e3] hover:underline">DeepSeek V4 Pro pricing</a> for the full breakdown.
+      </p>
+    </div>
+  )
+}
+
+const RELATED_MODELS: Record<string, { label: string; slug: string }[]> = {
+  'deepseek-v4-flash': [
+    { label: 'DeepSeek V4 Pro', slug: 'deepseek-v4-pro-pricing' },
+    { label: 'GPT-4o Mini', slug: 'gpt-4o-mini-pricing' },
+    { label: 'Gemini 2.0 Flash', slug: 'gemini-2-0-flash-pricing' },
+    { label: 'Claude 3.5 Haiku', slug: 'claude-3-5-haiku-pricing' },
+    { label: 'Gemini 1.5 Flash', slug: 'gemini-1-5-flash-pricing' },
+    { label: 'O4 Mini', slug: 'o4-mini-pricing' },
+  ],
+  'deepseek-v4-pro': [
+    { label: 'DeepSeek V4 Flash', slug: 'deepseek-v4-flash-pricing' },
+    { label: 'GPT-5.4', slug: 'gpt-5-4-pricing' },
+    { label: 'Claude 3.7 Sonnet', slug: 'claude-3-7-sonnet-pricing' },
+    { label: 'Gemini 2.0 Flash', slug: 'gemini-2-0-flash-pricing' },
+    { label: 'GPT-4o', slug: 'gpt-4o-pricing' },
+    { label: 'O3', slug: 'o3-pricing' },
+  ],
+}
+
+function RelatedModelLinks({ currentModelId }: { currentModelId: string }) {
+  const related = RELATED_MODELS[currentModelId]
+  if (!related || related.length === 0) return null
+  return (
+    <div className="bg-white rounded-2xl p-6 shadow-sm">
+      <h2 className="text-lg font-semibold mb-3">Related Model Pricing</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        {related.map(m => (
+          <a key={m.slug} href={`/llm-pricing/${m.slug}/`}
+            className="text-sm text-[#0071e3] hover:underline py-1.5 px-3 rounded-lg hover:bg-[#f5f5f7] transition-colors"
+          >{m.label}</a>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 function DeepSeekQuickStart({ modelId }: { modelId: string }) {
