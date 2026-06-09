@@ -35,7 +35,7 @@ const ACCOUNTS = [
   {
     name: 'acct1-service-account',
     type: 'sa',
-    credsPath: path.join(os.homedir(), 'Downloads', 'gsc-indexing-497309-c9c682ceec78.json'),
+    credsPath: path.join(os.homedir(), '.gsc', 'service-account.json'),
   },
   {
     name: 'acct2-oauth',

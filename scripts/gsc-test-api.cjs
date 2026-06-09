@@ -6,7 +6,7 @@ const path = require('path')
 const os = require('os')
 const { google } = require('googleapis')
 
-const KEY_FILE = process.env.GSC_KEY_FILE || path.join(os.homedir(), 'Downloads', 'gsc-indexing-497309-c9c682ceec78.json')
+const KEY_FILE = process.env.GSC_KEY_FILE || path.join(os.homedir(), '.gsc', 'service-account.json')
 const SITE_URL = 'https://aicalc.cloud/'
 
 async function main() {

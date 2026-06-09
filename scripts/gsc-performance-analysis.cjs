@@ -8,7 +8,7 @@ const path = require('path')
 const os = require('os')
 const { google } = require('googleapis')
 
-const KEY_FILE = process.env.GSC_KEY_FILE || path.join(os.homedir(), 'Downloads', 'gsc-indexing-497309-c9c682ceec78.json')
+const KEY_FILE = process.env.GSC_KEY_FILE || path.join(os.homedir(), '.gsc', 'service-account.json')
 
 const DAYS = parseInt(process.env.DAYS || '28', 10)
 const endDate = new Date(Date.now() - 2 * 86400 * 1000).toISOString().slice(0, 10) // GSC 数据延迟约 2 天
