@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-10T01:41:00.035Z",
+  "generatedAt": "2026-06-10T02:23:59.980Z",
   "summary": {
-    "totalIndexable": 349,
+    "totalIndexable": 350,
     "totalSubmitted": 225,
-    "coverage": 64.5,
+    "coverage": 64.3,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -17,9 +17,9 @@
     },
     {
       "name": "alternatives",
-      "total": 43,
+      "total": 44,
       "submitted": 0,
-      "remaining": 43
+      "remaining": 44
     },
     {
       "name": "deploy",

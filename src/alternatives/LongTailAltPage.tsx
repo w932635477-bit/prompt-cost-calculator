@@ -35,6 +35,7 @@ const RELATED: Record<string, string[]> = {
   'gmail': ['mailchimp'],
   'confluence': ['notion', 'wordpress-com'],
   'docmost': ['notion', 'confluence', 'obsidian'],
+  'logseq': ['notion', 'obsidian', 'evernote'],
   'airtable': ['notion'],
   'google-analytics': ['datadog'],
   'salesforce': ['zendesk', 'mailchimp'],

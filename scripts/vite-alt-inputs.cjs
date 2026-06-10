@@ -7,6 +7,7 @@ module.exports = {
   'alt-lt-onedrive': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/onedrive/index.html'),
   'alt-lt-notion': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/notion/index.html'),
   'alt-lt-evernote': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/evernote/index.html'),
+  'alt-lt-logseq': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/logseq/index.html'),
   'alt-lt-slack': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/slack/index.html'),
   'alt-lt-discord': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/discord/index.html'),
   'alt-lt-zoom': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/zoom/index.html'),

@@ -156,6 +156,35 @@ const _RAW_PAGES: AlternativePage[] = [
     keywords: ['self-hosted evernote', 'evernote alternative open source', 'joplin vs evernote', 'self-hosted notes', 'self-hosted Evernote alternative', 'best open source Evernote alternative', 'free Evernote replacement'],
   },
 
+  {
+    slug: 'logseq',
+    saasName: 'Logseq',
+    category: 'Note-Taking',
+    icon: '🔗',
+    alternatives: [
+      { name: 'Joplin', description: 'Full-featured Markdown note-taking with WebDAV/S3 sync, E2E encryption, and web clipper.', url: 'https://joplinapp.org', github: 'https://github.com/laurent22/joplin', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 22300:22300 joplin/server', features: ['Markdown', 'Web clipper', 'E2E encryption', 'Tags', 'Notebooks', 'Mobile apps'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'e2e_encryption', 'mobile_app', 'desktop_app', 'api_access'] },
+      { name: 'SiYuan', description: 'Block-level referencing knowledge base with graph view, SQL query, and self-hosted sync.', url: 'https://b3log.org/siyuan/', github: 'https://github.com/siyuan-note/siyuan', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 6806:6806 b3log/siyuan', features: ['Block reference', 'Graph view', 'SQL query', 'Template', 'PDF annotation', 'S3/WebDAV sync'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'wiki', 'desktop_app', 'mobile_app', 'api_access'] },
+      { name: 'Trilium Notes', description: 'Hierarchical note-taking with scripting, relation maps, and cloned subtrees.', url: 'https://github.com/zadam/trilium', github: 'https://github.com/zadam/trilium', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 8080:8080 zadam/trilium', features: ['Tree structure', 'Scripting', 'Relation maps', 'Book notes', 'Image compression'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'lightweight', 'wiki', 'desktop_app', 'raspberry_pi'] },
+      { name: 'Standard Notes', description: 'Privacy-focused notes with E2E encryption, self-hosted server, and extensions.', url: 'https://standardnotes.com', github: 'https://github.com/standardnotes/app', license: 'GPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3000:3000 standardnotes/server', features: ['E2E encryption', 'Passcode lock', 'Extensions', 'Tagging', 'Offline access', 'Self-hosted sync'], scenarioTags: ['solo_dev', 'intermediate', 'docker_ready', 'e2e_encryption', 'mobile_app', 'desktop_app'] },
+    ],
+    title: 'Self-Hosted Logseq Alternative - Open Source Knowledge Base & Note-Taking',
+    h1: 'Self-Hosted Logseq Alternatives',
+    description: 'Replace Logseq with self-hosted open source alternatives. Compare Joplin, SiYuan, Trilium Notes, and Standard Notes — graph view, local-first sync, E2E encryption, no subscription.',
+    explanation: 'Logseq is a powerful outliner and knowledge graph tool, but it lacks a self-hosted web version and its sync server is not yet available. If you need web-based access, self-hosted sync, or E2E encryption, alternatives offer these features today. Joplin is the most mature with full sync server support. SiYuan is the closest Logseq alternative with block references and graph view. Trilium excels at hierarchical organization. Standard Notes prioritizes privacy with E2E encryption.',
+    faq: [
+      { q: 'What is the closest alternative to Logseq?', a: 'SiYuan is the closest match with block-level referencing, graph view, and Markdown support. It also has a self-hosted sync server, which Logseq lacks.' },
+      { q: 'Can I import Logseq data into alternatives?', a: 'Yes. Since Logseq stores notes as plain Markdown files, most alternatives (Joplin, SiYuan, Trilium) can import them directly. SiYuan also supports Org-mode files.' },
+      { q: 'Which alternative is best for a self-hosted web app?', a: 'Trilium Notes and Joplin Server both provide web-based access. SiYuan also has a Docker-based server mode for browser access.' },
+    ],
+    keywords: ['logseq alternative', 'self-hosted logseq', 'logseq alternative self hosted', 'joplin vs logseq', 'siyuan vs logseq', 'open source knowledge base', 'self-hosted Logseq alternative', 'best open source Logseq alternative', 'logseq web self hosted', 'logseq replacement open source'],
+    quickDecision: [
+      { choose: 'SiYuan', reason: 'you want block references and graph view like Logseq with self-hosted sync' },
+      { choose: 'Joplin', reason: 'you need mobile apps, web clipper, and E2E encryption' },
+      { choose: 'Trilium Notes', reason: 'you prefer hierarchical tree structure over outliner' },
+      { choose: 'Standard Notes', reason: 'privacy is your top priority and you need guaranteed E2E encryption' },
+    ],
+  },
+
   // === Communication ===
   {
     slug: 'slack',
