@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import type { AlternativePage } from './seo/alternatives-data'
 import { ALTERNATIVE_PAGES } from './seo/alternatives-data'
 import { COMPARE_PAGES } from '../compare/seo/compare-data'
+import ToolFinderCard from './finder/ToolFinderCard'
 
 function getSeoData(): AlternativePage | null {
   const el = document.getElementById('seo-data')
@@ -111,6 +112,10 @@ export default function LongTailAltPage() {
             </div>
           </section>
         )}
+
+        <div className="max-w-xl mb-6">
+          <ToolFinderCard />
+        </div>
 
         <section className="space-y-4 mb-8">
           <h2 className="text-2xl font-bold text-gray-900">Top {data.saasName} Alternatives</h2>

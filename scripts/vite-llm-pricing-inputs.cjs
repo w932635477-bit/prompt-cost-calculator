@@ -19,5 +19,7 @@ module.exports = {
   'pricing-lt-gemini-1-5-flash-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-1-5-flash-pricing/index.html'),
   'pricing-lt-deepseek-v4-flash-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/deepseek-v4-flash-pricing/index.html'),
   'pricing-lt-deepseek-v4-pro-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/deepseek-v4-pro-pricing/index.html'),
+  'pricing-lt-gemini-2-5-flash-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-2-5-flash-pricing/index.html'),
+  'pricing-lt-gemini-2-5-flash-lite-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-2-5-flash-lite-pricing/index.html'),
   'pricing-lt-llama-4-maverick-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/llama-4-maverick-pricing/index.html')
 }

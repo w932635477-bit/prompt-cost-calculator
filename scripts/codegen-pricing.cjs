@@ -109,6 +109,8 @@ const SEO_SLUG_MAP = {
   'deepseek-v4-flash': 'deepseek-v4-flash-pricing',
   'deepseek-v4-pro': 'deepseek-v4-pro-pricing',
   'llama-4-maverick': 'llama-4-maverick-pricing',
+  'gemini-2-5-flash': 'gemini-2-5-flash-pricing',
+  'gemini-2-5-flash-lite': 'gemini-2-5-flash-lite-pricing',
 };
 
 const SEO_KEYWORDS = {
@@ -154,6 +156,13 @@ const SEO_KEYWORDS = {
   ],
   'deepseek-v4-pro': ['deepseek v4 pro pricing', 'deepseek pro cost', 'deepseek api pricing', 'deepseek v4 pro vs flash', 'deepseek pro api price', 'deepseek pro per million tokens'],
   'llama-4-maverick': ['llama 4 maverick pricing', 'groq pricing', 'groq api cost', 'llama 4 groq pricing', 'llama 4 maverick api price', 'groq llama cost'],
+  'gemini-2-5-flash': [
+    'gemini 2.5 flash pricing', 'gemini 2.5 flash cost', 'gemini 2.5 flash api price',
+    'google gemini 2.5 pricing', 'gemini 2.5 flash per million tokens',
+    'gemini 2.5 flash api cost', 'gemini 2.5 flash token price',
+    'gemini 2.5 pricing per token', 'gemini 2.5 pro pricing',
+  ],
+  'gemini-2-5-flash-lite': ['gemini 2.5 flash lite pricing', 'gemini 2.5 flash lite cost', 'cheapest gemini api', 'gemini flash lite api price', 'google ai cheapest model'],
 };
 
 // Per-model SEO overrides for richer titles and descriptions.
@@ -187,6 +196,14 @@ const SEO_OVERRIDES = {
   'o3': {
     title: 'OpenAI o3 Pricing (2026) — $2/1M Input, Deep Reasoning Model for STEM',
     description: 'OpenAI o3 costs $2/1M input and $8/1M output with a 200K context window. Cached input is $0.50/1M (75% discount). Deep reasoning model optimized for STEM problems, math, and complex analysis. Compare o3 vs o4-mini, GPT-5.5, and Claude pricing with our cost calculator.',
+  },
+  'gemini-2-5-flash': {
+    title: 'Gemini 2.5 Flash Pricing (2026) — $0.30/1M Input, 1M Context',
+    description: 'Gemini 2.5 Flash costs $0.30/1M input and $2.50/1M output with a 1 million token context window. The newest Google Flash model with improved reasoning. Compare Gemini 2.5 Flash vs Gemini 2.0 Flash, GPT-4o, and DeepSeek pricing with our cost calculator.',
+  },
+  'gemini-2-5-flash-lite': {
+    title: 'Gemini 2.5 Flash-Lite Pricing (2026) — $0.10/1M Input, Budget Google AI',
+    description: 'Gemini 2.5 Flash-Lite costs $0.10/1M input and $0.40/1M output with a 1M context window. The cheapest Gemini 2.5 model for high-volume workloads. Compare vs Gemini 2.0 Flash-Lite and other budget LLM APIs.',
   },
 };
 

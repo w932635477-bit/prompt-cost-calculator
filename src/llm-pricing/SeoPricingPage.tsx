@@ -30,6 +30,8 @@ const MODEL_SLUGS: Record<string, string> = {
   'deepseek-v4-flash': 'deepseek-v4-flash-pricing',
   'deepseek-v4-pro': 'deepseek-v4-pro-pricing',
   'llama-4-maverick': 'llama-4-maverick-pricing',
+  'gemini-2-5-flash': 'gemini-2-5-flash-pricing',
+  'gemini-2-5-flash-lite': 'gemini-2-5-flash-lite-pricing',
 }
 import { useState } from 'react'
 
