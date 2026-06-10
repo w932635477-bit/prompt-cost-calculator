@@ -44,5 +44,8 @@ module.exports = {
   'alt-lt-vaultwarden': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/vaultwarden/index.html'),
   'alt-lt-docmost': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/docmost/index.html'),
   'alt-lt-obsidian': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/obsidian/index.html'),
-  'alt-lt-semrush': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/semrush/index.html')
+  'alt-lt-semrush': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/semrush/index.html'),
+  'alt-lt-immich': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/immich/index.html'),
+  'alt-lt-uptime-kuma': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/uptime-kuma/index.html'),
+  'alt-lt-scribus': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'alternatives/scribus/index.html')
 }

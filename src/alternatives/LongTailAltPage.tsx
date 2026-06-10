@@ -43,6 +43,9 @@ const RELATED: Record<string, string[]> = {
   'zendesk': ['salesforce', 'slack'],
   'google-photos': ['spotify'],
   'zapier': ['slack', 'mailchimp'],
+  'immich': ['google-photos', 'navidrome'],
+  'uptime-kuma': ['datadog', 'google-analytics'],
+  'scribus': ['figma', 'wordpress-com'],
 }
 
 function CopyButton({ text }: { text: string }) {

@@ -978,6 +978,85 @@ const _RAW_PAGES: AlternativePage[] = [
     ],
     keywords: ['free semrush alternative', 'semrush free alternative', 'free seo tools 2026', 'semrush replacement free', 'free keyword research tool', 'free site audit tool', 'ahrefs webmaster tools free', 'open source seo tool', 'free backlink checker'],
   },
+
+  // === Photo Management ===
+  {
+    slug: 'immich',
+    saasName: 'Google Photos (Immich)',
+    category: 'Photo Management',
+    icon: '📸',
+    alternatives: [
+      { name: 'Immich', description: 'Self-hosted Google Photos alternative with ML-powered face recognition, map view, and mobile apps. Actively developed with frequent releases.', url: 'https://immich.app', github: 'https://github.com/immich-app/immich', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker compose up -d', features: ['Face recognition', 'Map view', 'Mobile apps', 'Timeline view', 'Album sharing', 'Search', 'Backup'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'docker_ready', 'mobile_app', 'sharing', 'backup', 'scalable', 'e2e_encryption'] },
+      { name: 'PhotoPrism', description: 'AI-powered photo management with automatic tagging, face detection, and world map. Works well on Raspberry Pi.', url: 'https://photoprism.app', github: 'https://github.com/photoprism/photoprism', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker compose up -d', features: ['AI tagging', 'Face detection', 'World map', 'Albums', 'Full-text search', 'Live Photos'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'raspberry_pi', 'search', 'backup'] },
+      { name: 'Nextcloud Memories', description: 'Photo management addon for Nextcloud with timeline view, face recognition, and album support. Best if you already use Nextcloud.', url: 'https://apps.nextcloud.com/apps/memories', github: 'https://github.com/pulsejet/memories', license: 'AGPL-3.0', difficulty: 'Medium', docker: false, features: ['Timeline view', 'Face recognition', 'Albums', 'Map view', 'Video support', 'Nextcloud integration'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'sharing', 'collaboration', 'mobile_app'] },
+      { name: 'Lychee', description: 'Lightweight photo management with a clean UI. Fast setup, great for simple photo sharing.', url: 'https://lycheeorg.github.io', github: 'https://github.com/LycheeOrg/Lychee', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 80:80 lycheeorg/lychee', features: ['Albums', 'Sharing', 'EXIF data', 'Tagging', 'Import from URL'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'lightweight', 'sharing'] },
+      { name: 'Ente Photos', description: 'End-to-end encrypted photo storage with mobile and desktop apps. Open source alternative to Google Photos with zero-knowledge privacy.', url: 'https://ente.io', github: 'https://github.com/ente-io/ente', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, features: ['E2E encryption', 'Mobile apps', 'Desktop app', 'Face recognition', 'Albums', 'Map view'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'e2e_encryption', 'zero_knowledge', 'mobile_app', 'desktop_app', 'backup'] },
+      { name: 'Pigallery2', description: 'Fast directory-first photo gallery. Browses your existing folder structure with map, search, and face recognition.', url: 'https://bpatrik.github.io/pigallery2', github: 'https://github.com/bpatrik/pigallery2', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 80:80 bpatrik/pigallery2', features: ['Directory browsing', 'Map view', 'Face recognition', 'Search', 'Video playback', 'Sharing'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'lightweight', 'search'] },
+    ],
+    title: 'Self-Hosted Immich & Google Photos Alternative — 6 Open Source Tools (2026)',
+    h1: 'Self-Hosted Immich & Google Photos Alternatives',
+    description: 'Compare 6 self-hosted alternatives to Google Photos: Immich, PhotoPrism, Nextcloud Memories, Lychee, Ente Photos, and Pigallery2. Face recognition, map view, mobile apps.',
+    explanation: 'Google Photos charges $1.99/month for 100GB and scans your photos for advertising. Immich is the most popular self-hosted alternative with face recognition, map view, and native mobile apps — essentially a privacy-first Google Photos clone. PhotoPrism is lighter and runs on Raspberry Pi. For maximum privacy, Ente Photos offers end-to-end encryption.',
+    faq: [
+      { q: 'Is Immich a good Google Photos replacement?', a: 'Yes. Immich is the closest self-hosted alternative to Google Photos. It has mobile apps for iOS and Android, automatic backup, face recognition, map view, and album sharing. It is actively developed with frequent releases.' },
+      { q: 'Which self-hosted photo app is easiest to set up?', a: 'Lychee is the simplest — single Docker container, no database config. PhotoPrism is also beginner-friendly with its docker-compose setup. Immich requires more containers but offers the most features.' },
+      { q: 'Can I run a self-hosted photo app on Raspberry Pi?', a: 'PhotoPrism and Pigallery2 both run well on Raspberry Pi 4+. Immich requires more resources (recommended 4GB RAM minimum).' },
+      { q: 'Which option has the best mobile app?', a: 'Immich has the most polished mobile apps with automatic background upload. Ente Photos also has excellent mobile apps with E2E encryption.' },
+    ],
+    keywords: ['immich alternative self hosted', 'self-hosted google photos', 'immich self hosted', 'photoprism vs immich', 'self-hosted photo gallery', 'open source photo management', 'immich docker', 'google photos alternative open source'],
+  },
+
+  // === Monitoring ===
+  {
+    slug: 'uptime-kuma',
+    saasName: 'Uptime Robot / Pingdom',
+    category: 'Monitoring',
+    icon: '📡',
+    alternatives: [
+      { name: 'Uptime Kuma', description: 'Beautiful self-hosted uptime monitor with status pages, multi-protocol checks (HTTP, TCP, DNS, MQTT), and 90+ notification services.', url: 'https://uptime.kuma.pet', github: 'https://github.com/louislam/uptime-kuma', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 3001:3001 louislam/uptime-kuma', features: ['HTTP monitoring', 'TCP monitoring', 'DNS monitoring', 'Status pages', '90+ notifications', 'Certificate monitoring', 'Multi-language'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'monitoring', 'high_availability', 'web_only'] },
+      { name: 'Gatus', description: 'YAML-configured health dashboard with minimal resource usage. Ideal for developers who prefer config files over GUI.', url: 'https://github.com/TwiN/gatus', github: 'https://github.com/TwiN/gatus', license: 'Apache-2.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -p 8080:8080 twinproduction/gatus', features: ['YAML config', 'Health dashboard', 'REST/GraphQL/TCP checks', 'Alerting', 'Low resource usage', 'Custom conditions'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'monitoring', 'api_access', 'cli'] },
+      { name: 'Cabot', description: 'Self-hosted monitoring with Grafana integration, alerting rules, and simple Django-based web UI.', url: 'https://cabotapp.com', github: 'https://github.com/arachnys/cabot', license: 'MIT', difficulty: 'Medium', docker: true, features: ['HTTP monitoring', 'Graphite integration', 'Jenkins integration', 'Alerting', 'Django admin', 'Metrics'], scenarioTags: ['small_team', 'enterprise', 'intermediate', 'docker_ready', 'monitoring', 'cicd'] },
+      { name: 'Statping', description: 'Modern status page generator with built-in monitoring. Creates beautiful status pages automatically.', url: 'https://statping.com', github: 'https://github.com/statping/ng-statping', license: 'GPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 8080:8080 statping-ng/statping-ng', features: ['Status pages', 'HTTP monitoring', 'TCP monitoring', 'Notification services', 'REST API', 'Themes'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'monitoring', 'web_only', 'api_access'] },
+      { name: 'Checkmate', description: 'Open source self-hosted uptime monitor with real-time dashboards, incident management, and status pages.', url: 'https://github.com/bluewave-labs/checkmate', github: 'https://github.com/bluewave-labs/checkmate', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, features: ['Real-time dashboard', 'Incident management', 'Status pages', 'HTTP/TCP/DNS checks', 'Notifications', 'Team management'], scenarioTags: ['small_team', 'enterprise', 'intermediate', 'docker_ready', 'monitoring', 'high_availability', 'rbac'] },
+    ],
+    title: 'Self-Hosted Uptime Kuma Alternative — 5 Open Source Uptime Monitors (2026)',
+    h1: 'Self-Hosted Uptime Monitor Alternatives',
+    description: 'Compare 5 self-hosted alternatives to Uptime Robot and Pingdom: Uptime Kuma, Gatus, Cabot, Statping, and Checkmate. Status pages, alerting, Docker-ready.',
+    explanation: 'Uptime Robot charges $7/month for 50 monitors and Pingdom starts at $15/month. Uptime Kuma is the most popular self-hosted alternative with a beautiful UI, 90+ notification integrations (Slack, Discord, Telegram, email, etc.), and built-in status pages. Gatus is lighter and config-driven, perfect for developers who prefer YAML over GUIs.',
+    faq: [
+      { q: 'Is Uptime Kuma better than Uptime Robot?', a: 'For self-hosting, yes. Uptime Kuma gives you unlimited monitors, beautiful status pages, 90+ notification services, and zero monthly cost. Uptime Robot limits free accounts to 50 monitors with 5-minute intervals.' },
+      { q: 'Which self-hosted uptime monitor uses the least resources?', a: 'Gatus is the lightest — it uses YAML config files instead of a database. Uptime Kuma needs SQLite but still runs on 256MB RAM. Both run well on a $5/month VPS.' },
+      { q: 'Can I get Slack/Discord alerts from self-hosted monitors?', a: 'Yes. Uptime Kuma supports 90+ notification services including Slack, Discord, Telegram, Email, Pushover, and webhook endpoints. Gatus and Statping also support multiple notification channels.' },
+      { q: 'Which has the best status page?', a: 'Uptime Kuma has the most polished built-in status pages with custom domains. Statping is also designed around status pages with theme support.' },
+    ],
+    keywords: ['uptime kuma alternative self hosted', 'self-hosted uptime monitor', 'uptime robot alternative', 'pingdom alternative open source', 'self-hosted status page', 'open source monitoring tool', 'gatus vs uptime kuma', 'free uptime monitoring'],
+  },
+
+  // === Desktop Publishing ===
+  {
+    slug: 'scribus',
+    saasName: 'Adobe InDesign',
+    category: 'Desktop Publishing',
+    icon: '📄',
+    alternatives: [
+      { name: 'Scribus', description: 'Professional open source desktop publishing with CMYK color, ICC color management, PDF export, and flexible layout tools.', url: 'https://www.scribus.net', github: 'https://github.com/scribusproject/scribus', license: 'GPL-2.0', difficulty: 'Medium', docker: false, features: ['CMYK color', 'ICC profiles', 'PDF export', 'Templates', 'Typography', 'Vector drawing', 'Scripting'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'desktop_app', 'beginner_friendly'] },
+      { name: 'Typst', description: 'Modern markup-based typesetting system. Fast, programmable, and web-friendly. The LaTeX alternative for 2026.', url: 'https://typst.app', github: 'https://github.com/typst/typst', license: 'Apache-2.0', difficulty: 'Medium', docker: false, features: ['Markup language', 'PDF export', 'Programmable', 'Fast compilation', 'Web editor', 'Package ecosystem'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'web_only', 'api_access', 'cli'] },
+      { name: 'LibreOffice Draw', description: 'Free vector graphics editor bundled with LibreOffice. Handles flyers, brochures, and simple page layouts.', url: 'https://www.libreoffice.org', github: 'https://github.com/LibreOffice/core', license: 'MPL-2.0', difficulty: 'Easy', docker: false, features: ['Vector graphics', 'Page layout', 'PDF export', 'Templates', 'SVG import', 'Flowcharts'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'desktop_app'] },
+      { name: 'LaTeX (Beamer/Tufte)', description: 'Professional typesetting system for academic papers, books, and presentations. Steepest learning curve but highest output quality.', url: 'https://www.latex-project.org', github: 'https://github.com/latex3/latex2e', license: 'LPPL-1.3c', difficulty: 'Hard', docker: false, features: ['Math typesetting', 'Bibliography', 'Cross-references', 'Templates', 'PDF output', 'Presentation slides'], scenarioTags: ['intermediate', 'advanced_setup', 'cli', 'desktop_app'] },
+      { name: 'Canva (Free Tier)', description: 'Browser-based design tool with thousands of templates. Not open source but the free tier handles most simple layout needs.', url: 'https://www.canva.com', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Templates', 'Drag-and-drop', 'Brand kits', 'Team collaboration', 'Print-ready export', 'Social media sizes'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'sharing', 'collaboration', 'mobile_app'] },
+    ],
+    title: 'Free Adobe InDesign Alternatives — Scribus, Typst & More (2026)',
+    h1: 'Free Alternatives to Adobe InDesign',
+    description: 'Compare 5 free alternatives to Adobe InDesign ($23/mo): Scribus, Typst, LibreOffice Draw, LaTeX, and Canva. Open source desktop publishing and typesetting tools.',
+    explanation: 'Adobe InDesign costs $22.99/month and requires Creative Cloud. Scribus is the leading open source desktop publisher with CMYK support and professional PDF export. Typst is a modern, fast alternative to LaTeX for technical documents. For quick designs, Canva\'s free tier handles most non-professional layout needs at zero cost.',
+    faq: [
+      { q: 'Is Scribus a good InDesign replacement?', a: 'For most users, yes. Scribus handles CMYK color, ICC profiles, PDF/X export, and professional typography. It lacks some advanced InDesign features like GREP styles and data merge, but covers 80% of desktop publishing needs.' },
+      { q: 'What is Typst and how does it compare to LaTeX?', a: 'Typst is a modern markup-based typesetting system that compiles in milliseconds instead of seconds. It has a cleaner syntax than LaTeX and a growing package ecosystem. Best for technical documents, papers, and reports.' },
+      { q: 'Can I use these for commercial print projects?', a: 'Yes. Scribus produces press-ready PDF/X files accepted by commercial printers. Typst and LaTeX also generate print-quality PDFs. Always verify with your print shop first.' },
+      { q: 'Which is easiest for beginners?', a: 'Canva is the easiest — browser-based with thousands of templates. LibreOffice Draw is the easiest desktop app. Scribus has a learning curve but there are many tutorials available.' },
+    ],
+    keywords: ['scribus alternative', 'adobe indesign alternative free', 'self-hosted desktop publishing', 'open source indesign', 'scribus vs indesign', 'free page layout tool', 'typst vs latex', 'free desktop publishing software'],
+  },
 ]
 
 function mergeGitHubStats(pages: AlternativePage[]): AlternativePage[] {
@@ -1028,4 +1107,7 @@ export const CATEGORIES = [
   { name: 'File Sync', icon: '🔄', tools: ['syncthing'], applicationCategory: 'UtilitiesApplication' },
   { name: 'Knowledge Management', icon: '📄', tools: ['docmost', 'obsidian'], applicationCategory: 'ProductivityApplication' },
   { name: 'SEO Tools', icon: '🔍', tools: ['semrush'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Photo Management', icon: '📸', tools: ['immich'], applicationCategory: 'MultimediaApplication' },
+  { name: 'Uptime Monitoring', icon: '📡', tools: ['uptime-kuma'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Desktop Publishing', icon: '📄', tools: ['scribus'], applicationCategory: 'DesignApplication' },
 ]
