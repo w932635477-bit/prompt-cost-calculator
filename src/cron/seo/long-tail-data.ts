@@ -2450,9 +2450,9 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
   {
     slug: 'cron-every-week',
     cron: '0 0 * * 0',
-    title: "Cron Every Week - Weekly Schedule",
-    h1: "Cron Every Week",
-    description: "Run a cron job every week with 0 0 * * 0. Weekly schedule at midnight Sunday.",
+    title: "Cron Every Week & Every Friday — Schedule Generator with Examples",
+    h1: "Cron Every Week & Every Friday",
+    description: "Cron every week (0 0 * * 0), every Friday (0 0 * * 5), every Monday — all weekly schedules with copy-paste expressions, Quartz and AWS variants, and real-world examples.",
     explanation: "The cron expression 0 0 * * 0 runs at 00:00 (midnight) every Sunday. The day-of-week field (0) restricts execution to Sunday only, while the minute and hour fields control the exact time. This produces 1 execution per week. Typical use cases include weekly team reports, scheduled maintenance windows, recurring data exports, weekly email newsletters, automated timesheet reminders, and end-of-week summaries. Running on Sunday ensures the task aligns with your team's workflow. For Quartz Scheduler, use 0 0 ? * SUN (three-letter uppercase day names with ? in day-of-month). For AWS EventBridge, use cron(0 0 ? * SUN *). For Kubernetes CronJob, use schedule: \"0 0 * * 0\" with numeric day values. Cron day-of-week numbering: Sunday=0, Monday=1, Tuesday=2, Wednesday=3, Thursday=4, Friday=5, Saturday=6. Some implementations also accept 7 for Sunday. To add more days, use comma separation: 1,3,5 for Mon/Wed/Fri.",
     faq: [
       { q: "What does the cron expression 0 0 * * 0 mean?", a: "The expression 0 0 * * 0 means: at minute 0, hour 0, day-of-month *, month *, day-of-week 0. Each field in the cron expression controls a different time component: minute, hour, day of month, month, and day of week." },
@@ -2461,7 +2461,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "How do cron day-of-week numbers work?", a: "Standard Unix cron uses 0-6: Sunday=0, Monday=1, Tuesday=2, Wednesday=3, Thursday=4, Friday=5, Saturday=6. Some implementations also accept 7 for Sunday. Quartz uses text labels: SUN, MON, TUE, WED, THU, FRI, SAT." },
       { q: "What are common mistakes when using 0 0 * * 0?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 0 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
-    keywords: ["cron every week","weekly cron","cron weekly schedule"],
+    keywords: ["cron every week","weekly cron","cron weekly schedule","cron every friday","cron every monday","0 0 * * 0","0 0 * * 5"],
   },
   {
     slug: 'cron-every-sunday-8am',

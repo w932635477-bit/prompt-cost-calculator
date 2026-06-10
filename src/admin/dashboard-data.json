@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-10T03:51:54.796Z",
+  "generatedAt": "2026-06-10T09:29:04.401Z",
   "summary": {
-    "totalIndexable": 350,
+    "totalIndexable": 356,
     "totalSubmitted": 225,
-    "coverage": 64.3,
+    "coverage": 63.2,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -17,9 +17,9 @@
     },
     {
       "name": "alternatives",
-      "total": 44,
+      "total": 47,
       "submitted": 0,
-      "remaining": 44
+      "remaining": 47
     },
     {
       "name": "deploy",
@@ -35,9 +35,9 @@
     },
     {
       "name": "llm-pricing",
-      "total": 24,
+      "total": 25,
       "submitted": 0,
-      "remaining": 24
+      "remaining": 25
     },
     {
       "name": "mcp-servers",
@@ -167,6 +167,18 @@
     },
     {
       "name": "microsoft-scout-agent",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "alternatives-guide",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "guides",
       "total": 1,
       "submitted": 0,
       "remaining": 1

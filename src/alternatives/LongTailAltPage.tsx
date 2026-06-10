@@ -17,35 +17,73 @@ const DIFFICULTY_STYLES: Record<string, { badge: string; icon: string }> = {
 }
 
 const RELATED: Record<string, string[]> = {
-  'google-drive': ['dropbox', 'onedrive'],
-  'dropbox': ['google-drive', 'onedrive'],
-  'onedrive': ['google-drive', 'dropbox'],
-  'notion': ['evernote', 'confluence'],
-  'evernote': ['notion', 'confluence'],
-  'slack': ['discord', 'zoom'],
-  'discord': ['slack', 'zoom'],
+  // Cloud Storage
+  'google-drive': ['dropbox', 'onedrive', 'syncthing', 'nextcloud'],
+  'dropbox': ['google-drive', 'onedrive', 'syncthing'],
+  'onedrive': ['google-drive', 'dropbox', 'syncthing'],
+  'syncthing': ['google-drive', 'dropbox', 'onedrive'],
+  // Note-Taking & Knowledge
+  'notion': ['evernote', 'confluence', 'logseq', 'docmost'],
+  'evernote': ['notion', 'confluence', 'logseq', 'obsidian'],
+  'logseq': ['notion', 'obsidian', 'evernote', 'docmost'],
+  'obsidian': ['logseq', 'notion', 'evernote', 'docmost'],
+  'confluence': ['notion', 'docmost', 'wordpress-com'],
+  'docmost': ['notion', 'confluence', 'obsidian', 'logseq'],
+  // Communication
+  'slack': ['discord', 'zoom', 'zendesk', 'mattermost'],
+  'discord': ['slack', 'zoom', 'mattermost'],
   'zoom': ['slack', 'discord'],
-  'lastpass': ['1password', 'bitwarden-cloud'],
-  '1password': ['lastpass', 'bitwarden-cloud'],
-  'jira': ['trello', 'todoist'],
+  // Password Management
+  'lastpass': ['1password', 'bitwarden-cloud', 'vaultwarden'],
+  '1password': ['lastpass', 'bitwarden-cloud', 'vaultwarden'],
+  'bitwarden-cloud': ['lastpass', '1password', 'vaultwarden'],
+  'vaultwarden': ['bitwarden-cloud', 'lastpass', '1password'],
+  // Project Management
+  'jira': ['trello', 'todoist', 'github'],
   'trello': ['jira', 'todoist'],
-  'spotify': ['netflix', 'google-photos'],
-  'netflix': ['spotify'],
-  'github': ['circleci'],
-  'gmail': ['mailchimp'],
-  'confluence': ['notion', 'wordpress-com'],
-  'docmost': ['notion', 'confluence', 'obsidian'],
-  'logseq': ['notion', 'obsidian', 'evernote'],
-  'airtable': ['notion'],
-  'google-analytics': ['datadog'],
-  'salesforce': ['zendesk', 'mailchimp'],
-  'datadog': ['google-analytics'],
-  'zendesk': ['salesforce', 'slack'],
-  'google-photos': ['spotify'],
-  'zapier': ['slack', 'mailchimp'],
-  'immich': ['google-photos', 'navidrome'],
-  'uptime-kuma': ['datadog', 'google-analytics'],
+  'todoist': ['jira', 'trello', 'notion'],
+  // Media Streaming
+  'spotify': ['netflix', 'google-photos', 'navidrome'],
+  'netflix': ['spotify', 'google-photos'],
+  'navidrome': ['spotify', 'immich', 'google-photos'],
+  // Photo Management
+  'google-photos': ['spotify', 'immich', 'navidrome'],
+  'immich': ['google-photos', 'navidrome', 'spotify'],
+  // Code & DevOps
+  'github': ['circleci', 'jira', 'datadog'],
+  'circleci': ['github', 'datadog'],
+  // Email
+  'gmail': ['mailchimp', 'zendesk'],
+  'mailchimp': ['gmail', 'salesforce'],
+  // Database
+  'airtable': ['notion', 'confluence'],
+  // Analytics & Monitoring
+  'google-analytics': ['datadog', 'uptime-kuma', 'semrush'],
+  'datadog': ['google-analytics', 'uptime-kuma', 'github'],
+  'uptime-kuma': ['datadog', 'google-analytics', 'github'],
+  // CRM & Support
+  'salesforce': ['zendesk', 'mailchimp', 'slack'],
+  'zendesk': ['salesforce', 'slack', 'discord'],
+  // CMS & Design
+  'wordpress-com': ['confluence', 'figma', 'scribus'],
+  'figma': ['scribus', 'wordpress-com'],
   'scribus': ['figma', 'wordpress-com'],
+  // Automation
+  'zapier': ['slack', 'mailchimp', 'github'],
+  // Identity
+  'auth0': ['github', 'slack'],
+  // Search
+  'algolia': ['google-analytics', 'datadog'],
+  // Forms
+  'typeform': ['notion', 'airtable', 'mailchimp'],
+  // Screen Recording
+  'loom': ['slack', 'zoom', 'discord'],
+  // Code Sharing
+  'pastebin': ['github'],
+  // URL Shortener
+  'bitly': ['mailchimp', 'zapier'],
+  // SEO Tools
+  'semrush': ['google-analytics', 'datadog'],
 }
 
 function CopyButton({ text }: { text: string }) {
@@ -296,6 +334,31 @@ export default function LongTailAltPage() {
             </div>
           </section>
         )}
+
+        <section className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">More Developer Tools</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { name: 'AI Cost Calculator', path: '/', icon: '💰' },
+              { name: 'LLM Pricing', path: '/llm-pricing/', icon: '📊' },
+              { name: 'Cron Generator', path: '/cron-generator/', icon: '⏰' },
+              { name: 'Token Optimizer', path: '/token-optimizer/', icon: '✂️' },
+              { name: 'Compare Tools', path: '/compare/', icon: '⚖️' },
+              { name: 'Docker Deploy', path: '/deploy/', icon: '🐳' },
+              { name: 'MCP Servers', path: '/mcp-servers/', icon: '🔌' },
+              { name: 'PII Redactor', path: '/pii-redactor/', icon: '🔒' },
+            ].map(tool => (
+              <a
+                key={tool.path}
+                href={tool.path}
+                className="flex items-center gap-2 p-3 rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-[border-color,box-shadow] group text-sm"
+              >
+                <span className="text-lg" aria-hidden="true">{tool.icon}</span>
+                <span className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">{tool.name}</span>
+              </a>
+            ))}
+          </div>
+        </section>
 
         <div className="text-center py-4">
           <a href="/alternatives/" className="text-blue-600 hover:underline">&larr; Browse all self-hosted alternatives</a>
