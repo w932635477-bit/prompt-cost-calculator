@@ -138,9 +138,9 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
   {
     slug: 'every-hour',
     cron: '0 * * * *',
-    title: "Cron Every Hour `0 * * * *` — Hourly Cron Job Setup Guide (2026)",
-    h1: "Cron Every Hour",
-    description: "Learn how to run a cron job every hour using 0 * * * *. Covers crontab setup, hourly scheduling on Linux/macOS, running at :00 vs :30, bi-hourly alternatives, and platform-specific examples for AWS EventBridge, Quartz, and Kubernetes CronJob.",
+    title: "Cron Every Hour (0 * * * *) — Setup Guide with Examples",
+    h1: "Cron Every Hour — 0 * * * * Guide",
+    description: "Run a cron job every hour with 0 * * * *. Quick setup for Linux, AWS EventBridge, Quartz, Kubernetes. Examples, common mistakes, and bi-hourly alternatives.",
     explanation: "The cron expression 0 * * * * runs a command at minute 0 of every hour, every day. The minute field is set to 0 while all other fields are wildcards (*), meaning the schedule repeats across all 24 hours, 7 days a week. This produces 24 executions per day. Common use cases include hourly log rotation, periodic data snapshots, heartbeat signals, incremental backup jobs, and hourly API rate limit resets. The advantage of specifying a non-zero minute (like 0 instead of 0) is avoiding the \"top-of-hour stampede\" when thousands of cron jobs fire simultaneously at :00. For Quartz Scheduler, the equivalent is 0 * * ? * * (7 fields with seconds). For AWS EventBridge, use cron(0 * ? * * *). For Kubernetes CronJob, use schedule: \"0 * * * *\" directly. If you want a different minute offset, simply change the first field: 0 * * * * for the top of the hour, 15 * * * * for quarter past, 30 * * * * for half past, 45 * * * * for quarter to. To run hourly only during business hours, use 0 9-17 * * 1-5 (9 AM to 5 PM, weekdays). Each run should complete within 60 minutes to avoid overlap with the next trigger. For jobs that may run long, consider using a lock mechanism or idempotent design so duplicate executions cause no harm.",
     faq: [
       { q: "What does the cron expression 0 * * * * mean?", a: "The expression 0 * * * * means: at minute 0, hour *, day-of-month *, month *, day-of-week *. Each field in the cron expression controls a different time component: minute, hour, day of month, month, and day of week." },

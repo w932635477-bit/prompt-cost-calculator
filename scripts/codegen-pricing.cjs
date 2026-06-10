@@ -149,10 +149,11 @@ const SEO_KEYWORDS = {
     'gemini flash api price', 'gemini flash cheapest',
   ],
   'deepseek-v4-flash': [
-    'deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token',
-    'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek flash cheapest model',
-    'deepseek v4 flash vs gpt pricing', 'deepseek flash token price',
+    'deepseek v4 flash pricing', 'deepseek api pricing', 'deepseek pricing', 'deepseek cost per token',
+    'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek v4 flash vs v4 pro',
+    'deepseek flash cheapest model', 'deepseek v4 flash vs gpt pricing', 'deepseek flash token price',
     'deepseek api pricing 2026', 'deepseek v4 flash per million tokens',
+    'deepseek api cost calculator', 'deepseek v4 flash vs deepseek v4 pro pricing',
   ],
   'deepseek-v4-pro': ['deepseek v4 pro pricing', 'deepseek pro cost', 'deepseek api pricing', 'deepseek v4 pro vs flash', 'deepseek pro api price', 'deepseek pro per million tokens'],
   'llama-4-maverick': ['llama 4 maverick pricing', 'groq pricing', 'groq api cost', 'llama 4 groq pricing', 'llama 4 maverick api price', 'groq llama cost'],
@@ -170,8 +171,8 @@ const SEO_KEYWORDS = {
 // unique selling point well enough. Keyed by pricing.json model id.
 const SEO_OVERRIDES = {
   'deepseek-v4-flash': {
-    title: 'DeepSeek V4 Flash Pricing (2026) — Cheapest LLM API at $0.14/1M Input',
-    description: 'DeepSeek V4 Flash costs $0.14/1M input and $0.28/1M output, while DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output. Compare both models: Flash is the cheapest LLM API in 2026, Pro offers premium reasoning. Cached input is just $0.0197/1M (86% discount). Full pricing breakdown, cost calculator, and comparison vs GPT-4o, Claude, and Gemini.',
+    title: 'DeepSeek V4 Flash Pricing 2026 — $0.14/1M Input, $0.28/1M Output',
+    description: 'DeepSeek V4 Flash: $0.14/1M input, $0.28/1M output, 86% cache discount. Compare vs V4 Pro, GPT-4o, Gemini. Cost calculator included.',
   },
   'deepseek-v4-pro': {
     title: 'DeepSeek V4 Pro Pricing (2026) — $0.435/1M Input, Premium Reasoning',
