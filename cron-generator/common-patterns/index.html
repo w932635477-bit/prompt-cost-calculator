@@ -20,6 +20,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What are the most common cron patterns?", "acceptedAnswer": { "@type": "Answer", "text": "The most used cron schedules are: every 5 minutes (*/5 * * * *), hourly (0 * * * *), daily at midnight (0 0 * * *), weekly on Monday (0 0 * * 1), and monthly on the 1st (0 0 1 * *). Our page lists 150+ patterns organized by frequency." } },
+        { "@type": "Question", "name": "How do I run a cron job every weekday?", "acceptedAnswer": { "@type": "Answer", "text": "Use 0 9 * * 1-5 to run at 9 AM Monday through Friday. The 1-5 range means Monday (1) through Friday (5). Combine with specific hours: 0 9-17 * * 1-5 runs every hour from 9 AM to 5 PM on weekdays." } },
+        { "@type": "Question", "name": "What is the difference between */5 and 0,5,10,15?", "acceptedAnswer": { "@type": "Answer", "text": "They produce the same result. */5 means 'every 5th value starting from 0'. 0,5,10,15,20,25,30,35,40,45,50,55 explicitly lists each value. The step syntax (*/5) is preferred because it is shorter and easier to read." } },
+        { "@type": "Question", "name": "How do I test a cron pattern before deploying?", "acceptedAnswer": { "@type": "Answer", "text": "Click any pattern on this page to see its detail page with next run times. Or use our cron validator at /cron-validator/ to paste any expression and instantly see the next 5 scheduled executions." } }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

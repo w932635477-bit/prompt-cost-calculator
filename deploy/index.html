@@ -28,7 +28,21 @@
       "description": "One-command Docker Compose deployments for self-hosted tools.",
       "url": "https://aicalc.cloud/deploy/",
       "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Web"
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I deploy a self-hosted tool with Docker?", "acceptedAnswer": { "@type": "Answer", "text": "Copy the docker compose command from any guide on this page, paste it into your terminal, and run it. Each guide includes the exact command with environment variables pre-configured. Most tools start in under 60 seconds." } },
+        { "@type": "Question", "name": "Do I need Docker experience to use these guides?", "acceptedAnswer": { "@type": "Answer", "text": "No. Each guide provides a single copy-paste Docker Compose command. You only need Docker and Docker Compose installed on your server. The guides include RAM requirements, port mappings, and troubleshooting tips." } },
+        { "@type": "Question", "name": "What server do I need for self-hosted tools?", "acceptedAnswer": { "@type": "Answer", "text": "A $5/month VPS (1GB RAM) handles lightweight tools like Vaultwarden (128MB), BookStack (256MB), or Navidrome (256MB). Heavier tools like Mattermost or Nextcloud need 2GB RAM. Each guide shows the exact RAM requirement." } },
+        { "@type": "Question", "name": "Are these Docker deployments secure?", "acceptedAnswer": { "@type": "Answer", "text": "The guides use official Docker images and follow security best practices: non-root containers where possible, explicit port mappings, and environment variable configuration. Always add HTTPS with a reverse proxy (Caddy or Nginx) for production use." } },
+        { "@type": "Question", "name": "Can I run multiple self-hosted tools on one server?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use different port numbers for each tool and a reverse proxy (Caddy recommended) to assign domain names. A 4GB RAM VPS can comfortably run 5-10 lightweight tools simultaneously." } }
+      ]
     }
     </script>
   </head>
