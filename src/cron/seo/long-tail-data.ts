@@ -32,6 +32,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using * * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: * * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every minute","every 1 minute cron","crontab every minute","* * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "* * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "* * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Understanding the * Operator", cron: "* * * * *", url: "/cron-generator/cron-asterisk/" },
+    ],
   },
   {
     slug: 'every-5-minutes',
@@ -49,6 +59,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent checks, try */10 * * * * (every 10 minutes) or */15 * * * * (every 15 minutes). To restrict to business hours: */5 9-17 * * 1-5." },
     ],
     keywords: ["cron every 5 minutes","*/5 * * * *","crontab every 5 min"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/5 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/5 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/5 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Real-time Monitoring", description: "Check service health every 5 minutes and alert on failures. Use with Prometheus, Datadog, or custom monitoring scripts." },
+      { title: "Queue Processing", description: "Poll job queues every 5 minutes for new work items. Ideal for email queues, image processing, or background tasks." },
+      { title: "API Polling", description: "Fetch updates from external APIs every 5 minutes. Use for syncing third-party data, webhooks, or real-time dashboards." },
+      { title: "Cache Warming", description: "Pre-populate caches every 5 minutes to reduce latency for end users. Combine with CDN invalidation for fresh content." },
+    ],
+    relatedPages: [
+      { label: "Every Minute", cron: "* * * * *", url: "/cron-generator/every-minute/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+      { label: "Understanding */N Step Operator", cron: "*/5 * * * *", url: "/cron-generator/cron-step-operator/" },
+    ],
   },
   {
     slug: 'every-10-minutes',
@@ -66,6 +93,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "To restrict to business hours: */10 9-17 * * 1-5." },
     ],
     keywords: ["cron every 10 minutes","*/10 * * * *","crontab every 10 min"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/10 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/10 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/10 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Health Checks", description: "Run health checks every 10 minutes for your services, databases, and external dependencies." },
+      { title: "Data Synchronization", description: "Sync data between systems every 10 minutes: databases, file systems, or third-party APIs." },
+      { title: "Metrics Collection", description: "Collect system metrics (CPU, memory, disk, network) every 10 minutes and send to your monitoring backend." },
+      { title: "Queue Polling", description: "Check for new items in message queues or task queues every 10 minutes." },
+    ],
+    relatedPages: [
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+      { label: "Every 30 Minutes", cron: "*/30 * * * *", url: "/cron-generator/every-30-minutes/" },
+    ],
   },
   {
     slug: 'every-15-minutes',
@@ -83,6 +126,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For more frequent checks, try */5 * * * * (every 5 minutes). To restrict to business hours: */15 9-17 * * 1-5." },
     ],
     keywords: ["cron every 15 minutes","*/15 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/15 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/15 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/15 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Health Checks", description: "Run health checks every 15 minutes for your services, databases, and external dependencies." },
+      { title: "Data Synchronization", description: "Sync data between systems every 15 minutes: databases, file systems, or third-party APIs." },
+      { title: "Metrics Collection", description: "Collect system metrics (CPU, memory, disk, network) every 15 minutes and send to your monitoring backend." },
+      { title: "Queue Polling", description: "Check for new items in message queues or task queues every 15 minutes." },
+    ],
+    relatedPages: [
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 30 Minutes", cron: "*/30 * * * *", url: "/cron-generator/every-30-minutes/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-20-minutes',
@@ -100,6 +159,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For more frequent checks, try */5 * * * * (every 5 minutes). To restrict to business hours: */20 9-17 * * 1-5." },
     ],
     keywords: ["cron every 20 minutes","*/20 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/20 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/20 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/20 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Periodic Data Sync", description: "Synchronize data between services every 20 minutes. Balances freshness with API rate limits." },
+      { title: "Scheduled Cleanup", description: "Remove stale data, expired sessions, or temporary files every 20 minutes." },
+      { title: "Status Reporting", description: "Generate status snapshots every 20 minutes for dashboards and alerting systems." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+    ],
   },
   {
     slug: 'every-30-minutes',
@@ -117,6 +192,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For more frequent checks, try */5 * * * * (every 5 minutes). To restrict to business hours: */30 9-17 * * 1-5." },
     ],
     keywords: ["cron every 30 minutes","*/30 * * * *","cron half hour"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/30 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/30 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/30 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Periodic Data Sync", description: "Synchronize data between services every 30 minutes. Balances freshness with API rate limits." },
+      { title: "Scheduled Cleanup", description: "Remove stale data, expired sessions, or temporary files every 30 minutes." },
+      { title: "Status Reporting", description: "Generate status snapshots every 30 minutes for dashboards and alerting systems." },
+    ],
+    relatedPages: [
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Hour at :30", cron: "30 * * * *", url: "/cron-generator/every-hour-at-30/" },
+    ],
   },
   {
     slug: 'every-45-minutes',
@@ -134,6 +224,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For more frequent checks, try */5 * * * * (every 5 minutes). To restrict to business hours: */45 9-17 * * 1-5." },
     ],
     keywords: ["cron every 45 minutes","*/45 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/45 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/45 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/45 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Periodic Data Sync", description: "Synchronize data between services every 45 minutes. Balances freshness with API rate limits." },
+      { title: "Scheduled Cleanup", description: "Remove stale data, expired sessions, or temporary files every 45 minutes." },
+      { title: "Status Reporting", description: "Generate status snapshots every 45 minutes for dashboards and alerting systems." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+    ],
   },
   {
     slug: 'every-hour',
@@ -150,6 +256,20 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every hour","hourly cron","0 * * * *","crontab hourly","hourly cron job","cron job every hour","run cron job every hour","linux cron every hour","cron hourly schedule","crontab every 60 minutes","cron expression hourly","schedule cron job hourly"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Log Rotation", description: "Rotate and compress logs hourly at minute 0. Staggered away from :00 to avoid system load spikes." },
+      { title: "Hourly Snapshots", description: "Take hourly database or file system snapshots for point-in-time recovery." },
+      { title: "Heartbeat Signal", description: "Send a heartbeat signal every hour at minute 0 to indicate your service is alive." },
+    ],
+    relatedPages: [
+      { label: "Every 30 Minutes", cron: "*/30 * * * *", url: "/cron-generator/every-30-minutes/" },
+      { label: "Every 2 Hours", cron: "0 */2 * * *", url: "/cron-generator/every-2-hours/" },
+      { label: "Every Hour at :30", cron: "30 * * * *", url: "/cron-generator/every-hour-at-30/" },
+    ],
   },
   {
     slug: 'every-2-hours',
@@ -167,6 +287,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent runs, try 0 */4 * * * (every 4 hours). For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 2 hours","0 */2 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */2 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */2 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-3-hours',
@@ -184,6 +314,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent runs, try 0 */6 * * * (every 6 hours). For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 3 hours","0 */3 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */3 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */3 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-4-hours',
@@ -201,6 +341,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent runs, try 0 */8 * * * (every 8 hours). For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 4 hours","0 */4 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */4 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */4 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-6-hours',
@@ -218,6 +368,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 6 hours","0 */6 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */6 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */6 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-8-hours',
@@ -235,6 +395,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 8 hours","0 */8 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */8 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */8 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-12-hours',
@@ -252,6 +422,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 12 hours","twice daily cron","0 */12 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */12 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */12 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-day-midnight',
@@ -269,6 +449,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 0,12 * * *. For weekdays only: 0 0 * * 1-5." },
     ],
     keywords: ["cron every day midnight","0 0 * * *","daily cron","cron once a day"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * *\"}]}" },
+      { label: "With error alerting", code: "0 0 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at midnight when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at midnight before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at midnight." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at midnight to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Every Day at Noon", cron: "0 12 * * *", url: "/cron-generator/every-day-noon/" },
+      { label: "Every Day at 9 AM", cron: "0 9 * * *", url: "/cron-generator/every-day-9am/" },
+      { label: "Midnight on Weekdays", cron: "0 0 * * 1-5", url: "/cron-generator/cron-midnight-weekdays/" },
+    ],
   },
   {
     slug: 'every-day-6am',
@@ -286,6 +483,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 6,18 * * *. For weekdays only: 0 6 * * 1-5." },
     ],
     keywords: ["cron 6am","0 6 * * *","cron every day 6am"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 6 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 6 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 6 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Morning Report", description: "Generate daily summary reports at 6 AM for team standup meetings." },
+      { title: "Email Digest", description: "Send daily email digests to subscribers at 6 AM when open rates are highest." },
+      { title: "Cache Pre-warming", description: "Pre-populate caches at 6 AM before peak traffic begins." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 4 AM", cron: "0 4 * * *", url: "/cron-generator/every-day-4am/" },
+      { label: "Every Day at 7 AM", cron: "0 7 * * *", url: "/cron-generator/every-day-7am/" },
+      { label: "Every Day at 8 AM", cron: "0 8 * * *", url: "/cron-generator/every-day-8am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-day-8am',
@@ -303,6 +516,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 8,20 * * *. For weekdays only: 0 8 * * 1-5." },
     ],
     keywords: ["cron 8am","0 8 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 8 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Morning Report", description: "Generate daily summary reports at 8 AM for team standup meetings." },
+      { title: "Email Digest", description: "Send daily email digests to subscribers at 8 AM when open rates are highest." },
+      { title: "Cache Pre-warming", description: "Pre-populate caches at 8 AM before peak traffic begins." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at 8 AM", cron: "0 8 * * 1-5", url: "/cron-generator/weekdays-8am/" },
+      { label: "Every Day at 6 AM", cron: "0 6 * * *", url: "/cron-generator/every-day-6am/" },
+      { label: "Every Day at 7 AM", cron: "0 7 * * *", url: "/cron-generator/every-day-7am/" },
+      { label: "Every Day at 9 AM", cron: "0 9 * * *", url: "/cron-generator/every-day-9am/" },
+    ],
   },
   {
     slug: 'every-day-9am',
@@ -320,6 +549,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 9,21 * * *. For weekdays only: 0 9 * * 1-5." },
     ],
     keywords: ["cron 9am","0 9 * * *","cron every day 9am"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 9 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Morning Report", description: "Generate daily summary reports at 9 AM for team standup meetings." },
+      { title: "Email Digest", description: "Send daily email digests to subscribers at 9 AM when open rates are highest." },
+      { title: "Cache Pre-warming", description: "Pre-populate caches at 9 AM before peak traffic begins." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Every Monday at 9 AM", cron: "0 9 * * 1", url: "/cron-generator/every-monday-9am/" },
+    ],
   },
   {
     slug: 'every-day-noon',
@@ -337,6 +581,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 12,0 * * *. For weekdays only: 0 12 * * 1-5." },
     ],
     keywords: ["cron noon","0 12 * * *","cron every day noon"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 12 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 12 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 12 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Afternoon Report", description: "Generate midday or afternoon reports at noon for management review." },
+      { title: "Data Export", description: "Export daily data snapshots at noon for downstream consumers." },
+      { title: "Notification Dispatch", description: "Send scheduled notifications and reminders at noon during peak engagement hours." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at noon", cron: "0 12 * * 1-5", url: "/cron-generator/weekdays-noon/" },
+      { label: "Every Day at 10 AM", cron: "0 10 * * *", url: "/cron-generator/every-day-10am/" },
+      { label: "Every Day at 1 PM", cron: "0 13 * * *", url: "/cron-generator/every-day-1pm/" },
+      { label: "Every Day at 2 PM", cron: "0 14 * * *", url: "/cron-generator/every-day-2pm/" },
+    ],
   },
   {
     slug: 'every-day-5pm',
@@ -354,6 +614,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 17,5 * * *. For weekdays only: 0 17 * * 1-5." },
     ],
     keywords: ["cron 5pm","0 17 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 17 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 17 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 17 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Afternoon Report", description: "Generate midday or afternoon reports at 5 PM for management review." },
+      { title: "Data Export", description: "Export daily data snapshots at 5 PM for downstream consumers." },
+      { title: "Notification Dispatch", description: "Send scheduled notifications and reminders at 5 PM during peak engagement hours." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at 5 PM", cron: "0 17 * * 1-5", url: "/cron-generator/weekdays-5pm/" },
+      { label: "Every Day at 3 PM", cron: "0 15 * * *", url: "/cron-generator/every-day-3pm/" },
+      { label: "Every Day at 4 PM", cron: "0 16 * * *", url: "/cron-generator/every-day-4pm/" },
+      { label: "Every Day at 6 PM", cron: "0 18 * * *", url: "/cron-generator/every-day-6pm/" },
+    ],
   },
   {
     slug: 'every-day-9pm',
@@ -371,6 +647,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 21,9 * * *. For weekdays only: 0 21 * * 1-5." },
     ],
     keywords: ["cron 9pm","0 21 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 21 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 21 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 21 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "End-of-Day Summary", description: "Generate end-of-day summaries at 9 PM after business hours close." },
+      { title: "Evening Backup", description: "Run incremental backups at 9 PM after the day's data changes are complete." },
+      { title: "Content Delivery", description: "Publish scheduled content or newsletters at 9 PM for evening readers." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 7 PM", cron: "0 19 * * *", url: "/cron-generator/every-day-7pm/" },
+      { label: "Every Day at 8 PM", cron: "0 20 * * *", url: "/cron-generator/every-day-8pm/" },
+      { label: "Every Day at 10 PM", cron: "0 22 * * *", url: "/cron-generator/every-day-10pm/" },
+      { label: "Every Day at 11 PM", cron: "0 23 * * *", url: "/cron-generator/every-day-11pm/" },
+    ],
   },
   {
     slug: 'every-day-11pm',
@@ -388,6 +680,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 23,11 * * *. For weekdays only: 0 23 * * 1-5." },
     ],
     keywords: ["cron 11pm","0 23 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 23 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 23 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 23 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "End-of-Day Summary", description: "Generate end-of-day summaries at 11 PM after business hours close." },
+      { title: "Evening Backup", description: "Run incremental backups at 11 PM after the day's data changes are complete." },
+      { title: "Content Delivery", description: "Publish scheduled content or newsletters at 11 PM for evening readers." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 9 PM", cron: "0 21 * * *", url: "/cron-generator/every-day-9pm/" },
+      { label: "Every Day at 10 PM", cron: "0 22 * * *", url: "/cron-generator/every-day-10pm/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+    ],
   },
   {
     slug: 'every-day-3am',
@@ -405,6 +713,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 3,15 * * *. For weekdays only: 0 3 * * 1-5." },
     ],
     keywords: ["cron 3am","0 3 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 3 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 3 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 3 * * *\"}]}" },
+      { label: "With error alerting", code: "0 3 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at 3 AM when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at 3 AM before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at 3 AM." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at 3 AM to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Day at 4 AM", cron: "0 4 * * *", url: "/cron-generator/every-day-4am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-day-2am',
@@ -422,6 +748,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 2,14 * * *. For weekdays only: 0 2 * * 1-5." },
     ],
     keywords: ["cron 2am","0 2 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 2 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 2 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 2 * * *\"}]}" },
+      { label: "With error alerting", code: "0 2 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at 2 AM when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at 2 AM before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at 2 AM." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at 2 AM to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Every Day at midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 3 AM", cron: "0 3 * * *", url: "/cron-generator/every-day-3am/" },
+      { label: "Every Day at 4 AM", cron: "0 4 * * *", url: "/cron-generator/every-day-4am/" },
+    ],
   },
   {
     slug: 'weekdays-9am',
@@ -439,6 +783,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 9 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays","0 9 * * 1-5","cron monday to friday","cron work days"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 9 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 9 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 9 AM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 9 AM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 9 AM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 9 AM", cron: "0 9 * * *", url: "/cron-generator/every-day-9am/" },
+      { label: "Weekdays at 5 PM", cron: "0 17 * * 1-5", url: "/cron-generator/weekdays-5pm/" },
+      { label: "Weekdays at Noon", cron: "0 12 * * 1-5", url: "/cron-generator/weekdays-noon/" },
+      { label: "Weekends at 9 AM", cron: "0 9 * * 0,6", url: "/cron-generator/weekends-9am/" },
+    ],
   },
   {
     slug: 'weekdays-8am',
@@ -456,6 +817,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 8 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays 8am","0 8 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 8 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 8 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 8 AM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 8 AM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 8 AM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 8 AM", cron: "0 8 * * *", url: "/cron-generator/every-day-8am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+    ],
   },
   {
     slug: 'weekdays-5pm',
@@ -473,6 +851,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 17 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays 5pm","0 17 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 17 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 17 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 17 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 17 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 5 PM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 5 PM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 5 PM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 5 PM", cron: "0 17 * * *", url: "/cron-generator/every-day-5pm/" },
+      { label: "Weekends at 5 PM", cron: "0 17 * * 0,6", url: "/cron-generator/weekends-5pm/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+    ],
   },
   {
     slug: 'weekdays-6pm',
@@ -490,6 +885,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 18 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays 6pm","0 18 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 18 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 18 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 18 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 18 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 6 PM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 6 PM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 6 PM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 6 PM", cron: "0 18 * * *", url: "/cron-generator/every-day-6pm/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+    ],
   },
   {
     slug: 'weekdays-midnight',
@@ -507,6 +919,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 0 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays midnight","0 0 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 1-5\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 1-5 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at midnight every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at midnight Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at midnight on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+    ],
   },
   {
     slug: 'weekdays-noon',
@@ -524,6 +953,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 12 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays noon","0 12 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 12 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 12 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 12 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 12 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at noon every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at noon Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at noon on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at noon", cron: "0 12 * * *", url: "/cron-generator/every-day-noon/" },
+      { label: "Weekends at noon", cron: "0 12 * * 0,6", url: "/cron-generator/weekends-noon/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+    ],
   },
   {
     slug: 'weekdays-every-hour',
@@ -539,6 +985,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 * * * 1-5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 * * * 1-5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every hour weekdays","0 * * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 * * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 * * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-monday',
@@ -555,6 +1011,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 1?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 1 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every monday","0 0 * * 1","cron monday"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 1 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 1 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 1\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 1 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Monday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Monday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Monday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-monday-9am',
@@ -571,6 +1044,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 9 * * 1?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 9 * * 1 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron monday 9am","0 9 * * 1"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9 * * 1 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9 * * 1 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 9 * * 1\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Monday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Monday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Monday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-tuesday',
@@ -587,6 +1076,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 2?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 2 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every tuesday","0 0 * * 2"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 2 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 2 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 2\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 2 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Tuesday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Tuesday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Tuesday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-wednesday',
@@ -603,6 +1109,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 3?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 3 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every wednesday","0 0 * * 3"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 3 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 3 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 3\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 3 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Wednesday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Wednesday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Wednesday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-thursday',
@@ -619,6 +1142,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 4?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 4 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every thursday","0 0 * * 4"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 4 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 4 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 4\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 4 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Thursday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Thursday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Thursday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-friday',
@@ -633,26 +1173,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What is the equivalent of 0 0 * * 5 on Quartz / AWS / Kubernetes?", a: "Quartz Scheduler: 0 0 * * 5. AWS EventBridge: cron(0 0 ? * 5 *). Kubernetes CronJob: schedule: \"0 0 * * 5\" (standard 5-field format). Each platform has slight syntax differences — use our dialect switcher above to get the exact expression." },
       { q: "How do cron day-of-week numbers work?", a: "Standard Unix cron uses 0-6: Sunday=0, Monday=1, Tuesday=2, Wednesday=3, Thursday=4, Friday=5, Saturday=6. Some implementations also accept 7 for Sunday. Quartz uses text labels: SUN, MON, TUE, WED, THU, FRI, SAT." },
       { q: "What are common mistakes when using 0 0 * * 5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
-      { q: "Friday vs Monday cron — which is better for weekly tasks?", a: "Friday is better for end-of-week tasks: weekly reports, data exports, backups before the weekend. Monday is better for start-of-week tasks: resetting counters, sending reminders, pulling weekend data. Choose based on when your team needs the output, not when the server is idle." },
-      { q: "How do I run a cron job every Friday at a specific time?", a: "Change the hour field to set the time: 0 9 * * 5 runs at 9 AM Friday, 0 17 * * 5 runs at 5 PM Friday, 0 12 * * 5 runs at noon Friday. The minute field controls minutes within the hour: 30 14 * * 5 runs at 2:30 PM Friday." },
     ],
     keywords: ["cron every friday","cron friday","0 0 * * 5","cron friday midnight","crontab every friday","cron job friday","schedule cron friday","linux cron every friday","friday cron expression","crontab friday schedule","weekly friday cron","every friday cron job"],
     codeExamples: [
       { label: "Basic crontab entry", code: "0 0 * * 5 /path/to/your/script.sh" },
-      { label: "With output logging", code: "0 0 * * 5 /path/to/script.sh >> /var/log/friday-job.log 2>&1" },
-      { label: "With error handling", code: "0 0 * * 5 /path/to/script.sh || echo \"Friday job failed at $(date)\" >> /var/log/cron-errors.log" },
+      { label: "With output logging", code: "0 0 * * 5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 5\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 5 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
     ],
     useCases: [
-      { title: "Weekly Backups", description: "Create full system or database backups every Friday at midnight before the weekend." },
-      { title: "Weekly Reports", description: "Generate and email summary reports to the team at end of business week." },
-      { title: "Database Maintenance", description: "Run VACUUM, index rebuilds, and cleanup tasks during low-traffic Friday hours." },
-      { title: "Security Scans", description: "Run vulnerability scans and compliance checks before the weekend maintenance window." },
+      { title: "Weekly Report", description: "Generate weekly team reports every Friday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Friday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Friday as part of your rotation strategy." },
     ],
     relatedPages: [
       { label: "Every Friday at 5 PM", cron: "0 17 * * 5", url: "/cron-generator/every-friday-5pm/" },
-      { label: "Every Friday at Noon", cron: "0 12 * * 5", url: "/cron-generator/every-friday-noon/" },
+      { label: "Every Monday", cron: "0 0 * * 1", url: "/cron-generator/every-monday/" },
       { label: "Every Monday & Friday", cron: "0 0 * * 1,5", url: "/cron-generator/every-monday-friday/" },
-      { label: "Every Weekday at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "Weekends", cron: "0 0 * * 0,6", url: "/cron-generator/weekends/" },
     ],
   },
   {
@@ -670,6 +1208,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 17 * * 5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 17 * * 5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron friday 5pm","0 17 * * 5","cron every friday 5pm","friday 5pm cron job","end of week cron","weekly report cron","friday eod cron","cron friday afternoon","crontab friday 5pm","cron friday evening"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 17 * * 5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 17 * * 5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 17 * * 5\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Friday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Friday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Friday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-saturday',
@@ -686,6 +1240,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every saturday","0 0 * * 6"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 6\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 6 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Saturday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Saturday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Saturday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-sunday',
@@ -702,6 +1273,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 0?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 0 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every sunday","0 0 * * 0"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 0 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 0 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 0\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 0 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Sunday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Sunday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Sunday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-sunday-noon',
@@ -718,6 +1306,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 12 * * 0?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 12 * * 0 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron sunday noon","0 12 * * 0"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 12 * * 0 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 12 * * 0 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 12 * * 0\"}]}" },
+      { label: "With date check in script", code: "0 12 * * 0 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Sunday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Sunday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Sunday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'weekends',
@@ -734,6 +1339,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 0,6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 0,6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron weekends","0 0 * * 0,6","cron saturday sunday"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 0,6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 0,6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 0,6\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 0,6 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Full System Backup", description: "Run comprehensive backups on weekends when traffic is lowest." },
+      { title: "Maintenance Window", description: "Perform system upgrades and maintenance during the weekend maintenance window." },
+      { title: "Weekly Report", description: "Generate weekly summary reports covering the full business week." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "Every Saturday", cron: "0 0 * * 6", url: "/cron-generator/every-saturday/" },
+      { label: "Every Sunday", cron: "0 0 * * 0", url: "/cron-generator/every-sunday/" },
+    ],
   },
   {
     slug: 'weekends-9am',
@@ -750,6 +1371,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 9 * * 0,6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 9 * * 0,6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron weekends 9am","0 9 * * 0,6"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9 * * 0,6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9 * * 0,6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 9 * * 0,6\"}]}" },
+      { label: "With date check in script", code: "0 9 * * 0,6 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Full System Backup", description: "Run comprehensive backups on weekends when traffic is lowest." },
+      { title: "Maintenance Window", description: "Perform system upgrades and maintenance during the weekend maintenance window." },
+      { title: "Weekly Report", description: "Generate weekly summary reports covering the full business week." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'first-of-month',
@@ -766,6 +1404,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron first of month","0 0 1 * *","cron monthly","cron 1st"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    useCases: [
+      { title: "Billing Cycle", description: "Process monthly billing on the 1st of each month." },
+      { title: "Monthly Archival", description: "Archive old data on the 1st as part of your data retention policy." },
+      { title: "Compliance Audit", description: "Run compliance checks on the 1st for monthly regulatory requirements." },
+    ],
+    relatedPages: [
+      { label: "15th of Month", cron: "0 0 15 * *", url: "/cron-generator/15th-of-month/" },
+      { label: "Last Day of Month", cron: "0 0 28-31 * *", url: "/cron-generator/last-day-of-month/" },
+      { label: "Every Quarter", cron: "0 0 1 1,4,7,10 *", url: "/cron-generator/every-quarter/" },
+    ],
   },
   {
     slug: '15th-of-month',
@@ -782,6 +1435,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 15 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 15 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron 15th of month","0 0 15 * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 15 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 15 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 15 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    useCases: [
+      { title: "Billing Cycle", description: "Process monthly billing on the 15th of each month." },
+      { title: "Monthly Archival", description: "Archive old data on the 15th as part of your data retention policy." },
+      { title: "Compliance Audit", description: "Run compliance checks on the 15th for monthly regulatory requirements." },
+    ],
+    relatedPages: [
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+      { label: "Last Day of Month", cron: "0 0 28-31 * *", url: "/cron-generator/last-day-of-month/" },
+      { label: "Every Quarter", cron: "0 0 1 1,4,7,10 *", url: "/cron-generator/every-quarter/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'last-day-of-month',
@@ -798,6 +1467,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 28-31 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 28-31 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron last day of month","cron month end"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 28-31 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 28-31 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-month',
@@ -814,6 +1493,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every month","monthly cron"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    useCases: [
+      { title: "Billing Cycle", description: "Process monthly billing on the 1st of each month." },
+      { title: "Monthly Archival", description: "Archive old data on the 1st as part of your data retention policy." },
+      { title: "Compliance Audit", description: "Run compliance checks on the 1st for monthly regulatory requirements." },
+    ],
+    relatedPages: [
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+      { label: "15th of Month", cron: "0 0 15 * *", url: "/cron-generator/15th-of-month/" },
+      { label: "Last Day of Month", cron: "0 0 28-31 * *", url: "/cron-generator/last-day-of-month/" },
+      { label: "Every Quarter", cron: "0 0 1 1,4,7,10 *", url: "/cron-generator/every-quarter/" },
+    ],
   },
   {
     slug: 'every-quarter',
@@ -830,6 +1525,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 1,4,7,10 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 1,4,7,10 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron quarterly","every 3 months cron"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 1,4,7,10 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 1,4,7,10 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 1,4,7,10 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-6-months',
@@ -846,6 +1552,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 1,7 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 1,7 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every 6 months","semi annual cron"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 1,7 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 1,7 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 1,7 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-year',
@@ -862,6 +1579,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 1 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 1 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every year","annual cron","yearly cron"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 1 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 1 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 1 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-hour-at-30',
@@ -878,6 +1606,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 30 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 30 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron minute 30","30 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "30 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "30 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Log Rotation", description: "Rotate and compress logs hourly at minute 30. Staggered away from :00 to avoid system load spikes." },
+      { title: "Hourly Snapshots", description: "Take hourly database or file system snapshots for point-in-time recovery." },
+      { title: "Heartbeat Signal", description: "Send a heartbeat signal every hour at minute 30 to indicate your service is alive." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-hour-at-15',
@@ -894,6 +1637,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 15 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 15 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron minute 15","15 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "15 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "15 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Log Rotation", description: "Rotate and compress logs hourly at minute 15. Staggered away from :00 to avoid system load spikes." },
+      { title: "Hourly Snapshots", description: "Take hourly database or file system snapshots for point-in-time recovery." },
+      { title: "Heartbeat Signal", description: "Send a heartbeat signal every hour at minute 15 to indicate your service is alive." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-hour-at-45',
@@ -910,6 +1668,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 45 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 45 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron minute 45","45 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "45 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "45 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Log Rotation", description: "Rotate and compress logs hourly at minute 45. Staggered away from :00 to avoid system load spikes." },
+      { title: "Hourly Snapshots", description: "Take hourly database or file system snapshots for point-in-time recovery." },
+      { title: "Heartbeat Signal", description: "Send a heartbeat signal every hour at minute 45 to indicate your service is alive." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'twice-daily-9am-9pm',
@@ -926,6 +1699,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 9,21 * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 9,21 * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron twice daily","0 9,21 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9,21 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9,21 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Digest Emails", description: "Send digest notifications at 9 AM, 9 PM daily." },
+      { title: "Checkpoint Backups", description: "Create incremental backups at multiple checkpoints throughout the day." },
+      { title: "Service Restarts", description: "Restart services at scheduled intervals to prevent memory leaks." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'three-times-daily',
@@ -942,6 +1730,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 8,16,0 * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 8,16,0 * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron three times daily","0 0,8,16 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8,16,0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8,16,0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Digest Emails", description: "Send digest notifications at midnight, 8 AM, 4 PM daily." },
+      { title: "Checkpoint Backups", description: "Create incremental backups at multiple checkpoints throughout the day." },
+      { title: "Service Restarts", description: "Restart services at scheduled intervals to prevent memory leaks." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'four-times-daily',
@@ -958,6 +1761,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0,6,12,18 * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0,6,12,18 * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron four times daily","0 0,6,12,18 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0,6,12,18 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0,6,12,18 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Digest Emails", description: "Send digest notifications at midnight, 6 AM, noon, 6 PM daily." },
+      { title: "Checkpoint Backups", description: "Create incremental backups at multiple checkpoints throughout the day." },
+      { title: "Service Restarts", description: "Restart services at scheduled intervals to prevent memory leaks." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-january',
@@ -974,6 +1792,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 1 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 1 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron january","0 0 1 1 *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 1 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 1 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 1 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-monday-wednesday-friday',
@@ -990,6 +1819,18 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 1,3,5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 1,3,5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron monday wednesday friday","MWF cron","0 0 * * 1,3,5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 1,3,5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 1,3,5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 1,3,5\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 1,3,5 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-tuesday-thursday',
@@ -1006,6 +1847,18 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 2,4?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 2,4 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron tuesday thursday","TTh cron","0 0 * * 2,4"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 2,4 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 2,4 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 2,4\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 2,4 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-asterisk',
@@ -1013,7 +1866,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     title: "What Does * Mean in Cron? - Asterisk Wildcard",
     h1: "Cron Asterisk (*) Wildcard",
     description: "The asterisk (*) in cron means \"every\". It matches all possible values for that field. Learn how * works in each cron field.",
-    explanation: "In cron, the asterisk (*) is a wildcard that matches every possible value. * in the minute field means \"every minute\". * in the hour field means \"every hour\". Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production.",
+    explanation: "In cron, the asterisk (*) is a wildcard that matches every possible value. * in the minute field means \"every minute\". * in the hour field means \"every hour\". Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production. Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production.",
     faq: [
       { q: "What does the cron expression * * * * * mean?", a: "The expression * * * * * means: at minute *, hour *, day-of-month *, month *, day-of-week *. Each field in the cron expression controls a different time component: minute, hour, day of month, month, and day of week." },
       { q: "How do I add * * * * * to my crontab?", a: "Run crontab -e in your terminal to open your crontab editor. Add a new line: * * * * * /path/to/your/script.sh. Save and exit. Verify with crontab -l. Make sure your script is executable (chmod +x script.sh) and uses full paths for all commands." },
@@ -1021,6 +1874,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using * * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: * * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron asterisk","cron star meaning","what does * mean in cron"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "* * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "* * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-step-operator',
@@ -1038,6 +1901,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent checks, try */10 * * * * (every 10 minutes) or */15 * * * * (every 15 minutes). To restrict to business hours: */5 9-17 * * 1-5." },
     ],
     keywords: ["cron step operator","cron */5","cron every N"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/5 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/5 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/5 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Real-time Monitoring", description: "Check service health every 5 minutes and alert on failures. Use with Prometheus, Datadog, or custom monitoring scripts." },
+      { title: "Queue Processing", description: "Poll job queues every 5 minutes for new work items. Ideal for email queues, image processing, or background tasks." },
+      { title: "API Polling", description: "Fetch updates from external APIs every 5 minutes. Use for syncing third-party data, webhooks, or real-time dashboards." },
+      { title: "Cache Warming", description: "Pre-populate caches every 5 minutes to reduce latency for end users. Combine with CDN invalidation for fresh content." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+    ],
   },
   {
     slug: 'cron-range-operator',
@@ -1055,6 +1935,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 9 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron range","cron 1-5","cron dash operator"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 9 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 9 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 9 AM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 9 AM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 9 AM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 9 AM", cron: "0 9 * * *", url: "/cron-generator/every-day-9am/" },
+      { label: "Weekends at 9 AM", cron: "0 9 * * 0,6", url: "/cron-generator/weekends-9am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+    ],
   },
   {
     slug: 'cron-list-operator',
@@ -1071,6 +1968,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 0,6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 0,6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron comma","cron list","cron multiple values"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 0,6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 0,6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 0,6\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 0,6 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Full System Backup", description: "Run comprehensive backups on weekends when traffic is lowest." },
+      { title: "Maintenance Window", description: "Perform system upgrades and maintenance during the weekend maintenance window." },
+      { title: "Weekly Report", description: "Generate weekly summary reports covering the full business week." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-2-minutes',
@@ -1088,6 +2002,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent checks, try */10 * * * * (every 10 minutes) or */15 * * * * (every 15 minutes). To restrict to business hours: */2 9-17 * * 1-5." },
     ],
     keywords: ["cron every 2 minutes","*/2 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/2 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/2 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/2 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Real-time Monitoring", description: "Check service health every 2 minutes and alert on failures. Use with Prometheus, Datadog, or custom monitoring scripts." },
+      { title: "Queue Processing", description: "Poll job queues every 2 minutes for new work items. Ideal for email queues, image processing, or background tasks." },
+      { title: "API Polling", description: "Fetch updates from external APIs every 2 minutes. Use for syncing third-party data, webhooks, or real-time dashboards." },
+      { title: "Cache Warming", description: "Pre-populate caches every 2 minutes to reduce latency for end users. Combine with CDN invalidation for fresh content." },
+    ],
+    relatedPages: [
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+    ],
   },
   {
     slug: 'every-3-minutes',
@@ -1105,6 +2036,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent checks, try */10 * * * * (every 10 minutes) or */15 * * * * (every 15 minutes). To restrict to business hours: */3 9-17 * * 1-5." },
     ],
     keywords: ["cron every 3 minutes","*/3 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/3 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/3 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/3 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Real-time Monitoring", description: "Check service health every 3 minutes and alert on failures. Use with Prometheus, Datadog, or custom monitoring scripts." },
+      { title: "Queue Processing", description: "Poll job queues every 3 minutes for new work items. Ideal for email queues, image processing, or background tasks." },
+      { title: "API Polling", description: "Fetch updates from external APIs every 3 minutes. Use for syncing third-party data, webhooks, or real-time dashboards." },
+      { title: "Cache Warming", description: "Pre-populate caches every 3 minutes to reduce latency for end users. Combine with CDN invalidation for fresh content." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+    ],
   },
   {
     slug: 'every-7-minutes',
@@ -1122,6 +2070,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "To restrict to business hours: */7 9-17 * * 1-5." },
     ],
     keywords: ["cron every 7 minutes","*/7 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/7 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/7 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/7 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Health Checks", description: "Run health checks every 7 minutes for your services, databases, and external dependencies." },
+      { title: "Data Synchronization", description: "Sync data between systems every 7 minutes: databases, file systems, or third-party APIs." },
+      { title: "Metrics Collection", description: "Collect system metrics (CPU, memory, disk, network) every 7 minutes and send to your monitoring backend." },
+      { title: "Queue Polling", description: "Check for new items in message queues or task queues every 7 minutes." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+    ],
   },
   {
     slug: 'every-25-minutes',
@@ -1139,6 +2104,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For more frequent checks, try */5 * * * * (every 5 minutes). To restrict to business hours: */25 9-17 * * 1-5." },
     ],
     keywords: ["cron every 25 minutes","*/25 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/25 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/25 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/25 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Periodic Data Sync", description: "Synchronize data between services every 25 minutes. Balances freshness with API rate limits." },
+      { title: "Scheduled Cleanup", description: "Remove stale data, expired sessions, or temporary files every 25 minutes." },
+      { title: "Status Reporting", description: "Generate status snapshots every 25 minutes for dashboards and alerting systems." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+    ],
   },
   {
     slug: 'every-5-hours',
@@ -1156,6 +2137,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 5 hours","0 */5 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */5 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */5 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-9-hours',
@@ -1173,6 +2164,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 9 hours","0 */9 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */9 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */9 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-10-hours',
@@ -1190,6 +2191,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 10 hours","0 */10 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */10 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */10 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-day-1am',
@@ -1207,6 +2218,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 1,13 * * *. For weekdays only: 0 1 * * 1-5." },
     ],
     keywords: ["cron 1am","0 1 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 1 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 1 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 1 * * *\"}]}" },
+      { label: "With error alerting", code: "0 1 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at 1 AM when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at 1 AM before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at 1 AM." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at 1 AM to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Every Day at midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Day at 3 AM", cron: "0 3 * * *", url: "/cron-generator/every-day-3am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-day-4am',
@@ -1224,6 +2253,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 4,16 * * *. For weekdays only: 0 4 * * 1-5." },
     ],
     keywords: ["cron 4am","0 4 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 4 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 4 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 4 * * *\"}]}" },
+      { label: "With error alerting", code: "0 4 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at 4 AM when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at 4 AM before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at 4 AM." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at 4 AM to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Day at 3 AM", cron: "0 3 * * *", url: "/cron-generator/every-day-3am/" },
+      { label: "Every Day at 6 AM", cron: "0 6 * * *", url: "/cron-generator/every-day-6am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-day-7am',
@@ -1241,6 +2288,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 7,19 * * *. For weekdays only: 0 7 * * 1-5." },
     ],
     keywords: ["cron 7am","0 7 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 7 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 7 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 7 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Morning Report", description: "Generate daily summary reports at 7 AM for team standup meetings." },
+      { title: "Email Digest", description: "Send daily email digests to subscribers at 7 AM when open rates are highest." },
+      { title: "Cache Pre-warming", description: "Pre-populate caches at 7 AM before peak traffic begins." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 6 AM", cron: "0 6 * * *", url: "/cron-generator/every-day-6am/" },
+      { label: "Every Day at 8 AM", cron: "0 8 * * *", url: "/cron-generator/every-day-8am/" },
+      { label: "Every Day at 9 AM", cron: "0 9 * * *", url: "/cron-generator/every-day-9am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-day-10am',
@@ -1258,6 +2321,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 10,22 * * *. For weekdays only: 0 10 * * 1-5." },
     ],
     keywords: ["cron 10am","0 10 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 10 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 10 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 10 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Morning Report", description: "Generate daily summary reports at 10 AM for team standup meetings." },
+      { title: "Email Digest", description: "Send daily email digests to subscribers at 10 AM when open rates are highest." },
+      { title: "Cache Pre-warming", description: "Pre-populate caches at 10 AM before peak traffic begins." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at 10 AM", cron: "0 10 * * 1-5", url: "/cron-generator/weekdays-10am/" },
+      { label: "Every Day at 8 AM", cron: "0 8 * * *", url: "/cron-generator/every-day-8am/" },
+      { label: "Every Day at 9 AM", cron: "0 9 * * *", url: "/cron-generator/every-day-9am/" },
+      { label: "Every Day at noon", cron: "0 12 * * *", url: "/cron-generator/every-day-noon/" },
+    ],
   },
   {
     slug: 'every-day-1pm',
@@ -1275,6 +2354,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 13,1 * * *. For weekdays only: 0 13 * * 1-5." },
     ],
     keywords: ["cron 1pm","0 13 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 13 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 13 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 13 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Afternoon Report", description: "Generate midday or afternoon reports at 1 PM for management review." },
+      { title: "Data Export", description: "Export daily data snapshots at 1 PM for downstream consumers." },
+      { title: "Notification Dispatch", description: "Send scheduled notifications and reminders at 1 PM during peak engagement hours." },
+    ],
+    relatedPages: [
+      { label: "Every Day at noon", cron: "0 12 * * *", url: "/cron-generator/every-day-noon/" },
+      { label: "Every Day at 2 PM", cron: "0 14 * * *", url: "/cron-generator/every-day-2pm/" },
+      { label: "Every Day at 3 PM", cron: "0 15 * * *", url: "/cron-generator/every-day-3pm/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-day-2pm',
@@ -1292,6 +2387,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 14,2 * * *. For weekdays only: 0 14 * * 1-5." },
     ],
     keywords: ["cron 2pm","0 14 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 14 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 14 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 14 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Afternoon Report", description: "Generate midday or afternoon reports at 2 PM for management review." },
+      { title: "Data Export", description: "Export daily data snapshots at 2 PM for downstream consumers." },
+      { title: "Notification Dispatch", description: "Send scheduled notifications and reminders at 2 PM during peak engagement hours." },
+    ],
+    relatedPages: [
+      { label: "Every Day at noon", cron: "0 12 * * *", url: "/cron-generator/every-day-noon/" },
+      { label: "Every Day at 1 PM", cron: "0 13 * * *", url: "/cron-generator/every-day-1pm/" },
+      { label: "Every Day at 3 PM", cron: "0 15 * * *", url: "/cron-generator/every-day-3pm/" },
+      { label: "Every Day at 4 PM", cron: "0 16 * * *", url: "/cron-generator/every-day-4pm/" },
+    ],
   },
   {
     slug: 'every-day-3pm',
@@ -1309,6 +2420,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 15,3 * * *. For weekdays only: 0 15 * * 1-5." },
     ],
     keywords: ["cron 3pm","0 15 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 15 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 15 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 15 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Afternoon Report", description: "Generate midday or afternoon reports at 3 PM for management review." },
+      { title: "Data Export", description: "Export daily data snapshots at 3 PM for downstream consumers." },
+      { title: "Notification Dispatch", description: "Send scheduled notifications and reminders at 3 PM during peak engagement hours." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at 3 PM", cron: "0 15 * * 1-5", url: "/cron-generator/weekdays-3pm/" },
+      { label: "Every Day at 1 PM", cron: "0 13 * * *", url: "/cron-generator/every-day-1pm/" },
+      { label: "Every Day at 2 PM", cron: "0 14 * * *", url: "/cron-generator/every-day-2pm/" },
+      { label: "Every Day at 4 PM", cron: "0 16 * * *", url: "/cron-generator/every-day-4pm/" },
+    ],
   },
   {
     slug: 'every-day-4pm',
@@ -1326,6 +2453,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 16,4 * * *. For weekdays only: 0 16 * * 1-5." },
     ],
     keywords: ["cron 4pm","0 16 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 16 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 16 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 16 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Afternoon Report", description: "Generate midday or afternoon reports at 4 PM for management review." },
+      { title: "Data Export", description: "Export daily data snapshots at 4 PM for downstream consumers." },
+      { title: "Notification Dispatch", description: "Send scheduled notifications and reminders at 4 PM during peak engagement hours." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 2 PM", cron: "0 14 * * *", url: "/cron-generator/every-day-2pm/" },
+      { label: "Every Day at 3 PM", cron: "0 15 * * *", url: "/cron-generator/every-day-3pm/" },
+      { label: "Every Day at 5 PM", cron: "0 17 * * *", url: "/cron-generator/every-day-5pm/" },
+      { label: "Every Day at 6 PM", cron: "0 18 * * *", url: "/cron-generator/every-day-6pm/" },
+    ],
   },
   {
     slug: 'every-day-6pm',
@@ -1343,6 +2486,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 18,6 * * *. For weekdays only: 0 18 * * 1-5." },
     ],
     keywords: ["cron 6pm","0 18 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 18 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 18 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 18 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "End-of-Day Summary", description: "Generate end-of-day summaries at 6 PM after business hours close." },
+      { title: "Evening Backup", description: "Run incremental backups at 6 PM after the day's data changes are complete." },
+      { title: "Content Delivery", description: "Publish scheduled content or newsletters at 6 PM for evening readers." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at 6 PM", cron: "0 18 * * 1-5", url: "/cron-generator/weekdays-6pm/" },
+      { label: "Every Day at 4 PM", cron: "0 16 * * *", url: "/cron-generator/every-day-4pm/" },
+      { label: "Every Day at 5 PM", cron: "0 17 * * *", url: "/cron-generator/every-day-5pm/" },
+      { label: "Every Day at 7 PM", cron: "0 19 * * *", url: "/cron-generator/every-day-7pm/" },
+    ],
   },
   {
     slug: 'every-day-7pm',
@@ -1360,6 +2519,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 19,7 * * *. For weekdays only: 0 19 * * 1-5." },
     ],
     keywords: ["cron 7pm","0 19 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 19 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 19 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 19 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "End-of-Day Summary", description: "Generate end-of-day summaries at 7 PM after business hours close." },
+      { title: "Evening Backup", description: "Run incremental backups at 7 PM after the day's data changes are complete." },
+      { title: "Content Delivery", description: "Publish scheduled content or newsletters at 7 PM for evening readers." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 5 PM", cron: "0 17 * * *", url: "/cron-generator/every-day-5pm/" },
+      { label: "Every Day at 6 PM", cron: "0 18 * * *", url: "/cron-generator/every-day-6pm/" },
+      { label: "Every Day at 8 PM", cron: "0 20 * * *", url: "/cron-generator/every-day-8pm/" },
+      { label: "Every Day at 9 PM", cron: "0 21 * * *", url: "/cron-generator/every-day-9pm/" },
+    ],
   },
   {
     slug: 'every-day-8pm',
@@ -1377,6 +2552,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 20,8 * * *. For weekdays only: 0 20 * * 1-5." },
     ],
     keywords: ["cron 8pm","0 20 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 20 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 20 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 20 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "End-of-Day Summary", description: "Generate end-of-day summaries at 8 PM after business hours close." },
+      { title: "Evening Backup", description: "Run incremental backups at 8 PM after the day's data changes are complete." },
+      { title: "Content Delivery", description: "Publish scheduled content or newsletters at 8 PM for evening readers." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 6 PM", cron: "0 18 * * *", url: "/cron-generator/every-day-6pm/" },
+      { label: "Every Day at 7 PM", cron: "0 19 * * *", url: "/cron-generator/every-day-7pm/" },
+      { label: "Every Day at 9 PM", cron: "0 21 * * *", url: "/cron-generator/every-day-9pm/" },
+      { label: "Every Day at 10 PM", cron: "0 22 * * *", url: "/cron-generator/every-day-10pm/" },
+    ],
   },
   {
     slug: 'every-day-10pm',
@@ -1394,6 +2585,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 22,10 * * *. For weekdays only: 0 22 * * 1-5." },
     ],
     keywords: ["cron 10pm","0 22 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 22 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 22 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 22 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "End-of-Day Summary", description: "Generate end-of-day summaries at 10 PM after business hours close." },
+      { title: "Evening Backup", description: "Run incremental backups at 10 PM after the day's data changes are complete." },
+      { title: "Content Delivery", description: "Publish scheduled content or newsletters at 10 PM for evening readers." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 8 PM", cron: "0 20 * * *", url: "/cron-generator/every-day-8pm/" },
+      { label: "Every Day at 9 PM", cron: "0 21 * * *", url: "/cron-generator/every-day-9pm/" },
+      { label: "Every Day at 11 PM", cron: "0 23 * * *", url: "/cron-generator/every-day-11pm/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-monday-8am',
@@ -1410,6 +2617,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 8 * * 1?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 8 * * 1 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron monday 8am","0 8 * * 1"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8 * * 1 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8 * * 1 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 8 * * 1\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Monday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Monday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Monday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-tuesday-2pm',
@@ -1426,6 +2649,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 14 * * 2?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 14 * * 2 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron tuesday 2pm","0 14 * * 2"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 14 * * 2 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 14 * * 2 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 14 * * 2\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Tuesday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Tuesday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Tuesday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-wednesday-10am',
@@ -1442,6 +2681,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 10 * * 3?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 10 * * 3 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron wednesday 10am","0 10 * * 3"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 10 * * 3 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 10 * * 3 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 10 * * 3\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Wednesday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Wednesday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Wednesday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-thursday-3pm',
@@ -1458,6 +2713,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 15 * * 4?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 15 * * 4 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron thursday 3pm","0 15 * * 4"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 15 * * 4 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 15 * * 4 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 15 * * 4\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Thursday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Thursday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Thursday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-friday-noon',
@@ -1474,6 +2745,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 12 * * 5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 12 * * 5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron friday noon","0 12 * * 5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 12 * * 5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 12 * * 5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 12 * * 5\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Friday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Friday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Friday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-saturday-9am',
@@ -1490,6 +2777,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 9 * * 6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 9 * * 6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron saturday 9am","0 9 * * 6"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9 * * 6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9 * * 6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 9 * * 6\"}]}" },
+      { label: "With date check in script", code: "0 9 * * 6 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Saturday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Saturday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Saturday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-sunday-6pm',
@@ -1506,6 +2810,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 18 * * 0?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 18 * * 0 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron sunday 6pm","0 18 * * 0"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 18 * * 0 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 18 * * 0 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 18 * * 0\"}]}" },
+      { label: "With date check in script", code: "0 18 * * 0 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Sunday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Sunday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Sunday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-saturday-8am',
@@ -1522,6 +2843,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 8 * * 6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 8 * * 6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron saturday 8am","0 8 * * 6"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8 * * 6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8 * * 6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 8 * * 6\"}]}" },
+      { label: "With date check in script", code: "0 8 * * 6 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Saturday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Saturday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Saturday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-2-days',
@@ -1538,6 +2876,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 */2 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 */2 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every 2 days","0 0 */2 * *","cron every other day"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 */2 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 */2 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-3-days',
@@ -1554,6 +2902,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 */3 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 */3 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every 3 days","0 0 */3 * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 */3 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 */3 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-5-days',
@@ -1570,6 +2928,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 */5 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 */5 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every 5 days","0 0 */5 * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 */5 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 */5 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-field-order',
@@ -1577,7 +2945,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     title: "Cron Field Order - 5 Fields Explained",
     h1: "Cron Field Order Explained",
     description: "Understand the 5 cron fields: minute, hour, day of month, month, day of week. Complete reference with examples.",
-    explanation: "A cron expression has 5 fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6, where 0=Sunday). Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production.",
+    explanation: "A cron expression has 5 fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6, where 0=Sunday). Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production. Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production.",
     faq: [
       { q: "What does the cron expression * * * * * mean?", a: "The expression * * * * * means: at minute *, hour *, day-of-month *, month *, day-of-week *. Each field in the cron expression controls a different time component: minute, hour, day of month, month, and day of week." },
       { q: "How do I add * * * * * to my crontab?", a: "Run crontab -e in your terminal to open your crontab editor. Add a new line: * * * * * /path/to/your/script.sh. Save and exit. Verify with crontab -l. Make sure your script is executable (chmod +x script.sh) and uses full paths for all commands." },
@@ -1585,6 +2953,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using * * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: * * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron field order","cron 5 fields","cron field meanings"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "* * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "* * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-special-characters',
@@ -1602,6 +2980,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent checks, try */10 * * * * (every 10 minutes) or */15 * * * * (every 15 minutes). To restrict to business hours: */5 9-17 * * 1-5." },
     ],
     keywords: ["cron special characters","cron symbols","cron syntax"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/5 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/5 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/5 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Real-time Monitoring", description: "Check service health every 5 minutes and alert on failures. Use with Prometheus, Datadog, or custom monitoring scripts." },
+      { title: "Queue Processing", description: "Poll job queues every 5 minutes for new work items. Ideal for email queues, image processing, or background tasks." },
+      { title: "API Polling", description: "Fetch updates from external APIs every 5 minutes. Use for syncing third-party data, webhooks, or real-time dashboards." },
+      { title: "Cache Warming", description: "Pre-populate caches every 5 minutes to reduce latency for end users. Combine with CDN invalidation for fresh content." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+    ],
   },
   {
     slug: 'cron-at-shortcuts',
@@ -1617,6 +3012,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using @daily?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: @daily /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron @daily","cron shortcuts","@hourly @weekly @monthly"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "@daily /path/to/your/script.sh" },
+      { label: "With output logging", code: "@daily /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-min-max-values',
@@ -1624,7 +3029,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     title: "Cron Field Ranges - Min and Max Values",
     h1: "Cron Field Value Ranges",
     description: "Reference for cron field ranges: minutes 0-59, hours 0-23, day of month 1-31, months 1-12, day of week 0-6.",
-    explanation: "Each cron field has a valid range: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6 where 0=Sunday). Some implementations allow 7 for Sunday. Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production.",
+    explanation: "Each cron field has a valid range: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-6 where 0=Sunday). Some implementations allow 7 for Sunday. Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production. Cron expressions consist of five fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both represent Sunday). Each field can contain a single value, a range (1-5), a list (0,6), a step (*/5), or a wildcard (*). Understanding these operators is essential for writing correct cron schedules. The most common mistake is confusing the field order — remember the mnemonic \"M H DOM MON DOW\" (Minute, Hour, Day of Month, Month, Day of Week). When testing cron expressions, use an online validator like crontab.guru or our built-in cron validator to verify the schedule before deploying to production.",
     faq: [
       { q: "What does the cron expression 0-59 0-23 1-31 1-12 0-6 mean?", a: "The expression 0-59 0-23 1-31 1-12 0-6 means: at minute 0-59, hour 0-23, day-of-month 1-31, month 1-12, day-of-week 0-6. Each field in the cron expression controls a different time component: minute, hour, day of month, month, and day of week." },
       { q: "How do I add 0-59 0-23 1-31 1-12 0-6 to my crontab?", a: "Run crontab -e in your terminal to open your crontab editor. Add a new line: 0-59 0-23 1-31 1-12 0-6 /path/to/your/script.sh. Save and exit. Verify with crontab -l. Make sure your script is executable (chmod +x script.sh) and uses full paths for all commands." },
@@ -1632,6 +3037,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0-59 0-23 1-31 1-12 0-6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0-59 0-23 1-31 1-12 0-6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron field range","cron values","cron min max"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0-59 0-23 1-31 1-12 0-6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0-59 0-23 1-31 1-12 0-6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-database-backup',
@@ -1649,6 +3064,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 2,14 * * *. For weekdays only: 0 2 * * 1-5." },
     ],
     keywords: ["cron database backup","cron mysql backup","cron postgresql backup"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 2 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 2 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 2 * * *\"}]}" },
+      { label: "With error alerting", code: "0 2 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at 2 AM when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at 2 AM before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at 2 AM." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at 2 AM to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Log Rotation", cron: "0 0 * * *", url: "/cron-generator/cron-log-rotation/" },
+      { label: "SSL Renewal", cron: "0 0 1 * *", url: "/cron-generator/cron-ssl-renewal/" },
+      { label: "Health Check", cron: "*/5 * * * *", url: "/cron-generator/cron-health-check/" },
+    ],
   },
   {
     slug: 'cron-log-rotation',
@@ -1666,6 +3099,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 0,12 * * *. For weekdays only: 0 0 * * 1-5." },
     ],
     keywords: ["cron log rotation","cron log cleanup","cron rotate logs"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * *\"}]}" },
+      { label: "With error alerting", code: "0 0 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at midnight when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at midnight before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at midnight." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at midnight to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at midnight", cron: "0 0 * * 1-5", url: "/cron-generator/weekdays-midnight/" },
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'cron-cache-clear',
@@ -1683,6 +3134,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron clear cache","cron cache flush","cron redis flush"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */6 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */6 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-health-check',
@@ -1700,6 +3161,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent checks, try */10 * * * * (every 10 minutes) or */15 * * * * (every 15 minutes). To restrict to business hours: */5 9-17 * * 1-5." },
     ],
     keywords: ["cron health check","cron monitoring","cron server monitoring"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/5 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/5 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/5 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Real-time Monitoring", description: "Check service health every 5 minutes and alert on failures. Use with Prometheus, Datadog, or custom monitoring scripts." },
+      { title: "Queue Processing", description: "Poll job queues every 5 minutes for new work items. Ideal for email queues, image processing, or background tasks." },
+      { title: "API Polling", description: "Fetch updates from external APIs every 5 minutes. Use for syncing third-party data, webhooks, or real-time dashboards." },
+      { title: "Cache Warming", description: "Pre-populate caches every 5 minutes to reduce latency for end users. Combine with CDN invalidation for fresh content." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+    ],
   },
   {
     slug: 'cron-ssl-renewal',
@@ -1716,6 +3194,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron ssl renewal","cron certbot","cron letsencrypt"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    useCases: [
+      { title: "Billing Cycle", description: "Process monthly billing on the 1st of each month." },
+      { title: "Monthly Archival", description: "Archive old data on the 1st as part of your data retention policy." },
+      { title: "Compliance Audit", description: "Run compliance checks on the 1st for monthly regulatory requirements." },
+    ],
+    relatedPages: [
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+      { label: "15th of Month", cron: "0 0 15 * *", url: "/cron-generator/15th-of-month/" },
+      { label: "Last Day of Month", cron: "0 0 28-31 * *", url: "/cron-generator/last-day-of-month/" },
+      { label: "Every Quarter", cron: "0 0 1 1,4,7,10 *", url: "/cron-generator/every-quarter/" },
+    ],
   },
   {
     slug: 'cron-temp-cleanup',
@@ -1733,6 +3227,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 3,15 * * *. For weekdays only: 0 3 * * 1-5." },
     ],
     keywords: ["cron temp cleanup","cron delete old files","cron clean tmp"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 3 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 3 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 3 * * *\"}]}" },
+      { label: "With error alerting", code: "0 3 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at 3 AM when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at 3 AM before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at 3 AM." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at 3 AM to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Day at 4 AM", cron: "0 4 * * *", url: "/cron-generator/every-day-4am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'cron-report-generation',
@@ -1750,6 +3262,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 8 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron report generation","cron daily report","cron weekly report"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 8 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 8 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 8 AM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 8 AM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 8 AM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 8 AM", cron: "0 8 * * *", url: "/cron-generator/every-day-8am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+    ],
   },
   {
     slug: 'cron-data-sync',
@@ -1767,6 +3296,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For more frequent checks, try */5 * * * * (every 5 minutes). To restrict to business hours: */15 9-17 * * 1-5." },
     ],
     keywords: ["cron data sync","cron rsync","cron file sync"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/15 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/15 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/15 * * * * flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Health Checks", description: "Run health checks every 15 minutes for your services, databases, and external dependencies." },
+      { title: "Data Synchronization", description: "Sync data between systems every 15 minutes: databases, file systems, or third-party APIs." },
+      { title: "Metrics Collection", description: "Collect system metrics (CPU, memory, disk, network) every 15 minutes and send to your monitoring backend." },
+      { title: "Queue Polling", description: "Check for new items in message queues or task queues every 15 minutes." },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+    ],
   },
   {
     slug: 'cron-email-sending',
@@ -1783,6 +3329,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 9 * * 1?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 9 * * 1 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron email","cron send email","cron newsletter"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9 * * 1 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9 * * 1 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 9 * * 1\"}]}" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Monday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Monday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Monday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'aws-eventbridge-cron',
@@ -1790,7 +3352,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     title: "AWS EventBridge Cron Expressions - Complete Guide",
     h1: "AWS EventBridge Cron Expressions",
     description: "Learn AWS EventBridge cron syntax. Different from Unix cron: uses cron() or rate() format with 6 fields.",
-    explanation: "AWS EventBridge uses a different cron format: cron(Minutes Hours Day-of-month Month Day-of-week Year). It requires a 6th field for year and uses ? for \"any\" in day fields. Example: cron(0 9 ? * MON-FRI *) for weekdays at 9 AM. When migrating cron schedules between platforms, the most common issues are: (1) Quartz requires 7 fields starting with seconds, (2) AWS EventBridge needs a 6th year field and uses ? instead of * in conflicting day fields, (3) Kubernetes uses the standard 5-field format but adds features like concurrencyPolicy and successfulJobsHistoryLimit, (4) GitHub Actions may delay scheduled workflows during peak load periods. Always test your cron expression on the target platform before relying on it in production.",
+    explanation: "AWS EventBridge uses a different cron format: cron(Minutes Hours Day-of-month Month Day-of-week Year). It requires a 6th field for year and uses ? for \"any\" in day fields. Example: cron(0 9 ? * MON-FRI *) for weekdays at 9 AM. When migrating cron schedules between platforms, the most common issues are: (1) Quartz requires 7 fields starting with seconds, (2) AWS EventBridge needs a 6th year field and uses ? instead of * in conflicting day fields, (3) Kubernetes uses the standard 5-field format but adds features like concurrencyPolicy and successfulJobsHistoryLimit, (4) GitHub Actions may delay scheduled workflows during peak load periods. Always test your cron expression on the target platform before relying on it in production. When migrating cron schedules between platforms, the most common issues are: (1) Quartz requires 7 fields starting with seconds, (2) AWS EventBridge needs a 6th year field and uses ? instead of * in conflicting day fields, (3) Kubernetes uses the standard 5-field format but adds features like concurrencyPolicy and successfulJobsHistoryLimit, (4) GitHub Actions may delay scheduled workflows during peak load periods. Always test your cron expression on the target platform before relying on it in production.",
     faq: [
       { q: "What does the cron expression cron(* * * * *) mean?", a: "The expression cron(* * * * *) means: at minute *, hour *, day-of-month *, month *, day-of-week *. Each field in the cron expression controls a different time component: minute, hour, day of month, month, and day of week." },
       { q: "How do I add cron(* * * * *) to my crontab?", a: "Run crontab -e in your terminal to open your crontab editor. Add a new line: cron(* * * * *) /path/to/your/script.sh. Save and exit. Verify with crontab -l. Make sure your script is executable (chmod +x script.sh) and uses full paths for all commands." },
@@ -1798,6 +3360,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using cron(* * * * *)?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: cron(* * * * *) /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["aws eventbridge cron","aws cron expression","aws lambda schedule"],
+    codeExamples: [
+      { label: "Rate expression (every 5 min)", code: "rate(5 minutes)" },
+      { label: "Cron expression (daily 9 AM UTC)", code: "cron(0 9 ? * * *)" },
+      { label: "Terraform example", code: "resource \"aws_cloudwatch_event_rule\" \"daily\" {\n  schedule_expression = \"rate(1 day)\"\n}" },
+      { label: "SAM template", code: "Events:\n  DailyTrigger:\n    Type: Schedule\n    Properties:\n      Schedule: rate(1 day)" },
+    ],
+    useCases: [
+      { title: "Lambda Trigger", description: "Trigger Lambda functions on a schedule using EventBridge rules." },
+      { title: "Step Functions", description: "Start Step Functions state machines on a recurring schedule." },
+      { title: "Cross-account Scheduling", description: "Manage scheduled events across multiple AWS accounts." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'quartz-cron',
@@ -1805,7 +3384,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     title: "Quartz Cron Expressions - 7 Field Syntax",
     h1: "Quartz Cron Expressions",
     description: "Learn Quartz Scheduler cron syntax. 7-field format with seconds. Used in Java, Spring, and many enterprise schedulers.",
-    explanation: "Quartz cron uses 7 fields: Seconds Minutes Hours Day-of-month Month Day-of-week Year. Key differences: starts with seconds, supports L (last) and W (weekday) modifiers, uses ? for \"no specific value\". When migrating cron schedules between platforms, the most common issues are: (1) Quartz requires 7 fields starting with seconds, (2) AWS EventBridge needs a 6th year field and uses ? instead of * in conflicting day fields, (3) Kubernetes uses the standard 5-field format but adds features like concurrencyPolicy and successfulJobsHistoryLimit, (4) GitHub Actions may delay scheduled workflows during peak load periods. Always test your cron expression on the target platform before relying on it in production.",
+    explanation: "Quartz cron uses 7 fields: Seconds Minutes Hours Day-of-month Month Day-of-week Year. Key differences: starts with seconds, supports L (last) and W (weekday) modifiers, uses ? for \"no specific value\". When migrating cron schedules between platforms, the most common issues are: (1) Quartz requires 7 fields starting with seconds, (2) AWS EventBridge needs a 6th year field and uses ? instead of * in conflicting day fields, (3) Kubernetes uses the standard 5-field format but adds features like concurrencyPolicy and successfulJobsHistoryLimit, (4) GitHub Actions may delay scheduled workflows during peak load periods. Always test your cron expression on the target platform before relying on it in production. When migrating cron schedules between platforms, the most common issues are: (1) Quartz requires 7 fields starting with seconds, (2) AWS EventBridge needs a 6th year field and uses ? instead of * in conflicting day fields, (3) Kubernetes uses the standard 5-field format but adds features like concurrencyPolicy and successfulJobsHistoryLimit, (4) GitHub Actions may delay scheduled workflows during peak load periods. Always test your cron expression on the target platform before relying on it in production.",
     faq: [
       { q: "What does the cron expression 0 * * ? * * mean?", a: "The expression 0 * * ? * * means: at minute 0, hour *, day-of-month *, month ?, day-of-week *. Each field in the cron expression controls a different time component: minute, hour, day of month, month, and day of week." },
       { q: "How do I add 0 * * ? * * to my crontab?", a: "Run crontab -e in your terminal to open your crontab editor. Add a new line: 0 * * ? * * /path/to/your/script.sh. Save and exit. Verify with crontab -l. Make sure your script is executable (chmod +x script.sh) and uses full paths for all commands." },
@@ -1813,6 +3392,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 * * ? * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 * * ? * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["quartz cron","quartz scheduler cron","java cron expression"],
+    codeExamples: [
+      { label: "Every 5 minutes (7 fields)", code: "0 */5 * ? * * *" },
+      { label: "Daily at 9:30 AM", code: "0 30 9 ? * * *" },
+      { label: "Weekdays at 10 AM", code: "0 0 10 ? * MON-FRI *" },
+      { label: "Java Scheduler config", code: "@Scheduled(cron = \"0 0 9 ? * MON-FRI\")\npublic void weeklyReport() { ... }" },
+    ],
+    useCases: [
+      { title: "Spring Boot Scheduler", description: "Use Quartz with Spring Boot @Scheduled annotations for recurring tasks." },
+      { title: "Job Persistence", description: "Store Quartz jobs in a database for recovery after application restarts." },
+      { title: "Misfire Handling", description: "Configure misfire instructions for jobs that missed their scheduled fire time." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'kubernetes-cronjob',
@@ -1829,6 +3425,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["kubernetes cronjob","k8s cronjob","kubernetes cron schedule"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Log Rotation", description: "Rotate and compress logs hourly at minute 0. Staggered away from :00 to avoid system load spikes." },
+      { title: "Hourly Snapshots", description: "Take hourly database or file system snapshots for point-in-time recovery." },
+      { title: "Heartbeat Signal", description: "Send a heartbeat signal every hour at minute 0 to indicate your service is alive." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'github-actions-schedule',
@@ -1845,6 +3456,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["github actions schedule","github actions cron","github workflow cron"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Log Rotation", description: "Rotate and compress logs hourly at minute 0. Staggered away from :00 to avoid system load spikes." },
+      { title: "Hourly Snapshots", description: "Take hourly database or file system snapshots for point-in-time recovery." },
+      { title: "Heartbeat Signal", description: "Send a heartbeat signal every hour at minute 0 to indicate your service is alive." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-business-hours',
@@ -1860,6 +3486,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 9-17 * * 1-5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 9-17 * * 1-5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron business hours","cron 9 to 5","cron work hours"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 9-17 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 9-17 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-off-peak',
@@ -1875,6 +3511,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0-5 * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0-5 * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron off peak","cron maintenance window","cron night time"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0-5 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0-5 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-lunch-time',
@@ -1892,6 +3538,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 12 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron lunch time","cron noon weekdays"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 12 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 12 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 12 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 12 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at noon every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at noon Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at noon on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at noon", cron: "0 12 * * *", url: "/cron-generator/every-day-noon/" },
+      { label: "Weekends at noon", cron: "0 12 * * 0,6", url: "/cron-generator/weekends-noon/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+    ],
   },
   {
     slug: 'cron-every-5-minutes-weekdays',
@@ -1907,6 +3570,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using */5 * * * 1-5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: */5 * * * 1-5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every 5 minutes weekdays","*/5 * * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/5 * * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/5 * * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "With lock file (prevent overlap)", code: "*/5 * * * 1-5 flock -n /tmp/myjob.lock /path/to/script.sh" },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+      { label: "Every 15 Minutes", cron: "*/15 * * * *", url: "/cron-generator/every-15-minutes/" },
+    ],
   },
   {
     slug: 'cron-every-15-minutes-business-hours',
@@ -1923,6 +3597,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using */15 9-17 * * 1-5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: */15 9-17 * * 1-5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron 15 min business hours","*/15 9-17 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/15 9-17 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/15 9-17 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+    ],
   },
   {
     slug: 'cron-every-hour-at-half-past',
@@ -1939,6 +3623,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 30 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 30 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron half past","cron :30","30 * * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "30 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "30 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Log Rotation", description: "Rotate and compress logs hourly at minute 30. Staggered away from :00 to avoid system load spikes." },
+      { title: "Hourly Snapshots", description: "Take hourly database or file system snapshots for point-in-time recovery." },
+      { title: "Heartbeat Signal", description: "Send a heartbeat signal every hour at minute 30 to indicate your service is alive." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-midnight-weekdays',
@@ -1956,6 +3655,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 0 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron midnight weekdays","0 0 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 1-5\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 1-5 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at midnight every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at midnight Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at midnight on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+    ],
   },
   {
     slug: 'weekdays-10am',
@@ -1973,6 +3689,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 10 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays 10am","0 10 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 10 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 10 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 10 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 10 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 10 AM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 10 AM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 10 AM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 10 AM", cron: "0 10 * * *", url: "/cron-generator/every-day-10am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+    ],
   },
   {
     slug: 'weekdays-3pm',
@@ -1990,6 +3723,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For weekends instead, use 0 15 * * 0,6. For every hour on weekdays, use 0 * * * 1-5." },
     ],
     keywords: ["cron weekdays 3pm","0 15 * * 1-5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 15 * * 1-5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 15 * * 1-5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 15 * * 1-5\"}]}" },
+      { label: "GitHub Actions schedule", code: "on:\n  schedule:\n    - cron: '0 15 * * 1-5'" },
+    ],
+    useCases: [
+      { title: "Daily Standup Reminder", description: "Send standup reminders at 3 PM every weekday to keep the team on schedule." },
+      { title: "Automated Report", description: "Generate and distribute daily reports at 3 PM Monday through Friday." },
+      { title: "CI/CD Trigger", description: "Trigger build and deployment pipelines at 3 PM on weekdays for staged rollouts." },
+    ],
+    relatedPages: [
+      { label: "Every Day at 3 PM", cron: "0 15 * * *", url: "/cron-generator/every-day-3pm/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+    ],
   },
   {
     slug: 'weekends-noon',
@@ -2006,6 +3756,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 12 * * 0,6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 12 * * 0,6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron weekends noon","0 12 * * 0,6"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 12 * * 0,6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 12 * * 0,6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 12 * * 0,6\"}]}" },
+      { label: "With date check in script", code: "0 12 * * 0,6 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Full System Backup", description: "Run comprehensive backups on weekends when traffic is lowest." },
+      { title: "Maintenance Window", description: "Perform system upgrades and maintenance during the weekend maintenance window." },
+      { title: "Weekly Report", description: "Generate weekly summary reports covering the full business week." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'weekends-5pm',
@@ -2022,6 +3789,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 17 * * 0,6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 17 * * 0,6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron weekends 5pm","0 17 * * 0,6"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 17 * * 0,6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 17 * * 0,6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 17 * * 0,6\"}]}" },
+      { label: "With date check in script", code: "0 17 * * 0,6 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Full System Backup", description: "Run comprehensive backups on weekends when traffic is lowest." },
+      { title: "Maintenance Window", description: "Perform system upgrades and maintenance during the weekend maintenance window." },
+      { title: "Weekly Report", description: "Generate weekly summary reports covering the full business week." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-monday-friday',
@@ -2038,6 +3822,18 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 1,5?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 1,5 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron monday friday","0 0 * * 1,5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 1,5 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 1,5 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 1,5\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 1,5 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-5th-of-month',
@@ -2054,6 +3850,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 5 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 5 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron 5th of month","0 0 5 * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 5 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 5 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 5 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    useCases: [
+      { title: "Billing Cycle", description: "Process monthly billing on the 5th of each month." },
+      { title: "Monthly Archival", description: "Archive old data on the 5th as part of your data retention policy." },
+      { title: "Compliance Audit", description: "Run compliance checks on the 5th for monthly regulatory requirements." },
+    ],
+    relatedPages: [
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+      { label: "15th of Month", cron: "0 0 15 * *", url: "/cron-generator/15th-of-month/" },
+      { label: "Last Day of Month", cron: "0 0 28-31 * *", url: "/cron-generator/last-day-of-month/" },
+      { label: "Every Quarter", cron: "0 0 1 1,4,7,10 *", url: "/cron-generator/every-quarter/" },
+    ],
   },
   {
     slug: 'every-10th-of-month',
@@ -2070,6 +3882,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 10 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 10 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron 10th of month","0 0 10 * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 10 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 10 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 10 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    useCases: [
+      { title: "Billing Cycle", description: "Process monthly billing on the 10th of each month." },
+      { title: "Monthly Archival", description: "Archive old data on the 10th as part of your data retention policy." },
+      { title: "Compliance Audit", description: "Run compliance checks on the 10th for monthly regulatory requirements." },
+    ],
+    relatedPages: [
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+      { label: "15th of Month", cron: "0 0 15 * *", url: "/cron-generator/15th-of-month/" },
+      { label: "Last Day of Month", cron: "0 0 28-31 * *", url: "/cron-generator/last-day-of-month/" },
+      { label: "Every Quarter", cron: "0 0 1 1,4,7,10 *", url: "/cron-generator/every-quarter/" },
+    ],
   },
   {
     slug: 'every-20th-of-month',
@@ -2086,6 +3914,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 20 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 20 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron 20th of month","0 0 20 * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 20 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 20 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 20 * *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    useCases: [
+      { title: "Billing Cycle", description: "Process monthly billing on the 20th of each month." },
+      { title: "Monthly Archival", description: "Archive old data on the 20th as part of your data retention policy." },
+      { title: "Compliance Audit", description: "Run compliance checks on the 20th for monthly regulatory requirements." },
+    ],
+    relatedPages: [
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+      { label: "15th of Month", cron: "0 0 15 * *", url: "/cron-generator/15th-of-month/" },
+      { label: "Last Day of Month", cron: "0 0 28-31 * *", url: "/cron-generator/last-day-of-month/" },
+      { label: "Every Quarter", cron: "0 0 1 1,4,7,10 *", url: "/cron-generator/every-quarter/" },
+    ],
   },
   {
     slug: 'twice-monthly-1st-15th',
@@ -2102,6 +3946,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1,15 * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1,15 * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron twice monthly","0 0 1,15 * *","cron semimonthly"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1,15 * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1,15 * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-every-january-1st',
@@ -2118,6 +3972,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 1 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 1 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron january 1st","cron new year","0 0 1 1 *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 1 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 1 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 1 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-2-hours-at-15',
@@ -2135,6 +4000,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent runs, try 0 */4 * * * (every 4 hours). For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 2 hours :15","15 */2 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "15 */2 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "15 */2 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-4-hours-at-30',
@@ -2152,6 +4027,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent runs, try 0 */8 * * * (every 8 hours). For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 4 hours :30","30 */4 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "30 */4 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "30 */4 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-6-hours-at-45',
@@ -2169,6 +4054,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every 6 hours :45","45 */6 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "45 */6 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "45 */6 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-specific-time',
@@ -2186,6 +4081,22 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 14,2 * * *. For weekdays only: 30 14 * * 1-5." },
     ],
     keywords: ["cron specific time","cron exact time","cron set time"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "30 14 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "30 14 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"30 14 * * *\"}]}" },
+    ],
+    useCases: [
+      { title: "Afternoon Report", description: "Generate midday or afternoon reports at 2 PM for management review." },
+      { title: "Data Export", description: "Export daily data snapshots at 2 PM for downstream consumers." },
+      { title: "Notification Dispatch", description: "Send scheduled notifications and reminders at 2 PM during peak engagement hours." },
+    ],
+    relatedPages: [
+      { label: "Every Day at noon", cron: "0 12 * * *", url: "/cron-generator/every-day-noon/" },
+      { label: "Every Day at 1 PM", cron: "0 13 * * *", url: "/cron-generator/every-day-1pm/" },
+      { label: "Every Day at 3 PM", cron: "0 15 * * *", url: "/cron-generator/every-day-3pm/" },
+      { label: "Every Day at 4 PM", cron: "0 16 * * *", url: "/cron-generator/every-day-4pm/" },
+    ],
   },
   {
     slug: 'cron-twice-daily-8am-8pm',
@@ -2202,6 +4113,21 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 8,20 * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 8,20 * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron twice daily 8am 8pm","0 8,20 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8,20 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8,20 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    useCases: [
+      { title: "Digest Emails", description: "Send digest notifications at 8 AM, 8 PM daily." },
+      { title: "Checkpoint Backups", description: "Create incremental backups at multiple checkpoints throughout the day." },
+      { title: "Service Restarts", description: "Restart services at scheduled intervals to prevent memory leaks." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-every-30-minutes-8am-5pm',
@@ -2218,6 +4144,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using */30 8-17 * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: */30 8-17 * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every 30 min work hours","*/30 8-17 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "*/30 8-17 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "*/30 8-17 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every 2 Minutes", cron: "*/2 * * * *", url: "/cron-generator/every-2-minutes/" },
+      { label: "Every 3 Minutes", cron: "*/3 * * * *", url: "/cron-generator/every-3-minutes/" },
+      { label: "Every 5 Minutes", cron: "*/5 * * * *", url: "/cron-generator/every-5-minutes/" },
+      { label: "Every 10 Minutes", cron: "*/10 * * * *", url: "/cron-generator/every-10-minutes/" },
+    ],
   },
   {
     slug: 'cron-sunday-midnight',
@@ -2234,6 +4170,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 0?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 0 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron sunday midnight","0 0 * * 0"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 0 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 0 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 0\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 0 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Sunday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Sunday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Sunday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-saturday-midnight',
@@ -2250,6 +4203,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 6?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 6 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron saturday midnight","0 0 * * 6"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 6 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 6 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 6\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 6 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Saturday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Saturday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Saturday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'how-to-edit-crontab',
@@ -2267,6 +4237,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 0,12 * * *. For weekdays only: 0 0 * * 1-5." },
     ],
     keywords: ["how to edit crontab","crontab -e","how to add cron job"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * *\"}]}" },
+      { label: "With error alerting", code: "0 0 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at midnight when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at midnight before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at midnight." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at midnight to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at midnight", cron: "0 0 * * 1-5", url: "/cron-generator/weekdays-midnight/" },
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'cron-environment-variables',
@@ -2284,6 +4272,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 0,12 * * *. For weekdays only: 0 0 * * 1-5." },
     ],
     keywords: ["cron environment variables","cron PATH","cron MAILTO"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * *\"}]}" },
+      { label: "With error alerting", code: "0 0 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at midnight when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at midnight before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at midnight." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at midnight to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at midnight", cron: "0 0 * * 1-5", url: "/cron-generator/weekdays-midnight/" },
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'cron-troubleshooting',
@@ -2301,6 +4307,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 0,12 * * *. For weekdays only: 0 0 * * 1-5." },
     ],
     keywords: ["cron not running","cron troubleshooting","cron job fails"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * *\"}]}" },
+      { label: "With error alerting", code: "0 0 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at midnight when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at midnight before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at midnight." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at midnight to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at midnight", cron: "0 0 * * 1-5", url: "/cron-generator/weekdays-midnight/" },
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'cron-timezone',
@@ -2318,6 +4342,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 0,12 * * *. For weekdays only: 0 0 * * 1-5." },
     ],
     keywords: ["cron timezone","cron TZ","CRON_TZ"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * *\"}]}" },
+      { label: "With error alerting", code: "0 0 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at midnight when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at midnight before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at midnight." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at midnight to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at midnight", cron: "0 0 * * 1-5", url: "/cron-generator/weekdays-midnight/" },
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'every-february',
@@ -2334,6 +4376,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 2 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 2 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron february","0 0 1 2 *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 2 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 2 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 2 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-july',
@@ -2350,6 +4403,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 7 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 7 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron july","0 0 1 7 *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 7 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 7 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 7 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-december',
@@ -2366,6 +4430,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 12 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 12 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron december","0 0 1 12 *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 12 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 12 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 12 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-october',
@@ -2382,6 +4457,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 10 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 10 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron october","0 0 1 10 *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 10 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 10 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 10 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-april',
@@ -2398,6 +4484,17 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 1 4 *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 1 4 * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron april","0 0 1 4 *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 1 4 * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 1 4 * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Kubernetes CronJob (YAML)", code: "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: \"0 0 1 4 *\"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'every-monday-wednesday',
@@ -2414,6 +4511,18 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 1,3?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 1,3 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron monday wednesday","0 0 * * 1,3"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 1,3 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 1,3 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 1,3\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 1,3 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-every-minute-for-one-hour',
@@ -2429,6 +4538,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using * 9 * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: * 9 * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every minute one hour","* 9 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "* 9 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "* 9 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-every-other-hour',
@@ -2446,6 +4565,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For less frequent runs, try 0 */4 * * * (every 4 hours). For a specific hour instead of interval: use comma-separated values like 0 0,8,16 * * *." },
     ],
     keywords: ["cron every other hour","cron alternating hours","0 */2 * * *"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 */2 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 */2 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-every-week',
@@ -2462,6 +4591,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 0 * * 0?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 0 * * 0 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron every week","weekly cron","cron weekly schedule","cron every friday","cron every monday","0 0 * * 0","0 0 * * 5"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 0 * * 0 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 0 * * 0 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 0 * * 0\"}]}" },
+      { label: "With error alerting", code: "0 0 * * 0 /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Sunday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Sunday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Sunday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-every-sunday-8am',
@@ -2478,6 +4624,23 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0 8 * * 0?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0 8 * * 0 /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron sunday 8am","0 8 * * 0"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0 8 * * 0 /path/to/your/script.sh" },
+      { label: "With output logging", code: "0 8 * * 0 /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"0 8 * * 0\"}]}" },
+      { label: "With date check in script", code: "0 8 * * 0 [ \"$(date +\\%u)\" -le 5 ] && /path/to/script.sh" },
+    ],
+    useCases: [
+      { title: "Weekly Report", description: "Generate weekly team reports every Sunday." },
+      { title: "Scheduled Maintenance", description: "Run maintenance tasks every Sunday during a low-traffic window." },
+      { title: "Backup Cycle", description: "Create weekly backups every Sunday as part of your rotation strategy." },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
   {
     slug: 'cron-5-minutes-after-midnight',
@@ -2495,6 +4658,24 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "Are there alternative cron expressions for this schedule?", a: "For twice daily at the same time AM and PM: 0 0,12 * * *. For weekdays only: 5 0 * * 1-5." },
     ],
     keywords: ["cron 5 minutes after midnight","5 0 * * *","cron 12:05 am"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "5 0 * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "5 0 * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+      { label: "Vercel cron (vercel.json)", code: "{\"crons\":[{\"path\":\"/api/task\",\"schedule\":\"5 0 * * *\"}]}" },
+      { label: "With error alerting", code: "5 0 * * * /path/to/script.sh || curl -s -X POST \"https://hooks.slack.com/services/YOUR/WEBHOOK\" -d '{\"text\":\"Cron job failed at $(date)\"}'" },
+    ],
+    useCases: [
+      { title: "Database Backup", description: "Run full database backups at midnight when traffic is lowest." },
+      { title: "Log Rotation", description: "Rotate and archive application logs at midnight before the new day begins." },
+      { title: "Security Scan", description: "Run vulnerability scans and compliance checks during off-peak hours at midnight." },
+      { title: "ETL Pipeline", description: "Execute extract-transform-load jobs at midnight to prepare data for the next business day." },
+    ],
+    relatedPages: [
+      { label: "Weekdays at midnight", cron: "0 0 * * 1-5", url: "/cron-generator/weekdays-midnight/" },
+      { label: "Every Day at 1 AM", cron: "0 1 * * *", url: "/cron-generator/every-day-1am/" },
+      { label: "Every Day at 2 AM", cron: "0 2 * * *", url: "/cron-generator/every-day-2am/" },
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+    ],
   },
   {
     slug: 'cron-every-30-minutes-at-0-and-30',
@@ -2510,5 +4691,15 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
       { q: "What are common mistakes when using 0,30 * * * *?", a: "Common pitfalls: (1) Cron uses a minimal PATH — always use full paths to commands and scripts. (2) Percent signs (%) must be escaped with backslash in crontab. (3) Cron runs in the system timezone — set CRON_TZ=UTC at the top of your crontab for consistent UTC scheduling. (4) Redirect output to prevent email spam: 0,30 * * * * /path/command >> /var/log/myjob.log 2>&1. (5) Test your cron expression with crontab.guru or our validator above before deploying." },
     ],
     keywords: ["cron 0,30","0,30 * * * *","cron every 30 at 0 30"],
+    codeExamples: [
+      { label: "Basic crontab entry", code: "0,30 * * * * /path/to/your/script.sh" },
+      { label: "With output logging", code: "0,30 * * * * /path/to/script.sh >> /var/log/cronjob.log 2>&1" },
+    ],
+    relatedPages: [
+      { label: "Every Hour", cron: "0 * * * *", url: "/cron-generator/every-hour/" },
+      { label: "Every Day at Midnight", cron: "0 0 * * *", url: "/cron-generator/every-day-midnight/" },
+      { label: "Weekdays at 9 AM", cron: "0 9 * * 1-5", url: "/cron-generator/weekdays-9am/" },
+      { label: "First of Month", cron: "0 0 1 * *", url: "/cron-generator/first-of-month/" },
+    ],
   },
 ]

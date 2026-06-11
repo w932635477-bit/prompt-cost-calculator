@@ -714,6 +714,600 @@ function ordinal(n) {
   return n + (s[(v - 20) % 10] || s[v] || s[0])
 }
 
+// ─── Code Examples Generation ───
+
+function generateCodeExamples(page, cls) {
+  const expr = page.cron
+  const parsed = parseCron(expr)
+
+  // Use-case pages get domain-specific examples
+  if (cls === 'use-case') return generateUseCaseCodeExamples(page)
+  // Platform pages get platform-specific config
+  if (cls === 'platform') return generatePlatformCodeExamples(page)
+
+  const examples = [
+    { label: 'Basic crontab entry', code: `${expr} /path/to/your/script.sh` },
+    { label: 'With output logging', code: `${expr} /path/to/script.sh >> /var/log/cronjob.log 2>&1` },
+  ]
+
+  // Add category-specific examples
+  if (parsed) {
+    const { minute, hour, dom, month, dow } = parsed
+
+    if (/^\*\/\d+$/.test(minute) && hour === '*') {
+      const n = parseInt(minute.replace('*/', ''))
+      examples.push({ label: 'With lock file (prevent overlap)', code: `${expr} flock -n /tmp/myjob.lock /path/to/script.sh` })
+    }
+
+    if (/^\d+$/.test(minute) && /^\d+$/.test(hour) && dom === '*') {
+      const h = parseInt(hour)
+      const m = parseInt(minute)
+      examples.push({ label: 'Vercel cron (vercel.json)', code: `{"crons":[{"path":"/api/task","schedule":"${expr}"}]}` })
+      if (h >= 0 && h < 6) {
+        examples.push({ label: 'With error alerting', code: `${expr} /path/to/script.sh || curl -s -X POST "https://hooks.slack.com/services/YOUR/WEBHOOK" -d '{"text":"Cron job failed at $(date)"}'` })
+      }
+    }
+
+    if (/^1-5$/.test(dow) && /^\d+$/.test(hour)) {
+      examples.push({ label: 'GitHub Actions schedule', code: `on:\n  schedule:\n    - cron: '${expr}'` })
+    }
+
+    if (/^\d+$/.test(minute) && /^\d+$/.test(hour) && /^\d+$/.test(dom)) {
+      examples.push({ label: 'Kubernetes CronJob (YAML)', code: `apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: monthly-task\nspec:\n  schedule: "${expr}"\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest` })
+    }
+
+    if (/^0,6$/.test(dow) || /^(0|6)$/.test(dow)) {
+      examples.push({ label: 'With date check in script', code: `${expr} [ "$(date +\\%u)" -le 5 ] && /path/to/script.sh` })
+    }
+  }
+
+  return examples.slice(0, 4)
+}
+
+function generateUseCaseCodeExamples(page) {
+  const slug = page.slug
+  const expr = page.cron
+  const map = {
+    'cron-database-backup': [
+      { label: 'MySQL backup', code: `${expr} mysqldump -u root -pSECRET mydb | gzip > /backup/mydb_$(date +\\%Y\\%m\\%d).sql.gz` },
+      { label: 'PostgreSQL backup', code: `${expr} pg_dump -U postgres mydb | gzip > /backup/mydb_$(date +\\%Y\\%m\\%d).sql.gz` },
+      { label: 'MongoDB backup', code: `${expr} mongodump --uri="mongodb://localhost:27017/mydb" --gzip --out /backup/mongo_$(date +\\%Y\\%m\\%d)` },
+      { label: 'With retention (delete backups older than 30 days)', code: `${expr} /path/to/backup.sh && find /backup -name "*.sql.gz" -mtime +30 -delete` },
+    ],
+    'cron-log-rotation': [
+      { label: 'Nginx log rotation', code: `${expr} mv /var/log/nginx/access.log /var/log/nginx/access_$(date +\\%Y\\%m\\%d).log && kill -USR1 $(cat /var/run/nginx.pid)` },
+      { label: 'Application log rotation', code: `${expr} mv /var/log/app.log /var/log/app_$(date +\\%Y\\%m\\%d).log && touch /var/log/app.log` },
+      { label: 'Compress old logs', code: `${expr} find /var/log -name "*.log.*" -mtime +1 -exec gzip {} \\;` },
+      { label: 'Delete logs older than 90 days', code: `${expr} find /var/log -name "*.gz" -mtime +90 -delete` },
+    ],
+    'cron-cache-clear': [
+      { label: 'Clear Redis cache', code: `${expr} redis-cli FLUSHALL` },
+      { label: 'Clear specific Redis database', code: `${expr} redis-cli -n 1 FLUSHDB` },
+      { label: 'Clear PHP OPcache', code: `${expr} curl -s http://localhost/opcache-reset.php > /dev/null` },
+      { label: 'Clear temp files', code: `${expr} find /tmp -name "sess_*" -mtime +7 -delete` },
+    ],
+    'cron-health-check': [
+      { label: 'HTTP health check', code: `${expr} curl -sf http://localhost:8080/health > /dev/null || echo "Service DOWN at $(date)" >> /var/log/health.log` },
+      { label: 'With email alert', code: `${expr} curl -sf http://localhost:8080/health || echo "Health check failed" | mail -s "ALERT: Service Down" admin@example.com` },
+      { label: 'Disk space check', code: `${expr} [ $(df / | tail -1 | awk '{print $5}' | tr -d '%') -gt 90 ] && echo "Disk usage > 90%" | mail -s "DISK ALERT" admin@example.com` },
+      { label: 'Port check', code: `${expr} nc -z localhost 5432 || echo "PostgreSQL not responding at $(date)" >> /var/log/health.log` },
+    ],
+    'cron-ssl-renewal': [
+      { label: 'Certbot renew (Let\'s Encrypt)', code: `${expr} certbot renew --quiet --deploy-hook "systemctl reload nginx"` },
+      { label: 'With auto-reload nginx', code: `${expr} certbot renew --quiet --post-hook "systemctl reload nginx"` },
+      { label: 'Check certificate expiry', code: `${expr} certbot certificates --quiet 2>&1 | grep "Expiry Date" || true` },
+    ],
+    'cron-temp-cleanup': [
+      { label: 'Delete files older than 7 days', code: `${expr} find /tmp -type f -mtime +7 -delete` },
+      { label: 'Clean up session files', code: `${expr} find /var/lib/php/sessions -type f -mtime +1 -delete` },
+      { label: 'Remove empty directories', code: `${expr} find /tmp -type d -empty -delete` },
+      { label: 'Docker image cleanup', code: `${expr} docker image prune -f --filter "until=168h"` },
+    ],
+    'cron-report-generation': [
+      { label: 'Generate CSV report', code: `${expr} /path/to/report.sh > /reports/daily_$(date +\\%Y\\%m\\%d).csv` },
+      { label: 'Send report via email', code: `${expr} /path/to/report.sh | mail -s "Daily Report $(date +\\%Y-\\%m-\\%d)" team@example.com` },
+      { label: 'Upload to S3', code: `${expr} /path/to/report.sh | aws s3 cp - s3://my-reports/report_$(date +\\%Y\\%m\\%d).csv` },
+    ],
+    'cron-data-sync': [
+      { label: 'rsync remote to local', code: `${expr} rsync -avz --delete user@remote:/data/ /local/data/` },
+      { label: 'Database sync', code: `${expr} pg_dump -U postgres sourcedb | psql -U postgres targetdb` },
+      { label: 'S3 sync', code: `${expr} aws s3 sync s3://source-bucket/data/ /local/data/ --delete` },
+    ],
+    'cron-email-sending': [
+      { label: 'Send digest email', code: `${expr} /path/to/generate-digest.sh | mail -s "Weekly Digest" team@example.com` },
+      { label: 'Send with attachment', code: `${expr} echo "Report attached" | mail -s "Weekly Report" -a /reports/weekly.csv team@example.com` },
+    ],
+    'how-to-edit-crontab': [
+      { label: 'Edit crontab', code: 'crontab -e' },
+      { label: 'List current crontab', code: 'crontab -l' },
+      { label: 'Edit another user\'s crontab (root)', code: 'crontab -e -u username' },
+      { label: 'Remove all crontab entries', code: 'crontab -r' },
+    ],
+    'cron-environment-variables': [
+      { label: 'Set PATH in crontab', code: 'PATH=/usr/local/bin:/usr/bin:/bin' },
+      { label: 'Set timezone', code: 'CRON_TZ=UTC' },
+      { label: 'Set MAILTO for error alerts', code: 'MAILTO=admin@example.com\n0 * * * * /path/to/job.sh' },
+      { label: 'Source env file before job', code: '0 * * * * . /etc/environment && /path/to/job.sh' },
+    ],
+    'cron-troubleshooting': [
+      { label: 'Check cron service status', code: 'systemctl status cron' },
+      { label: 'View cron logs', code: 'grep CRON /var/log/syslog | tail -20' },
+      { label: 'Run with full env for debugging', code: '0 * * * * env > /tmp/cron-env.txt && /path/to/job.sh' },
+    ],
+    'cron-timezone': [
+      { label: 'Force UTC for all jobs', code: 'CRON_TZ=UTC\n0 9 * * * /path/to/job.sh' },
+      { label: 'Per-job timezone', code: 'CRON_TZ=America/New_York\n0 9 * * 1-5 /path/to/job.sh' },
+      { label: 'Check system timezone', code: 'timedatectl' },
+    ],
+  }
+
+  return map[slug] || [
+    { label: 'Basic crontab entry', code: `${expr} /path/to/your/script.sh` },
+    { label: 'With output logging', code: `${expr} /path/to/script.sh >> /var/log/cronjob.log 2>&1` },
+  ]
+}
+
+function generatePlatformCodeExamples(page) {
+  const slug = page.slug
+  const map = {
+    'aws-eventbridge-cron': [
+      { label: 'Rate expression (every 5 min)', code: 'rate(5 minutes)' },
+      { label: 'Cron expression (daily 9 AM UTC)', code: 'cron(0 9 ? * * *)' },
+      { label: 'Terraform example', code: 'resource "aws_cloudwatch_event_rule" "daily" {\n  schedule_expression = "rate(1 day)"\n}' },
+      { label: 'SAM template', code: 'Events:\n  DailyTrigger:\n    Type: Schedule\n    Properties:\n      Schedule: rate(1 day)' },
+    ],
+    'quartz-cron': [
+      { label: 'Every 5 minutes (7 fields)', code: '0 */5 * ? * * *' },
+      { label: 'Daily at 9:30 AM', code: '0 30 9 ? * * *' },
+      { label: 'Weekdays at 10 AM', code: '0 0 10 ? * MON-FRI *' },
+      { label: 'Java Scheduler config', code: '@Scheduled(cron = "0 0 9 ? * MON-FRI")\npublic void weeklyReport() { ... }' },
+    ],
+    'kubernetes-cronjob': [
+      { label: 'Basic CronJob', code: 'apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: daily-task\nspec:\n  schedule: "0 9 * * *"\n  concurrencyPolicy: Forbid\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          containers:\n          - name: task\n            image: my-image:latest' },
+      { label: 'With timezone', code: 'spec:\n  timeZone: "America/New_York"\n  schedule: "0 9 * * *"' },
+      { label: 'With history limit', code: 'spec:\n  successfulJobsHistoryLimit: 3\n  failedJobsHistoryLimit: 1\n  schedule: "0 */6 * * *"' },
+    ],
+    'github-actions-schedule': [
+      { label: 'Daily workflow', code: 'on:\n  schedule:\n    - cron: "0 9 * * *"' },
+      { label: 'Weekdays only', code: 'on:\n  schedule:\n    - cron: "0 9 * * 1-5"' },
+      { label: 'With manual trigger fallback', code: 'on:\n  schedule:\n    - cron: "0 9 * * *"\n  workflow_dispatch:' },
+    ],
+  }
+
+  return map[slug] || [
+    { label: 'Basic crontab entry', code: `${page.cron} /path/to/your/script.sh` },
+  ]
+}
+
+// ─── Use Cases Generation ───
+
+function generateUseCases(page, cls) {
+  const expr = page.cron
+  const parsed = parseCron(expr)
+
+  // Use-case pages get domain-specific use cases
+  if (cls === 'use-case') return generateUseCaseSpecific(page)
+  // Syntax pages don't get use cases
+  if (cls === 'syntax') return []
+  // Platform pages get platform-specific use cases
+  if (cls === 'platform') return generatePlatformUseCases(page)
+
+  if (!parsed) return []
+
+  const { minute, hour, dom, month, dow } = parsed
+  const cases = []
+
+  // Frequency-based use cases
+  if (/^\*\/\d+$/.test(minute) && hour === '*' && dom === '*' && month === '*' && dow === '*') {
+    const n = parseInt(minute.replace('*/', ''))
+    if (n <= 5) {
+      cases.push(
+        { title: 'Real-time Monitoring', description: `Check service health every ${n} minutes and alert on failures. Use with Prometheus, Datadog, or custom monitoring scripts.` },
+        { title: 'Queue Processing', description: `Poll job queues every ${n} minutes for new work items. Ideal for email queues, image processing, or background tasks.` },
+        { title: 'API Polling', description: `Fetch updates from external APIs every ${n} minutes. Use for syncing third-party data, webhooks, or real-time dashboards.` },
+        { title: 'Cache Warming', description: `Pre-populate caches every ${n} minutes to reduce latency for end users. Combine with CDN invalidation for fresh content.` },
+      )
+    } else if (n <= 15) {
+      cases.push(
+        { title: 'Health Checks', description: `Run health checks every ${n} minutes for your services, databases, and external dependencies.` },
+        { title: 'Data Synchronization', description: `Sync data between systems every ${n} minutes: databases, file systems, or third-party APIs.` },
+        { title: 'Metrics Collection', description: `Collect system metrics (CPU, memory, disk, network) every ${n} minutes and send to your monitoring backend.` },
+        { title: 'Queue Polling', description: `Check for new items in message queues or task queues every ${n} minutes.` },
+      )
+    } else {
+      cases.push(
+        { title: 'Periodic Data Sync', description: `Synchronize data between services every ${n} minutes. Balances freshness with API rate limits.` },
+        { title: 'Scheduled Cleanup', description: `Remove stale data, expired sessions, or temporary files every ${n} minutes.` },
+        { title: 'Status Reporting', description: `Generate status snapshots every ${n} minutes for dashboards and alerting systems.` },
+      )
+    }
+  }
+
+  // Hourly
+  if (/^\d+$/.test(minute) && hour === '*' && dom === '*' && month === '*' && dow === '*') {
+    const m = parseInt(minute)
+    cases.push(
+      { title: 'Log Rotation', description: `Rotate and compress logs hourly at minute ${m}. Staggered away from :00 to avoid system load spikes.` },
+      { title: 'Hourly Snapshots', description: `Take hourly database or file system snapshots for point-in-time recovery.` },
+      { title: 'Heartbeat Signal', description: `Send a heartbeat signal every hour at minute ${m} to indicate your service is alive.` },
+    )
+  }
+
+  // Daily at specific time
+  if (/^\d+$/.test(minute) && /^\d+$/.test(hour) && dom === '*' && month === '*' && dow === '*') {
+    const h = parseInt(hour)
+    if (h >= 0 && h < 6) {
+      cases.push(
+        { title: 'Database Backup', description: `Run full database backups at ${formatHour(h)} when traffic is lowest.` },
+        { title: 'Log Rotation', description: `Rotate and archive application logs at ${formatHour(h)} before the new day begins.` },
+        { title: 'Security Scan', description: `Run vulnerability scans and compliance checks during off-peak hours at ${formatHour(h)}.` },
+        { title: 'ETL Pipeline', description: `Execute extract-transform-load jobs at ${formatHour(h)} to prepare data for the next business day.` },
+      )
+    } else if (h >= 6 && h < 12) {
+      cases.push(
+        { title: 'Morning Report', description: `Generate daily summary reports at ${formatHour(h)} for team standup meetings.` },
+        { title: 'Email Digest', description: `Send daily email digests to subscribers at ${formatHour(h)} when open rates are highest.` },
+        { title: 'Cache Pre-warming', description: `Pre-populate caches at ${formatHour(h)} before peak traffic begins.` },
+      )
+    } else if (h >= 12 && h < 18) {
+      cases.push(
+        { title: 'Afternoon Report', description: `Generate midday or afternoon reports at ${formatHour(h)} for management review.` },
+        { title: 'Data Export', description: `Export daily data snapshots at ${formatHour(h)} for downstream consumers.` },
+        { title: 'Notification Dispatch', description: `Send scheduled notifications and reminders at ${formatHour(h)} during peak engagement hours.` },
+      )
+    } else {
+      cases.push(
+        { title: 'End-of-Day Summary', description: `Generate end-of-day summaries at ${formatHour(h)} after business hours close.` },
+        { title: 'Evening Backup', description: `Run incremental backups at ${formatHour(h)} after the day's data changes are complete.` },
+        { title: 'Content Delivery', description: `Publish scheduled content or newsletters at ${formatHour(h)} for evening readers.` },
+      )
+    }
+  }
+
+  // Weekday at time
+  if (/^1-5$/.test(dow) && /^\d+$/.test(hour)) {
+    const h = parseInt(hour)
+    cases.push(
+      { title: 'Daily Standup Reminder', description: `Send standup reminders at ${formatHour(h)} every weekday to keep the team on schedule.` },
+      { title: 'Automated Report', description: `Generate and distribute daily reports at ${formatHour(h)} Monday through Friday.` },
+      { title: 'CI/CD Trigger', description: `Trigger build and deployment pipelines at ${formatHour(h)} on weekdays for staged rollouts.` },
+    )
+  }
+
+  // Specific day at time
+  if (/^\d+$/.test(dow) && /^\d+$/.test(hour) && dom === '*') {
+    const dows = expandField(dow, 6)
+    const dayName = dows ? dows.map(d => DAY_NAMES[d]).join(' and ') : dow
+    cases.push(
+      { title: `Weekly Report`, description: `Generate weekly team reports every ${dayName}.` },
+      { title: `Scheduled Maintenance`, description: `Run maintenance tasks every ${dayName} during a low-traffic window.` },
+      { title: `Backup Cycle`, description: `Create weekly backups every ${dayName} as part of your rotation strategy.` },
+    )
+  }
+
+  // Weekend
+  if (dow === '0,6') {
+    cases.push(
+      { title: 'Full System Backup', description: 'Run comprehensive backups on weekends when traffic is lowest.' },
+      { title: 'Maintenance Window', description: 'Perform system upgrades and maintenance during the weekend maintenance window.' },
+      { title: 'Weekly Report', description: 'Generate weekly summary reports covering the full business week.' },
+    )
+  }
+
+  // Monthly
+  if (/^\d+$/.test(dom) && month === '*') {
+    const d = parseInt(dom)
+    cases.push(
+      { title: 'Billing Cycle', description: `Process monthly billing on the ${ordinal(d)} of each month.` },
+      { title: 'Monthly Archival', description: `Archive old data on the ${ordinal(d)} as part of your data retention policy.` },
+      { title: 'Compliance Audit', description: `Run compliance checks on the ${ordinal(d)} for monthly regulatory requirements.` },
+    )
+  }
+
+  // Multi-daily
+  if (/^\d+$/.test(minute) && /^\d+,/.test(hour)) {
+    const hours = expandField(hour, 23)
+    cases.push(
+      { title: 'Digest Emails', description: `Send digest notifications at ${hours ? hours.map(h => formatHour(h)).join(', ') : 'multiple times'} daily.` },
+      { title: 'Checkpoint Backups', description: `Create incremental backups at multiple checkpoints throughout the day.` },
+      { title: 'Service Restarts', description: `Restart services at scheduled intervals to prevent memory leaks.` },
+    )
+  }
+
+  return cases.slice(0, 5)
+}
+
+function generateUseCaseSpecific(page) {
+  const slug = page.slug
+  const expr = page.cron
+  const map = {
+    'cron-database-backup': [
+      { title: 'MySQL Backup', description: 'Run mysqldump daily at 2 AM to create compressed backups of your MySQL databases.' },
+      { title: 'PostgreSQL Backup', description: 'Use pg_dump with custom format for efficient PostgreSQL backups with parallel restore support.' },
+      { title: 'MongoDB Backup', description: 'Run mongodump with oplog for point-in-time MongoDB backup and replay capability.' },
+      { title: 'Backup Rotation', description: 'Keep 30 days of daily backups, 12 weeks of weekly backups, and 12 months of monthly backups.' },
+    ],
+    'cron-log-rotation': [
+      { title: 'Nginx Access Logs', description: 'Rotate Nginx access and error logs daily, keeping 30 days of compressed archives.' },
+      { title: 'Application Logs', description: 'Rotate application logs to prevent disk fills, with automatic compression of old files.' },
+      { title: 'Compliance Logging', description: 'Archive logs for compliance requirements, with automatic cleanup of expired archives.' },
+    ],
+    'cron-cache-clear': [
+      { title: 'Redis Cache Flush', description: 'Clear Redis caches on schedule to prevent stale data accumulation.' },
+      { title: 'CDN Invalidation', description: 'Invalidate CDN caches after content updates to ensure users see fresh content.' },
+      { title: 'Session Cleanup', description: 'Remove expired session data from session stores to reclaim memory.' },
+    ],
+    'cron-health-check': [
+      { title: 'HTTP Endpoint Monitoring', description: 'Check HTTP health endpoints every 5 minutes and alert on failures.' },
+      { title: 'Database Connectivity', description: 'Verify database connections and alert on connection pool exhaustion.' },
+      { title: 'Disk Space Alerting', description: 'Monitor disk usage and alert when usage exceeds 90%.' },
+    ],
+    'cron-ssl-renewal': [
+      { title: "Let's Encrypt Auto-Renewal", description: 'Automatically renew SSL certificates before expiry using certbot.' },
+      { title: 'Web Server Reload', description: 'Reload Nginx/Apache after certificate renewal to pick up new certs.' },
+      { title: 'Certificate Expiry Monitoring', description: 'Check certificate expiry dates and alert when certificates are within 30 days of expiry.' },
+    ],
+    'cron-temp-cleanup': [
+      { title: 'Temp File Deletion', description: 'Remove temporary files older than 7 days from /tmp and temp directories.' },
+      { title: 'Docker Image Cleanup', description: 'Remove unused Docker images and containers to reclaim disk space.' },
+      { title: 'Session Pruning', description: 'Delete expired session files from PHP or application session stores.' },
+    ],
+    'cron-report-generation': [
+      { title: 'Daily Sales Report', description: 'Generate and email daily sales summary reports to the team.' },
+      { title: 'Weekly Analytics', description: 'Compile weekly analytics data into formatted reports with charts.' },
+      { title: 'S3 Report Upload', description: 'Generate reports and upload to S3 for downstream consumers.' },
+    ],
+    'cron-data-sync': [
+      { title: 'Database Replication', description: 'Sync data between primary and replica databases for reporting.' },
+      { title: 'File System Sync', description: 'Use rsync to keep file systems in sync between servers.' },
+      { title: 'Third-party API Sync', description: 'Pull data from third-party APIs and update local database records.' },
+    ],
+    'cron-email-sending': [
+      { title: 'Daily Digest', description: 'Compile and send daily email digests to subscribers at optimal times.' },
+      { title: 'Scheduled Notifications', description: 'Send scheduled notification emails for reminders and alerts.' },
+      { title: 'Weekly Newsletter', description: 'Generate and distribute weekly newsletters with personalized content.' },
+    ],
+    'how-to-edit-crontab': [
+      { title: 'First-time Setup', description: 'Open the crontab editor for the first time and add your first scheduled job.' },
+      { title: 'View Existing Jobs', description: 'List all current crontab entries to review your scheduled tasks.' },
+      { title: 'Edit Another User\'s Jobs', description: 'Manage crontab entries for service accounts and other users (requires root).' },
+    ],
+    'cron-environment-variables': [
+      { title: 'Set PATH', description: 'Configure the PATH variable in crontab so cron can find your executables.' },
+      { title: 'Timezone Configuration', description: 'Set CRON_TZ to ensure cron jobs run in the correct timezone.' },
+      { title: 'Error Notifications', description: 'Configure MAILTO to receive email notifications when cron jobs fail.' },
+    ],
+    'cron-troubleshooting': [
+      { title: 'Job Not Running', description: 'Diagnose why a cron job is not executing: check service status, permissions, and PATH.' },
+      { title: 'Permission Issues', description: 'Fix common permission problems that prevent cron jobs from executing.' },
+      { title: 'Environment Differences', description: 'Debug differences between shell environment and cron environment.' },
+    ],
+    'cron-timezone': [
+      { title: 'UTC Scheduling', description: 'Force all cron jobs to use UTC for consistent scheduling across servers.' },
+      { title: 'Per-job Timezone', description: 'Set different timezones for individual cron jobs that serve different regions.' },
+      { title: 'DST Handling', description: 'Handle daylight saving time transitions correctly with timezone-aware scheduling.' },
+    ],
+  }
+
+  return map[slug] || [
+    { title: 'Scheduled Task', description: `Run automated tasks on schedule using ${expr}.` },
+  ]
+}
+
+function generatePlatformUseCases(page) {
+  const slug = page.slug
+  const map = {
+    'aws-eventbridge-cron': [
+      { title: 'Lambda Trigger', description: 'Trigger Lambda functions on a schedule using EventBridge rules.' },
+      { title: 'Step Functions', description: 'Start Step Functions state machines on a recurring schedule.' },
+      { title: 'Cross-account Scheduling', description: 'Manage scheduled events across multiple AWS accounts.' },
+    ],
+    'quartz-cron': [
+      { title: 'Spring Boot Scheduler', description: 'Use Quartz with Spring Boot @Scheduled annotations for recurring tasks.' },
+      { title: 'Job Persistence', description: 'Store Quartz jobs in a database for recovery after application restarts.' },
+      { title: 'Misfire Handling', description: 'Configure misfire instructions for jobs that missed their scheduled fire time.' },
+    ],
+    'kubernetes-cronjob': [
+      { title: 'Database Maintenance', description: 'Run database maintenance tasks as Kubernetes CronJobs with resource limits.' },
+      { title: 'Log Aggregation', description: 'Collect and ship logs from CronJob pods to your logging backend.' },
+      { title: 'Failed Job Cleanup', description: 'Configure history limits to prevent completed jobs from cluttering the cluster.' },
+    ],
+    'github-actions-schedule': [
+      { title: 'Nightly Builds', description: 'Run build and test suites on a nightly schedule to catch integration issues.' },
+      { title: 'Dependency Updates', description: 'Check for dependency updates on a schedule and create PRs automatically.' },
+      { title: 'Performance Benchmarks', description: 'Run performance benchmarks on a schedule and track regressions over time.' },
+    ],
+  }
+
+  return map[slug] || []
+}
+
+// ─── Related Pages Generation ───
+
+function generateRelatedPages(page, allPages) {
+  const slug = page.slug
+  const expr = page.cron
+  const parsed = parseCron(expr)
+  const related = []
+
+  // Build slug->page map for lookups
+  const bySlug = new Map(allPages.map(p => [p.slug, p]))
+
+  // Helper to add related page if it exists
+  function addRelated(targetSlug, label) {
+    const target = bySlug.get(targetSlug)
+    if (target && targetSlug !== slug) {
+      related.push({ label, cron: target.cron, url: `/cron-generator/${targetSlug}/` })
+    }
+  }
+
+  // Specific related page mappings for key patterns
+  const specificRelations = {
+    'every-minute': [
+      ['every-5-minutes', 'Every 5 Minutes'],
+      ['every-2-minutes', 'Every 2 Minutes'],
+      ['every-hour', 'Every Hour'],
+      ['cron-asterisk', 'Understanding the * Operator'],
+    ],
+    'every-5-minutes': [
+      ['every-minute', 'Every Minute'],
+      ['every-10-minutes', 'Every 10 Minutes'],
+      ['every-15-minutes', 'Every 15 Minutes'],
+      ['cron-step-operator', 'Understanding */N Step Operator'],
+    ],
+    'every-10-minutes': [
+      ['every-5-minutes', 'Every 5 Minutes'],
+      ['every-15-minutes', 'Every 15 Minutes'],
+      ['every-30-minutes', 'Every 30 Minutes'],
+    ],
+    'every-15-minutes': [
+      ['every-10-minutes', 'Every 10 Minutes'],
+      ['every-30-minutes', 'Every 30 Minutes'],
+      ['every-hour', 'Every Hour'],
+    ],
+    'every-30-minutes': [
+      ['every-15-minutes', 'Every 15 Minutes'],
+      ['every-hour', 'Every Hour'],
+      ['every-hour-at-30', 'Every Hour at :30'],
+    ],
+    'every-hour': [
+      ['every-30-minutes', 'Every 30 Minutes'],
+      ['every-2-hours', 'Every 2 Hours'],
+      ['every-hour-at-30', 'Every Hour at :30'],
+    ],
+    'every-day-midnight': [
+      ['every-day-noon', 'Every Day at Noon'],
+      ['every-day-9am', 'Every Day at 9 AM'],
+      ['cron-midnight-weekdays', 'Midnight on Weekdays'],
+    ],
+    'every-day-9am': [
+      ['weekdays-9am', 'Weekdays at 9 AM'],
+      ['every-day-midnight', 'Every Day at Midnight'],
+      ['every-monday-9am', 'Every Monday at 9 AM'],
+    ],
+    'every-friday': [
+      ['every-friday-5pm', 'Every Friday at 5 PM'],
+      ['every-monday', 'Every Monday'],
+      ['every-monday-friday', 'Every Monday & Friday'],
+      ['weekends', 'Weekends'],
+    ],
+    'weekdays-9am': [
+      ['every-day-9am', 'Every Day at 9 AM'],
+      ['weekdays-5pm', 'Weekdays at 5 PM'],
+      ['weekdays-noon', 'Weekdays at Noon'],
+      ['weekends-9am', 'Weekends at 9 AM'],
+    ],
+    'weekends': [
+      ['weekdays-9am', 'Weekdays at 9 AM'],
+      ['every-saturday', 'Every Saturday'],
+      ['every-sunday', 'Every Sunday'],
+    ],
+    'first-of-month': [
+      ['15th-of-month', '15th of Month'],
+      ['last-day-of-month', 'Last Day of Month'],
+      ['every-quarter', 'Every Quarter'],
+    ],
+    'cron-database-backup': [
+      ['every-day-2am', 'Every Day at 2 AM'],
+      ['cron-log-rotation', 'Log Rotation'],
+      ['cron-ssl-renewal', 'SSL Renewal'],
+      ['cron-health-check', 'Health Check'],
+    ],
+  }
+
+  if (specificRelations[slug]) {
+    for (const [s, l] of specificRelations[slug]) {
+      addRelated(s, l)
+    }
+    return related.slice(0, 5)
+  }
+
+  // Dynamic related pages based on cron pattern
+  if (!parsed) {
+    // Fallback: find pages with similar keywords
+    for (const other of allPages) {
+      if (other.slug === slug) continue
+      if (related.length >= 4) break
+      const sharedKeywords = page.keywords.filter(k => other.keywords.includes(k))
+      if (sharedKeywords.length > 0) {
+        related.push({ label: other.h1, cron: other.cron, url: `/cron-generator/${other.slug}/` })
+      }
+    }
+    return related
+  }
+
+  const { minute, hour, dom, month, dow } = parsed
+
+  // Same frequency, different specificity
+  if (/^\*\/\d+$/.test(minute)) {
+    const n = parseInt(minute.replace('*/', ''))
+    const multiples = [2, 3, 5, 10, 15, 30, 60].filter(m => m !== n)
+    for (const m of multiples) {
+      if (related.length >= 4) break
+      if (m < 60) addRelated(`every-${m}-minutes`, `Every ${m} Minutes`)
+      else addRelated('every-hour', 'Every Hour')
+    }
+  }
+
+  // Daily at time → link to same time on weekdays + other daily times
+  if (/^\d+$/.test(minute) && /^\d+$/.test(hour) && dom === '*' && dow === '*' && month === '*') {
+    const h = parseInt(hour)
+    addRelated(`weekdays-${h <= 12 ? (h === 0 ? 'midnight' : h === 12 ? 'noon' : h + 'am') : (h - 12) + 'pm'}`,
+      `Weekdays at ${formatHour(h)}`)
+    // Find other daily times nearby
+    const nearby = [h - 2, h - 1, h + 1, h + 2].filter(x => x >= 0 && x <= 23)
+    for (const nh of nearby) {
+      if (related.length >= 4) break
+      const timeSlug = nh === 0 ? 'midnight' : nh === 12 ? 'noon' :
+        (nh < 12 ? nh + 'am' : (nh - 12) + 'pm')
+      addRelated(`every-day-${timeSlug}`, `Every Day at ${formatHour(nh)}`)
+    }
+  }
+
+  // Weekday at time → link to same time daily + other weekday times
+  if (/^1-5$/.test(dow) && /^\d+$/.test(hour)) {
+    const h = parseInt(hour)
+    const timeSlug = h === 0 ? 'midnight' : h === 12 ? 'noon' : (h < 12 ? h + 'am' : (h - 12) + 'pm')
+    addRelated(`every-day-${timeSlug}`, `Every Day at ${formatHour(h)}`)
+    addRelated(`weekends-${timeSlug}`, `Weekends at ${formatHour(h)}`)
+  }
+
+  // Specific day at time → link to same day without time + other days
+  if (/^\d+$/.test(dow) && /^\d+$/.test(hour) && dom === '*' && month === '*') {
+    const d = parseInt(dow)
+    addRelated(DAY_NAMES[d].toLowerCase(), `Every ${DAY_NAMES[d]}`)
+    // Link to adjacent days
+    const nextDay = (d + 1) % 7
+    const prevDay = (d + 6) % 7
+    addRelated(DAY_NAMES[nextDay].toLowerCase(), `Every ${DAY_NAMES[nextDay]}`)
+    addRelated(DAY_NAMES[prevDay].toLowerCase(), `Every ${DAY_NAMES[prevDay]}`)
+  }
+
+  // Monthly → link to other monthly variants
+  if (/^\d+$/.test(dom) && month === '*') {
+    const d = parseInt(dom)
+    addRelated('first-of-month', 'First of Month')
+    addRelated('15th-of-month', '15th of Month')
+    addRelated('last-day-of-month', 'Last Day of Month')
+    addRelated('every-quarter', 'Every Quarter')
+  }
+
+  // Fill remaining slots with common pages
+  const commonFallbacks = [
+    ['every-hour', 'Every Hour'],
+    ['every-day-midnight', 'Every Day at Midnight'],
+    ['weekdays-9am', 'Weekdays at 9 AM'],
+    ['first-of-month', 'First of Month'],
+    ['common-patterns', 'Common Patterns'],
+  ]
+  for (const [s, l] of commonFallbacks) {
+    if (related.length >= 4) break
+    addRelated(s, l)
+  }
+
+  return related.slice(0, 5)
+}
+
 // ─── Main ───
 
 const content = fs.readFileSync(DATA_FILE, 'utf-8')
@@ -751,13 +1345,22 @@ for (const page of pages) {
   const cls = classifyPage(page)
   const newExplanation = generateExplanation(page, cls)
   const newFaq = generateFaq(page, cls)
+  const newCodeExamples = generateCodeExamples(page, cls)
+  const newUseCases = generateUseCases(page, cls)
+  const newRelatedPages = generateRelatedPages(page, pages)
 
   const explanationChanged = newExplanation !== page.explanation
   const faqChanged = JSON.stringify(newFaq) !== JSON.stringify(page.faq)
+  const codeChanged = JSON.stringify(newCodeExamples) !== JSON.stringify(page.codeExamples || [])
+  const useCasesChanged = JSON.stringify(newUseCases) !== JSON.stringify(page.useCases || [])
+  const relatedChanged = JSON.stringify(newRelatedPages) !== JSON.stringify(page.relatedPages || [])
 
-  if (explanationChanged || faqChanged) {
+  if (explanationChanged || faqChanged || codeChanged || useCasesChanged || relatedChanged) {
     page.explanation = newExplanation
     page.faq = newFaq
+    page.codeExamples = newCodeExamples
+    page.useCases = newUseCases
+    page.relatedPages = newRelatedPages
     enriched++
   } else {
     kept++
@@ -806,6 +1409,9 @@ function rebuildTsFile(pages) {
   out += `  explanation: string\n`
   out += `  faq: { q: string; a: string }[]\n`
   out += `  keywords: string[]\n`
+  out += `  codeExamples?: { label: string; code: string }[]\n`
+  out += `  useCases?: { title: string; description: string }[]\n`
+  out += `  relatedPages?: { label: string; cron: string; url: string }[]\n`
   out += `}\n\n`
 
   out += `export const LONG_TAIL_PAGES: LongTailPage[] = [\n`
@@ -829,6 +1435,34 @@ function rebuildTsFile(pages) {
     out += `    ],\n`
 
     out += `    keywords: ${JSON.stringify(page.keywords)},\n`
+
+    // codeExamples
+    if (page.codeExamples && page.codeExamples.length > 0) {
+      out += `    codeExamples: [\n`
+      for (const ex of page.codeExamples) {
+        out += `      { label: ${JSON.stringify(ex.label)}, code: ${JSON.stringify(ex.code)} },\n`
+      }
+      out += `    ],\n`
+    }
+
+    // useCases
+    if (page.useCases && page.useCases.length > 0) {
+      out += `    useCases: [\n`
+      for (const uc of page.useCases) {
+        out += `      { title: ${JSON.stringify(uc.title)}, description: ${JSON.stringify(uc.description)} },\n`
+      }
+      out += `    ],\n`
+    }
+
+    // relatedPages
+    if (page.relatedPages && page.relatedPages.length > 0) {
+      out += `    relatedPages: [\n`
+      for (const rp of page.relatedPages) {
+        out += `      { label: ${JSON.stringify(rp.label)}, cron: ${JSON.stringify(rp.cron)}, url: ${JSON.stringify(rp.url)} },\n`
+      }
+      out += `    ],\n`
+    }
+
     out += `  },\n`
   }
 
