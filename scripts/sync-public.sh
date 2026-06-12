@@ -126,6 +126,7 @@ if [ "${1:-}" = "--push" ]; then
     docs/email-capture-plan.md \
     docs/twitter-60day-sop.md \
     docs/self-hosted-tool-finder-design.md \
+    docs/solo-founder-watch-list.md \
     docs/design/ \
     2>/dev/null || true
 
