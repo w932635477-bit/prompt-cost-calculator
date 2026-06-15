@@ -138,15 +138,43 @@ for (const m of validatorSlugMatches) {
   allUrls.push({ loc: `${BASE_URL}/cron-validator/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
 }
 
+// lastmod = last git commit date per source HTML file. This is the ONE sitemap
+// tag Google actually uses for recrawl prioritization (changefreq/priority are
+// largely ignored). git log is newest-first, so the first date seen per file wins.
+const REPO = path.join(__dirname, '..')
+const lastMod = {}
+try {
+  const gitOut = execSync('git log --pretty=format:%cd --date=short --name-only', {
+    cwd: REPO, encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024,
+  })
+  let cur = null
+  for (const raw of gitOut.split('\n')) {
+    const line = raw.trim()
+    if (/^\d{4}-\d{2}-\d{2}$/.test(line)) cur = line
+    else if (line && cur && !lastMod[line]) lastMod[line] = cur
+  }
+} catch (e) {
+  console.warn('git log failed (lastmod will be omitted):', e.message)
+}
+function lastmodFor(loc) {
+  const p = loc.replace(BASE_URL + '/', '').replace(BASE_URL, '')
+  const file = p === '' ? 'index.html' : p.replace(/\/$/, '') + '/index.html'
+  return lastMod[file] || null
+}
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allUrls.map(u => `  <url>
-    <loc>${u.loc}</loc>
+${allUrls.map(u => {
+  const lm = lastmodFor(u.loc)
+  return `  <url>
+    <loc>${u.loc}</loc>${lm ? `\n    <lastmod>${lm}</lastmod>` : ''}
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
-  </url>`).join('\n')}
+  </url>`
+}).join('\n')}
 </urlset>
 `
 
 fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap)
-console.log(`Generated sitemap.xml with ${allUrls.length} URLs`)
+const withLastmod = allUrls.filter(u => lastmodFor(u.loc)).length
+console.log(`Generated sitemap.xml with ${allUrls.length} URLs (${withLastmod} with lastmod)`)
