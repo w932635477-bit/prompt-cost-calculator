@@ -171,6 +171,22 @@ function App() {
               </p>
             </div>
           </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight mb-3">
+              Pricing Guides & Deep Dives
+            </h2>
+            <div className="text-[#86868b] leading-relaxed space-y-3">
+              <p>
+                Go deeper on cost and tooling. See every model in our{' '}
+                <a href="/llm-pricing/compare-all/" className="text-[#0071E3] hover:text-[#0077ED] underline">complete pricing comparison of all 25 models</a>,
+                browse the{' '}
+                <a href="/alternatives-guide/" className="text-[#0071E3] hover:text-[#0077ED] underline">self-hosted alternatives guide covering 46 tools</a>,
+                or follow the{' '}
+                <a href="/guides/ai-api-costs/" className="text-[#0071E3] hover:text-[#0077ED] underline">5-step guide to estimating AI API costs</a>.
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* How It Works */}
