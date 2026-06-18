@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/fetch-github-stats.cjs || true && node scripts/codegen-pricing.cjs --write && node scripts/generate-long-tail-html.cjs && node scripts/generate-alternatives-html.cjs && node scripts/generate-deploy-html.cjs && node scripts/generate-compare-html.cjs && node scripts/generate-mcp-html.cjs && node scripts/generate-llm-pricing-html.cjs && node scripts/generate-llm-cost-html.cjs && node scripts/generate-validator-html.cjs && tsc -b && vite build && node scripts/inject-breadcrumb-schema.cjs && node scripts/inject-static-content.cjs && node scripts/generate-sitemap.cjs && node scripts/generate-sitemap-page.cjs && node scripts/build-dashboard-data.cjs",
+    "build": "node scripts/fetch-github-stats.cjs || true && node scripts/codegen-pricing.cjs --write && node scripts/generate-long-tail-html.cjs && node scripts/generate-alternatives-html.cjs && node scripts/generate-deploy-html.cjs && node scripts/generate-compare-html.cjs && node scripts/generate-mcp-html.cjs && node scripts/generate-llm-pricing-html.cjs && node scripts/generate-llm-cost-html.cjs && node scripts/generate-validator-html.cjs && tsc -b && vite build && node scripts/inject-breadcrumb-schema.cjs && node scripts/inject-static-content.cjs && node scripts/inject-noindex-nonprod.cjs && node scripts/generate-sitemap.cjs && node scripts/generate-sitemap-page.cjs && node scripts/build-dashboard-data.cjs",
     "fetch:github": "node scripts/fetch-github-stats.cjs",
     "lint": "eslint .",
     "preview": "vite preview",
