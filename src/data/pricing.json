@@ -237,8 +237,8 @@
       "tokenizerModel": null,
       "bestFor": "Best value, strong reasoning at low cost",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-06-01",
-      "cachedInputPricePer1M": 0.0197
+      "priceUpdatedAt": "2026-06-19",
+      "cachedInputPricePer1M": 0.0028
     },
     {
       "id": "deepseek-v4-pro",

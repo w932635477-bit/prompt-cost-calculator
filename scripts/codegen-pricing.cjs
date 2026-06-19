@@ -215,7 +215,7 @@ const SEO_KEYWORDS = {
 const SEO_OVERRIDES = {
   'deepseek-v4-flash': {
     title: 'DeepSeek V4 Flash API Pricing 2026 — $0.14/1M, Best Value LLM',
-    description: 'DeepSeek V4 Flash: $0.14/1M input, $0.28/1M output — best quality-to-price ratio in 2026. 86% cache discount. Cost calculator: compare monthly spend vs GPT-4o, Claude, Gemini.',
+    description: 'DeepSeek V4 Flash: $0.14/1M input, $0.28/1M output — best quality-to-price ratio in 2026. 98% cache discount. Cost calculator: compare monthly spend vs GPT-4o, Claude, Gemini.',
   },
   'deepseek-v4-pro': {
     title: 'DeepSeek V4 Pro API Pricing 2026 — $0.435/1M, Premium Reasoning',

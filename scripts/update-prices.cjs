@@ -32,11 +32,12 @@ const OPENROUTER_MAP = {
   'claude-3-5-haiku-20241022': { orId: 'anthropic/claude-3.5-haiku', trust: 'full' },
   'claude-3-opus-20240229':    { orId: null, trust: 'full' }, // not on OpenRouter
   'claude-3-haiku-20240307':   { orId: 'anthropic/claude-3-haiku', trust: 'full' },
-  // DeepSeek V4 Flash: OR shows lower prices than official API — keep official for input/output
-  'deepseek-v4-flash':    { orId: 'deepseek/deepseek-v4-flash', trust: 'cache_only' },
+  // DeepSeek V4 Flash: official-only — OpenRouter's cache price (~$0.02) is wrong;
+  // official cache hit is $0.0028 (api-docs.deepseek.com). Bot must not overwrite it.
+  'deepseek-v4-flash':    { orId: null, trust: 'full' },
   'deepseek-v4-pro':      { orId: 'deepseek/deepseek-v4-pro', trust: 'full' },
-  'gemini-2.0-flash':     { orId: 'google/gemini-2.0-flash-001', trust: 'full' },
-  'gemini-2.0-flash-lite': { orId: 'google/gemini-2.0-flash-lite-001', trust: 'full' },
+  'gemini-2.0-flash':     { orId: null, trust: 'full' }, // removed from OpenRouter
+  'gemini-2.0-flash-lite': { orId: null, trust: 'full' }, // removed from OpenRouter
   'gemini-3-5-flash':     { orId: 'google/gemini-3.5-flash', trust: 'full' },
   'gemini-2-5-flash':     { orId: 'google/gemini-2.5-flash', trust: 'full' },
   'gemini-2-5-flash-lite': { orId: 'google/gemini-2.5-flash-lite', trust: 'full' },
