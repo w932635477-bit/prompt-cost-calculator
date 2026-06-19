@@ -25,9 +25,12 @@ const PROVIDERS: Record<string, { color: string; abbr: string }> = {
   Google: { color: '#4285f4', abbr: 'GO' },
   DeepSeek: { color: '#6366f1', abbr: 'DS' },
   Groq: { color: '#f55036', abbr: 'GQ' },
+  xAI: { color: '#111827', abbr: 'XK' },
+  Zhipu: { color: '#7c3aed', abbr: 'ZP' },
+  Moonshot: { color: '#db2777', abbr: 'MO' },
 }
 
-const PROVIDER_LIST = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq'] as const
+const PROVIDER_LIST = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq', 'xAI', 'Zhipu', 'Moonshot'] as const
 
 export default function LlmCostComparisonPage() {
   const byProvider = useMemo(() => {

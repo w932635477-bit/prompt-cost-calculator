@@ -45,6 +45,13 @@ const OPENROUTER_MAP = {
   'gemini-1.5-flash-8b':  { orId: null, trust: 'full' }, // deprecated
   // Llama via Groq: OR prices differ from Groq official — keep Groq for input/output
   'llama-4-maverick':     { orId: 'meta-llama/llama-4-maverick', trust: 'cache_only' },
+  // Added 2026-06-19: new flagship models (trust OR for input/output/cache)
+  'claude-fable-5':       { orId: 'anthropic/claude-fable-5', trust: 'full' },
+  'gemini-2-5-pro':       { orId: 'google/gemini-2.5-pro', trust: 'full' },
+  'gemini-3-1-pro':       { orId: 'google/gemini-3.1-pro-preview', trust: 'full' },
+  'grok-4-20':            { orId: 'x-ai/grok-4.20', trust: 'full' },
+  'glm-5.2':              { orId: 'z-ai/glm-5.2', trust: 'full' },
+  'kimi-k2.7':            { orId: 'moonshotai/kimi-k2.7-code', trust: 'full' },
 };
 
 const PRICE_TOLERANCE = 0.001; // $0.001/1M tolerance for float comparison

@@ -1,6 +1,6 @@
 import pricing from '../data/pricing.json'
 
-const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq']
+const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq', 'xAI', 'Zhipu', 'Moonshot']
 
 function formatPrice(price: number): string {
   if (price < 0.01) return `$${price.toFixed(4)}`

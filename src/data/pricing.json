@@ -297,6 +297,20 @@
       "cachedInputPricePer1M": 0.1
     },
     {
+      "id": "claude-fable-5",
+      "provider": "Anthropic",
+      "name": "Claude Fable 5",
+      "inputPricePer1M": 10,
+      "outputPricePer1M": 50,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Most demanding autonomous tasks, frontier reasoning",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "priceUpdatedAt": "2026-06-19",
+      "cachedInputPricePer1M": 1
+    },
+    {
       "id": "gemini-3-5-flash",
       "provider": "Google",
       "name": "Gemini 3.5 Flash",
@@ -339,6 +353,34 @@
       "cachedInputPricePer1M": 0.01
     },
     {
+      "id": "gemini-2-5-pro",
+      "provider": "Google",
+      "name": "Gemini 2.5 Pro",
+      "inputPricePer1M": 1.25,
+      "outputPricePer1M": 10,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Advanced reasoning, coding, long-context tasks",
+      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+      "priceUpdatedAt": "2026-06-19",
+      "cachedInputPricePer1M": 0.125
+    },
+    {
+      "id": "gemini-3-1-pro",
+      "provider": "Google",
+      "name": "Gemini 3.1 Pro",
+      "inputPricePer1M": 2,
+      "outputPricePer1M": 12,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Frontier reasoning, software development, long context",
+      "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+      "priceUpdatedAt": "2026-06-19",
+      "cachedInputPricePer1M": 0.2
+    },
+    {
       "id": "llama-4-maverick",
       "provider": "Groq",
       "name": "Llama 4 Maverick",
@@ -350,6 +392,48 @@
       "bestFor": "Ultra-fast inference on Groq LPU",
       "sourceUrl": "https://console.groq.com/docs/models",
       "priceUpdatedAt": "2026-05-30"
+    },
+    {
+      "id": "grok-4-20",
+      "provider": "xAI",
+      "name": "Grok 4.20",
+      "inputPricePer1M": 1.25,
+      "outputPricePer1M": 2.5,
+      "contextWindow": 2000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Agentic tool use, fast reasoning, real-time knowledge",
+      "sourceUrl": "https://docs.x.ai/docs/models",
+      "priceUpdatedAt": "2026-06-19",
+      "cachedInputPricePer1M": 0.2
+    },
+    {
+      "id": "glm-5.2",
+      "provider": "Zhipu",
+      "name": "GLM-5.2",
+      "inputPricePer1M": 1.2,
+      "outputPricePer1M": 4.1,
+      "contextWindow": 1000000,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "General-purpose flagship, strong reasoning and coding",
+      "sourceUrl": "https://open.bigmodel.cn/pricing",
+      "priceUpdatedAt": "2026-06-19",
+      "cachedInputPricePer1M": 0.2
+    },
+    {
+      "id": "kimi-k2.7",
+      "provider": "Moonshot",
+      "name": "Kimi K2.7",
+      "inputPricePer1M": 0.74,
+      "outputPricePer1M": 3.5,
+      "contextWindow": 262144,
+      "tokenizerType": "estimate",
+      "tokenizerModel": null,
+      "bestFor": "Coding, long-context, agentic tasks",
+      "sourceUrl": "https://platform.moonshot.cn/docs/pricing",
+      "priceUpdatedAt": "2026-06-19",
+      "cachedInputPricePer1M": 0.15
     }
   ]
 }

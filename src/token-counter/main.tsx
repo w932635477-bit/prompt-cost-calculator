@@ -13,6 +13,9 @@ const MODEL_GROUPS = [
   { label: 'Google', models: pricing.models.filter(m => m.provider === 'Google') },
   { label: 'Groq', models: pricing.models.filter(m => m.provider === 'Groq') },
   { label: 'DeepSeek', models: pricing.models.filter(m => m.provider === 'DeepSeek') },
+  { label: 'xAI', models: pricing.models.filter(m => m.provider === 'xAI') },
+  { label: 'Zhipu', models: pricing.models.filter(m => m.provider === 'Zhipu') },
+  { label: 'Moonshot', models: pricing.models.filter(m => m.provider === 'Moonshot') },
 ].filter(g => g.models.length > 0)
 
 const SAMPLE_TEXT = `You are a helpful assistant. Answer the user's question clearly and concisely.

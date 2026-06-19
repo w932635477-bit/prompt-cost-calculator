@@ -14,9 +14,12 @@ const PROVIDER_COLORS: Record<string, string> = {
   Google: '#4285f4',
   DeepSeek: '#6366f1',
   Groq: '#f55036',
+  xAI: '#111827',
+  Zhipu: '#7c3aed',
+  Moonshot: '#db2777',
 }
 
-const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq'] as const
+const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq', 'xAI', 'Zhipu', 'Moonshot'] as const
 
 // SEO slug mapping (from pricing-seo-data.ts)
 const MODEL_SLUGS: Record<string, string> = {

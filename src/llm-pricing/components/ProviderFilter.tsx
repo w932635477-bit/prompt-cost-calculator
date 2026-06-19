@@ -1,6 +1,6 @@
 // src/llm-pricing/components/ProviderFilter.tsx
 
-const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq'] as const
+const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'DeepSeek', 'Groq', 'xAI', 'Zhipu', 'Moonshot'] as const
 
 export type Provider = (typeof PROVIDER_ORDER)[number]
 
@@ -16,6 +16,9 @@ const PROVIDER_COLORS: Record<string, string> = {
   Google: 'bg-[#4285f4] text-white',
   DeepSeek: 'bg-[#4a90d9] text-white',
   Groq: 'bg-[#f55036] text-white',
+  xAI: 'bg-[#111827] text-white',
+  Zhipu: 'bg-[#7c3aed] text-white',
+  Moonshot: 'bg-[#db2777] text-white',
 }
 
 const PROVIDER_COLORS_OFF: Record<string, string> = {
@@ -24,6 +27,9 @@ const PROVIDER_COLORS_OFF: Record<string, string> = {
   Google: 'bg-[#eff6ff] text-[#4285f4] border-[#4285f4]',
   DeepSeek: 'bg-[#eff6ff] text-[#4a90d9] border-[#4a90d9]',
   Groq: 'bg-[#fef2f2] text-[#f55036] border-[#f55036]',
+  xAI: 'bg-[#f5f5f5] text-[#111827] border-[#111827]',
+  Zhipu: 'bg-[#f5f3ff] text-[#7c3aed] border-[#7c3aed]',
+  Moonshot: 'bg-[#fdf2f8] text-[#db2777] border-[#db2777]',
 }
 
 export default function ProviderFilter({ selected, onToggle, availableProviders }: Props) {
