@@ -71,6 +71,28 @@ const VENDOR_CACHE_META = {
     cacheNotes: 'Explicit context cache. Storage charged separately ($1/M/hr, not included).',
     cacheTtl: 'Configurable (default 1 hr)',
   },
+  // Added 2026-06-19: new vendors (all use automatic/implicit caching, no write surcharge)
+  xai: {
+    vendorKey: 'xai',
+    cacheWriteMultiplier: 1.0,
+    cacheReadMultiplier: 0.16,
+    cacheNotes: 'Automatic prompt caching. Set x-grok-conv-id header to maximize hit rate.',
+    cacheTtl: 'Auto (minutes-hours, LRU)',
+  },
+  zhipu: {
+    vendorKey: 'zhipu',
+    cacheWriteMultiplier: 1.0,
+    cacheReadMultiplier: 0.17,
+    cacheNotes: 'Implicit (automatic) context cache. No manual config needed.',
+    cacheTtl: 'Auto',
+  },
+  moonshot: {
+    vendorKey: 'moonshot',
+    cacheWriteMultiplier: 1.0,
+    cacheReadMultiplier: 0.20,
+    cacheNotes: 'Context caching for repeated long context. Write at input price, reads discounted.',
+    cacheTtl: 'Auto / configurable',
+  },
 };
 
 // Models to include in cache calculator + their vendor meta key
@@ -86,6 +108,13 @@ const CACHE_MODELS = {
   'gemini-3-5-flash': { idOverride: 'gemini-3-5-flash', meta: 'google', label: 'Gemini 3.5 Flash' },
   'gemini-2-5-flash': { idOverride: 'gemini-2-5-flash', meta: 'google', label: 'Gemini 2.5 Flash' },
   'gemini-2-5-flash-lite': { idOverride: 'gemini-2-5-flash-lite', meta: 'google', label: 'Gemini 2.5 Flash-Lite' },
+  // Added 2026-06-19: new flagship models
+  'claude-fable-5': { idOverride: 'claude-fable-5', meta: 'anthropic', label: 'Claude Fable 5' },
+  'gemini-2-5-pro': { idOverride: 'gemini-2-5-pro', meta: 'google', label: 'Gemini 2.5 Pro' },
+  'gemini-3-1-pro': { idOverride: 'gemini-3-1-pro', meta: 'google', label: 'Gemini 3.1 Pro' },
+  'grok-4-20': { idOverride: 'grok-4-20', meta: 'xai', label: 'Grok 4.20' },
+  'glm-5.2': { idOverride: 'glm-5-2', meta: 'zhipu', label: 'GLM-5.2' },
+  'kimi-k2.7': { idOverride: 'kimi-k2-7', meta: 'moonshot', label: 'Kimi K2.7' },
 };
 
 // ── SEO slug generation ───────────────────────────────────────────────
@@ -111,6 +140,13 @@ const SEO_SLUG_MAP = {
   'llama-4-maverick': 'llama-4-maverick-pricing',
   'gemini-2-5-flash': 'gemini-2-5-flash-pricing',
   'gemini-2-5-flash-lite': 'gemini-2-5-flash-lite-pricing',
+  // Added 2026-06-19: new flagship models
+  'claude-fable-5': 'claude-fable-5-pricing',
+  'gemini-2-5-pro': 'gemini-2-5-pro-pricing',
+  'gemini-3-1-pro': 'gemini-3-1-pro-pricing',
+  'grok-4-20': 'grok-4-20-pricing',
+  'glm-5.2': 'glm-5-2-pricing',
+  'kimi-k2.7': 'kimi-k2-7-pricing',
 };
 
 const SEO_KEYWORDS = {
@@ -164,6 +200,13 @@ const SEO_KEYWORDS = {
     'gemini 2.5 pricing per token', 'gemini 2.5 pro pricing',
   ],
   'gemini-2-5-flash-lite': ['gemini 2.5 flash lite pricing', 'gemini 2.5 flash lite cost', 'cheapest gemini api', 'gemini flash lite api price', 'google ai cheapest model'],
+  // Added 2026-06-19: new flagship models
+  'claude-fable-5': ['claude fable 5 pricing', 'claude fable 5 cost', 'anthropic fable 5 api price', 'claude fable 5 per million tokens', 'claude fable 5 vs opus 4.8 pricing'],
+  'gemini-2-5-pro': ['gemini 2.5 pro pricing', 'gemini 2.5 pro cost', 'gemini 2.5 pro api price', 'google gemini 2.5 pro per million tokens', 'gemini 2.5 pro vs flash pricing'],
+  'gemini-3-1-pro': ['gemini 3.1 pro pricing', 'gemini 3 pro cost', 'gemini 3.1 pro api price', 'google gemini 3 pro per million tokens', 'gemini 3.1 pro vs 2.5 pro'],
+  'grok-4-20': ['grok 4.20 pricing', 'grok 4.20 cost', 'xai grok api price', 'grok 4.20 per million tokens', 'grok vs gpt pricing'],
+  'glm-5.2': ['glm-5.2 pricing', 'glm 5.2 cost', 'zhipu glm api price', 'glm-5.2 per million tokens', 'glm vs deepseek pricing'],
+  'kimi-k2.7': ['kimi k2.7 pricing', 'kimi k2.7 cost', 'moonshot kimi api price', 'kimi k2.7 per million tokens', 'kimi vs deepseek pricing'],
 };
 
 // Per-model SEO overrides for richer titles and descriptions.
@@ -268,7 +311,7 @@ ${typeIds.join('\n')}
 
 export interface ModelPricing {
   id: ModelId
-  vendor: 'anthropic' | 'openai' | 'deepseek' | 'google'
+  vendor: 'anthropic' | 'openai' | 'deepseek' | 'google' | 'xai' | 'zhipu' | 'moonshot'
   label: string
   inputPerMillion: number   // USD per 1M input tokens (no cache)
   outputPerMillion: number  // USD per 1M output tokens
@@ -406,7 +449,7 @@ function generateExplanation(model, allModels) {
     : `${provider} applies standard rate limits to ${name} API keys. Check the provider dashboard for your current tier and request higher limits if needed. `;
   parts.push(
     rateLimitNote +
-    `To get started, create an API key from the ${provider} developer console, install the provider's SDK (${provider === 'OpenAI' ? 'openai npm package' : provider === 'Anthropic' ? 'anthropic npm package' : provider === 'Google' ? 'google-generativeai npm package' : provider === 'DeepSeek' ? 'openai npm package with base URL override' : 'groq npm package'}), ` +
+    `To get started, create an API key from the ${provider} developer console, install the provider's SDK (${provider === 'OpenAI' ? 'openai npm package' : provider === 'Anthropic' ? 'anthropic npm package' : provider === 'Google' ? 'google-generativeai npm package' : provider === 'DeepSeek' ? 'openai npm package with base URL override' : provider === 'Groq' ? 'groq npm package' : 'openai npm package with base URL override (xAI/Zhipu/Moonshot are OpenAI-compatible)'}), ` +
     `and make your first API call with a small prompt to verify connectivity and measure actual latency. ` +
     `Most providers offer a free tier or credits for new accounts — use these to benchmark ${name} against your specific workload before committing to a paid plan.`
   );

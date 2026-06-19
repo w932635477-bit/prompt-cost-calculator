@@ -19,10 +19,16 @@ export type ModelId =
   | 'gemini-3-5-flash'
   | 'gemini-2-5-flash'
   | 'gemini-2-5-flash-lite'
+  | 'claude-fable-5'
+  | 'gemini-2-5-pro'
+  | 'gemini-3-1-pro'
+  | 'grok-4-20'
+  | 'glm-5-2'
+  | 'kimi-k2-7'
 
 export interface ModelPricing {
   id: ModelId
-  vendor: 'anthropic' | 'openai' | 'deepseek' | 'google'
+  vendor: 'anthropic' | 'openai' | 'deepseek' | 'google' | 'xai' | 'zhipu' | 'moonshot'
   label: string
   inputPerMillion: number   // USD per 1M input tokens (no cache)
   outputPerMillion: number  // USD per 1M output tokens
@@ -180,5 +186,83 @@ export const MODELS: ModelPricing[] = [
     cacheNotes: 'Explicit context cache. Storage charged separately ($1/M/hr, not included).',
     cacheTtlDescription: 'Configurable (default 1 hr)',
     sourceUrl: 'https://ai.google.dev/gemini-api/docs/pricing',
+  },
+
+  {
+    id: 'claude-fable-5',
+    vendor: 'anthropic',
+    label: 'Claude Fable 5',
+    inputPerMillion: 10,
+    outputPerMillion: 50,
+    cacheWriteMultiplier: 1.25,
+    cacheReadMultiplier: 0.1,
+    cacheNotes: 'Explicit cache_control. Min 1024 tokens. 5-min TTL by default.',
+    cacheTtlDescription: '5 min default / 1 hr opt-in',
+    sourceUrl: 'https://platform.claude.com/docs/en/about-claude/pricing',
+  },
+
+  {
+    id: 'gemini-2-5-pro',
+    vendor: 'google',
+    label: 'Gemini 2.5 Pro',
+    inputPerMillion: 1.25,
+    outputPerMillion: 10,
+    cacheWriteMultiplier: 1,
+    cacheReadMultiplier: 0.1,
+    cacheNotes: 'Explicit context cache. Storage charged separately ($1/M/hr, not included).',
+    cacheTtlDescription: 'Configurable (default 1 hr)',
+    sourceUrl: 'https://ai.google.dev/gemini-api/docs/pricing',
+  },
+
+  {
+    id: 'gemini-3-1-pro',
+    vendor: 'google',
+    label: 'Gemini 3.1 Pro',
+    inputPerMillion: 2,
+    outputPerMillion: 12,
+    cacheWriteMultiplier: 1,
+    cacheReadMultiplier: 0.1,
+    cacheNotes: 'Explicit context cache. Storage charged separately ($1/M/hr, not included).',
+    cacheTtlDescription: 'Configurable (default 1 hr)',
+    sourceUrl: 'https://ai.google.dev/gemini-api/docs/pricing',
+  },
+
+  {
+    id: 'grok-4-20',
+    vendor: 'xai',
+    label: 'Grok 4.20',
+    inputPerMillion: 1.25,
+    outputPerMillion: 2.5,
+    cacheWriteMultiplier: 1,
+    cacheReadMultiplier: 0.16,
+    cacheNotes: 'Automatic prompt caching. Set x-grok-conv-id header to maximize hit rate.',
+    cacheTtlDescription: 'Auto (minutes-hours, LRU)',
+    sourceUrl: 'https://docs.x.ai/docs/models',
+  },
+
+  {
+    id: 'glm-5-2',
+    vendor: 'zhipu',
+    label: 'GLM-5.2',
+    inputPerMillion: 1.2,
+    outputPerMillion: 4.1,
+    cacheWriteMultiplier: 1,
+    cacheReadMultiplier: 0.17,
+    cacheNotes: 'Implicit (automatic) context cache. No manual config needed.',
+    cacheTtlDescription: 'Auto',
+    sourceUrl: 'https://open.bigmodel.cn/pricing',
+  },
+
+  {
+    id: 'kimi-k2-7',
+    vendor: 'moonshot',
+    label: 'Kimi K2.7',
+    inputPerMillion: 0.74,
+    outputPerMillion: 3.5,
+    cacheWriteMultiplier: 1,
+    cacheReadMultiplier: 0.2,
+    cacheNotes: 'Context caching for repeated long context. Write at input price, reads discounted.',
+    cacheTtlDescription: 'Auto / configurable',
+    sourceUrl: 'https://platform.moonshot.cn/docs/pricing',
   },
 ]

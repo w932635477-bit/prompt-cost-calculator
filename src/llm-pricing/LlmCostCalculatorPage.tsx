@@ -1,5 +1,5 @@
 // src/llm-pricing/LlmCostCalculatorPage.tsx
-// SEO deep page: standalone LLM cost calculator with all 19 models.
+// SEO deep page: standalone LLM cost calculator with all 31 models.
 // Full-width responsive layout — no max-width constraint.
 
 import { useState, useMemo, useEffect } from 'react'
@@ -73,7 +73,7 @@ export default function LlmCostCalculatorPage() {
         <div className="px-6 lg:px-12 pt-14 pb-10">
           <a href="/llm-pricing/" className="text-[#0071e3] text-sm hover:underline">← All Models</a>
           <h1 className="text-4xl lg:text-5xl font-semibold tracking-tight mt-4">LLM Cost Calculator</h1>
-          <p className="text-lg text-[#86868b] mt-3 max-w-2xl">Estimate your monthly API spending across 19 models from 5 providers. Adjust tokens, calls, and cache rate below.</p>
+          <p className="text-lg text-[#86868b] mt-3 max-w-2xl">Estimate your monthly API spending across 31 models from 8 providers. Adjust tokens, calls, and cache rate below.</p>
         </div>
       </section>
 
@@ -111,7 +111,7 @@ export default function LlmCostCalculatorPage() {
             <div className="space-y-3">
               {[
                 { n: 1, t: 'Enter your usage', d: 'Tokens per call, daily volume, cache rate' },
-                { n: 2, t: 'Compare models', d: '19 models sorted by monthly cost' },
+                { n: 2, t: 'Compare models', d: '31 models sorted by monthly cost' },
                 { n: 3, t: 'Optimize', d: 'Adjust cache rate to see savings' },
               ].map(s => (
                 <div key={s.n} className="flex items-start gap-3">
@@ -130,7 +130,7 @@ export default function LlmCostCalculatorPage() {
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-lg font-semibold">Monthly Cost</h2>
-            <span className="text-xs text-[#86868b] bg-[#f5f5f7] px-3 py-1 rounded-full">19 models · cheapest first</span>
+            <span className="text-xs text-[#86868b] bg-[#f5f5f7] px-3 py-1 rounded-full">31 models · cheapest first</span>
           </div>
           <div className="space-y-2.5">
             {sorted.map((r, i) => {

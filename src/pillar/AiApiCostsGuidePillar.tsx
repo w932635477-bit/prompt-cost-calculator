@@ -180,7 +180,7 @@ export default function AiApiCostsGuidePillar() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { name: 'AI Cost Calculator', path: '/', desc: 'Main calculator with full cost breakdown', icon: '💰' },
-              { name: 'LLM Pricing Table', path: '/llm-pricing/', desc: 'Side-by-side pricing for 25 models', icon: '📊' },
+              { name: 'LLM Pricing Table', path: '/llm-pricing/', desc: 'Side-by-side pricing for 31 models', icon: '📊' },
               { name: 'Token Counter', path: '/token-counter/', desc: 'Count tokens before sending requests', icon: '🔢' },
               { name: 'Token Optimizer', path: '/token-optimizer/', desc: 'Reduce token usage by 20-40%', icon: '✂️' },
               { name: 'Cache Calculator', path: '/prompt-cache-calculator/', desc: 'See how caching saves 60-90%', icon: '⚡' },

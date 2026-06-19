@@ -19,7 +19,13 @@ module.exports = {
   'pricing-lt-gemini-1-5-flash-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-1-5-flash-pricing/index.html'),
   'pricing-lt-deepseek-v4-flash-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/deepseek-v4-flash-pricing/index.html'),
   'pricing-lt-deepseek-v4-pro-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/deepseek-v4-pro-pricing/index.html'),
+  'pricing-lt-claude-fable-5-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/claude-fable-5-pricing/index.html'),
   'pricing-lt-gemini-2-5-flash-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-2-5-flash-pricing/index.html'),
   'pricing-lt-gemini-2-5-flash-lite-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-2-5-flash-lite-pricing/index.html'),
-  'pricing-lt-llama-4-maverick-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/llama-4-maverick-pricing/index.html')
+  'pricing-lt-gemini-2-5-pro-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-2-5-pro-pricing/index.html'),
+  'pricing-lt-gemini-3-1-pro-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/gemini-3-1-pro-pricing/index.html'),
+  'pricing-lt-llama-4-maverick-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/llama-4-maverick-pricing/index.html'),
+  'pricing-lt-grok-4-20-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/grok-4-20-pricing/index.html'),
+  'pricing-lt-glm-5-2-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/glm-5-2-pricing/index.html'),
+  'pricing-lt-kimi-k2-7-pricing': resolve('/Users/weilei/part-time job/prompt-cost-calculator/scripts/..', 'llm-pricing/kimi-k2-7-pricing/index.html')
 }

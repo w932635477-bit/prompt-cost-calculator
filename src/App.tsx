@@ -16,7 +16,7 @@ const models = pricingData.models as ModelPricing[]
 
 const FAQ_ITEMS = [
   { q: 'How accurate is the token count?', a: 'For OpenAI models (GPT-5.5, GPT-5.4, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on ~4 characters per token for English text and ~1.5 characters for Chinese text. The cost estimates are accurate enough for budgeting purposes.' },
-  { q: 'Which AI models are supported?', a: 'We support models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude Opus 4.8, Sonnet 4.6, Haiku 4.5, 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 3.5 Flash, 2.5 Flash, 2.5 Flash-Lite, 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).' },
+  { q: 'Which AI models are supported?', a: 'We support models across 8 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Fable 5, Claude Opus 4.8, Sonnet 4.6, Haiku 4.5, 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 3.1 Pro, 3.5 Flash, 2.5 Pro, 2.5 Flash, 2.5 Flash-Lite, 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), Groq (Llama 4 Maverick), xAI (Grok 4.20), Zhipu (GLM-5.2), and Moonshot (Kimi K2.7).' },
   { q: 'How often is pricing updated?', a: 'Pricing data is updated weekly from official provider pricing pages. AI providers change their pricing frequently, so we strive to keep the data current.' },
   { q: 'Is this tool free?', a: 'Yes, completely free. No login required. No API keys needed. All calculations happen in your browser.' },
   { q: 'What is a token?', a: 'A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. A typical sentence is 10–20 tokens. AI providers charge based on the number of tokens processed.' },
@@ -179,7 +179,7 @@ function App() {
             <div className="text-[#86868b] leading-relaxed space-y-3">
               <p>
                 Go deeper on cost and tooling. See every model in our{' '}
-                <a href="/llm-pricing/compare-all/" className="text-[#0071E3] hover:text-[#0077ED] underline">complete pricing comparison of all 25 models</a>,
+                <a href="/llm-pricing/compare-all/" className="text-[#0071E3] hover:text-[#0077ED] underline">complete pricing comparison of all 31 models</a>,
                 browse the{' '}
                 <a href="/alternatives-guide/" className="text-[#0071E3] hover:text-[#0077ED] underline">self-hosted alternatives guide covering 46 tools</a>,
                 or follow the{' '}

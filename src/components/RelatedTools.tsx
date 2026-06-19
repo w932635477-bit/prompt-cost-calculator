@@ -41,7 +41,7 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
     { name: 'Token Optimizer', path: '/token-optimizer/', description: 'Reduce token usage 20-40% by detecting prompt bloat' },
     { name: 'Cache Calculator', path: '/prompt-cache-calculator/', description: 'See how prompt caching cuts your API bill by 60%+' },
     { name: 'Token Counter', path: '/token-counter/', description: 'Count tokens before sending requests to avoid surprises' },
-    { name: 'LLM Pricing', path: '/llm-pricing/', description: 'Side-by-side pricing for 20 models across 5 providers' },
+    { name: 'LLM Pricing', path: '/llm-pricing/', description: 'Side-by-side pricing for 31 models across 8 providers' },
     { name: 'Voice Pricing', path: '/voice-agent-pricing/', description: 'Compare TTS API costs across providers' },
     { name: 'Cron Generator', path: '/cron-generator/', description: 'Build cron schedules visually with 150+ patterns' },
     { name: 'Self-Hosted Alternatives', path: '/alternatives/', description: '45+ open source alternatives to SaaS tools' },
@@ -113,7 +113,7 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
   '/token-tracker/': [
     { name: 'AI Cost Calculator', path: '/', description: 'Full cost breakdown per model' },
     { name: 'Token Counter', path: '/token-counter/', description: 'Count tokens before sending requests' },
-    { name: 'LLM Pricing', path: '/llm-pricing/', description: '19 models across 5 providers' },
+    { name: 'LLM Pricing', path: '/llm-pricing/', description: '31 models across 8 providers' },
   ],
   '/token-optimizer/': [
     { name: 'AI Cost Calculator', path: '/', description: 'Compare API costs across all models' },
@@ -124,7 +124,7 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
     { name: 'AI Cost Calculator', path: '/', description: 'Calculate full API costs per model' },
     { name: 'Token Optimizer', path: '/token-optimizer/', description: 'Reduce token usage by 20-40%' },
     { name: 'Cache Calculator', path: '/prompt-cache-calculator/', description: 'See how caching reduces costs' },
-    { name: 'LLM Pricing', path: '/llm-pricing/', description: '20 models across 5 providers' },
+    { name: 'LLM Pricing', path: '/llm-pricing/', description: '31 models across 8 providers' },
   ],
   '/csp-generator/': [
     { name: 'PII Redactor', path: '/pii-redactor/', description: 'Strip PII from prompts' },
@@ -135,7 +135,7 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
     { name: 'AI Cost Calculator', path: '/', description: 'Full cost breakdown per model' },
     { name: 'Token Counter', path: '/token-counter/', description: 'Count tokens before sending' },
     { name: 'Voice Pricing', path: '/voice-agent-pricing/', description: 'TTS API cost comparison' },
-    { name: 'LLM Pricing', path: '/llm-pricing/', description: '20 models across 5 providers' },
+    { name: 'LLM Pricing', path: '/llm-pricing/', description: '31 models across 8 providers' },
     { name: 'Token Optimizer', path: '/token-optimizer/', description: 'Reduce token usage 20-40%' },
   ],
   '/mcp-servers/': [
@@ -193,7 +193,7 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
     { name: 'Alternatives', path: '/alternatives/', description: 'Self-hosted alternatives for 45+ SaaS tools' },
     { name: 'Self-Hosted Compare', path: '/compare/', description: 'Side-by-side tool comparisons' },
     { name: 'Testing Strategy', path: '/testing-strategy-picker/', description: 'Pick the right testing approach' },
-    { name: 'All Models Comparison', path: '/llm-pricing/compare-all/', description: 'Complete pricing table for all 25 models' },
+    { name: 'All Models Comparison', path: '/llm-pricing/compare-all/', description: 'Complete pricing table for all 31 models' },
     { name: 'API Costs Guide', path: '/guides/ai-api-costs/', description: '5-step guide to calculating AI costs' },
   ],
   '/testing-strategy-picker/': [
@@ -230,11 +230,11 @@ const RELATED_MAP: Record<string, RelatedTool[]> = {
   ],
   '/guides/ai-api-costs/': [
     { name: 'AI Cost Calculator', path: '/', description: 'Full cost breakdown per model' },
-    { name: 'LLM Pricing', path: '/llm-pricing/', description: 'Side-by-side pricing for 25 models' },
+    { name: 'LLM Pricing', path: '/llm-pricing/', description: 'Side-by-side pricing for 31 models' },
     { name: 'Token Counter', path: '/token-counter/', description: 'Count tokens for any model' },
     { name: 'Token Optimizer', path: '/token-optimizer/', description: 'Reduce token usage 20-40%' },
     { name: 'Cache Calculator', path: '/prompt-cache-calculator/', description: 'Save 60-90% with prompt caching' },
-    { name: 'Pricing Comparison', path: '/llm-pricing/compare-all/', description: 'All 25 models in one table' },
+    { name: 'Pricing Comparison', path: '/llm-pricing/compare-all/', description: 'All 31 models in one table' },
   ],
 }
 
