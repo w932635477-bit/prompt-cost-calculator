@@ -167,18 +167,31 @@ function buildContent(data) {
     parts.push(`<section><h2>When Not to Use</h2><p>${escapeHtml(data.whenNot)}</p></section>`)
   }
 
-  // Features (compare pages) — may be objects with .name or strings
-  if (data.features && Array.isArray(data.features) && data.features.length > 0) {
-    const items = data.features.map(f => {
-      const feat = typeof f === 'object' ? (f.name || f.feature || '') : String(f)
-      return `<li>${escapeHtml(feat)}</li>`
-    }).join('')
-    parts.push(`<section><h2>Features Compared</h2><ul>${items}</ul></section>`)
-  }
-
   // Product names (compare pages) — may be objects with .name or strings
   const productAName = typeof data.productA === 'object' ? data.productA?.name || 'Product A' : (data.productA || 'Product A')
   const productBName = typeof data.productB === 'object' ? data.productB?.name || 'Product B' : (data.productB || 'Product B')
+
+  // Features (compare pages) — render as a real comparison table so Googlebot
+  // sees the Feature × A × B matrix in static HTML. "X vs Y" search intent needs
+  // a side-by-side matrix, not a flat list. data.features items: { name, a, b }
+  // where a/b may be string | boolean | undefined.
+  if (data.features && Array.isArray(data.features) && data.features.length > 0) {
+    const cell = (v) => {
+      if (v === true) return '✓'
+      if (v === false) return '✗'
+      if (v === undefined || v === null || v === '') return '—'
+      return escapeHtml(String(v))
+    }
+    const rows = data.features.map(f => {
+      if (typeof f === 'object' && (f.a !== undefined || f.b !== undefined)) {
+        const feat = escapeHtml(f.name || f.feature || '')
+        return `<tr><td>${feat}</td><td>${cell(f.a)}</td><td>${cell(f.b)}</td></tr>`
+      }
+      const feat = escapeHtml(typeof f === 'object' ? (f.name || f.feature || '') : String(f))
+      return `<tr><td>${feat}</td><td>—</td><td>—</td></tr>`
+    }).join('')
+    parts.push(`<section><h2>Features Compared</h2><table><thead><tr><th>Feature</th><th>${escapeHtml(productAName)}</th><th>${escapeHtml(productBName)}</th></tr></thead><tbody>${rows}</tbody></table></section>`)
+  }
 
   // Pros/Cons (compare pages)
   if (data.prosA && Array.isArray(data.prosA) && data.prosA.length > 0) {
