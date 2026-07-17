@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-16",
+  "lastUpdated": "2026-07-17",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -425,15 +425,15 @@
       "id": "kimi-k2.7",
       "provider": "Moonshot",
       "name": "Kimi K2.7",
-      "inputPricePer1M": 0.719,
-      "outputPricePer1M": 3.49,
+      "inputPricePer1M": 0.75,
+      "outputPricePer1M": 3.5,
       "contextWindow": 262144,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "Coding, long-context, agentic tasks",
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing",
-      "priceUpdatedAt": "2026-07-13",
-      "cachedInputPricePer1M": 0.149
+      "priceUpdatedAt": "2026-07-17",
+      "cachedInputPricePer1M": 0.16
     }
   ]
 }
