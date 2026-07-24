@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-23",
+  "lastUpdated": "2026-07-24",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -411,29 +411,29 @@
       "id": "glm-5.2",
       "provider": "Zhipu",
       "name": "GLM-5.2",
-      "inputPricePer1M": 0.791,
-      "outputPricePer1M": 2.486,
+      "inputPricePer1M": 0.819,
+      "outputPricePer1M": 2.574,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "General-purpose flagship, strong reasoning and coding",
       "sourceUrl": "https://open.bigmodel.cn/pricing",
-      "priceUpdatedAt": "2026-07-23",
-      "cachedInputPricePer1M": 0.1469
+      "priceUpdatedAt": "2026-07-24",
+      "cachedInputPricePer1M": 0.1521
     },
     {
       "id": "kimi-k2.7",
       "provider": "Moonshot",
       "name": "Kimi K2.7",
-      "inputPricePer1M": 0.82,
-      "outputPricePer1M": 3.75,
+      "inputPricePer1M": 0.71,
+      "outputPricePer1M": 3.49,
       "contextWindow": 262144,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "Coding, long-context, agentic tasks",
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing",
-      "priceUpdatedAt": "2026-07-21",
-      "cachedInputPricePer1M": 0.16
+      "priceUpdatedAt": "2026-07-24",
+      "cachedInputPricePer1M": 0.15
     }
   ]
 }
