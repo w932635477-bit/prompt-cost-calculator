@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-29",
+  "lastUpdated": "2026-07-30",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -411,15 +411,15 @@
       "id": "glm-5.2",
       "provider": "Zhipu",
       "name": "GLM-5.2",
-      "inputPricePer1M": 0.735,
-      "outputPricePer1M": 2.31,
+      "inputPricePer1M": 0.6223,
+      "outputPricePer1M": 1.9558,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "General-purpose flagship, strong reasoning and coding",
       "sourceUrl": "https://open.bigmodel.cn/pricing",
-      "priceUpdatedAt": "2026-07-29",
-      "cachedInputPricePer1M": 0.1365
+      "priceUpdatedAt": "2026-07-30",
+      "cachedInputPricePer1M": 0.11557
     },
     {
       "id": "kimi-k2.7",
