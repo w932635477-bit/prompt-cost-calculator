@@ -5,7 +5,7 @@
 // Per-vendor pricing data for prompt caching cost calculator.
 // Each vendor has fundamentally different caching semantics — do not fold into a single formula.
 
-export const LAST_UPDATED = '2026-08-04'
+export const LAST_UPDATED = '2026-08-05'
 
 export type ModelId =
   | 'claude-opus-4-8'
