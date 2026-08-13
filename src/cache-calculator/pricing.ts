@@ -5,7 +5,7 @@
 // Per-vendor pricing data for prompt caching cost calculator.
 // Each vendor has fundamentally different caching semantics — do not fold into a single formula.
 
-export const LAST_UPDATED = '2026-08-12'
+export const LAST_UPDATED = '2026-08-13'
 
 export type ModelId =
   | 'claude-opus-4-8'
@@ -244,8 +244,8 @@ export const MODELS: ModelPricing[] = [
     id: 'glm-5-2',
     vendor: 'zhipu',
     label: 'GLM-5.2',
-    inputPerMillion: 0.5,
-    outputPerMillion: 3.15,
+    inputPerMillion: 0.63,
+    outputPerMillion: 1.98,
     cacheWriteMultiplier: 1,
     cacheReadMultiplier: 0.17,
     cacheNotes: 'Implicit (automatic) context cache. No manual config needed.',
@@ -257,8 +257,8 @@ export const MODELS: ModelPricing[] = [
     id: 'kimi-k2-7',
     vendor: 'moonshot',
     label: 'Kimi K2.7',
-    inputPerMillion: 0.7,
-    outputPerMillion: 3.5,
+    inputPerMillion: 0.67,
+    outputPerMillion: 3.4,
     cacheWriteMultiplier: 1,
     cacheReadMultiplier: 0.2,
     cacheNotes: 'Context caching for repeated long context. Write at input price, reads discounted.',
