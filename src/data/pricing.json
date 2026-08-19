@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-08-19",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -244,15 +244,15 @@
       "id": "deepseek-v4-pro",
       "provider": "DeepSeek",
       "name": "DeepSeek V4 Pro",
-      "inputPricePer1M": 0.66,
-      "outputPricePer1M": 1.98,
+      "inputPricePer1M": 1.44,
+      "outputPricePer1M": 2.88,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "DeepSeek's most capable model",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-08-17",
-      "cachedInputPricePer1M": 0.022
+      "priceUpdatedAt": "2026-08-19",
+      "cachedInputPricePer1M": 0.1215
     },
     {
       "id": "claude-opus-4-8",
@@ -411,15 +411,15 @@
       "id": "glm-5.2",
       "provider": "Zhipu",
       "name": "GLM-5.2",
-      "inputPricePer1M": 1.19,
-      "outputPricePer1M": 3.74,
+      "inputPricePer1M": 0.966,
+      "outputPricePer1M": 3.036,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "General-purpose flagship, strong reasoning and coding",
       "sourceUrl": "https://open.bigmodel.cn/pricing",
-      "priceUpdatedAt": "2026-08-17",
-      "cachedInputPricePer1M": 0.221
+      "priceUpdatedAt": "2026-08-19",
+      "cachedInputPricePer1M": 0.1932
     },
     {
       "id": "kimi-k2.7",
