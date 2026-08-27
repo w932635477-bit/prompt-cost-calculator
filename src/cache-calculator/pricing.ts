@@ -5,7 +5,7 @@
 // Per-vendor pricing data for prompt caching cost calculator.
 // Each vendor has fundamentally different caching semantics — do not fold into a single formula.
 
-export const LAST_UPDATED = '2026-08-26'
+export const LAST_UPDATED = '2026-08-27'
 
 export type ModelId =
   | 'claude-opus-4-8'
@@ -257,7 +257,7 @@ export const MODELS: ModelPricing[] = [
     id: 'kimi-k2-7',
     vendor: 'moonshot',
     label: 'Kimi K2.7',
-    inputPerMillion: 0.67,
+    inputPerMillion: 0.66,
     outputPerMillion: 3.4,
     cacheWriteMultiplier: 1,
     cacheReadMultiplier: 0.2,
