@@ -5,7 +5,7 @@
 // Per-vendor pricing data for prompt caching cost calculator.
 // Each vendor has fundamentally different caching semantics — do not fold into a single formula.
 
-export const LAST_UPDATED = '2026-10-05'
+export const LAST_UPDATED = '2026-10-06'
 
 export type ModelId =
   | 'claude-opus-4-8'
@@ -244,7 +244,7 @@ export const MODELS: ModelPricing[] = [
     id: 'glm-5-2',
     vendor: 'zhipu',
     label: 'GLM-5.2',
-    inputPerMillion: 0.04,
+    inputPerMillion: 0.152,
     outputPerMillion: 12,
     cacheWriteMultiplier: 1,
     cacheReadMultiplier: 0.17,
