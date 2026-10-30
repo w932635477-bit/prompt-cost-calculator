@@ -5,7 +5,7 @@
 // Per-vendor pricing data for prompt caching cost calculator.
 // Each vendor has fundamentally different caching semantics — do not fold into a single formula.
 
-export const LAST_UPDATED = '2026-10-29'
+export const LAST_UPDATED = '2026-10-30'
 
 export type ModelId =
   | 'claude-opus-4-8'
@@ -127,8 +127,8 @@ export const MODELS: ModelPricing[] = [
     id: 'deepseek-v4-pro',
     vendor: 'deepseek',
     label: 'DeepSeek V4 Pro',
-    inputPerMillion: 0.875394,
-    outputPerMillion: 1.750788,
+    inputPerMillion: 0.9483,
+    outputPerMillion: 1.8966,
     cacheWriteMultiplier: 1,
     cacheReadMultiplier: 0.00833,
     cacheNotes: 'Automatic prefix cache. Cache hit ≈ 0.83% of input price.',
@@ -257,8 +257,8 @@ export const MODELS: ModelPricing[] = [
     id: 'kimi-k2-7',
     vendor: 'moonshot',
     label: 'Kimi K2.7',
-    inputPerMillion: 0.56,
-    outputPerMillion: 3.1,
+    inputPerMillion: 0.6,
+    outputPerMillion: 3.5,
     cacheWriteMultiplier: 1,
     cacheReadMultiplier: 0.2,
     cacheNotes: 'Context caching for repeated long context. Write at input price, reads discounted.',
