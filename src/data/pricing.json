@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-30",
+  "lastUpdated": "2026-10-31",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -244,15 +244,15 @@
       "id": "deepseek-v4-pro",
       "provider": "DeepSeek",
       "name": "DeepSeek V4 Pro",
-      "inputPricePer1M": 0.9483,
-      "outputPricePer1M": 1.8966,
+      "inputPricePer1M": 1.6,
+      "outputPricePer1M": 3.2,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "DeepSeek's most capable model",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-10-30",
-      "cachedInputPricePer1M": 0.079025
+      "priceUpdatedAt": "2026-10-31",
+      "cachedInputPricePer1M": 0.135
     },
     {
       "id": "claude-opus-4-8",
@@ -413,13 +413,13 @@
       "provider": "Zhipu",
       "name": "GLM-5.2",
       "inputPricePer1M": 0.006,
-      "outputPricePer1M": 7,
+      "outputPricePer1M": 6.8,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "General-purpose flagship, strong reasoning and coding",
       "sourceUrl": "https://open.bigmodel.cn/pricing",
-      "priceUpdatedAt": "2026-10-29",
+      "priceUpdatedAt": "2026-10-31",
       "cachedInputPricePer1M": 0.005
     },
     {
