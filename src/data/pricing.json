@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-31",
+  "lastUpdated": "2026-11-05",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -391,8 +391,8 @@
       "tokenizerModel": null,
       "bestFor": "Ultra-fast inference on Groq LPU",
       "sourceUrl": "https://console.groq.com/docs/models",
-      "priceUpdatedAt": "2026-10-06",
-      "cachedInputPricePer1M": 0.05
+      "priceUpdatedAt": "2026-11-05",
+      "cachedInputPricePer1M": 0.17
     },
     {
       "id": "grok-4-20",
@@ -433,8 +433,8 @@
       "tokenizerModel": null,
       "bestFor": "Coding, long-context, agentic tasks",
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing",
-      "priceUpdatedAt": "2026-10-30",
-      "cachedInputPricePer1M": 0.15
+      "priceUpdatedAt": "2026-11-05",
+      "cachedInputPricePer1M": 0.16
     }
   ]
 }
