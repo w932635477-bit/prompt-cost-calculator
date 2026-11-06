@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-05",
+  "lastUpdated": "2026-11-06",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -244,15 +244,15 @@
       "id": "deepseek-v4-pro",
       "provider": "DeepSeek",
       "name": "DeepSeek V4 Pro",
-      "inputPricePer1M": 1.6,
-      "outputPricePer1M": 3.2,
+      "inputPricePer1M": 0.831198,
+      "outputPricePer1M": 1.662396,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "DeepSeek's most capable model",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-10-31",
-      "cachedInputPricePer1M": 0.135
+      "priceUpdatedAt": "2026-11-06",
+      "cachedInputPricePer1M": 0.069266
     },
     {
       "id": "claude-opus-4-8",
