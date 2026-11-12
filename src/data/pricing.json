@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-11",
+  "lastUpdated": "2026-11-12",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -244,14 +244,14 @@
       "id": "deepseek-v4-pro",
       "provider": "DeepSeek",
       "name": "DeepSeek V4 Pro",
-      "inputPricePer1M": 0.883746,
-      "outputPricePer1M": 1.767492,
+      "inputPricePer1M": 0.892272,
+      "outputPricePer1M": 1.784544,
       "contextWindow": 1000000,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "DeepSeek's most capable model",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-11-11",
+      "priceUpdatedAt": "2026-11-12",
       "cachedInputPricePer1M": 0.073646
     },
     {
