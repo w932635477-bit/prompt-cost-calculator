@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-19",
+  "lastUpdated": "2026-11-20",
   "priceSource": "Official API pricing pages + cache multipliers from provider docs",
   "models": [
     {
@@ -251,8 +251,8 @@
       "tokenizerModel": null,
       "bestFor": "DeepSeek's most capable model",
       "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
-      "priceUpdatedAt": "2026-11-13",
-      "cachedInputPricePer1M": 0.25
+      "priceUpdatedAt": "2026-11-20",
+      "cachedInputPricePer1M": 0.2
     },
     {
       "id": "claude-opus-4-8",
@@ -426,15 +426,15 @@
       "id": "kimi-k2.7",
       "provider": "Moonshot",
       "name": "Kimi K2.7",
-      "inputPricePer1M": 0.65,
-      "outputPricePer1M": 3.5,
+      "inputPricePer1M": 0.6,
+      "outputPricePer1M": 3,
       "contextWindow": 262144,
       "tokenizerType": "estimate",
       "tokenizerModel": null,
       "bestFor": "Coding, long-context, agentic tasks",
       "sourceUrl": "https://platform.moonshot.cn/docs/pricing",
-      "priceUpdatedAt": "2026-11-19",
-      "cachedInputPricePer1M": 0.16
+      "priceUpdatedAt": "2026-11-20",
+      "cachedInputPricePer1M": 0.12
     }
   ]
 }
